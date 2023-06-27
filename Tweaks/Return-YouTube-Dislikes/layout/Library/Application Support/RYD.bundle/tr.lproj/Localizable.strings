@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Etkinleştir";
+"ENABLE_VOTE_SUBMIT" = "Oy gönderimini etkinleştir";
+"ENABLE_VOTE_SUBMIT_DESC" = "Benzersiz anonim kimliğinin ve video/short beğeni/beğenmeme verilerinin şu adrese gönderilmesine izin ver %@.";
+"EXACT_LIKE_NUMBER" = "Tam beğeni sayıları";
+"EXACT_DISLIKE_NUMBER" = "Tam beğenmeme sayıları";
+"EXACT_DISLIKE_NUMBER_DESC" = "Toplam beğenmeme sayısını gösterir. Örneğin: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Beğenme/beğenmeme verilerinin %@'ye gönderilmesini şimdi etkinleştirmek istiyor musun? Bunu daha sonra Ayarlar > %@ > %@ bölümünden devre dışı bırakabilirsin.";

@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "È richiesto un riavvio dell'app.";
+
+"USE_PIP_BUTTON" = "Usa Bottone PiP";
+"USE_PIP_BUTTON_DESC" = "Aggiunge un bottone PiP tra i controlli in sovrimpressione al video per attivare il PiP invece di chiudere l'app.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Usa Bottone PiP nella Barra dei Tab";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Aggiunge un bottone PiP nella Barra dei Tab per attivare il PiP invece di chiudere l'app. È richiesto un riavvio dell'app.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Disattiva PiP per Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Disattiva PiP durante la riproduzione nel mini player.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Usa AVPlayerLayer per PiP. Questo ripara il bug relativo all'accelerazione ma rimuove anche le opzioni UHD (2K/4K) da qualsiasi video. È richiesto un riavvio dell'app.";
+
+"NON_BACKGROUNDABLE_PIP" = "Non sullo sfondo PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Attiva PiP per i video che non possono essere messi sullo sfondo.";
+
+"FAKE_YT_VERSION" = "Versione YouTube falsa";
+"FAKE_YT_VERSION_DESC" = "Imposta la versione di Youtube a %@ in modo tale da poter mostrare il bottone PiP sotto al video.";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTube versione %@ non è stato testato e potrebbe non essere supportato da YouPiP, ti preghiamo di aggiorare YouTube almeno alla versione %@";

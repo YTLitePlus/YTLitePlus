@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "启用";
+"ENABLED_DESC" = "更改本设置后需要重启App。";
+
+"USE_PIP_BUTTON" = "使用画中画按钮";
+"USE_PIP_BUTTON_DESC" = "在视频播放器控制界面上显示用于手动启动画中画的按钮。开启本设置后，返回主屏幕时将不会启动画中画。";
+
+"USE_TAB_BAR_PIP_BUTTON" = "使用视频标签栏画中画按钮";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "在视频标签栏处显示用于手动启动画中画的按钮。开启本设置后，返回主屏幕时将不会启动画中画。";
+
+"DISABLE_PIP_MINI_PLAYER" = "禁用迷你播放器画中画";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "在使用迷你播放器时禁用画中画。";
+
+"LEGACY_PIP" = "使用传统视频框架";
+"LEGACY_PIP_DESC" = "使用 AVPlayerLayer 来进行画中画以修复视频加速播放的问题，但同时也将禁用所有视频的 UHD （2K/4K）画质选项。更改本设置后需要重启App。";
+
+"NON_BACKGROUNDABLE_PIP" = "强制画中画";
+"NON_BACKGROUNDABLE_PIP_DESC" = "为不支持后台播放的视频启用画中画。";
+
+"FAKE_YT_VERSION" = "伪装 YouTube 版本";
+"FAKE_YT_VERSION_DESC" = "将 YouTube App 的版本设为 %@ 以尝试显示播放器下方的画中画按钮。";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTube App 版本 %@ 未经测试，可能不支持 YouPiP 画中画插件。请将 YouTube 更新至版本 %@ 或以上。";

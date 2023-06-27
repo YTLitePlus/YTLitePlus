@@ -1,0 +1,5 @@
+// Settings
+
+"USE_VP9" = "VP9 사용";
+"USE_VP9_DESC" = "VP9 코덱을 활성화하면 최대 4K 해상도를 지원합니다. Apple CPU A11 이상이 탑재된 기기에서 가장 잘 작동합니다. 앱 재시작이 필요합니다.";
+"HW_VP9_SUPPORT" = "VP9 하드웨어 지원";

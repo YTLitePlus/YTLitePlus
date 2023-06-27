@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "有効";
+"ENABLED_DESC" = "アプリの再起動が必要です。";
+
+"USE_PIP_BUTTON" = "PiPボタンを使用";
+"USE_PIP_BUTTON_DESC" = "ビデオコントロールオーバーレイの上にPiPボタンを追加しアプリを終了する代わりにPiPを起動できるようにします。";
+
+"USE_TAB_BAR_PIP_BUTTON" = "動画タブバーPiPボタンを使用";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "ビデオタブバーにPiPボタンを追加しアプリを終了する代わりにPiPを起動できるようにします。アプリの再起動が必要です。";
+
+"DISABLE_PIP_MINI_PLAYER" = "ミニプレーヤーでのPiPを無効化";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "ミニプレーヤーで再生している際にはPiPを無効化します。";
+
+"LEGACY_PIP" = "レガシーPiP";
+"LEGACY_PIP_DESC" = "AVPlayerLayerをPiPに使用します。スピードアップのバグを修正しますが全ての動画からUHDオプション(2K/4K)を削除されます。アプリの再起動が必要です。";
+
+"NON_BACKGROUNDABLE_PIP" = "非バックグラウンドPiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "非バックグラウンドのビデオのPiPを有効化します。";
+
+"FAKE_YT_VERSION" = "YouTubeのバージョンを偽装";
+"FAKE_YT_VERSION_DESC" = "YouTubeをバージョン %@ に設定し、ビデオプレーヤー下のPiPボタンに表示させます。";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTubeバージョン %@ はテストされておらずYouPiPがサポートされていません、YouTubeを最低でもバージョン %@ 以上にアップグレードしてください。";

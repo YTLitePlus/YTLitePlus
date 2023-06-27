@@ -1,0 +1,42 @@
+// Code has been disabled due to some compiling errors.
+
+#import "../Header.h"
+
+%ctor {
+    void $YTPlayerView_downloadVideo_register();
+    void $YTPlayerView_layoutSubviews$_register();
+}
+
+#ifndef YTPLAYERVIEW_DOWNLOADVIDEO_REGISTER
+#ifndef YTPLAYERVIEW_LAYOUTSUBVIEWS_REGISTER
+#define YTPLAYERVIEW_DOWNLOADVIDEO_REGISTER
+#define YTPLAYERVIEW_LAYOUTSUBVIEWS_REGISTER
+
+void $YTPlayerView_downloadVideo_register();
+void $YTPlayerView_layoutSubviews$_register();
+
+#endif
+
+// YouTube Video Downloading
+CHDeclareClass(YTPlayerView);
+
+CHOptimizedMethod1(self, void, YTPlayerView, layoutSubviews, BOOL, arg1)
+{
+    CHSuper1(YTPlayerView, layoutSubviews, arg1);
+    CGRect downloadButtonFrame = CGRectMake(0, 0, 100, 50);
+    UIButton *downloadButton = [[UIButton alloc] initWithFrame:downloadButtonFrame];
+    [downloadButton setTitle:@"Download" forState:UIControlStateNormal];
+    [downloadButton addTarget:self action:@selector(downloadVideo) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:downloadButton];
+}
+
+CHOptimizedMethod0(self, void, YTPlayerView, downloadVideo)
+{
+    NSString *videoUrlString = @"[Insert YouTube video URL here]";
+    NSURL *videoUrl = [NSURL URLWithString:videoUrlString];
+    NSData *videoData = [NSData dataWithContentsOfURL:videoUrl];
+    
+    // Save the video data to a file
+    NSString *filePath = @"[Insert file path here]";
+    [videoData writeToFile:filePath atomically:YES];
+}

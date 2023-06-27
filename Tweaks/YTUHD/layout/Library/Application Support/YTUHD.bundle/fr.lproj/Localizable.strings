@@ -1,0 +1,5 @@
+// Settings
+
+"USE_VP9" = "Utiliser VP9";
+"USE_VP9_DESC" = "Active le codec VP9 qui prend en charge les résolutions jusqu'à 4K. Fonctionne mieux avec les appareils dotés d'un processeur Apple A11 ou supérieur. Le redémarrage de l'application est nécessaire.";
+"HW_VP9_SUPPORT" = "Support matériel de VP9";

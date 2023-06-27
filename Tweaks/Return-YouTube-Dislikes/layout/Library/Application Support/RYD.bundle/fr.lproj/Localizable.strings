@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Enabled";
+"ENABLE_VOTE_SUBMIT" = "Active l'envoie des votes";
+"ENABLE_VOTE_SUBMIT_DESC" = "Autorise votre identifiant anonyme unique ainsi que vos likes/dislikes sur les vidéos/shorts d'être envoyés à %@.";
+"EXACT_LIKE_NUMBER" = "Exact like numbers";
+"EXACT_DISLIKE_NUMBER" = "Exact dislike numbers";
+"EXACT_DISLIKE_NUMBER_DESC" = "Display exact number of dislikes. For example: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Voulez-vous autoriser l'envoi de vos données de likes/dislikes à %@ ? Vous pouvez le désactiver à tout moment dans Réglages > %@ > %@.";

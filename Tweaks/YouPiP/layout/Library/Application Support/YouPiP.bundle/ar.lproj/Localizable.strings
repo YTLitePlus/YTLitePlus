@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "مفعَّل";
+"ENABLED_DESC" = "يجب إعادة تشغيل التطبيق.";
+
+"USE_PIP_BUTTON" = "استخدم زر PiP";
+"USE_PIP_BUTTON_DESC" = "إضافة زر PiP مع الأزرار على الفيديو لتفعيل PiP عند الخروج من التطبيق.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "إضافة زر PiP أسفل الفيديو";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "إضافة زر PiP مع شريط الأزرار أسفل الفيديو لتفعيل PiP عند الخروج من التطبيق. يجب إعادة تشغيل التطبيق لتفعيل الميزة.";
+
+"DISABLE_PIP_MINI_PLAYER" = "منع PiP في المشغّل المصغر";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "منع PiP من العمل أثناء تشغيل فيديو عبرالمشغّل المصغّر.";
+
+"LEGACY_PIP" = "نمط PiP القديم";
+"LEGACY_PIP_DESC" = "استخدام AVPlayerLayer لـ PiP. النمط هذا يصلح مشكلة التسريع ولكن قد يمنع خيارات UHD (2K/4K) من جميع الفيديوهات. إعادة تشغيل التطبيق مطلوبة لتفعيل هذا النمط.";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP للفيديوهات التي لا تعمل في الخلفية";
+"NON_BACKGROUNDABLE_PIP_DESC" = "تفعيل PiP للفيديوهات التي لا تعمل في الخلفية.";
+
+"FAKE_YT_VERSION" = "إصدار يوتيوب مزيف";
+"FAKE_YT_VERSION_DESC" = "تغيير إصدار اليوتيوب إلى %@ لكي يظهر زر PiP أسفل الفيديو.";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "إصدار يوتيوب رقم %@ لم يتم اختباره، وقد لا يكون مدعوماً من YouPiP. رجاءً قم بتحديث يوتيوب إلى إصدار %@ على الأقل.";

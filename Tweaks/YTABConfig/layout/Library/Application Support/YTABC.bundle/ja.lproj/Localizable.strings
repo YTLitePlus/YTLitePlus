@@ -1,0 +1,30 @@
+// Settings
+"ENABLED" = "有効";
+"ENABLED_DESC" = "A/Bの設定を表示します";
+"GROUPED" = "プレフィックスで設定をグループ化します";
+"RESET_KILL" = "リセットして終了します";
+"RESET_KILL_DESC" = "タップして変更を全て取り消し、アプリを終了する";
+"COPY_CURRENT_SETTINGS" = "現在の設定をコピーします";
+"COPY_CURRENT_SETTINGS_DESC" = "タップして現在の設定をクリップボードにコピーします";
+"VIEW_MODIFIED_SETTINGS" = "変更された設定を表示します";
+"VIEW_MODIFIED_SETTINGS_DESC" = "タップすると手動で行った全ての変更を表示します";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "変更点";
+"TOTAL_MODIFIED_SETTINGS" = "合計: %ld";
+
+// Quit app alert
+"WARNING" = "警告";
+"APPLY_DESC" = "この操作でYouTubeアプリが終了します。本当に続けますか？";
+
+"OPEN_MEGATHREAD" = "メガスレッドを開きます";
+"OPEN_MEGATHREAD_DESC" = "各フラグの有効,無効の効果を共有,議論できるGitHubのYTABConfig メガスレッドを開きます";
+"SETTINGS_START_WITH" = "から始まる設定";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "クリップボードにコピーします";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "クリップボードにコピーしました";

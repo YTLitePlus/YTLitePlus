@@ -1,0 +1,7 @@
+.DS_Store
+.theos/
+packages/
+tmp/
+Tweaks/Cercube/*
+!Tweaks/Cercube/.gitkeep
+Resources/

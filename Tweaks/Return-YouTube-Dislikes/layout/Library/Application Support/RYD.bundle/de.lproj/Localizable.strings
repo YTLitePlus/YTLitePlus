@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Aktiviert";
+"ENABLE_VOTE_SUBMIT" = "Bewertungen übermitteln";
+"ENABLE_VOTE_SUBMIT_DESC" = "Erlaubt, dass Ihre eindeutige, aber anonyme ID und Ihre Like-/Dislike-Bewertungen auf Videos/Shorts an %@ übermittelt werden.";
+"EXACT_LIKE_NUMBER" = "Exact like numbers";
+"EXACT_DISLIKE_NUMBER" = "Exact dislike numbers";
+"EXACT_DISLIKE_NUMBER_DESC" = "Display exact number of dislikes. For example: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Möchten Sie die Übermittlung Ihrer Like-/Dislike-Bewertungen an %@ nun genehmigen? Sie können dies jederzeit in den Einstellungen > %@ > %@ wieder deaktivieren.";

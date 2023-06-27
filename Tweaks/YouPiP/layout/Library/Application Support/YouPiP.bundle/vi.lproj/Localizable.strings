@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "Kích hoạt";
+"ENABLED_DESC" = "Cần khởi động lại ứng dụng.";
+
+"USE_PIP_BUTTON" = "Thêm nút kích hoạt PiP";
+"USE_PIP_BUTTON_DESC" = "Thêm một nút để kích hoạt PiP thủ công vào trong trình phát video, thay vì để PiP kích hoạt tự động khi ẩn ứng dụng."; 
+
+"USE_TAB_BAR_PIP_BUTTON" = "Thêm nút kích hoạt PiP vào thanh Tab";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Thêm một nút để kích hoạt PiP thủ công vào thanh Tab dưới video, thay vì để PiP kích hoạt tự động khi ẩn ứng dụng (chỉ hoạt động khi bạn bật tính năng Fake phiên bản của YouTube ở dưới).";
+
+"DISABLE_PIP_MINI_PLAYER" = "Vô hiệu hóa PiP khi trình phát thu nhỏ đang chạy";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "PiP sẽ không tự động kích hoạt khi video đang chạy ở dạng trình phát thủ nhỏ.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Sử dụng AVPlayerLayer cho PiP. Bật tính năng này để sửa lỗi speed-up của YouPiP. Tuy nhiên, video sẽ bị mất chất lượng 2K/4K (nếu có), đồng thời tính năng lựa chọn chất lượng video mặc định của uYou cũng sẽ không hoạt động. Cần khởi động lại ứng dụng.";
+
+"NON_BACKGROUNDABLE_PIP" = "Non-backgroundable PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Cho phép PiP hoạt động với những video không cho chạy nền (không khuyến khích).";
+
+"FAKE_YT_VERSION" = "Fake phiên bản của YouTube";
+"FAKE_YT_VERSION_DESC" = "Đánh lừa phiên bản của YouTube hiện tại thành phiên bản %@ để tính năng Thêm nút kích hoạt PiP vào thanh Tab có thể hoạt động.";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTube phiên bản dưới %@ chưa được test và có thể không được hỗ trợ bởi YouPiP, vui lòng cập nhật YouTube lên ít nhất phiên bản %@";

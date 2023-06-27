@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Engedélyezve";
+"ENABLE_VOTE_SUBMIT" = "Szavazatküldés engedélyezése";
+"ENABLE_VOTE_SUBMIT_DESC" = "Engedélyezze egyedi névtelen azonosítójának és videóinak/rövidfilmjének tetszésnyilvánítási/nemtetszési adatainak elküldését a %@ címre.";
+"EXACT_LIKE_NUMBER" = "Exact like numbers";
+"EXACT_DISLIKE_NUMBER" = "Exact dislike numbers";
+"EXACT_DISLIKE_NUMBER_DESC" = "Display exact number of dislikes. For example: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Engedélyezi a tetszésnyilvánítási/nemtetszésnyilvánítási adatok elküldését a %@ számára? Később letilthatja a Beállítások > %@ > %@ menüpontban.";

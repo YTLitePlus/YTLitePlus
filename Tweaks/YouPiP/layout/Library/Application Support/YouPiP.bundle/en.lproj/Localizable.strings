@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "App restart is required.";
+
+"USE_PIP_BUTTON" = "Use PiP Button";
+"USE_PIP_BUTTON_DESC" = "Adds a PiP button over the video control overlay to activate PiP instead of dismissing the app.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Use Video Tab Bar PiP Button";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Adds a PiP button in video tab bar to activate PiP instead of dismissing the app. App restart is required.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Disable PiP for Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Disables PiP while playing a video in the mini player.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Uses AVPlayerLayer for PiP. This fixes speedup bug but may remove UHD options (2K/4K) from any videos. App restart is required.";
+
+"NON_BACKGROUNDABLE_PIP" = "Non-backgroundable PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Enables PiP for non-backgroundable video.";
+
+"FAKE_YT_VERSION" = "Fake YouTube version";
+"FAKE_YT_VERSION_DESC" = "Set YouTube version to %@ so that PiP button under video player may show.";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTube version %@ is not tested and may not be supported by YouPiP, please upgrade YouTube to at least version %@";

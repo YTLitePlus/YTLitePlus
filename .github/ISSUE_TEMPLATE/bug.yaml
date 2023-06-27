@@ -1,0 +1,86 @@
+name: Bug
+description: Make sure you complete the template. Otherwise, it will be closed without further explanation!
+title: "[Bug] Replace this with your title"
+labels: bug
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    description: _Please search to see if an issue already exists for the bug you encountered_
+    options:
+    - label: I have searched the existing issues
+      required: true
+      
+- type: checkboxes
+  attributes:
+    label: Have you read the FAQ?
+    description: _Make sure you visit the [**FAQ**](https://github.com/qnblackcat/CercubePlus/wiki/FAQ) page first!_
+    options:
+    - label: Yes, I read the FAQ
+      required: true
+    
+- type: textarea
+  attributes:
+    label: Device info
+    description: 
+    value: |
+        - iOS/iPadOS version:
+        - Device model:
+        - Sideload tool (AltStore, Sideloadly, TrollStore,...):
+        - The specific version of CercubePlus (**latest** or **newest** is **NOT** a version number!):
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Describe the bug
+    description: _Please attach videos or screenshots if possible_
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Steps to reproduce the issue
+    description: _Please attach videos or screenshots if possible_
+    value: |
+        1. 
+        2. 
+        3. 
+  validations:
+    required: true
+
+- type: textarea
+  id: logs
+  attributes:
+    label: Crash log (if the app crashes)
+    description: _If somehow the app crashes, **you must provide the crash log**. It can be found in your device's Settings App > Privacy > Analytics & Improvements > Analytics Data > Youtube-xxx-xxx.ips_
+    render: shell
+
+- type: dropdown
+  attributes:
+    label: Are you using the newest version of CercubePlus? If not, why?
+    description: _Developers spend time and effort to fix bugs & add improvements with every release. Why don't you update to the [latest version](https://github.com/Balackburn/CercubePlusExtra/releases/latest) before reporting about an issue?_
+    multiple: false
+    options:
+      - ✅ Yes, I'm using the latest version of CercubePlus right now
+      - ❌ No, I'll explain at the end of the template
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Does the issue happen with the official YouTube from AppStore?
+    description: _Well, YouTube itself is buggy sometimes..._
+    multiple: false
+    options:
+      - ❌ No, It doesn't
+      - ✅ Yes, It does
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Additional context
+    description: _Um, anything else you want to say?_
+  validations:
+    required: false

@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "App herstart is vereist.";
+
+"USE_PIP_BUTTON" = "Gebruik PiP Knop";
+"USE_PIP_BUTTON_DESC" = "Voegt een PiP knop toe aan de Video Control Overlay om PiP te activeren in plaats van de app af te sluiten.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Gebruik de knop PiP van de Video-tabbalk";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Voegt een PiP-knop toe in de videotabbalk om PiP te activeren in plaats van de app af te sluiten. App herstart is vereist.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Schakel PiP uit voor Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Schakelt PiP uit tijdens het afspelen van een video in de minispeler.";
+
+"LEGACY_PIP" = "Verouderd PiP";
+"LEGACY_PIP_DESC" = "Gebruikt AVPlayerLayer voor PiP. Dit lost versnellingsfouten op, maar verwijdert mogelijke UHD-opties (2K/4K) van alle video's. App herstart is vereist.";
+
+"NON_BACKGROUNDABLE_PIP" = "Niet-achtergrondgebonden PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Schakelt PiP in voor niet-achtergrondgebonden video.";
+
+"FAKE_YT_VERSION" = "Vals YouTube versie";
+"FAKE_YT_VERSION_DESC" = "Stel de YouTube-versie in op %@ zodat de PiP-knop onder de videospeler kan worden weergegeven.";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "YouTube versie %@ is niet getest en wordt waarschijnlijk niet ondersteunt door YouPiP, gelieve YouTube te upgraden naar het nieuwste versie %@.";

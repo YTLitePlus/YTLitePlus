@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Habilitado";
+"ENABLE_VOTE_SUBMIT" = "Habilitar la participación de voto";
+"ENABLE_VOTE_SUBMIT_DESC" = "Autoriza que su ID anónimo único y los datos de Me gusta/No me gusta de videos/shorts se envíen a %@.";
+"EXACT_LIKE_NUMBER" = "Numeros exactos de likes";
+"EXACT_DISLIKE_NUMBER" = "Numeros exactos de dislikes";
+"EXACT_DISLIKE_NUMBER_DESC" = "Mostrar el número exacto de dislikes. Por ejemplo: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "¿Quieres habilitar el envío de tus datos de Me gusta/No me gusta a %@ ahora? Puedes deshabilitarlo más tarde en Configuración > %@ > %@.";

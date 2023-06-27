@@ -1,0 +1,30 @@
+// Settings
+"ENABLED" = "Activado";
+"ENABLED_DESC" = "Activar para mostrar ajustes A/B";
+"GROUPED" = "Ajustes agrupados por prefijos";
+"RESET_KILL" = "Reiniciar y matar";
+"RESET_KILL_DESC" = "Toque para deshacer todos los cambios y matar la aplicación";
+"COPY_CURRENT_SETTINGS" = "Copiar ajustes actuales";
+"COPY_CURRENT_SETTINGS_DESC" = "Toque para copiar la configuración actual en el portapapeles";
+"VIEW_MODIFIED_SETTINGS" = "Ver ajustes modificados";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Pulse para ver todos los cambios realizados manualmente";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Cambios";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Advertencia";
+"APPLY_DESC" = "Esta acción cerrará YouTube. ¿Está seguro de que desea continuar?";
+
+"OPEN_MEGATHREAD" = "Abrir megahilo";
+"OPEN_MEGATHREAD_DESC" = "Abrir megahilo de YTABConfig en GitHub donde se puede compartir y discutir el efecto de cada bandera activada o desactivada";
+"SETTINGS_START_WITH" = "Configuración que comienza con";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Copiar al portapapeles";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Copiado al portapapeles";

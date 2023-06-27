@@ -1,0 +1,10 @@
+// Settings
+"ENABLED" = "Enabled";
+"ENABLE_VOTE_SUBMIT" = "Activați trimiterea voturilor";
+"ENABLE_VOTE_SUBMIT_DESC" = "Permiteți ca ID-ul dvs. unic anonim și datele despre apreciez/nu apreciez și video/shorts să fie trimise către %@.";
+"EXACT_LIKE_NUMBER" = "Exact like numbers";
+"EXACT_DISLIKE_NUMBER" = "Exact dislike numbers";
+"EXACT_DISLIKE_NUMBER_DESC" = "Display exact number of dislikes. For example: %@ -> %@.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Doriți să activați acum trimiterea datelor dvs. despre apreciez/nu apreciez către %@? Puteți să-l dezactivați mai târziu din Setări > %@ > %@.";

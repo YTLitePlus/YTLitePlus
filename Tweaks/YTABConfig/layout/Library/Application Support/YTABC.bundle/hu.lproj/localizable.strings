@@ -1,0 +1,30 @@
+// Settings
+"ENABLED" = "Engedélyezve";
+"ENABLED_DESC" = "Engedélyezze az A/B beállítások megjelenítését.";
+"GROUPED" = "A beállítások előtagok szerint csoportosítva";
+"RESET_KILL" = "Visszaállítás és Leállítás";
+"RESET_KILL_DESC" = "Koppintson az összes módosítás visszavonásához és az alkalmazás leállításához.";
+"COPY_CURRENT_SETTINGS" = "Az aktuális beállítások másolása";
+"COPY_CURRENT_SETTINGS_DESC" = "Érintse meg az aktuális beállítások vágólapra másolásához.";
+"VIEW_MODIFIED_SETTINGS" = "A módosított beállítások megtekintése";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Érintse meg az összes manuális módosítás megtekintéséhez.";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Változtatások";
+"TOTAL_MODIFIED_SETTINGS" = "Teljes: %ld";
+
+// Quit app alert
+"WARNING" = "Warning";
+"APPLY_DESC" = "This action will quit YouTube. Are you sure you want to continue?";
+
+"OPEN_MEGATHREAD" = "Megaszál megnyitása";
+"OPEN_MEGATHREAD_DESC" = "Nyissa meg az YTABConfig megaszálat a GitHubon, ahol megoszthatja és megvitathatja az egyes jelzők engedélyezésének vagy letiltásának hatását.";
+"SETTINGS_START_WITH" = "A következővel kezdődő beállítások:";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Másolás a vágólapra";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Vágólapra másolva.";

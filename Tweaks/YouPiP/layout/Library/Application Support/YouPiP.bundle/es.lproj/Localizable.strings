@@ -1,0 +1,25 @@
+// Settings
+
+"ENABLED" = "Activado";
+"ENABLED_DESC" = "Es necesario reiniciar la aplicación";
+
+"USE_PIP_BUTTON" = "Utilizar botón PiP";
+"USE_PIP_BUTTON_DESC" = "Añade un botón PiP sobre la superposición de control de vídeo para activar PiP en lugar de cerrar la aplicación";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Utiliza el botón PiP de la barra de pestañas de vídeo";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Añade un botón PiP en la barra de pestañas de vídeo para activar PiP en lugar de cerrar la aplicación. Es necesario reiniciar la aplicación";
+
+"DISABLE_PIP_MINI_PLAYER" = "Desactiva PiP para Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Desactiva PiP mientras se reproduce un vídeo en el minirreproductor";
+
+"LEGACY_PIP" = "PiP heredado";
+"LEGACY_PIP_DESC" = "Utiliza AVPlayerLayer para PiP. Esto corrige el error de velocidad, pero puede eliminar las opciones UHD (2K/4K) de cualquier vídeo. Es necesario reiniciar la aplicación";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP sin segundo plano";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Habilita PiP para videos sin segundo plano.";
+
+"FAKE_YT_VERSION" = "Versión falsa de YouTube";
+"FAKE_YT_VERSION_DESC" = "Establece la versión de YouTube en %@ para que se muestre el botón PiP bajo el reproductor de vídeo";
+
+// Compatibility warning
+"UNSUPPORTED_YT_VERSION" = "La versión %@ de YouTube no ha sido probada y puede no ser compatible con YouPiP, por favor actualice YouTube al menos a la versión %@";
