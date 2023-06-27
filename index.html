@@ -1,0 +1,822 @@
+<html dir="auto" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="google-site-verification" content="pteA0I0cOIBT_azStutHoE1033vCluAlbT2VRQj_BGg" />
+  <title>YTLitePlus - Supercharge Your YouTube Experience</title>
+  <meta
+    content="YTLitePlus is an iOS app that enhances your YouTube experience with over 15 tweaks, including ad-blocking, background playback, and more."
+    name="description" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="YTLitePlus - Supercharge Your YouTube Experience" property="og:title" />
+  <meta
+    content="YTLitePlus is an iOS app that enhances your YouTube experience with over 15 tweaks, including ad-blocking, background playback, and more."
+    property="og:description" />
+  <meta content="./images/image_0.png" property="og:image" />
+</head>
+<style>
+  .tobi {
+    bottom: 0;
+    box-sizing: border-box;
+    contain: strict;
+    font-size: 18px;
+    left: 0;
+    line-height: 1.5555555555555556;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1337;
+  }
+
+  .tobi[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tobi *,
+  .tobi *::before,
+  .tobi *::after {
+    box-sizing: inherit;
+  }
+
+  .tobi-is-open {
+    overflow-y: hidden;
+  }
+
+  .tobi__slider {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    will-change: transform;
+  }
+
+  .tobi__slider:not(.tobi__slider--is-dragging) {
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .tobi__slider:not(.tobi__slider--is-dragging) {
+      transition: none;
+    }
+  }
+
+  .tobi__slider--is-draggable [data-type] {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+
+  .tobi__slider--is-dragging [data-type] {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+
+  .tobi__slide {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .tobi__slide:not(.tobi__slide--is-active) {
+    visibility: hidden;
+  }
+
+  .tobi [data-type] {
+    max-height: 85vh;
+    max-width: 85vw;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .tobi [data-type] iframe,
+  .tobi [data-type] video {
+    display: block !important;
+  }
+
+  .tobi [data-type]>figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .tobi [data-type]>figure>img {
+    display: block;
+    height: auto;
+    max-height: 85vh;
+    max-width: 85vw;
+    width: auto;
+  }
+
+  .tobi [data-type]>figure>figcaption {
+    background-color: rgba(255, 255, 255, 0.94);
+    bottom: 0;
+    color: #1a2a3a;
+    padding: 0.22222em 0.44444em;
+    position: absolute;
+    white-space: pre-wrap;
+    width: 100%;
+  }
+
+  .tobi [data-type="html"] video {
+    cursor: auto;
+    max-height: 85vh;
+    max-width: 85vw;
+  }
+
+  .tobi [data-type="iframe"] {
+    /* Fix iframe scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .tobi [data-type="iframe"] iframe {
+    height: 85vh;
+    width: 85vw;
+  }
+
+  .tobi>button {
+    background-color: transparent;
+    border: 0.05556em solid transparent;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    margin: 0;
+    opacity: 0.5;
+    padding: 0.22222em;
+    position: absolute;
+    touch-action: manipulation;
+    transition-duration: 0.3s;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity, transform;
+    z-index: 1;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .tobi>button {
+      transition: none;
+      will-change: opacity;
+    }
+  }
+
+  .tobi>button svg {
+    pointer-events: none;
+    stroke: #fff;
+    stroke-width: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    fill: none;
+    color: #fff;
+  }
+
+  .tobi>button:active,
+  .tobi>button:focus,
+  .tobi>button:hover {
+    opacity: 1;
+    transform: scale(0.84);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+
+    .tobi>button:active,
+    .tobi>button:focus,
+    .tobi>button:hover {
+      transform: none;
+    }
+  }
+
+  .tobi>button.tobi__prev,
+  .tobi>button.tobi__next {
+    top: calc(50% - 1.94444em);
+  }
+
+  .tobi>button.tobi__prev svg,
+  .tobi>button.tobi__next svg {
+    height: 3.88889em;
+    width: 3.88889em;
+  }
+
+  .tobi>button.tobi__prev {
+    left: 0;
+  }
+
+  .tobi>button.tobi__next {
+    right: 0;
+  }
+
+  .tobi>button.tobi__close {
+    right: 0.27778em;
+    top: 1em;
+  }
+
+  .tobi>button.tobi__close svg {
+    height: 3.33333em;
+    width: 3.33333em;
+  }
+
+  .tobi>button:disabled,
+  .tobi>button[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tobi__counter {
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.11111em;
+    left: 1em;
+    line-height: 1;
+    position: absolute;
+    top: 2.22222em;
+    z-index: 1;
+  }
+
+  .tobi__counter[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tobi-loader {
+    display: inline-block;
+    height: 5.55556em;
+    left: calc(50% - 2.77778em);
+    position: absolute;
+    top: calc(50% - 2.77778em);
+    width: 5.55556em;
+  }
+
+  .tobi-loader::before {
+    animation: spin 1s infinite;
+    border-radius: 100%;
+    border: 0.22222em solid #949ba3;
+    border-top-color: #fff;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .tobi-zoom {
+    border: 0;
+    box-shadow: none;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .tobi-zoom img {
+    display: block;
+  }
+
+  .tobi-zoom__icon {
+    bottom: 0;
+    color: #fff;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    padding: 10;
+
+  }
+
+  .tobi-zoom__icon svg {
+    color: #fff;
+    fill: none;
+    height: 1.11111em;
+    padding: 0.22222em;
+    pointer-events: none;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 2;
+    stroke: #fff;
+    width: 1.11111em;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<style>
+  :root {
+    --font-xl: 42px;
+    --font-lg: 24px;
+    --font-md: 20px;
+    --font-sm: 18px;
+    --font-xs: 16px;
+    --font-xxs: 14px;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --font-xl: 18px;
+      --font-lg: 16px;
+      --font-md: 14px;
+      --font-sm: 12px;
+      --font-xs: 12px;
+      --font-xxs: 12px;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #ffffff;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-size: var(--font-md);
+    background-color: #000000;
+    background-size: cover;
+    background-position-x: 20vw;
+    background-position-y: -10vh;
+    background-repeat: no-repeat;
+    line-height: 1.4;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #516486;
+    ;
+  }
+
+  .container {
+    max-width: 960px;
+    padding: 0 30px;
+    margin: auto;
+  }
+
+  h1,
+  h2 {
+    font-family: "SF Pro Display", sans-serif;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .container-desktop {
+    max-width: 960px;
+    padding: 0 30px;
+    margin: auto;
+  }
+
+  @media (max-width: 768px) {
+    .container-desktop {
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+
+  .app__header {
+    display: flex;
+    flex-direction: row;
+    margin-top: 128px;
+    margin-bottom: 128px;
+    align-items: top;
+  }
+
+  @media (max-width: 768px) {
+    .app__header {
+      align-items: flex-start;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .blue-link {
+    color: #7fabff;
+  }
+
+  .app__logo-wrapper {
+    display: inline-block;
+    background-size: contain;
+    max-width: 180px;
+    max-height: 180px;
+    padding: 1px;
+    margin-right: 64px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 768px) {
+    .app__logo-wrapper {
+      max-width: 100px;
+      max-height: 100px;
+      margin-right: 16px;
+    }
+  }
+
+  .app__logo {
+    width: 100%;
+    height: auto;
+  }
+
+  .app__name {
+    font-size: var(--font-xl);
+    margin: 0;
+  }
+
+  .app__description {
+    font-size: var(--font-lg);
+    color: #868686;
+    margin-top: 0px;
+  }
+
+  @media (max-width: 768px) {
+    .app__description {
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+  }
+
+  .app__screenshots-list {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px;
+    grid-column-gap: 20px;
+    padding: 30px 0;
+  }
+
+  @media (max-width: 768px) {
+    .app__screenshots-list {
+      padding: 32px;
+      width: 800px;
+    }
+  }
+
+  .app__screenshot {
+    width: 100%;
+    border: 1px solid #858585;
+    border-radius: 16px;
+    box-shadow: 0 12px 48px rgba(17, 16, 62, 0.12);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    cursor: pointer;
+  }
+
+  .app__screenshot:hover {
+    box-shadow: 0 24px 48px rgba(17, 16, 62, 0.12);
+    transform: scale(1.05);
+  }
+
+  .app__screenshots-wrapper {
+    overflow-y: auto;
+  }
+
+  .app__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .app__buttons--mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .app__buttons {
+      margin-left: 0;
+      margin-bottom: 64px;
+    }
+
+    .app__buttons--mobile {
+      display: flex;
+      justify-content: left;
+    }
+
+    .app__buttons--desktop {
+      display: none;
+    }
+  }
+
+  .app__button-ios img {
+    width: 200px;
+  }
+
+  .app__button-ios img:hover {
+    filter: brightness(70%);
+  }
+
+  .app__button-web {
+    margin-left: 12px;
+  }
+
+  .app__button-web img {
+    width: 200px;
+  }
+
+  .app__button-web img:hover {
+    filter: brightness(70%);
+  }
+
+  .app__button-download img {
+    height: 59.2667;
+  }
+
+  .app__button-download img:hover {
+    filter: brightness(70%);
+  }
+
+  .app__button-download {
+    margin-left: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .app__button-ios img {
+      width: 112px;
+    }
+
+    .app__button-web {
+      margin-left: 8px;
+    }
+
+    .app__button-web img {
+      width: 112px;
+    }
+
+    .app__button-download img {
+      height: 33.18;
+
+
+
+    }
+
+  }
+
+  .app__section-title {
+    font-size: var(--font-lg);
+  }
+
+  .app__section {
+    margin-bottom: 128px;
+  }
+
+  @media (max-width: 768px) {
+    .app__section {
+      margin-bottom: 64px;
+    }
+  }
+
+  .footer {
+    padding: 16px 0;
+    font-size: var(--font-xs) !important;
+  }
+
+  .footer a {
+    font-size: var(--font-xs) !important;
+  }
+
+  .footer__container {
+    color: #ffffff;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .footer__container {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+
+  .footer__links {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer__link {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <main>
+    <header class="app__header container">
+      <div class="app__logo-wrapper"> <img alt="YTLitePlus" class="app__logo" src="./images/image_0.png" /></div>
+      <div class="app__infos">
+        <h1 class="app__name">YTLitePlus</h1>
+        <p class="app__description">YTLite with more features!</p>
+        <div class="app__buttons app__buttons--desktop">
+          <a class="app__button-ios"
+            href="altstore://source/?url=https://raw.githubusercontent.com/Balackburn/YTLitePlus/AltstoreSource/apps.json"
+            target="_blank" title="Add to Altstore">
+            <img alt="Add to Altstore" src="./images/image_1.png" />
+          </a>
+          <a class="app__button-web" href="https://github.com/Balackburn/YTLitePlus" target="_blank"
+            title="See on Github">
+            <img alt="See on Github" src="./images/image_2.png" />
+          </a>
+          <a class="app__button-download" id="download-link" href="#" target="_blank" title=".ipa download">
+            <img alt=".ipa download" src="./images/image_3.png" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="app__buttons app__buttons--mobile container">
+      <a class="app__button-ios"
+        href="altstore://source/?url=https://raw.githubusercontent.com/Balackburn/YTLitePlus/AltstoreSource/apps.json"
+        target="_blank" title="Add to Altstore">
+        <img alt="Add to Altstore" src="./images/image_4.png" />
+      </a>
+      <a class="app__button-web" href="https://github.com/Balackburn/YTLitePlus" target="_blank" title="See on Github">
+        <img alt="See on Github" src="./images/image_5.png" />
+      </a>
+      <a class="app__button-download" id="download-link" href="#" target="_blank" title=".ipa download">
+        <img alt=".ipa download" src="./images/image_3.png" />
+      </a>
+
+    </div>
+    <section class="app__screenshots app__section">
+      <div class="container">
+        <h2 class="app__section-title">Screenshots</h2>
+      </div>
+      <div class="app__screenshots-wrapper container-desktop">
+        <div class="app__screenshots-list">
+          <a class="lightbox" href="./images/image_6.png">
+            <img class="app__screenshot" src="./images/image_6.png" />
+          </a>
+          <a class="lightbox" href="./images/image_7.png">
+            <img class="app__screenshot" src="./images/image_7.png" />
+          </a>
+          <a class="lightbox" href="./images/image_8.png">
+            <img class="app__screenshot" src="./images/image_8.png" />
+          </a>
+          <a class="lightbox" href="./images/image_9.png">
+            <img class="app__screenshot" src="./images/image_9.png" />
+          </a>
+          <a class="lightbox" href="./images/image_10.png">
+            <img class="app__screenshot" src="./images/image_10.png" />
+          </a>
+          <a class="lightbox" href="./images/image_11.png">
+            <img class="app__screenshot" src="./images/image_11.png" />
+          </a>
+          <a class="lightbox" href="./images/image_12.png">
+            <img class="app__screenshot" src="./images/image_12.png" />
+          </a>
+          <a class="lightbox" href="./images/image_13.png">
+            <img class="app__screenshot" src="./images/image_13.png" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="app__fulldescription app__section container">
+
+      <summary>
+        <h2 class="app__section-title">Description:</h2>
+        <div class="app__fulldescription-content">
+
+          <summary><strong>A modified version of YTLite (by <strong><a href="https://github.com/dayanch96"
+                  class="blue-link">@dayanch96</a></strong>) supercharged with +15 tweaks :</strong></summary>
+
+          <ul>
+            <li><a href="https://github.com/majd" class="blue-link"><strong>YTLite:</strong></a> Block all
+              advertisements & Enable background playback. Set default player
+              quality on WiFi & Cellular. Save videos in high resolution, save videos as audio-only, save public
+              playlists (beta). And many more...</li>
+            <br>
+            <li><strong><a href="https://github.com/Galactic-Dev/iSponsorBlock"
+                  class="blue-link">iSponsorBlock:</a></strong> Skips annoying sponsor ads inside videos. iSponsorBlock
+              is based on <a href="https://sponsor.ajay.app/">SponsorBlock engine</a>. Basically, this
+              is the iOS version of the SponsorBlock extension.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YouPiP" class="blue-link">YouPiP:</a></strong> Enable
+              YouTube's native PiP. More options are in YouTube Settings => General.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YTUHD" class="blue-link">YTUHD:</a></strong> Unlock VP9
+              codec and in effect, enables video quality of 2K and 4K. You can configure YTUHD in YouTube's Settings -
+              Video quality preferences.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/Return-YouTube-Dislikes" class="blue-link">YouTube Dislike
+                  Return:</a></strong> Brings back Dislike counts under YouTube videos using ReturnYoutubeDislike's API.
+            </li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YTClassicVideoQuality" class="blue-link"
+                  class="blue-link">YTClassicVideoQuality</a></strong> Brings back the old video quality selector, which
+              is a lot
+              better than the new one.</li>
+
+            <br>
+            <li><strong><a href="https://github.com/level3tjg/YTNoHoverCards"
+                  class="blue-link">YTNoHoverCards:</a></strong> Offer an option to enable/disable the annoying
+              suggested videos show up at the end of the videos.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YTABGoodies" class="blue-link">YTABGoodies:</a></strong>
+              Allow you to disable some YouTube A/B testing features. It is a
+              combination of several tweaks, such as YouAreThere, YouRememberCaption, and YTNoCheckLocalNetwork.
+            </li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/NoYTPremium" class="blue-link">NOYTPremium:</a></strong>
+              Remove YouTube Premium upsell alerts.</li>
+            <br>
+            <li><strong><a href="https://github.com/lyvendia/YTSpeed" class="blue-link"
+                  class="blue-link">YTSpeed</a></strong> Add 2.25x to 5x playback speed options in the video player.
+            </li>
+            <br>
+            <li><strong><a href="https://github.com/level3tjg/YTMiniplayerEnabler"
+                  class="blue-link">YTMiniplayerEnabler:</a></strong> Enable Miniplayer for all YouTube videos.</li>
+            <br>
+            <li><strong><a href="https://github.com/therealFoxster/DontEatMyContent"
+                  class="blue-link">DontEatMyContent:</a></strong> Prevent the notch/Dynamic Island from munching on
+              2:1 video content in YouTube.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YTShortsProgress"
+                  class="blue-link">YTShortsProgress:</a></strong> Always enable progress bar and scrubbing in
+              YouTube Shorts (iPhone only).</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YTABConfig" class="blue-link">YTABConfig:</a></strong>
+              Allow user to control over YouTube A/B testing flags.</li>
+            <br>
+            <li><strong><a href="https://github.com/PoomSmart/YouMute" class="blue-link">YouMute:</a></strong>
+              Mute/unmute videos in the YouTube Video Player directly.</li>
+            <br>
+            <li><strong><a href="https://github.com/arichorn/LowContrastMode"
+                  class="blue-link">LowContrastMode:</a></strong> Makes the YouTube Interface Low Contrast as
+              possible to make it easier on the eyes.</li>
+            <br>
+            <li><strong><a href="https://github.com/MiRO92/YTNoShorts" class="blue-link">YTNoShorts:</a></strong>
+              Disable YouTube Shorts.</li>
+            <br>
+            <li><strong><a href="https://github.com/Galactic-Dev/BigYTMiniPlayer"
+                  class="blue-link">BigYTMiniPlayer:</a></strong> Enable a bigger YouTube Miniplayer.</li>
+          </ul>
+          </ul>
+        </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <ul class="footer__links">
+          <li class="footer__link">
+            <p>This app was forked from <strong><a href="https://github.com/arichorn/YouTubeRebornPlus"
+                  class="blue-link" target="_blank">@arichorn</a></strong>, who himself forked it from <strong><a
+                  href="https://github.com/qnblackcat/uYouPlus" class="blue-link"
+                  target="_blank">@qnblackcat</a></strong>, so thanks to them.</p>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script
+    type="text/javascript">(function (e, t) { "function" == typeof define && define.amd ? define(t) : "object" == typeof module && module.exports ? module.exports = t() : e.Tobi = t() })(this, function () { "use strict"; const e = function (e) { const t = window, n = ['a[href]:not([tabindex^="-"]):not([inert])', 'area[href]:not([tabindex^="-"]):not([inert])', "input:not([disabled]):not([inert])", "select:not([disabled]):not([inert])", "textarea:not([disabled]):not([inert])", "button:not([disabled]):not([inert])", 'iframe:not([tabindex^="-"]):not([inert])', 'audio:not([tabindex^="-"]):not([inert])', 'video:not([tabindex^="-"]):not([inert])', '[contenteditable]:not([tabindex^="-"]):not([inert])', '[tabindex]:not([tabindex^="-"]):not([inert])'], r = [], o = [], i = { gallery: [], slider: null, sliderElements: [], elementsLength: 0, currentIndex: 0, x: 0 }; let a = {}, s = 0, d = null, l = null, c = null, u = null, p = null, b = {}, f = !1, h = !1, m = !1, g = null, y = null, v = null, A = null, x = null, w = !1, E = !1, L = 0, _ = {}, C = null, S = null; const I = function (e) { const t = { selector: ".lightbox", captions: !0, captionsSelector: "img", captionAttribute: "alt", nav: "auto", navText: ['<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 18l-6-6 6-6"/></svg>', '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6l6 6-6 6"/></svg>'], navLabel: ["Previous image", "Next image"], close: !0, closeText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M6 18L18 6"/></svg>', closeLabel: "Close lightbox", loadingIndicatorLabel: "Image loading", counter: !0, download: !1, downloadText: "", downloadLabel: "Download image", keyboard: !0, zoom: !0, zoomText: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 16v5h-5"/><path d="M8 21H3v-5"/><path d="M16 3h5v5"/><path d="M3 8V3h5"/></svg>', docClose: !0, swipeClose: !0, hideScrollbar: !0, draggable: !0, threshold: 100, rtl: !1, loop: !1, autoplayVideo: !1 }; return e && Object.keys(e).forEach(function (n) { t[n] = e[n] }), t }, T = { image: { checkSupport: function (e) { return !e.hasAttribute("data-type") && e.href.match(/\.(png|jpe?g|tiff|tif|gif|bmp|webp|svg|ico)(\?.*)?$/i) }, init: function (e, t) { const n = document.createElement("figure"), r = document.createElement("figcaption"), o = document.createElement("img"), i = e.querySelector("img"), d = document.createElement("div"); o.style.opacity = "0", i && (o.alt = i.alt || ""), o.setAttribute("src", ""), o.setAttribute("data-src", e.href), n.appendChild(o), a.captions && (r.style.opacity = "0", "self" === a.captionsSelector && e.getAttribute(a.captionAttribute) ? r.textContent = e.getAttribute(a.captionAttribute) : "img" === a.captionsSelector && i && i.getAttribute(a.captionAttribute) && (r.textContent = i.getAttribute(a.captionAttribute)), r.textContent && (r.id = "tobi-figcaption-" + s, n.appendChild(r), o.setAttribute("aria-labelledby", r.id), ++s)), t.appendChild(n), d.className = "tobi-loader", d.setAttribute("role", "progressbar"), d.setAttribute("aria-label", a.loadingIndicatorLabel), t.appendChild(d), t.setAttribute("data-type", "image") }, onPreload: function (e) { T.image.onLoad(e) }, onLoad: function (e) { const t = e.querySelector("img"); if (!t.hasAttribute("data-src")) return; const n = e.querySelector("figcaption"), r = e.querySelector(".tobi-loader"); t.onload = function () { e.removeChild(r), t.style.opacity = "1", n && (n.style.opacity = "1") }, t.setAttribute("src", t.getAttribute("data-src")), t.removeAttribute("data-src") }, onLeave: function (e) { }, onCleanup: function (e) { } }, html: { checkSupport: function (e) { return pe(e, "html") }, init: function (e, t) { const n = e.hasAttribute("href") ? e.getAttribute("href") : e.getAttribute("data-target"), r = document.querySelector(n); if (!r) throw new Error("Ups, I can't find the target " + n + "."); t.appendChild(r), t.setAttribute("data-type", "html") }, onPreload: function (e) { }, onLoad: function (e) { const t = e.querySelector("video"); t && (t.hasAttribute("data-time") && t.readyState > 0 && (t.currentTime = t.getAttribute("data-time")), a.autoplayVideo && t.play()) }, onLeave: function (e) { const t = e.querySelector("video"); t && (t.paused || t.pause(), t.readyState > 0 && t.setAttribute("data-time", t.currentTime)) }, onCleanup: function (e) { const t = e.querySelector("video"); if (t && t.readyState > 0 && t.readyState < 3 && t.duration !== t.currentTime) { const n = t.cloneNode(!0); be(t), t.load(), t.parentNode.removeChild(t), e.appendChild(n) } } }, iframe: { checkSupport: function (e) { return pe(e, "iframe") }, init: function (e, t) { const n = document.createElement("iframe"), r = e.hasAttribute("href") ? e.getAttribute("href") : e.getAttribute("data-target"); n.setAttribute("frameborder", "0"), n.setAttribute("src", ""), n.setAttribute("data-src", r), e.getAttribute("data-width") && (n.style.maxWidth = e.getAttribute("data-width") + "px"), e.getAttribute("data-height") && (n.style.maxHeight = e.getAttribute("data-height") + "px"), t.appendChild(n), t.setAttribute("data-type", "iframe") }, onPreload: function (e) { }, onLoad: function (e) { const t = e.querySelector("iframe"); t.setAttribute("src", t.getAttribute("data-src")) }, onLeave: function (e) { }, onCleanup: function (e) { } }, youtube: { checkSupport: function (e) { return pe(e, "youtube") }, init: function (e, t) { const n = document.createElement("div"); t.appendChild(n), o[L] = new window.YT.Player(n, { host: "https://www.youtube-nocookie.com", height: e.getAttribute("data-height") || "360", width: e.getAttribute("data-width") || "640", videoId: e.getAttribute("data-id"), playerVars: { controls: e.getAttribute("data-controls") || 1, rel: 0, playsinline: 1 } }), t.setAttribute("data-player", L), t.setAttribute("data-type", "youtube"), L++ }, onPreload: function (e) { }, onLoad: function (e) { a.autoplayVideo && o[e.getAttribute("data-player")].playVideo() }, onLeave: function (e) { 1 === o[e.getAttribute("data-player")].getPlayerState() && o[e.getAttribute("data-player")].pauseVideo() }, onCleanup: function (e) { 1 === o[e.getAttribute("data-player")].getPlayerState() && o[e.getAttribute("data-player")].pauseVideo() } } }; Object.entries || (Object.entries = function (e) { const t = Object.keys(e); let n = t.length; const r = new Array(n); for (; n--;)r[n] = [t[n], e[t[n]]]; return r }); const O = function (e) { a = I(e), d || M(); const t = document.querySelectorAll(a.selector); if (!t) throw new Error("Ups, I can't find the selector " + a.selector + "."); Array.prototype.forEach.call(t, function (e) { k(e) }) }, k = function (e, t) { if (null === document.querySelector('[data-type="youtube"]') || E) P(e, t); else { if (null === document.getElementById("iframe_api")) { const e = document.createElement("script"), t = document.getElementsByTagName("script")[0]; e.id = "iframe_api", e.src = "https://www.youtube.com/iframe_api", t.parentNode.insertBefore(e, t) } -1 === r.indexOf(e) && r.push(e), window.onYouTubePlayerAPIReady = function () { Array.prototype.forEach.call(r, function (e) { P(e, t) }), E = !0 } } }, q = function (e) { return e.hasAttribute("data-group") ? e.getAttribute("data-group") : "default" }, N = function (e) { return JSON.parse(JSON.stringify(e)) }, P = function (e, t) { if (C = q(e), Object.prototype.hasOwnProperty.call(_, C) || (_[C] = N(i), Y()), -1 !== _[C].gallery.indexOf(e)) throw new Error("Ups, element already added to the lightbox."); if (_[C].gallery.push(e), _[C].elementsLength++, a.zoom && e.querySelector("img")) { const t = document.createElement("div"); t.className = "tobi-zoom__icon", t.innerHTML = a.zoomText, e.classList.add("tobi-zoom"), e.appendChild(t) } e.addEventListener("click", Q), j(e), ve() && C === S && (fe(), me()), t && t.call(this) }, X = function (e, t) { const n = q(e); if (-1 === _[n].gallery.indexOf(e)); else { const r = _[n].gallery.indexOf(e), o = _[n].sliderElements[r]; if (_[n].elementsLength--, a.zoom && e.querySelector(".tobi-zoom__icon")) { const t = e.querySelector(".tobi-zoom__icon"); t.parentNode.classList.remove("tobi-zoom"), t.parentNode.removeChild(t) } e.removeEventListener("click", Q), o.parentNode.removeChild(o), ve() && n === S && (fe(), me()), t && t.call(this) } }, M = function () { d = document.createElement("div"), d.setAttribute("role", "dialog"), d.setAttribute("aria-hidden", "true"), d.className = "tobi", l = document.createElement("button"), l.className = "tobi__prev", l.setAttribute("type", "button"), l.setAttribute("aria-label", a.navLabel[0]), l.innerHTML = a.navText[0], d.appendChild(l), c = document.createElement("button"), c.className = "tobi__next", c.setAttribute("type", "button"), c.setAttribute("aria-label", a.navLabel[1]), c.innerHTML = a.navText[1], d.appendChild(c), u = document.createElement("button"), u.className = "tobi__close", u.setAttribute("type", "button"), u.setAttribute("aria-label", a.closeLabel), u.innerHTML = a.closeText, d.appendChild(u), p = document.createElement("div"), p.className = "tobi__counter", d.appendChild(p), t.addEventListener("resize", function () { w || (w = !0, t.requestAnimationFrame(function () { G(), w = !1 })) }), document.body.appendChild(d) }, Y = function () { _[C].slider = document.createElement("div"), _[C].slider.className = "tobi__slider", d.appendChild(_[C].slider) }, j = function (e) { for (let t in T) if (Object.prototype.hasOwnProperty.call(T, t) && T[t].checkSupport(e)) { const n = document.createElement("div"), r = document.createElement("div"); n.className = "tobi__slide", n.style.position = "absolute", n.style.left = 100 * _[C].x + "%", T[t].init(e, r), n.appendChild(r), _[C].slider.appendChild(n), _[C].sliderElements.push(n), ++_[C].x; break } }, z = function (e, t) { if (S = null !== S ? S : C, ve() || e || (e = 0), ve()) { if (!e) throw new Error("Ups, Tobi is aleady open."); if (e === _[S].currentIndex) throw new Error("Ups, slide " + e + " is already selected.") } if (-1 === e || e >= _[S].elementsLength) throw new Error("Ups, I can't find slide " + e + "."); a.hideScrollbar && (document.documentElement.classList.add("tobi-is-open"), document.body.classList.add("tobi-is-open")), fe(), a.close || (u.disabled = !1, u.setAttribute("aria-hidden", "true")), g = document.activeElement, _[S].currentIndex = e, F(), ce(), V(_[S].currentIndex), d.setAttribute("aria-hidden", "false"), me(), U(_[S].currentIndex + 1), U(_[S].currentIndex - 1), t && t.call(this) }, D = function (e) { if (!ve()) throw new Error("Tobi is already closed."); a.hideScrollbar && (document.documentElement.classList.remove("tobi-is-open"), document.body.classList.remove("tobi-is-open")), ue(), g.focus(); const t = _[S].sliderElements[_[S].currentIndex].querySelector("[data-type]"), n = t.getAttribute("data-type"); T[n].onLeave(t), T[n].onCleanup(t), d.setAttribute("aria-hidden", "true"), _[S].currentIndex = 0, e && e.call(this) }, U = function (e) { if (void 0 === _[S].sliderElements[e]) return; const t = _[S].sliderElements[e].querySelector("[data-type]"), n = t.getAttribute("data-type"); T[n].onPreload(t) }, V = function (e) { if (void 0 === _[S].sliderElements[e]) return; const t = _[S].sliderElements[e].querySelector("[data-type]"), n = t.getAttribute("data-type"); _[S].sliderElements[e].classList.add("tobi__slide--is-active"), T[n].onLoad(t) }, H = function (e) { _[S].currentIndex > 0 && (R(_[S].currentIndex), V(--_[S].currentIndex), me("left"), W(_[S].currentIndex + 1), U(_[S].currentIndex - 1), e && e.call(this)) }, B = function (e) { _[S].currentIndex < _[S].elementsLength - 1 && (R(_[S].currentIndex), V(++_[S].currentIndex), me("right"), W(_[S].currentIndex - 1), U(_[S].currentIndex + 1), e && e.call(this)) }, R = function (e) { if (void 0 === _[S].sliderElements[e]) return; const t = _[S].sliderElements[e].querySelector("[data-type]"), n = t.getAttribute("data-type"); _[S].sliderElements[e].classList.remove("tobi__slide--is-active"), T[n].onLeave(t) }, W = function (e) { if (void 0 === _[S].sliderElements[e]) return; const t = _[S].sliderElements[e].querySelector("[data-type]"), n = t.getAttribute("data-type"); T[n].onCleanup(t) }, G = function () { S = null !== S ? S : C, A = -_[S].currentIndex * window.innerWidth, _[S].slider.style.transform = "translate3d(" + A + "px, 0, 0)", x = A }, J = function () { p.textContent = _[S].currentIndex + 1 + "/" + _[S].elementsLength }, K = function (e) { let t = null; a.nav ? (l.disabled = !1, c.disabled = !1, "left" === e ? l.focus() : c.focus(), 1 === _[S].elementsLength ? (l.disabled = !0, c.disabled = !0, a.close && u.focus()) : (0 === _[S].currentIndex && (l.disabled = !0, c.focus()), _[S].currentIndex === _[S].elementsLength - 1 && (c.disabled = !0, l.focus()))) : a.close && u.focus(), t = d.querySelectorAll(".tobi > button:not(:disabled)"), y = t[0], v = 1 === t.length ? t[0] : t[t.length - 1] }, F = function () { b = { startX: 0, endX: 0, startY: 0, endY: 0 } }, $ = function () { const e = b.endX - b.startX, t = b.endY - b.startY, n = Math.abs(e), r = Math.abs(t); e > 0 && n > a.threshold && _[S].currentIndex > 0 ? H() : e < 0 && n > a.threshold && _[S].currentIndex !== _[S].elementsLength - 1 ? B() : t < 0 && r > a.threshold && a.swipeClose ? D() : G() }, Q = function (e) { e.preventDefault(), S = q(this), z(_[S].gallery.indexOf(this)) }, Z = function (e) { e.target === l ? H() : e.target === c ? B() : (e.target === u || e.target.classList.contains("tobi__slide") && a.docClose) && D(), e.stopPropagation() }, ee = function () { return Array.prototype.slice.call(d.querySelectorAll(".tobi__close:not([disabled]), .tobi__prev:not([disabled]), .tobi__next:not([disabled]), .tobi__slide--is-active + " + n.join(", .tobi__slide--is-active "))).filter(function (e) { return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length) }) }, te = function (e) { const t = ee(), n = t.indexOf(document.activeElement); 9 === e.keyCode || "Tab" === e.code ? e.shiftKey && 0 === n ? (t[t.length - 1].focus(), e.preventDefault()) : e.shiftKey || n !== t.length - 1 || (t[0].focus(), e.preventDefault()) : 27 === e.keyCode || "Escape" === e.code ? (e.preventDefault(), D()) : 37 === e.keyCode || "ArrowLeft" === e.code ? (e.preventDefault(), H()) : 39 !== e.keyCode && "ArrowRight" !== e.code || (e.preventDefault(), B()) }, ne = function (e) { xe(e.target) || (e.stopPropagation(), m = !0, b.startX = e.touches[0].pageX, b.startY = e.touches[0].pageY, _[S].slider.classList.add("tobi__slider--is-dragging")) }, re = function (e) { e.stopPropagation(), m && (e.preventDefault(), b.endX = e.touches[0].pageX, b.endY = e.touches[0].pageY, le()) }, oe = function (e) { e.stopPropagation(), m = !1, _[S].slider.classList.remove("tobi__slider--is-dragging"), b.endX && (f = !1, h = !1, $()), F() }, ie = function (e) { xe(e.target) || (e.preventDefault(), e.stopPropagation(), m = !0, b.startX = e.pageX, b.startY = e.pageY, _[S].slider.classList.add("tobi__slider--is-dragging")) }, ae = function (e) { e.preventDefault(), m && (b.endX = e.pageX, b.endY = e.pageY, le()) }, se = function (e) { e.stopPropagation(), m = !1, _[S].slider.classList.remove("tobi__slider--is-dragging"), b.endX && (f = !1, h = !1, $()), F() }, de = function (e) { m = !1 }, le = function () { Math.abs(b.startX - b.endX) > 0 && !h && a.swipeClose ? (_[S].slider.style.transform = "translate3d(" + (x - Math.round(b.startX - b.endX)) + "px, 0, 0)", f = !0, h = !1) : Math.abs(b.startY - b.endY) > 0 && !f && (_[S].slider.style.transform = "translate3d(" + x + "px, -" + Math.round(b.startY - b.endY) + "px, 0)", f = !1, h = !0) }, ce = function () { a.keyboard && document.addEventListener("keydown", te), d.addEventListener("click", Z), a.draggable && (Ae() && (d.addEventListener("touchstart", ne), d.addEventListener("touchmove", re), d.addEventListener("touchend", oe)), d.addEventListener("mousedown", ie), d.addEventListener("mouseup", se), d.addEventListener("mousemove", ae), d.addEventListener("contextmenu", de)) }, ue = function () { a.keyboard && document.removeEventListener("keydown", te), d.removeEventListener("click", Z), a.draggable && (Ae() && (d.removeEventListener("touchstart", ne), d.removeEventListener("touchmove", re), d.removeEventListener("touchend", oe)), d.removeEventListener("mousedown", ie), d.removeEventListener("mouseup", se), d.removeEventListener("mousemove", ae), d.removeEventListener("contextmenu", de)) }, pe = function (e, t) { return e.getAttribute("data-type") === t }, be = function (e) { const t = e.querySelectorAll("src"); t && Array.prototype.forEach.call(t, function (e) { e.setAttribute("src", "") }) }, fe = function () { a.draggable && _[S].elementsLength > 1 && !_[S].slider.classList.contains("tobi__slider--is-draggable") && _[S].slider.classList.add("tobi__slider--is-draggable"), !a.nav || 1 === _[S].elementsLength || "auto" === a.nav && Ae() ? (l.setAttribute("aria-hidden", "true"), c.setAttribute("aria-hidden", "true")) : (l.setAttribute("aria-hidden", "false"), c.setAttribute("aria-hidden", "false")), a.counter && 1 !== _[S].elementsLength ? p.setAttribute("aria-hidden", "false") : p.setAttribute("aria-hidden", "true") }, he = function () { for (let e in _) Object.prototype.hasOwnProperty.call(_, e) && (_[e].slider.style.display = S === e ? "block" : "none") }, me = function (e) { he(), G(), J(), K(e) }, ge = function (e) { ve() && D(); const t = Object.entries(_); Array.prototype.forEach.call(t, function (e) { const t = e[1].gallery; Array.prototype.forEach.call(t, function (e) { X(e) }) }), _ = {}, C = S = null, s = 0, e && e.call(this) }, ye = function (e) { ge(), d.parentNode.removeChild(d), e && e.call(this) }, ve = function () { return "false" === d.getAttribute("aria-hidden") }, Ae = function () { return "ontouchstart" in window }, xe = function (e) { return -1 !== ["TEXTAREA", "OPTION", "INPUT", "SELECT"].indexOf(e.nodeName) || e === l || e === c || e === u || 1 === _[S].elementsLength }, we = function () { return _[S].currentIndex }, Ee = function () { return null !== S ? S : C }, Le = function (e) { if (ve()) throw new Error("Ups, I can't do this. Tobi is open."); if (e) { if (e && !Object.prototype.hasOwnProperty.call(_, e)) throw new Error("Ups, I don't have a group called \"" + e + '".'); S = e } }; return O(e), { open: z, prev: H, next: B, close: D, add: k, remove: X, reset: ge, destroy: ye, isOpen: ve, currentSlide: we, selectGroup: Le, currentGroup: Ee } }; return e });</script>
+  <script>
+    window.onload = function () {
+      var tobi = new Tobi();
+    };
+  </script>
+  <script>
+    const repoOwner = "Balackburn";
+    const repoName = "YTLitePlus";
+    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`;
+
+    async function updateDownloadLink() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Find the asset with the ".ipa" file extension
+        const ipaAsset = data.assets.find((asset) => asset.name.endsWith('.ipa'));
+
+        if (ipaAsset) {
+          // Update download link for both desktop and mobile views
+          const downloadLinks = document.querySelectorAll('#download-link, .app__button-download');
+          downloadLinks.forEach((downloadLink) => {
+            downloadLink.href = ipaAsset.browser_download_url;
+          });
+        } else {
+          console.error("No .ipa file found in the latest release.");
+        }
+      } catch (error) {
+        console.error("Error fetching latest release information:", error);
+      }
+    }
+
+    updateDownloadLink();
+  </script>
+</body>
+
+</html>

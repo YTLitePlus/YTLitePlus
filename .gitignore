@@ -1,1 +1,7 @@
 .DS_Store
+.theos/
+packages/
+tmp/
+Tweaks/YTLite/*
+!Tweaks/YTLite/.gitkeep
+Resources/
