@@ -1,4 +1,4 @@
-## Cercube with extra features!
+## YTLite with more features!
 
 
 ![IMAGE_CERCUBEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/PnpTdZf0IXbd.png)
@@ -10,14 +10,14 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Balackburn/CercubePlusExtra/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/CercubePlusExtra?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/CercubePlusExtra/releases/latest"><img src="https://img.shields.io/github/downloads/arichorn/CercubePlusExtra/total?label=Download" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/CercubePlusExtra/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/CercubePlusExtra?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://img.shields.io/github/downloads/arichorn/YTLitePlus/total?label=Download" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
 </p>
 
 <p align="center">
-   <img src="https://img.shields.io/github/stars/arichorn/CercubePlusExtra?style=social" alt="Badge"/>
-   <img src="https://img.shields.io/github/forks/arichorn/CercubePlusExtra?style=social" alt="Badge"/>
+   <img src="https://img.shields.io/github/stars/arichorn/YTLitePlus?style=social" alt="Badge"/>
+   <img src="https://img.shields.io/github/forks/arichorn/YTLitePlus?style=social" alt="Badge"/>
    <a href="https://github.com/qnblackcat/uYouPlus#support-the-developers"><img src="https://img.shields.io/badge/-Support-lightgrey?style=social&logo=paypal" alt="Badge"></img></a>
 </p>
 
@@ -33,7 +33,7 @@
 # Credits
 
 <table id='maintainer credit'>
-Special thanks to these developer(s) for maintaining and improving CercubePlus (@qnblackcat is the OG dev)
+Special thanks to these developer(s) for maintaining and improving YTLitePlus (@qnblackcat is the OG dev)
 <tr>
 <td id='arichorn'>
 <a href='https://github.com/arichorn'>
@@ -61,16 +61,10 @@ Special thanks to these developer(s) for maintaining and improving CercubePlus (
 </td>
 
 <table id='credit'>
-Special thanks to all the developers who have contributed to CercubePlus/CercubePlusExtra!
+Special thanks to all the developers who have contributed to CercubePlus/YTLitePlus!
     
-(Cercube is an original tweak by Majd Alfhaily @majd)
+(YTLite is an original tweak by dayanch96 @dayanch96)
 <tr>
-<td id='majd'>
-<a href='https://github.com/majd'>
-<img src='https://github.com/majd.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/majd'>Majd Alfhaily</a></h4>
-</td>
 <td id='PoomSmart'>
 <a href='https://github.com/PoomSmart'>
 <img src='https://github.com/PoomSmart.png' width='140px;'>
@@ -172,7 +166,7 @@ Special thanks to all the developers who have contributed to CercubePlus/Cercube
 
 # Features
 
-1. **Cercube:**
+1. **YTLite:**
 
 - Block all advertisements & Enable background playback.
 
@@ -226,11 +220,11 @@ any many more...
 
 # Known issues
 
-1. **Cercube**: 
+1. **YTLite**: 
 
 - Hide Cast button is not working. (Workaround: Hide cast button in CercubePlus settings)
 
-- The Updated Dark Mode in the YouTube App is not Present or Working in Cercube v5.3.13 & older versions
+- The Updated Dark Mode in the YouTube App is not Present or Working in YTLite v5.3.13 & older versions
 
 2. **LowContrastMode**: this tweak doesn't work everywhere with every ui element on the YouTube App.
 
@@ -246,7 +240,7 @@ any many more...
 
 # Download (IPA)
 
-- **CercubePlus** (or you can call it Cercube+) requires iOS & iPadOS 14.0 and later. The latest version of **CercubePlus** can be found in the [Release tab](https://github.com/Balackburn/CercubePlusExtra/releases/latest).
+- **CercubePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **CercubePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
 
 - For AltStore user: [Open in AltStore (v18.18.2-5.3.11)](https://tinyurl.com/5a5jn7ra) - It will take a while to install because AltStore needs to download the IPA first.
 
@@ -265,7 +259,7 @@ any many more...
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
 | **YouTube** | Google Inc | 18.21.3 | ✖︎ |
-| **Cercube** | Majd Alfhaily | 5.3.11 | ✖︎ |
+| **YTLite** | Majd Alfhaily | 5.3.11 | ✖︎ |
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
 | **YTNoShorts** | [MiRO92](https://twitter.com/miro92) | 1.0.2 | [✔︎](https://github.com/MiRO92/YTNoShorts) |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-15 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
@@ -298,5 +292,5 @@ any many more...
   - Venmo: https://venmo.com/u/DavidBrett
 
 # Building(s) (optional)
-See [CercubePlusExtra/Building - Wiki](https://github.com/Balackburn/CercubePlusExtra/wiki/Building)
+See [YTLitePlus/Building - Wiki](https://github.com/Balackburn/YTLitePlus/wiki/Building)
 or Another Version [uYouPlus/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
