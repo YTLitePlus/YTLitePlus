@@ -31,9 +31,6 @@
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
-[submodule "Extensions"]
-	path = Extensions
-	url = https://github.com/CokePokes/YoutubeExtensions.git
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
 	url = https://github.com/arichorn/YTHoldForSpeed.git
@@ -43,3 +40,6 @@
 [submodule "Tweaks/YTLite"]
 	path = Tweaks/YTLite
 	url = https://github.com/dayanch96/YTLite.git
+[submodule "Extensions"]
+	path = Extensions
+	url = https://github.com/CokePokes/YoutubeExtensions.git

@@ -1,2 +1,0 @@
-@protocol HAMPixelBufferRenderingView
-@end
