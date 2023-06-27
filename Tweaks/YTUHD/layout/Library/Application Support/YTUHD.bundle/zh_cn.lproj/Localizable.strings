@@ -1,5 +1,0 @@
-// Settings
-
-"USE_VP9" = "使用 VP9 编码";
-"USE_VP9_DESC" = "启用最高支持 4K 分辨率的 VP9 编解码器。推荐使用搭载 A11 芯片或以上的机型（如：iPhone 8/X 或以上）。更改本设置后需要重启 App。";
-"HW_VP9_SUPPORT" = "硬件 VP9 编码支持状态";
