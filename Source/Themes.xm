@@ -186,7 +186,7 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 }
 %end
 
-// Hide seperators
+// Hide separators
 @interface YTCollectionSeparatorView (HiddenProperty)
 @property (nonatomic, assign) BOOL hidden;
 @end
@@ -204,6 +204,7 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
+%end
 
 %hook YTHeaderViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
