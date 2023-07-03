@@ -109,6 +109,18 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 }
 %end
 
+%hook _ASDisplayView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor customColor] : %orig;
+}
+%end
+
+%hook UIDeviceWhiteColor
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor customColor] : %orig;
+}
+%end
+
 %hook YTHeaderViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? customColor : %orig;
@@ -395,6 +407,18 @@ UIColor* raisedColor = [UIColor blackColor];
 %end
 
 %hook YTCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook _ASDisplayView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook UIDeviceWhiteColor
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
