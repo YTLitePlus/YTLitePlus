@@ -122,20 +122,20 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 %end
 
 %hook YTAppView
-- (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
 
 %hook YTPivotBarView
-- (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
 
 %hook YTAsyncCollectionView
-- (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
 

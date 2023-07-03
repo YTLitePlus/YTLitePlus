@@ -57,7 +57,7 @@ extern NSBundle *YTLitePlusBundle();
     accessibilityIdentifier:nil
     detailTextBlock:nil
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Balackburn/YTLitePlusExtra/releases/latest"]];
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Balackburn/YTLitePlus/releases/latest"]];
     }];
     [sectionItems addObject:main];
 
