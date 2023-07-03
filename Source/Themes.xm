@@ -328,7 +328,6 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 %end
 
 // OLED dark mode by BandarHL
-UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:1.0];
 %group gOLED
 %hook YTCommonColorPalette
 - (UIColor *)brandBackgroundSolid {
@@ -417,10 +416,6 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 %end
 
 // Hide separators
-@interface YTCollectionSeparatorView (HiddenProperty)
-@property (nonatomic, assign) BOOL hidden;
-@end
-
 %hook YTCollectionSeparatorView
 %property (nonatomic, assign, setter=setHidden:) BOOL hidden;
 
