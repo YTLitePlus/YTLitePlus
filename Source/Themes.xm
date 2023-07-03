@@ -186,11 +186,24 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 }
 %end
 
-%hook YTELMView
-- (UIColor *)backgroundColor {
-         return [UIColor blackColor];
+// Hide seperators
+@interface YTCollectionSeparatorView (HiddenProperty)
+@property (nonatomic, assign) BOOL hidden;
+@end
+
+%hook YTCollectionSeparatorView
+%property (nonatomic, assign, setter=setHidden:) BOOL hidden;
+
+- (void)setHidden:(BOOL)hidden {
+    %orig(hidden);
 }
+
 %end
+
+%hook YTELMView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
 
 %hook YTHeaderViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
