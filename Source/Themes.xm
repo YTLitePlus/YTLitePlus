@@ -111,13 +111,13 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 
 %hook _ASDisplayView
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
-    return pageStyle == 1 ? [UIColor customColor] : %orig;
+    return pageStyle == 1 ? customColor : %orig;
 }
 %end
 
 %hook UIDeviceWhiteColor
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
-    return pageStyle == 1 ? [UIColor customColor] : %orig;
+    return pageStyle == 1 ? customColor : %orig;
 }
 %end
 
