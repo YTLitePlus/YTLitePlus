@@ -306,13 +306,13 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 // Open link with...
 %hook ASWAppSwitchingSheetHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig(raisedColor) : %orig;
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 
 %hook ASWAppSwitchingSheetFooterView
 - (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig(raisedColor) : %orig;
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 
@@ -320,14 +320,16 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 - (void)didMoveToWindow {
     %orig;
     if (isDarkMode()) {
-        self.backgroundColor = raisedColor;
-        self.subviews[1].backgroundColor = raisedColor;
-        self.superview.backgroundColor = raisedColor;
+        self.backgroundColor = customColor;
+        self.subviews[1].backgroundColor = customColor;
+        self.superview.backgroundColor = customColor;
     }
 }
 %end
+%end
 
 // OLED dark mode by BandarHL
+UIColor* raisedColor = [UIColor blackColor];
 %group gOLED
 %hook YTCommonColorPalette
 - (UIColor *)brandBackgroundSolid {
@@ -379,17 +381,6 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
     return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
-
-BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
-    CGFloat r1, g1, b1, a1, r2, g2, b2, a2;
-    [color1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
-    [color2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
-
-    return (fabs(r1 - r2) <= tolerance) &&
-           (fabs(g1 - g2) <= tolerance) &&
-           (fabs(b1 - b2) <= tolerance) &&
-           (fabs(a1 - a2) <= tolerance);
-}
 
 %hook UIView
 - (void)setBackgroundColor:(UIColor *)color {
