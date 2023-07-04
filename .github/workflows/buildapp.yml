@@ -144,10 +144,8 @@ jobs:
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
-              -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
-              -e "s/%DATE%/$TODAY/g" \
-              main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
+          sed "s/%cercube_version%/${{ inputs.cercube_version }}/g; s/%youtube_version%/${{ inputs.youtube_version }}/g; s/%date%/$TODAY/g" \
+          main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
         id: create_release
