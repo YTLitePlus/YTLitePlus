@@ -156,8 +156,8 @@ jobs:
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}-(${{ github.run_number }})
-          name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}-(${{ github.run_number }})
+          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
+          name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
           body_path: ${{ github.workspace }}/release_notes.md
