@@ -144,11 +144,10 @@ jobs:
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          mkdir -p .github 
-          sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
-              -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
-              -e "s/%DATE%/${TODAY}/g" \
-              .github/RELEASE_TEMPLATE/Release.md > .github/release_notes.md
+          echo "$(sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
+                     -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
+                     -e "s/%DATE%/${TODAY}/g" \
+                     .github/RELEASE_TEMPLATE/Release.md)" > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
         id: create_release
@@ -163,7 +162,7 @@ jobs:
           name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}-(${{ github.run_number }})
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
-          body_path: .github/release_notes.md
+          body_path: ${{ github.workspace }}/release_notes.md
 
 
 
