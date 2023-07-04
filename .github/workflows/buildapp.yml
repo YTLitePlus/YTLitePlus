@@ -147,7 +147,7 @@ jobs:
           echo "$(sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
                      -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
                      -e "s/%DATE%/${TODAY}/g" \
-                     .github/RELEASE_TEMPLATE/Release.md)" > ${{ github.workspace }}/release_notes.md
+                     main/.github/RELEASE_TEMPLATE/Release.md)" > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
         id: create_release
