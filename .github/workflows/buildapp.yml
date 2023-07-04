@@ -140,14 +140,14 @@ jobs:
           name: YTLitePlus_${{ env.YOUTUBE_VERSION }}_${{ env.ytliteplus_version }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
-
+      
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          echo "$(sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
-                     -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
-                     -e "s/%DATE%/${TODAY}/g" \
-                     main/.github/RELEASE_TEMPLATE/Release.md)" > ${{ github.workspace }}/release_notes.md
+          sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
+              -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
+              -e "s/%DATE%/$TODAY/g" \
+              main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
         id: create_release
