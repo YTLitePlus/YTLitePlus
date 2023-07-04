@@ -1,7 +1,7 @@
 ## YTLite with more features!
 
 
-![IMAGE_CERCUBEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/PnpTdZf0IXbd.png)
+![IMAGE_CERCUBEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/UW3YDgjfwfle.png)
 
 
 
