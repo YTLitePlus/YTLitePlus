@@ -9,7 +9,7 @@
 
 **LowContrastModeColors:** for users who doesn’t use gray will get a set of colors to switch which changes and improves the UI Customization. (Add-on added for LowContrastMode)
 
-**YTNoHeatwaves:** Turns off the Heatwaves Feature in the video player. `(CercubePlus/VideoPlayerOverlayControls)`
+**YTNoHeatwaves:** Turns off the Heatwaves Feature in the video player. `(YTLitePlus/VideoPlayerOverlayControls)`
 
 **YTNoUpgradeDialog:** Disables the Upgrade Dialog so you won’t be prompted to update the app.
 
@@ -30,10 +30,10 @@
 # YTLitePlus Release Information
 
 Current YouTube IPA: `%youtube_version%`  
-Current Cercube Version: `%cercube_version%`  
+Current YTLitePlus Version: `%ytliteplus_version%`  
 Current App Compatibility: `iOS/iPadOS 14.0` or later
 
-**RELEASE %youtube_version%-%cercube_version%:** (%date%)
+**RELEASE %youtube_version%-%ytliteplus_version%:** (%date%)
 
 - Updated Youtube
 
