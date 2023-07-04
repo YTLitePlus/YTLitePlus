@@ -156,7 +156,7 @@ jobs:
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
+          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
           name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
