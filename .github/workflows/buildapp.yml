@@ -144,6 +144,7 @@ jobs:
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
+          mkdir -p .github 
           sed -e "s/%CERCUBE_VERSION%/${{ inputs.cercube_version }}/g" \
               -e "s/%YOUTUBE_VERSION%/${{ inputs.youtube_version }}/g" \
               -e "s/%DATE%/${TODAY}/g" \
