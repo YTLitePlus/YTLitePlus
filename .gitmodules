@@ -43,3 +43,6 @@
 [submodule "Extensions"]
 	path = Extensions
 	url = https://github.com/CokePokes/YoutubeExtensions.git
+[submodule "Tweaks/YTNoCommunityPosts"]
+	path = Tweaks/YTNoCommunityPosts
+	url = https://github.com/arichorn/YTNoCommunityPosts.git
