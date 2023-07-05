@@ -22,9 +22,6 @@
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
 	url = https://github.com/PoomSmart/YouMute.git
-[submodule "Tweaks/RemoteLog"]
-	path = Tweaks/RemoteLog
-	url = https://github.com/Muirey03/RemoteLog.git
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
 	url = https://github.com/qnblackcat/FLEX-Classes.git
