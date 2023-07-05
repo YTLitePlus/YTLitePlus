@@ -789,9 +789,6 @@ static void replaceTab(YTIGuideResponse *response) {
     if (IsEnabled(@"hideCastButton_enabled")) {
         %init(gHideCastButton);
     }
-    if (IsEnabled(@"hideCercubePiP_enabled")) {
-        %init(gHideCercubePiP);
-    }
     if (IsEnabled(@"iPadLayout_enabled")) {
         %init(giPadLayout);
     }
