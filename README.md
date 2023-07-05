@@ -187,11 +187,7 @@ Special thanks to all the developers who have contributed to CercubePlus/YTLiteP
 <details>
   <summary>and many more...!</summary>
 
-6. **YTClassicVideoQuality:** since YouTube v16.xx, you need one more step to change the video quality. YTClassicVideoQuality brings back the old video quality selector, which is a lot better than the new one.
-
-7. **YTNoHoverCards:** offer an option to enable/disable the annoying suggested videos show up at the end of the videos.
-
-8. **YTABGoodies:** allow you to disable some YouTube A/B testing features. It is a combination of several tweaks, such as:
+6. **YTABGoodies:** allow you to disable some YouTube A/B testing features. It is a combination of several tweaks, such as:
 
 - YouAreThere: disable "Video paused. Continue watching?" popup in the YouTube app when you play a long video.
 
@@ -199,23 +195,19 @@ Special thanks to all the developers who have contributed to CercubePlus/YTLiteP
 
 - YTNoCheckLocalNetwork: block the Local Network permission popup.
 
-9. **NOYTPremium:** remove YouTube Premium upsell alerts.
+7. **YTSpeed**: a toggleable tweak to add 2.25x, 2.5x, 2.75x, 3x, 3.25x, 3.5x, 3.75x, 4x & 5x playback speed options in the video player.
 
-10. **YTSpeed**: a toggleable tweak to add 2.25x, 2.5x, 2.75x, 3x, 3.25x, 3.5x, 3.75x, 4x & 5x playback speed options in the video player.
+8. **YTMiniplayerEnabler**: enable Miniplayer for all YouTube videos.
 
-11. **YTMiniplayerEnabler**: enable Miniplayer for all YouTube videos.
+9. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
 
-12. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
+10. **YTABConfig**: allow user to control over YouTube A/B testing flags.
 
-13. **YTShortsProgress**: always enable progress bar and scrubbing in YouTube Shorts (iPhone only).
+11. **YouMute**: Mute/unmute videos in the YouTube Video Player directly.
 
-14. **YTABConfig**: allow user to control over YouTube A/B testing flags.
+12. **YTNoCommunityPosts**: this can disable all the Community Posts on the YouTube app.
 
-15. **YouMute**: Mute/unmute videos in the YouTube Video Player directly.
-
-16. **YTNoCommunityPosts**: this can disable all the Community Posts on the YouTube app.
-
-17. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
+13. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
 any many more...
 </details>
@@ -224,9 +216,7 @@ any many more...
 
 1. **YTLite**: 
 
-- Hide Cast button is not working. (Workaround: Hide cast button in CercubePlus settings)
-
-- The Updated Dark Mode in the YouTube App is not Present or Working in YTLite v5.3.13 & older versions
+- Hide Cast button is not working. (Workaround: Hide cast button in YTLitePlus settings)
 
 2. **LowContrastMode**: this tweak doesn't work everywhere with every ui element on the YouTube App.
 
@@ -266,7 +256,6 @@ any many more...
 | **YTNoShorts** | [MiRO92](https://twitter.com/miro92) | 1.0.2 | [✔︎](https://github.com/MiRO92/YTNoShorts) |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-15 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
 | **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
-| **YTNoHoverCards** | [level3tjg](https://twitter.com/level3tjg) | 0.0.3 | [✔︎](https://github.com/level3tjg/YTNoHoverCards) |
 | **YTMiniplayerEnabler** | [level3tjg](https://twitter.com/level3tjg) | 0.0.2 | [✔︎](https://github.com/level3tjg/YTMiniplayerEnabler) |
 | **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.6 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
 | **LowContrastMode** | arichorn | 1.2.3 | [✔︎](https://github.com/arichorn/LowContrastMode) |
@@ -277,10 +266,8 @@ any many more...
 | **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.1 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 | **IAmYouTube** | PoomSmart | 1.2.0 | [✔︎](https://github.com/PoomSmart/IAmYouTube) |
 | **YTReExplore** | PoomSmart | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTReExplore) |
-| **NoYTPremium** | PoomSmart | 1.0.4 | [✔︎](https://github.com/PoomSmart/NoYTPremium) |
 | **YTNoPaidPromo** | PoomSmart | 1.0.0 | [✔︎](https://github.com/PoomSmart/YTNoPaidPromo) |
 | **YTAutoFullScreen** | PoomSmart | 1.0.3 | [✔︎](https://github.com/PoomSmart/YTAutoFullScreen) |
-| **YTShortsProgress** | PoomSmart | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTShortsProgress) |
 | **Return YouTube Dislike** | PoomSmart | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
 
 </details>

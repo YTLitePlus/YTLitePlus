@@ -77,16 +77,6 @@
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 
-// Cercube button in Nav bar
-@interface MDCButton : UIButton
-@end
-
-@interface YTRightNavigationButtons : UIView
-@property (nonatomic, strong, readwrite) MDCButton *cercubeButton;
-@property YTQTMButton *notificationButton;
-@property YTQTMButton *sponsorBlockButton;
-@end
-
 // IAmYouTube
 @interface SSOConfiguration : NSObject
 @end
@@ -103,23 +93,6 @@
 @interface YTPlayerViewController (YTAFS)
 - (void)autoFullscreen;
 @end
-
-// YTNoShorts
-@interface ELMCellNode
-@end
-
-@interface _ASCollectionViewCell : UICollectionViewCell
-- (id)node;
-@end
-
-@interface YTAsyncCollectionView : UICollectionView
-- (void)removeShortsCellAtIndexPath:(NSIndexPath *)indexPath;
-@end
-
-@interface YTPlayerView : UIView
-- (void)downloadVideo;
-@end
-
 
 // App Theme
 @interface YCHLiveChatView : UIView

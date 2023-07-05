@@ -236,55 +236,6 @@ static BOOL IsEnabled(NSString *key) {
 %end
 %end
 
-// NOYTPremium - https://github.com/PoomSmart/NoYTPremium/
-%hook YTCommerceEventGroupHandler
-- (void)addEventHandlers {}
-%end
-
-%hook YTInterstitialPromoEventGroupHandler
-- (void)addEventHandlers {}
-%end
-
-%hook YTPromosheetEventGroupHandler
-- (void)addEventHandlers {}
-%end
-
-%hook YTPromoThrottleController
-- (BOOL)canShowThrottledPromo { return NO; }
-- (BOOL)canShowThrottledPromoWithFrequencyCap:(id)arg1 { return NO; }
-- (BOOL)canShowThrottledPromoWithFrequencyCaps:(id)arg1 { return NO; }
-%end
-
-%hook YTIShowFullscreenInterstitialCommand
-- (BOOL)shouldThrottleInterstitial { return YES; }
-%end
-
-%hook YTSurveyController
-- (void)showSurveyWithRenderer:(id)arg1 surveyParentResponder:(id)arg2 {}
-%end
-
-// YTShortsProgress - @PoomSmart - https://github.com/PoomSmart/YTShortsProgress
-%hook YTReelPlayerViewController
-- (BOOL)shouldEnablePlayerBar { return YES; }
-- (BOOL)shouldAlwaysEnablePlayerBar { return YES; }
-- (BOOL)shouldEnablePlayerBarOnlyOnPause { return NO; }
-%end
-
-%hook YTReelPlayerViewControllerSub
-- (BOOL)shouldEnablePlayerBar { return YES; }
-- (BOOL)shouldAlwaysEnablePlayerBar { return YES; }
-- (BOOL)shouldEnablePlayerBarOnlyOnPause { return NO; }
-%end
-
-%hook YTColdConfig
-- (BOOL)iosEnableVideoPlayerScrubber { return YES; }
-- (BOOL)mobileShortsTabInlined { return YES; }
-%end
-
-%hook YTHotConfig
-- (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
-%end
-
 // YTNoModernUI - @arichorn
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Version
@@ -427,23 +378,6 @@ static BOOL IsEnabled(NSString *key) {
 // YTNOCheckLocalNetWork - https://poomsmart.github.io/repo/depictions/ytnochecklocalnetwork.html
 %hook YTHotConfig
 - (BOOL)isPromptForLocalNetworkPermissionsEnabled { return NO; }
-%end
-
-// YTClassicVideoQuality - https://github.com/PoomSmart/YTClassicVideoQuality
-%hook YTVideoQualitySwitchControllerFactory
-- (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
-    Class originalClass = %c(YTVideoQualitySwitchOriginalController);
-    return originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
-}
-%end
-
-// YTNoHoverCards: https://github.com/level3tjg/YTNoHoverCards
-%hook YTCreatorEndscreenView
-- (void)setHidden:(BOOL)hidden {
-    if (IsEnabled(@"hideHoverCards_enabled"))
-        hidden = YES;
-    %orig;
-}
 %end
 
 // YTNoPaidPromo: https://github.com/PoomSmart/YTNoPaidPromo
@@ -677,32 +611,6 @@ static void replaceTab(YTIGuideResponse *response) {
     return %orig;
 }
 %end
-%end
-
-// Hide YouTube annoying banner in Home page? - @MiRO92 - YTNoShorts: https://github.com/MiRO92/YTNoShorts
-%hook YTAsyncCollectionView
-- (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (IsEnabled(@"hideShorts_enabled")) {
-        UICollectionViewCell *cell = %orig;
-        if ([cell isKindOfClass:NSClassFromString(@"_ASCollectionViewCell")]) {
-            _ASCollectionViewCell *cell = %orig;
-            if ([cell respondsToSelector:@selector(node)]) {
-                if ([[[cell node] accessibilityIdentifier] isEqualToString:@"eml.shorts-shelf"]) {
-                    [self removeShortsCellAtIndexPath:indexPath];
-                }
-            }
-        } else if ([cell isKindOfClass:NSClassFromString(@"YTReelShelfCell")]) {
-            [self removeShortsCellAtIndexPath:indexPath];
-        }
-        return %orig;
-    }
-        return %orig;
-}
-
-%new
-- (void)removeShortsCellAtIndexPath:(NSIndexPath *)indexPath {
-        [self deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-}
 %end
 
 // YTSpeed - https://github.com/Lyvendia/YTSpeed
