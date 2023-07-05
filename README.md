@@ -213,7 +213,9 @@ Special thanks to all the developers who have contributed to CercubePlus/YTLiteP
 
 15. **YouMute**: Mute/unmute videos in the YouTube Video Player directly.
 
-16. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
+16. **YTNoCommunityPosts**: this can disable all the Community Posts on the YouTube app.
+
+17. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
 any many more...
 </details>
@@ -240,7 +242,7 @@ any many more...
 
 # Download (IPA)
 
-- **CercubePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **CercubePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
+- **YTLitePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **YTLitePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
 
 - For AltStore user: [Open in AltStore (v18.18.2-5.3.11)](https://tinyurl.com/5a5jn7ra) - It will take a while to install because AltStore needs to download the IPA first.
 
@@ -272,6 +274,7 @@ any many more...
 | **YouPiP** | PoomSmart | 1.7.19-2 | [✔︎](https://github.com/PoomSmart/YouPiP) |
 | **YouMute** | PoomSmart | 1.1.1-1 | [✔︎](https://github.com/PoomSmart/YouMute) |
 | **YTABConfig** | PoomSmart | 1.5.0-1 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
+| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.1 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 | **IAmYouTube** | PoomSmart | 1.2.0 | [✔︎](https://github.com/PoomSmart/IAmYouTube) |
 | **YTReExplore** | PoomSmart | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTReExplore) |
 | **NoYTPremium** | PoomSmart | 1.0.4 | [✔︎](https://github.com/PoomSmart/NoYTPremium) |
