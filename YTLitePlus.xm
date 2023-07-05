@@ -71,45 +71,6 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-# pragma mark - Hide Cercube Button && Notification Button
-%hook YTRightNavigationButtons
-- (void)didMoveToWindow {
-    %orig;
-    if (IsEnabled(@"hideCercubeButton_enabled")) { 
-        self.cercubeButton.hidden = YES; 
-    }
-}
-- (void)layoutSubviews {
-    %orig;
-    if (IsEnabled(@"hideNotificationButton_enabled")) {
-        self.notificationButton.hidden = YES;
-    }
-    if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
-        self.sponsorBlockButton.hidden = YES;
-    }
-}
-%end
-
-// Hide Cercube PiP & Download button
-%group gHideCercubePiP
-%hook UIStackView
-- (void)didMoveToWindow {
-    %orig;
-    if ([self.nextResponder isKindOfClass:%c(YTMainAppVideoPlayerOverlayView)]) {
-        self.subviews[0].hidden = YES; 
-    }
-}
-%end
-%end
-
-%hook UIStackView // Hide Cercube Download Button (remove this in your Forked Repo if you want this back on.)
-- (void)didMoveToWindows {
-    if ([self.nextResponder isKindOfClass:%c(YTMainAppVideoPlayerOverlayView)]) {
-        self.subviews[1].hidden = YES;
-    }
-}
-%end
-
 // Hide Cast Button since Cercube's option is not working
 %group gHideCastButton
 %hook MDXPlaybackRouteButtonController
