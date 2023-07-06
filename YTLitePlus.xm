@@ -71,6 +71,23 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+# pragma mark - Hide Notification Button
+%hook YTRightNavigationButtons
+- (void)didMoveToWindow {
+    %orig;
+}
+
+- (void)layoutSubviews {
+    %orig;
+    if (IsEnabled(@"hideNotificationButton_enabled")) {
+        self.notificationButton.hidden = YES;
+    }
+    if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
+        self.sponsorBlockButton.hidden = YES;
+    }
+}
+%end
+
 // Hide Cast Button since Cercube's option is not working
 %group gHideCastButton
 %hook MDXPlaybackRouteButtonController
