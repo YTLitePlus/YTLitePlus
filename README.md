@@ -10,14 +10,14 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://img.shields.io/github/downloads/arichorn/YTLitePlus/total?label=Download" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total?label=Download" alt="Badge"></img></a>
+    <a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
 </p>
 
 <p align="center">
-   <img src="https://img.shields.io/github/stars/arichorn/YTLitePlus?style=social" alt="Badge"/>
-   <img src="https://img.shields.io/github/forks/arichorn/YTLitePlus?style=social" alt="Badge"/>
+   <img src="https://img.shields.io/github/stars/Balackburn/YTLitePlus?style=social" alt="Badge"/>
+   <img src="https://img.shields.io/github/forks/Balackburn/YTLitePlus?style=social" alt="Badge"/>
    <a href="https://github.com/qnblackcat/uYouPlus#support-the-developers"><img src="https://img.shields.io/badge/-Support-lightgrey?style=social&logo=paypal" alt="Badge"></img></a>
 </p>
 
