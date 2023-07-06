@@ -14,7 +14,7 @@ body:
 - type: checkboxes
   attributes:
     label: Have you read the FAQ?
-    description: _Make sure you visit the [**FAQ**](https://github.com/qnblackcat/CercubePlus/wiki/FAQ) page first!_
+    description: _Make sure you visit the [**FAQ**](https://github.com/qnblackcat/YTLitePlus/wiki/FAQ) page first!_
     options:
     - label: Yes, I read the FAQ
       required: true
@@ -27,7 +27,7 @@ body:
         - iOS/iPadOS version:
         - Device model:
         - Sideload tool (AltStore, Sideloadly, TrollStore,...):
-        - The specific version of CercubePlus (**latest** or **newest** is **NOT** a version number!):
+        - The specific version of YTLitePlus (**latest** or **newest** is **NOT** a version number!):
   validations:
     required: true
 
@@ -58,11 +58,11 @@ body:
 
 - type: dropdown
   attributes:
-    label: Are you using the newest version of CercubePlus? If not, why?
-    description: _Developers spend time and effort to fix bugs & add improvements with every release. Why don't you update to the [latest version](https://github.com/Balackburn/CercubePlusExtra/releases/latest) before reporting about an issue?_
+    label: Are you using the newest version of YTLitePlus? If not, why?
+    description: _Developers spend time and effort to fix bugs & add improvements with every release. Why don't you update to the [latest version](https://github.com/Balackburn/YTLitePlus/releases/latest) before reporting about an issue?_
     multiple: false
     options:
-      - ✅ Yes, I'm using the latest version of CercubePlus right now
+      - ✅ Yes, I'm using the latest version of YTLitePlus right now
       - ❌ No, I'll explain at the end of the template
   validations:
     required: true
