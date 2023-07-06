@@ -77,6 +77,15 @@
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 
+// SponsorBlock button in Nav bar
+@interface MDCButton : UIButton
+@end
+
+@interface YTRightNavigationButtons : UIView
+@property YTQTMButton *notificationButton;
+@property YTQTMButton *sponsorBlockButton;
+@end
+
 // IAmYouTube
 @interface SSOConfiguration : NSObject
 @end
