@@ -1,0 +1,99 @@
+// Paramètres
+"VERSION" = "YTLitePlus version : %@";
+"VERSION_CHECK" = "Appuyez pour vérifier les mises à jour !";
+
+// Options du lecteur vidéo
+"VIDEO_PLAYER_OPTIONS" = "Options du lecteur vidéo";
+
+"AUTO_FULLSCREEN" = "Plein écran automatique (YTAutoFullScreen)";
+"AUTO_FULLSCREEN_DESC" = "Lire les vidéos en plein écran automatiquement.";
+
+"TAP_TO_SKIP" = "Désactiver l'appui pour passer";
+"TAP_TO_SKIP_DESC" = "Désactiver la fonctionnalité d'appui pour passer dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
+
+"SNAP_TO_CHAPTER" = "Désactiver l'alignement sur le chapitre";
+"SNAP_TO_CHAPTER_DESC" = "Désactiver l'alignement automatique sur le chapitre lors de la recherche dans les vidéos. Un redémarrage de l'application est nécessaire.";
+
+"PINCH_TO_ZOOM" = "Désactiver pincer pour zoomer";
+"PINCH_TO_ZOOM_DESC" = "Un redémarrage de l'application est nécessaire.";
+
+"YT_MINIPLAYER" = "Activer le mini-lecteur pour toutes les vidéos YouTube";
+"YT_MINIPLAYER_DESC" = "Par exemple, les vidéos pour enfants.";
+
+"STOCK_VOLUME_HUD" = "Utiliser le contrôleur de volume iOS par défaut";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+// Options de l'overlay des contrôles vidéo
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Options de l'overlay des contrôles vidéo";
+
+"ENABLE_SHARE_BUTTON" = "Activer le bouton Partager";
+"ENABLE_SHARE_BUTTON_DESC" = "Activer le bouton Partager dans l'overlay des contrôles vidéo.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Activer le bouton 'Enregistrer dans la liste de lecture'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Activer le bouton 'Enregistrer dans la liste de lecture' dans l'overlay des contrôles vidéo.";
+
+"HIDE_AUTOPLAY_SWITCH" = "Masquer l'interrupteur de lecture automatique";
+"HIDE_AUTOPLAY_SWITCH_DESC" = "Masquer l'interrupteur de lecture automatique dans l'overlay des contrôles vidéo.";
+
+"HIDE_SUBTITLES_BUTTON" = "Masquer le bouton Sous-titres";
+"HIDE_SUBTITLES_BUTTON_DESC" = "Masquer le bouton Sous-titres dans l'overlay des contrôles vidéo.";
+
+"HIDE_HUD_MESSAGES" = "Masquer les messages HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Exemple : Les sous-titres sont activés/désactivés, la boucle vidéo est activée, ...";
+
+"HIDE_PAID_PROMOTION_CARDS" = "Masquer les cartes de promotion payante";
+"HIDE_PAID_PROMOTION_CARDS_DESC" = "Masquer la carte 'Contient des promotions payantes' dans certaines vidéos.";
+
+"HIDE_CHANNEL_WATERMARK" = "Masquer le filigrane de la chaîne";
+"HIDE_CHANNEL_WATERMARK_DESC" = "Masquer le filigrane de la chaîne dans l'overlay des contrôles vidéo. Un redémarrage de l'application est nécessaire.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Masquer l'overlay sombre";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Masquer l'overlay sombre sur les boutons Lecture/Pause, Précédent, Suivant, Avancer et Retour en arrière.";
+
+"HIDE_PREVIOUS_AND_NEXT_BUTTON" = "Masquer les boutons Précédent et Suivant";
+"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC" = "Masquer les boutons Précédent et Suivant dans l'overlay des contrôles vidéo.";
+
+"REPLACE_PREVIOUS_NEXT_BUTTON" = "Remplacer les boutons Précédent et Suivant";
+"REPLACE_PREVIOUS_NEXT_BUTTON_DESC" = "Remplacer les boutons Précédent et Suivant par les boutons Avance rapide et Retour en arrière. Un redémarrage de l'application est nécessaire.";
+
+"RED_PROGRESS_BAR" = "Barre de progression rouge";
+"RED_PROGRESS_BAR_DESC" = "Ramener la barre de progression rouge. Un redémarrage de l'application est nécessaire.";
+
+"DISABLE_VIDEO_PLAYER_ZOOM" = "Désactiver la fonction de zoom dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
+"DISABLE_VIDEO_PLAYER_ZOOM_DESC" = "Désactiver la fonction de zoom sur l'iPhone et l'iPad.";
+
+"HIDE_HOVER_CARD" = "Masquer les cartes de survol";
+"HIDE_HOVER_CARD_DESC" = "Masquer les informations sur la vidéo lors du survol de la barre de progression.";
+
+// Autres options
+"OTHER_OPTIONS" = "Autres options";
+
+"HIDE_DOWNLOAD_BUTTON" = "Masquer le bouton Télécharger";
+"HIDE_DOWNLOAD_BUTTON_DESC" = "Masquer le bouton Télécharger dans l'application.";
+
+"HIDE_CREATE_POST_BUTTON" = "Masquer le bouton 'Créer un post'";
+"HIDE_CREATE_POST_BUTTON_DESC" = "Masquer le bouton 'Créer un post' dans l'onglet Abonnements.";
+
+"HIDE_EXPLORE_TAB" = "Masquer l'onglet Explorer";
+"HIDE_EXPLORE_TAB_DESC" = "Masquer l'onglet Explorer dans la barre de navigation. Un redémarrage de l'application est nécessaire.";
+
+"HIDE_SHORTS_TAB" = "Masquer l'onglet Shorts";
+"HIDE_SHORTS_TAB_DESC" = "Masquer l'onglet Shorts dans la barre de navigation. Un redémarrage de l'application est nécessaire.";
+
+"HIDE_ADD_TO_PLAYLIST_OVERLAY" = "Masquer l'overlay 'Ajouter à la liste de lecture'";
+"HIDE_ADD_TO_PLAYLIST_OVERLAY_DESC" = "Masquer l'overlay 'Ajouter à la liste de lecture' lors de l'ajout d'une vidéo à une liste de lecture.";
+
+"ENABLE_BACKGROUND_PLAYBACK" = "Activer la lecture en arrière-plan";
+"ENABLE_BACKGROUND_PLAYBACK_DESC" = "Permettre la lecture en arrière-plan lorsque l'application n'est pas en premier plan.";
+
+"REMOVE_ADS" = "Supprimer les publicités";
+"REMOVE_ADS_DESC" = "Supprimer les publicités dans l'application. Cette fonctionnalité n'est pas garantie et peut ne pas fonctionner pour toutes les publicités.";
+
+"FORCE_WHITE_STATUS_BAR" = "Forcer la barre d'état blanche";
+"FORCE_WHITE_STATUS_BAR_DESC" = "Forcer la barre d'état blanche pour une meilleure visibilité sur les appareils avec écran OLED.";
+
+"DISABLE_END_OF_VIDEO_OVERLAY" = "Désactiver l'overlay de fin de vidéo";
+"DISABLE_END_OF_VIDEO_OVERLAY_DESC" = "Désactiver l'overlay qui s'affiche à la fin des vidéos.";
+
+"RESET_SETTINGS" = "Réinitialiser les paramètres";
+"RESET_SETTINGS_DESC" = "Réinitialiser tous les paramètres aux valeurs par défaut. Un redémarrage de l'application est nécessaire.";
