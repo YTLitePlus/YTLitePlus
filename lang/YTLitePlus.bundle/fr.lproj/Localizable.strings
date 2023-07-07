@@ -8,8 +8,8 @@
 "AUTO_FULLSCREEN" = "Plein écran automatique (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "Lire les vidéos en plein écran automatiquement.";
 
-"TAP_TO_SKIP" = "Désactiver l'appui pour passer";
-"TAP_TO_SKIP_DESC" = "Désactiver la fonctionnalité d'appui pour passer dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
+"TAP_TO_SKIP" = "Désactiver l'appui pour passer 10 secondes.";
+"TAP_TO_SKIP_DESC" = "Désactiver la fonctionnalité d'appui pour passer 10 secondes dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
 
 "SNAP_TO_CHAPTER" = "Désactiver l'alignement sur le chapitre";
 "SNAP_TO_CHAPTER_DESC" = "Désactiver l'alignement automatique sur le chapitre lors de la recherche dans les vidéos. Un redémarrage de l'application est nécessaire.";
@@ -20,7 +20,7 @@
 "YT_MINIPLAYER" = "Activer le mini-lecteur pour toutes les vidéos YouTube";
 "YT_MINIPLAYER_DESC" = "Par exemple, les vidéos pour enfants.";
 
-"STOCK_VOLUME_HUD" = "Utiliser le contrôleur de volume iOS par défaut";
+"STOCK_VOLUME_HUD" = "Utiliser le HUD de volume iOS par défaut";
 "STOCK_VOLUME_HUD_DESC" = "";
 
 // Options de l'overlay des contrôles vidéo
@@ -32,8 +32,8 @@
 "ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Activer le bouton 'Enregistrer dans la liste de lecture'";
 "ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Activer le bouton 'Enregistrer dans la liste de lecture' dans l'overlay des contrôles vidéo.";
 
-"HIDE_AUTOPLAY_SWITCH" = "Masquer l'interrupteur de lecture automatique";
-"HIDE_AUTOPLAY_SWITCH_DESC" = "Masquer l'interrupteur de lecture automatique dans l'overlay des contrôles vidéo.";
+"HIDE_AUTOPLAY_SWITCH" = "Masquer le toggle de lecture automatique";
+"HIDE_AUTOPLAY_SWITCH_DESC" = "Masquer le toggle de lecture automatique dans l'overlay des contrôles vidéo.";
 
 "HIDE_SUBTITLES_BUTTON" = "Masquer le bouton Sous-titres";
 "HIDE_SUBTITLES_BUTTON_DESC" = "Masquer le bouton Sous-titres dans l'overlay des contrôles vidéo.";
@@ -62,28 +62,28 @@
 "DISABLE_VIDEO_PLAYER_ZOOM" = "Désactiver la fonction de zoom dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
 "DISABLE_VIDEO_PLAYER_ZOOM_DESC" = "Désactiver la fonction de zoom sur l'iPhone et l'iPad.";
 
-"HIDE_HOVER_CARD" = "Masquer les cartes de survol";
-"HIDE_HOVER_CARD_DESC" = "Masquer les informations sur la vidéo lors du survol de la barre de progression.";
+"HIDE_HOVER_CARD" = "Masquer la prévisualisation de la vidéo";
+"HIDE_HOVER_CARD_DESC" = "Masquer la prévisualisation de la vidéo lors du survol de la barre de progression";
 
 "HIDE_RIGHT_PANEL" = "Masquer le panneau de droite en mode plein écran";
 "HIDE_RIGHT_PANEL_DESC" = "Le redémarrage de l'application est requis.";
 
-"DONT_EAT_MY_CONTENT" = "Empêcher Notch/Island sur le contenu vidéo 2:1 (DontEatMyContent)";
-"DONT_EAT_MY_CONTENT_DESC" = "Empêcher Notch/Dynamic Island de grignoter le contenu vidéo 2:1 sur YouTube. Le redémarrage de l'application est requis.";
+"DONT_EAT_MY_CONTENT" = "Empêcher l'encoche/Dynamic Island de masquer le contenu des vidéos 2:1 (DontEatMyContent)";
+"DONT_EAT_MY_CONTENT_DESC" = "Empêcher l'encoche/Dynamic Island de grignoter le contenu des vidéos 2:1 sur YouTube. Le redémarrage de l'application est requis.";
 
 "HIDE_HEATWAVES" = "Masquer les Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
-"HIDE_DARK_OVERLAY_BACKGROUND" = "Masquer l'arrière-plan sombre en superposition";
-"HIDE_DARK_OVERLAY_BACKGROUND_DESC" = "Masquer l'arrière-plan sombre en superposition du lecteur vidéo.";
+"HIDE_DARK_OVERLAY_BACKGROUND" = "Masquer l'arrière-plan sombre de l'overlay";
+"HIDE_DARK_OVERLAY_BACKGROUND_DESC" = "Masquer l'arrière-plan sombre de l'overlay du lecteur vidéo.";
 
-// Options d'overlay des commandes Shorts
-"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options d'overlay des commandes Shorts";
+// Options de l'overlay des contrôles des Shorts.
+"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options de l'overlay des contrôles des Shorts.";
 
 "HIDE_SHORTS_VIDEOS" = "Masquer les vidéos Shorts";
 "HIDE_SHORTS_VIDEOS_DESC" = "Masquer les vidéos Shorts dans la page d'accueil, les vidéos recommandées...";
 
-"HIDE_SHORTS_CHANNEL_AVATAR" = "Masquer l'avatar de la chaîne Shorts";
+"HIDE_SHORTS_CHANNEL_AVATAR" = "Masquer l'avatar de la chaîne des Shorts";
 "HIDE_SHORTS_CHANNEL_AVATAR_DESC" = "";
 
 "HIDE_SHORTS_LIKE_BUTTON" = "Masquer le bouton J'aime des Shorts";
