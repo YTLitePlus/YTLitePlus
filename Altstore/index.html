@@ -2,12 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Redirecting to Altstore Repo</title>
+    <title>Altstore JSON Content</title>
     <script>
-      window.location.replace('https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json');
+      fetch("https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+          }
+          return response.text();
+        })
+        .then((data) => {
+          document.body.innerHTML = "<pre>" + data + "</pre>";
+        })
+        .catch((error) => {
+          console.error("Fetch Error: ", error);
+        });
     </script>
   </head>
   <body>
-    <p>If you are not redirected automatically, <a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json">click here</a>.</p>
   </body>
 </html>
