@@ -65,35 +65,138 @@
 "HIDE_HOVER_CARD" = "Masquer les cartes de survol";
 "HIDE_HOVER_CARD_DESC" = "Masquer les informations sur la vidéo lors du survol de la barre de progression.";
 
-// Autres options
-"OTHER_OPTIONS" = "Autres options";
+"HIDE_RIGHT_PANEL" = "Masquer le panneau de droite en mode plein écran";
+"HIDE_RIGHT_PANEL_DESC" = "Le redémarrage de l'application est requis.";
 
-"HIDE_DOWNLOAD_BUTTON" = "Masquer le bouton Télécharger";
-"HIDE_DOWNLOAD_BUTTON_DESC" = "Masquer le bouton Télécharger dans l'application.";
+"DONT_EAT_MY_CONTENT" = "Empêcher Notch/Island sur le contenu vidéo 2:1 (DontEatMyContent)";
+"DONT_EAT_MY_CONTENT_DESC" = "Empêcher Notch/Dynamic Island de grignoter le contenu vidéo 2:1 sur YouTube. Le redémarrage de l'application est requis.";
 
-"HIDE_CREATE_POST_BUTTON" = "Masquer le bouton 'Créer un post'";
-"HIDE_CREATE_POST_BUTTON_DESC" = "Masquer le bouton 'Créer un post' dans l'onglet Abonnements.";
+"HIDE_HEATWAVES" = "Masquer les vagues de chaleur";
+"HIDE_HEATWAVES_DESC" = "Masque les vagues de chaleur dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
-"HIDE_EXPLORE_TAB" = "Masquer l'onglet Explorer";
-"HIDE_EXPLORE_TAB_DESC" = "Masquer l'onglet Explorer dans la barre de navigation. Un redémarrage de l'application est nécessaire.";
+"HIDE_DARK_OVERLAY_BACKGROUND" = "Masquer l'arrière-plan sombre en superposition";
+"HIDE_DARK_OVERLAY_BACKGROUND_DESC" = "Masquer l'arrière-plan sombre en superposition du lecteur vidéo.";
 
-"HIDE_SHORTS_TAB" = "Masquer l'onglet Shorts";
-"HIDE_SHORTS_TAB_DESC" = "Masquer l'onglet Shorts dans la barre de navigation. Un redémarrage de l'application est nécessaire.";
+// Options de superposition des commandes Shorts
+"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options de superposition des commandes Shorts";
 
-"HIDE_ADD_TO_PLAYLIST_OVERLAY" = "Masquer l'overlay 'Ajouter à la liste de lecture'";
-"HIDE_ADD_TO_PLAYLIST_OVERLAY_DESC" = "Masquer l'overlay 'Ajouter à la liste de lecture' lors de l'ajout d'une vidéo à une liste de lecture.";
+"HIDE_SHORTS_VIDEOS" = "Masquer les vidéos Shorts";
+"HIDE_SHORTS_VIDEOS_DESC" = "Masquer les vidéos Shorts dans la page d'accueil, les vidéos recommandées...";
 
-"ENABLE_BACKGROUND_PLAYBACK" = "Activer la lecture en arrière-plan";
-"ENABLE_BACKGROUND_PLAYBACK_DESC" = "Permettre la lecture en arrière-plan lorsque l'application n'est pas en premier plan.";
+"HIDE_SHORTS_CHANNEL_AVATAR" = "Masquer l'avatar de la chaîne Shorts";
+"HIDE_SHORTS_CHANNEL_AVATAR_DESC" = "";
 
-"REMOVE_ADS" = "Supprimer les publicités";
-"REMOVE_ADS_DESC" = "Supprimer les publicités dans l'application. Cette fonctionnalité n'est pas garantie et peut ne pas fonctionner pour toutes les publicités.";
+"HIDE_SHORTS_LIKE_BUTTON" = "Masquer le bouton J'aime des Shorts";
+"HIDE_SHORTS_LIKE_BUTTON_DESC" = "";
 
-"FORCE_WHITE_STATUS_BAR" = "Forcer la barre d'état blanche";
-"FORCE_WHITE_STATUS_BAR_DESC" = "Forcer la barre d'état blanche pour une meilleure visibilité sur les appareils avec écran OLED.";
+"HIDE_SHORTS_DISLIKE_BUTTON" = "Masquer le bouton Je n'aime pas des Shorts";
+"HIDE_SHORTS_DISLIKE_BUTTON_DESC" = "";
 
-"DISABLE_END_OF_VIDEO_OVERLAY" = "Désactiver l'overlay de fin de vidéo";
-"DISABLE_END_OF_VIDEO_OVERLAY_DESC" = "Désactiver l'overlay qui s'affiche à la fin des vidéos.";
+"HIDE_SHORTS_COMMENT_BUTTON" = "Masquer le bouton de commentaire des Shorts";
+"HIDE_SHORTS_COMMENT_BUTTON_DESC" = "";
 
-"RESET_SETTINGS" = "Réinitialiser les paramètres";
-"RESET_SETTINGS_DESC" = "Réinitialiser tous les paramètres aux valeurs par défaut. Un redémarrage de l'application est nécessaire.";
+"HIDE_SHORTS_REMIX_BUTTON" = "Masquer le bouton de remix des Shorts";
+"HIDE_SHORTS_REMIX_BUTTON_DESC" = "";
+
+"HIDE_SHORTS_SHARE_BUTTON" = "Masquer le bouton de partage des Shorts";
+"HIDE_SHORTS_SHARE_BUTTON_DESC" = "";
+
+"HIDE_SUPER_THANKS" = "Masquer la bannière 'Acheter Super Thanks'";
+"HIDE_SUPER_THANKS_DESC" = "Masquer la bannière 'Acheter Super Thanks' dans les Shorts.";
+
+"HIDE_SUBSCRIPTIONS" = "Masquer le bouton Abonnements";
+"HIDE_SUBSCRIPTIONS_DESC" = "Masquer le bouton Abonnements qui apparaît lors de la pause.";
+
+// Thème
+"THEME_OPTIONS" = "Options de thème";
+
+"OLED_DARK_THEME" = "Thème sombre OLED (expérimental)";
+"OLED_DARK_THEME_2" = "Thème sombre OLED";
+"OLED_DARK_THEME_DESC" = "Vrai thème sombre. Peut ne pas fonctionner correctement dans certains cas. Le redémarrage de l'application est requis après avoir activé/désactivé cette option.";
+
+"OLD_DARK_THEME" = "Ancien thème sombre";
+"OLD_DARK_THEME_DESC" = "Ancien thème sombre de YouTube (thème gris). Le redémarrage de l'application est requis.";
+
+"DEFAULT_THEME" = "Par défaut";
+"DEFAULT_THEME_DESC" = "Thème sombre (plus foncé) par défaut de YouTube. Le redémarrage de l'application est requis.";
+
+"OLED_KEYBOARD" = "Clavier OLED (expérimental)";
+"OLED_KEYBOARD_DESC" = "Peut ne pas fonctionner correctement dans certains cas. Le redémarrage de l'application est requis.";
+
+"LOW_CONTRAST_MODE" = "Mode faible contraste";
+"LOW_CONTRAST_MODE_DESC" = "Cette option réduira le contraste des textes et des boutons, comme l'ancienne interface YouTube. Le redémarrage de l'application est requis.";
+
+"LCM_CHOOSE_COLOR" = "Couleur du texte à faible contraste";
+"DEFAULT_UI" = "Par défaut";
+"RED_UI" = "Interface rouge";
+"BLUE_UI" = "Interface bleue";
+"GREEN_UI" = "Interface verte";
+"YELLOW_UI" = "Interface jaune";
+"ORANGE_UI" = "Interface orange";
+"PURPLE_UI" = "Interface violette";
+"VIOLET_UI" = "Interface pourpre";
+"PINK_UI" = "Interface rose";
+
+// Divers
+"MISCELLANEOUS" = "Divers";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Activer l'animation de démarrage YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_YOUTUBE_LOGO" = "Masquer le logo YouTube";
+"HIDE_YOUTUBE_LOGO_DESC" = "Cela masquera le logo YouTube en haut à gauche de l'interface. Un redémarrage de l'application est requis.";
+
+"HIDE_CHIP_BAR" = "Masquer la barre supérieure";
+"HIDE_CHIP_BAR_DESC" = "Masquer la barre supérieure dans les flux Accueil (Tendances, Musique, Jeux...) et les flux Abonnements (Toutes les vidéos, Continuer à regarder...).";
+
+"HIDE_MODERN_INTERFACE" = "Masquer l'interface moderne (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Activez cette option pour masquer tout élément moderne ajouté par YouTube. Supprime le mode Ambiant, le design arrondi et plus encore. Un redémarrage de l'application est requis.";
+
+"IPAD_LAYOUT" = "Disposition iPad";
+"IPAD_LAYOUT_DESC" = "Utilisez ceci uniquement si vous souhaitez avoir la disposition iPad sur votre iPhone/iPod actuel. Un redémarrage de l'application est requis.";
+
+"IPHONE_LAYOUT" = "Disposition iPhone";
+"IPHONE_LAYOUT_DESC" = "Utilisez ceci uniquement si vous souhaitez avoir la disposition iPhone sur votre iPad actuel. Un redémarrage de l'application est requis.";
+
+"CAST_CONFIRM" = "Alerte de confirmation avant la diffusion (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Affiche une alerte de confirmation avant la diffusion pour éviter de prendre accidentellement le contrôle de la télévision.";
+"CASTING" = "Casting";
+"MSG_ARE_YOU_SURE" = "Êtes-vous sûr de vouloir commencer à diffuser ?";
+"MSG_YES" = "Oui";
+"MSG_CANCEL" = "Annuler";
+
+"DISABLE_HINTS" = "Désactiver les astuces";
+"DISABLE_HINTS_DESC" = "Désactive les astuces de fonctionnalités de YouTube qui s'affichent généralement lorsque l'application est nouvellement installée.";
+
+"NEW_MINIPLAYER_STYLE" = "Nouveau style de mini-lecteur (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Un redémarrage de l'application est requis.";
+
+"HIDE_CAST_BUTTON" = "Masquer le bouton Cast";
+"HIDE_CAST_BUTTON_DESC" = "Un redémarrage de l'application est requis.";
+
+"HIDE_NOTIFICATION_BUTTON" = "Masquer le bouton de notification dans la barre de navigation";
+"HIDE_NOTIFICATION_BUTTON_DESC" = "";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Masquer le bouton iSponsorBlock dans la barre de navigation";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_CERCUBE_BUTTON" = "Masquer le bouton Cercube dans la barre de navigation";
+"HIDE_CERCUBE_BUTTON_DESC" = "";
+
+"HIDE_CERCUBE_PIP_BUTTON" = "Masquer le bouton PiP de Cercube";
+"HIDE_CERCUBE_PIP_BUTTON_DESC" = "Masquer le bouton PiP de Cercube dans le superposition des contrôles vidéo.";
+
+"HIDE_CERCUBE_DOWNLOAD_BUTTON" = "Masquer le bouton Télécharger de Cercube";
+"HIDE_CERCUBE_DOWNLOAD_BUTTON_DESC" = "L'option pour masquer le bouton Télécharger de Cercube est activée par défaut, car vous ne pouvez plus rien télécharger maintenant puisque les serveurs de téléchargement de Cercube ont disparu.";
+
+"DISABLE_WIFI_RELATED_SETTINGS" = "Désactiver les paramètres liés au Wifi";
+"DISABLE_WIFI_RELATED_SETTINGS_DESC" = "Désactive les sections liées au Wifi (Notifications, applications connectées, confidentialité et chat en direct, etc.) dans le menu des paramètres. Un redémarrage de l'application est requis.";
+
+"YT_RE_EXPLORE" = "Remplacer l'onglet Shorts par l'onglet Explorer (YTReExplore)";
+"YT_RE_EXPLORE_DESC" = "Un redémarrage de l'application est requis.";
+
+"YT_SPEED" = "Activer YTSpeed";
+"YT_SPEED_DESC" = "Activez YTSpeed pour avoir plus d'options de vitesse de lecture. Un redémarrage de l'application est requis.";
+
+"ENABLE_FLEX" = "Activer FLEX";
+"ENABLE_FLEX_DESC" = "Activez FLEX pour le débogage (non recommandé). Laissez cette option désactivée, sauf si vous savez ce que vous faites.";
