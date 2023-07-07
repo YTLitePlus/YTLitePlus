@@ -71,14 +71,14 @@
 "DONT_EAT_MY_CONTENT" = "Empêcher Notch/Island sur le contenu vidéo 2:1 (DontEatMyContent)";
 "DONT_EAT_MY_CONTENT_DESC" = "Empêcher Notch/Dynamic Island de grignoter le contenu vidéo 2:1 sur YouTube. Le redémarrage de l'application est requis.";
 
-"HIDE_HEATWAVES" = "Masquer les vagues de chaleur";
-"HIDE_HEATWAVES_DESC" = "Masque les vagues de chaleur dans le lecteur vidéo. Le redémarrage de l'application est requis.";
+"HIDE_HEATWAVES" = "Masquer les Heatwaves";
+"HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
 "HIDE_DARK_OVERLAY_BACKGROUND" = "Masquer l'arrière-plan sombre en superposition";
 "HIDE_DARK_OVERLAY_BACKGROUND_DESC" = "Masquer l'arrière-plan sombre en superposition du lecteur vidéo.";
 
-// Options de superposition des commandes Shorts
-"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options de superposition des commandes Shorts";
+// Options d'overlay des commandes Shorts
+"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options d'overlay des commandes Shorts";
 
 "HIDE_SHORTS_VIDEOS" = "Masquer les vidéos Shorts";
 "HIDE_SHORTS_VIDEOS_DESC" = "Masquer les vidéos Shorts dans la page d'accueil, les vidéos recommandées...";
@@ -179,15 +179,6 @@
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Masquer le bouton iSponsorBlock dans la barre de navigation";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"HIDE_CERCUBE_BUTTON" = "Masquer le bouton Cercube dans la barre de navigation";
-"HIDE_CERCUBE_BUTTON_DESC" = "";
-
-"HIDE_CERCUBE_PIP_BUTTON" = "Masquer le bouton PiP de Cercube";
-"HIDE_CERCUBE_PIP_BUTTON_DESC" = "Masquer le bouton PiP de Cercube dans le superposition des contrôles vidéo.";
-
-"HIDE_CERCUBE_DOWNLOAD_BUTTON" = "Masquer le bouton Télécharger de Cercube";
-"HIDE_CERCUBE_DOWNLOAD_BUTTON_DESC" = "L'option pour masquer le bouton Télécharger de Cercube est activée par défaut, car vous ne pouvez plus rien télécharger maintenant puisque les serveurs de téléchargement de Cercube ont disparu.";
 
 "DISABLE_WIFI_RELATED_SETTINGS" = "Désactiver les paramètres liés au Wifi";
 "DISABLE_WIFI_RELATED_SETTINGS_DESC" = "Désactive les sections liées au Wifi (Notifications, applications connectées, confidentialité et chat en direct, etc.) dans le menu des paramètres. Un redémarrage de l'application est requis.";
