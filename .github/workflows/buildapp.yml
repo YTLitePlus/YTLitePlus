@@ -130,6 +130,10 @@ jobs:
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           BUNDLE_ID: ${{ inputs.bundle_id }}
           APP_NAME: ${{ inputs.app_name }}
+          
+      - name: Update PACKAGE_VERSION in Makefile
+        run: |
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ inputs.youtube_version }}-${{ inputs.ytliteplus_version }}/" main/Makefile
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.2
