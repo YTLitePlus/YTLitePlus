@@ -166,7 +166,7 @@ jobs:
       - name: Update Altstore Source with latest release
         run: |
           curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/dispatches' \
-          --header 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
             "event_type": "update-altstore-source-trigger"
