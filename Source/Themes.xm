@@ -99,6 +99,13 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 }
 %end
 
+// Testing OLED YTPlayerView for OldDarkmode (video background)
+%hook YTPlayerView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
 // Hide broken YTCinematicContainerView
 %hook YTCinematicContainerView
 - (void)setHidden:(BOOL)arg1 {
