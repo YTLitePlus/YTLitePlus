@@ -43,3 +43,9 @@
 [submodule "Tweaks/YTNoCommunityPosts"]
 	path = Tweaks/YTNoCommunityPosts
 	url = https://github.com/arichorn/YTNoCommunityPosts.git
+[submodule "Tweaks/YouQuality"]
+	path = Tweaks/YouQuality
+	url = https://github.com/Poomsmart/YouQuality.git
+[submodule "Tweaks/YTVideoOverlay"]
+	path = Tweaks/YTVideoOverlay
+	url = https://github.com/PoomSmart/YTVideoOverlay.git
