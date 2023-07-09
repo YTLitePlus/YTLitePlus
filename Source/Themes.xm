@@ -91,6 +91,12 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 }
 %end
 
+%hook YTCinematicContainerView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
 %hook YTCollectionViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? customColor : %orig;
@@ -432,12 +438,9 @@ UIColor* raisedColor = [UIColor blackColor];
 
 // Hide separators
 %hook YTCollectionSeparatorView
-%property (nonatomic, assign, setter=setHidden:) BOOL hidden;
-
-- (void)setHidden:(BOOL)hidden {
-    %orig(hidden);
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
 }
-
 %end
 
 %hook YTELMView
