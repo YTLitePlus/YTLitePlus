@@ -81,16 +81,25 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 
 %hook UIView
 - (void)setBackgroundColor:(UIColor *)color {
-    UIColor *targetColor = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
+    UIColor *targetColor1 = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
+    UIColor *targetColor2 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]; // Replace with the new target color values
     CGFloat tolerance = 0.01; // Adjust this value as needed
 
-    if (areColorsEqual(color, targetColor, tolerance)) {
+    if (areColorsEqual(color, targetColor1, tolerance) || areColorsEqual(color, targetColor2, tolerance)) {
         color = customColor;
     }
     %orig(color);
 }
 %end
 
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
+// Hide broken YTCinematicContainerView
 %hook YTCinematicContainerView
 - (void)setHidden:(BOOL)arg1 {
     %orig(YES);
@@ -98,6 +107,12 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
 %end
 
 %hook YTCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTWatchView
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? customColor : %orig;
 }
