@@ -18,8 +18,7 @@ jobs:
 
       - name: Update submodules
         run: |
-          git submodule update --init --recursive
-          git submodule foreach 'git fetch origin; git checkout origin/main'
+          git submodule update --init --recursive --remote
           git add .
           git commit -m "updated submodules"
           git push origin
