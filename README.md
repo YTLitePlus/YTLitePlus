@@ -226,14 +226,11 @@ any many more...
 
 - **YTLitePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **YTLitePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
 
-- For AltStore user: [Open in AltStore (v18.18.2-5.3.11)](https://tinyurl.com/5a5jn7ra) - It will take a while to install because AltStore needs to download the IPA first.
+- For AltStore user: 
+[Add to Altstore/Sidestore](https://tinyurl.com/YTLiteAltstore)
 
-<details>
-  <summary>Alternative Download</summary>
-  
-[Open in AltStore (v18.14.1-5.3.11-F2)](https://tinyurl.com/4exxknn8) - This is the **v18.14.1-5.3.11-F2** release. only use this to resolve the OLED/OLD Dark Mode Problem.
+[View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
 
-</details>
 
 - Version info: _(May 9 2023)_
 
