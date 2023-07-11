@@ -166,15 +166,7 @@ Special thanks to all the developers who have contributed to CercubePlus/YTLiteP
 
 # Features
 
-1. **YTLite:**
-
-- Block all advertisements & Enable background playback.
-
-- Set default player quality on WiFi & Celullar.
-
-- Save videos in high resolution, save videos as audio-only, save public playlists (beta).
-
-- And many more...
+1. **YTLite:** +50 customization options for YouTube, YTLite enhances your viewing experience by removing ads, enabling background playback, and providing control over navigation, overlay, player, tab bar, and Shorts settings.
 
 2. **iSponsorBlock:** Skips annoying sponsor ads inside videos. iSponsorBlock is based on [SponsorBlock engine](https://sponsor.ajay.app/). Basically, this is the iOS version of the SponsorBlock extension.
 
