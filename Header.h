@@ -129,6 +129,8 @@
 @end
 
 @interface _ASDisplayView : UIView
+- (UILabel *)findLabelInSubviews:(NSArray *)subviews;
+- (void)customizeLabel:(UILabel *)label;
 @end
 
 @interface YTCommentDetailHeaderCell : UIView
