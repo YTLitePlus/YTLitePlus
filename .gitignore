@@ -5,3 +5,5 @@ tmp/
 Tweaks/YTLite/*
 !Tweaks/YTLite/.gitkeep
 Resources/
+Extensions/
+Tweaks/
