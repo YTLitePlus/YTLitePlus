@@ -156,6 +156,7 @@ static BOOL pinkContrastMode() {
     %orig(textColor);
 }
 %end
+/* disabled the code to stop crashing
 %hook _ASDisplayView
 - (void)didMoveToWindow {
     %orig;
@@ -180,6 +181,7 @@ static BOOL pinkContrastMode() {
     label.textColor = [UIColor whiteColor];
 }
 %end
+*/
 %end
 
 %group gRedContrastMode // Red Contrast Mode
