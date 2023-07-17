@@ -36,10 +36,12 @@ static BOOL version8() {
 }
 
 %group gDefault
-%hook YTVersionUtils // Default 
+%hook YTVersionUtils
 + (NSString *)appVersion {
-    NSString *originalVersion = %orig;
-    return originalVersion;
+    NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
+    NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
+    
+    return latestVersion ?: @"18.27.3"; // <-- Fallback Version
 }
 %end
 %end
