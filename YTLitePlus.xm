@@ -14,25 +14,6 @@ NSBundle *YTLitePlusBundle() {
 }
 NSBundle *tweakBundle = YTLitePlusBundle();
 
-// Keychain fix
-static NSString *accessGroupID() {
-    NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-                           (__bridge NSString *)kSecClassGenericPassword, (__bridge NSString *)kSecClass,
-                           @"bundleSeedID", kSecAttrAccount,
-                           @"", kSecAttrService,
-                           (id)kCFBooleanTrue, kSecReturnAttributes,
-                           nil];
-    CFDictionaryRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecItemNotFound)
-        status = SecItemAdd((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-        if (status != errSecSuccess)
-            return nil;
-    NSString *accessGroup = [(__bridge NSDictionary *)result objectForKey:(__bridge NSString *)kSecAttrAccessGroup];
-
-    return accessGroup;
-}
-
 //
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
@@ -71,7 +52,7 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-# pragma mark - Hide Notification Button
+# pragma mark - Hide SponsorBlock Button
 %hook YTRightNavigationButtons
 - (void)didMoveToWindow {
     %orig;
@@ -190,6 +171,9 @@ static BOOL IsEnabled(NSString *key) {
 %end
 
 %hook YTColdConfig
+// 16.xx.x Styled YouTube Channel Page Interface - YTNoModernUI
+- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
+- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Modern Content - YTNoModernUI
 - (BOOL)creatorClientConfigEnableStudioModernizedMdeThumbnailPickerForClient { return NO; }
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
@@ -231,9 +215,6 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
-// 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
-- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
-- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Optional Content - YTNoModernUI
 - (BOOL)elementsClientIosElementsEnableLayoutUpdateForIob { return NO; }
 - (BOOL)supportElementsInMenuItemSupportedRenderers { return NO; }
@@ -255,20 +236,6 @@ static BOOL IsEnabled(NSString *key) {
 %end
 %end
 
-// YTAutoFullScreen: https://github.com/PoomSmart/YTAutoFullScreen/
-%hook YTPlayerViewController
-- (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
-    %orig;
-    if (IsEnabled(@"autoFull_enabled"))
-        [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(autoFullscreen) userInfo:nil repeats:NO];
-}
-%new
-- (void)autoFullscreen {
-    YTWatchController *watchController = [self valueForKey:@"_UIDelegate"];
-    [watchController showFullScreen];
-}
-%end
-
 %hook YTYouThereController
 - (BOOL)shouldShowYouTherePrompt { return NO; }
 %end
@@ -276,110 +243,6 @@ static BOOL IsEnabled(NSString *key) {
 // YTNOCheckLocalNetWork - https://poomsmart.github.io/repo/depictions/ytnochecklocalnetwork.html
 %hook YTHotConfig
 - (BOOL)isPromptForLocalNetworkPermissionsEnabled { return NO; }
-%end
-
-# pragma mark - IAmYouTube - https://github.com/PoomSmart/IAmYouTube/
-%hook YTVersionUtils
-+ (NSString *)appName { return YT_NAME; }
-+ (NSString *)appID { return YT_BUNDLE_ID; }
-%end
-
-%hook GCKBUtils
-+ (NSString *)appIdentifier { return YT_BUNDLE_ID; }
-%end
-
-%hook GPCDeviceInfo
-+ (NSString *)bundleId { return YT_BUNDLE_ID; }
-%end
-
-%hook OGLBundle
-+ (NSString *)shortAppName { return YT_NAME; }
-%end
-
-%hook GVROverlayView
-+ (NSString *)appName { return YT_NAME; }
-%end
-
-%hook OGLPhenotypeFlagServiceImpl
-- (NSString *)bundleId { return YT_BUNDLE_ID; }
-%end
-
-%hook APMAEU
-+ (BOOL)isFAS { return YES; }
-%end
-
-%hook GULAppEnvironmentUtil
-+ (BOOL)isFromAppStore { return YES; }
-%end
-
-%hook SSOConfiguration
-- (id)initWithClientID:(id)clientID supportedAccountServices:(id)supportedAccountServices {
-    self = %orig;
-    [self setValue:YT_NAME forKey:@"_shortAppName"];
-    [self setValue:YT_BUNDLE_ID forKey:@"_applicationIdentifier"];
-    return self;
-}
-%end
-
-%hook NSBundle
-- (NSString *)bundleIdentifier {
-    NSArray *address = [NSThread callStackReturnAddresses];
-    Dl_info info = {0};
-    if (dladdr((void *)[address[2] longLongValue], &info) == 0)
-        return %orig;
-    NSString *path = [NSString stringWithUTF8String:info.dli_fname];
-    if ([path hasPrefix:NSBundle.mainBundle.bundlePath])
-        return YT_BUNDLE_ID;
-    return %orig;
-}
-- (id)objectForInfoDictionaryKey:(NSString *)key {
-    if ([key isEqualToString:@"CFBundleIdentifier"])
-        return YT_BUNDLE_ID;
-    if ([key isEqualToString:@"CFBundleDisplayName"] || [key isEqualToString:@"CFBundleName"])
-        return YT_NAME;
-    return %orig;
-}
-// Fix Google Sign in by @PoomSmart and @level3tjg (qnblackcat/uYouPlus#684)
-- (NSDictionary *)infoDictionary {
-    NSMutableDictionary *info = %orig.mutableCopy;
-    NSString *altBundleIdentifier = info[@"ALTBundleIdentifier"];
-    if (altBundleIdentifier) info[@"CFBundleIdentifier"] = altBundleIdentifier;
-    return info;
-}
-%end
-
-// Fix login for YouTube 18.13.2 and higher
-%hook SSOKeychainHelper
-+ (NSString *)accessGroup {
-    return accessGroupID();
-}
-+ (NSString *)sharedAccessGroup {
-    return accessGroupID();
-}
-%end
-
-// Fix login for YouTube 17.33.2 and higher - @BandarHL
-// https://gist.github.com/BandarHL/492d50de46875f9ac7a056aad084ac10
-%hook SSOKeychainCore
-+ (NSString *)accessGroup {
-    return accessGroupID();
-}
-
-+ (NSString *)sharedAccessGroup {
-    return accessGroupID();
-}
-%end
-
-// Fix App Group Directory by move it to document directory
-%hook NSFileManager
-- (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)groupIdentifier {
-    if (groupIdentifier != nil) {
-        NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-        NSURL *documentsURL = [paths lastObject];
-        return [documentsURL URLByAppendingPathComponent:@"AppGroup"];
-    }
-    return %orig(groupIdentifier);
-}
 %end
 
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
