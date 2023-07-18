@@ -1,7 +1,7 @@
 ## YTLite with more features!
 
 
-![IMAGE_CERCUBEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/UW3YDgjfwfle.png)
+![IMAGE_YTLITEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/UW3YDgjfwfle.png)
 
 
 
@@ -61,7 +61,7 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus (@
 </td>
 
 <table id='credit'>
-Special thanks to all the developers who have contributed to CercubePlus/YTLitePlus!
+Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus!
     
 (YTLite is an original tweak by dayanch96 @dayanch96)
 <tr>
@@ -232,32 +232,28 @@ any many more...
 [View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
 
 
-- Version info: _(May 9 2023)_
+- Version info: _(Jul 18 2023)_
 
 <details>
   <summary>Expand!</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.21.3 | ✖︎ |
-| **YTLite** | Majd Alfhaily | 5.3.11 | ✖︎ |
+| **YouTube** | Google Inc | 18.28.3 | ✖︎ |
+| **YTLite** | Dayanch96 | 2.3 | ✖︎ |
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
-| **YTNoShorts** | [MiRO92](https://twitter.com/miro92) | 1.0.2 | [✔︎](https://github.com/MiRO92/YTNoShorts) |
-| **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-15 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
+| **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
 | **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
-| **YTMiniplayerEnabler** | [level3tjg](https://twitter.com/level3tjg) | 0.0.2 | [✔︎](https://github.com/level3tjg/YTMiniplayerEnabler) |
 | **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.6 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
-| **LowContrastMode** | arichorn | 1.2.3 | [✔︎](https://github.com/arichorn/LowContrastMode) |
+| **LowContrastMode** | arichorn | 1.3.0 | [✔︎](https://github.com/arichorn/LowContrastMode) |
 | **YTUHD** | PoomSmart | 1.4.0 | [✔︎](https://github.com/PoomSmart/YTUHD) |
-| **YouPiP** | PoomSmart | 1.7.19-2 | [✔︎](https://github.com/PoomSmart/YouPiP) |
-| **YouMute** | PoomSmart | 1.1.1-1 | [✔︎](https://github.com/PoomSmart/YouMute) |
+| **YouPiP** | PoomSmart | 1.7.20 | [✔︎](https://github.com/PoomSmart/YouPiP) |
+| **YTVideoOverlay** | PoomSmart | 1.1.0 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
+| **YouQuality** | PoomSmart | 1.1.2 | [✔︎](https://github.com/PoomSmart/YouQuality) |
+| **YouMute** | PoomSmart | 1.2.1 | [✔︎](https://github.com/PoomSmart/YouMute) |
 | **YTABConfig** | PoomSmart | 1.5.0-1 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
-| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.1 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
-| **IAmYouTube** | PoomSmart | 1.2.0 | [✔︎](https://github.com/PoomSmart/IAmYouTube) |
-| **YTReExplore** | PoomSmart | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTReExplore) |
-| **YTNoPaidPromo** | PoomSmart | 1.0.0 | [✔︎](https://github.com/PoomSmart/YTNoPaidPromo) |
-| **YTAutoFullScreen** | PoomSmart | 1.0.3 | [✔︎](https://github.com/PoomSmart/YTAutoFullScreen) |
 | **Return YouTube Dislike** | PoomSmart | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
+| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.1 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 
 </details>
 
