@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v3.5.3
         with:
           path: main
           submodules: recursive
@@ -59,10 +59,10 @@ jobs:
         run: brew install ldid dpkg make
 
       - name: Setup Theos
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v3.5.3
         with:
           repository: theos/theos
-          ref: master
+          ref: 3da31488281ecf4394d10302d2629607f4a1aa07
           path: theos
           submodules: recursive
 
@@ -84,7 +84,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Setup Theos Jailed
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v3.5.3
         with:
           repository: qnblackcat/theos-jailed
           ref: master
