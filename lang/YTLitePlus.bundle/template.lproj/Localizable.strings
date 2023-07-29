@@ -125,7 +125,7 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 // Theme
 "THEME_OPTIONS" = "Theme Options";
 
-"OLED_DARK_THEME" = "OLED dark theme (Experimental)";
+"OLED_DARK_THEME" = "OLED dark theme";
 "OLED_DARK_THEME_2" = "OLED dark theme";
 "OLED_DARK_THEME_DESC" = "True dark theme. Might not work correctly in some cases. App restart is required after you enable/disable this option.";
 
@@ -135,7 +135,7 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "DEFAULT_THEME" = "Default";
 "DEFAULT_THEME_DESC" = "Default dark(er) theme of YouTube. App restart is required.";
 
-"OLED_KEYBOARD" = "OLED Keyboard (Experimental)";
+"OLED_KEYBOARD" = "OLED Keyboard";
 "OLED_KEYBOARD_DESC" = "Might not work correctly in some cases. App restart is required.";
 
 "LOW_CONTRAST_MODE" = "Low Contrast Mode";

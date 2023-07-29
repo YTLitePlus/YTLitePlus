@@ -110,7 +110,7 @@
 // Thème
 "THEME_OPTIONS" = "Options de thème";
 
-"OLED_DARK_THEME" = "Thème sombre OLED (expérimental)";
+"OLED_DARK_THEME" = "Thème sombre OLED";
 "OLED_DARK_THEME_2" = "Thème sombre OLED";
 "OLED_DARK_THEME_DESC" = "Vrai thème sombre. Peut ne pas fonctionner correctement dans certains cas. Le redémarrage de l'application est requis après avoir activé/désactivé cette option.";
 
@@ -120,7 +120,7 @@
 "DEFAULT_THEME" = "Par défaut";
 "DEFAULT_THEME_DESC" = "Thème sombre (plus foncé) par défaut de YouTube. Le redémarrage de l'application est requis.";
 
-"OLED_KEYBOARD" = "Clavier OLED (expérimental)";
+"OLED_KEYBOARD" = "Clavier OLED";
 "OLED_KEYBOARD_DESC" = "Peut ne pas fonctionner correctement dans certains cas. Le redémarrage de l'application est requis.";
 
 "LOW_CONTRAST_MODE" = "Mode faible contraste";

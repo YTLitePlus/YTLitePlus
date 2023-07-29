@@ -59,10 +59,10 @@
 "HIDE_HUD_MESSAGES" = "Ocultar Mensagens do HUD";
 "HIDE_HUD_MESSAGES_DESC" = "Exemplo: Legendas/CC ativadas/desativadas, A repetição do vídeo está ativada,...";
 
-"OLED_DARKMODE" = "Modo escuro OLED (Experimental)";
+"OLED_DARKMODE" = "Modo escuro OLED";
 "OLED_DARKMODE_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária após você ativar/desativar essa opção.";
 
-"OLED_KEYBOARD" = "Teclado OLED (Experimental)";
+"OLED_KEYBOARD" = "Teclado OLED";
 "OLED_KEYBOARD_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária.";
 
 "HIDE_PAID_PROMOTION_CARDS" = "Ocultar Banner de promoção paga";
