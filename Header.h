@@ -27,6 +27,9 @@
 #import "Tweaks/YouTubeHeader/YTAlertView.h"
 #import "Tweaks/YouTubeHeader/YTISectionListRenderer.h"
 #import "Tweaks/YouTubeHeader/YTPivotBarItemView.h"
+#import "Tweaks/YouTubeHeader/YTVideoWithContextNode.h"
+#import "Tweaks/YouTubeHeader/ELMCellNode.h"
+#import "Tweaks/YouTubeHeader/ELMNodeController.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -56,6 +59,10 @@
 - (void)setRate:(float)rate;
 @end
 
+// IAmYouTube
+@interface SSOConfiguration : NSObject
+@end
+
 // YTLitePlus
 @interface YTChipCloudCell : UIView
 @end
@@ -68,6 +75,14 @@
 @end
 
 @interface YTTransportControlsButtonView : UIView
+@end
+
+@interface _ASCollectionViewCell : UICollectionViewCell
+- (id)node;
+@end
+
+@interface YTAsyncCollectionView : UICollectionView
+- (void)removeShortsAndFeaturesAdsAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface YTPlaybackButton : UIControl
@@ -84,10 +99,6 @@
 @interface YTRightNavigationButtons : UIView
 @property YTQTMButton *notificationButton;
 @property YTQTMButton *sponsorBlockButton;
-@end
-
-// IAmYouTube
-@interface SSOConfiguration : NSObject
 @end
 
 // BigYTMiniPlayer
@@ -113,10 +124,13 @@
 @interface YTRelatedVideosView : UIView
 @end
 
-@interface ELMView: UIView
+@interface YTTopAlignedView : UIView
 @end
 
-@interface ASWAppSwitcherCollectionViewCell: UIView
+@interface ELMView : UIView
+@end
+
+@interface ASWAppSwitcherCollectionViewCell : UIView
 @end
 
 @interface ASScrollView : UIView
@@ -129,14 +143,15 @@
 @end
 
 @interface _ASDisplayView : UIView
-- (UILabel *)findLabelInSubviews:(NSArray *)subviews;
-- (void)customizeLabel:(UILabel *)label;
+@end
+
+@interface YTPivotBarIndicatorView : UIView
 @end
 
 @interface YTCommentDetailHeaderCell : UIView
 @end
 
-@interface SponsorBlockSettingsController : UITableViewController 
+@interface SponsorBlockSettingsController : UITableViewController
 @end
 
 @interface SponsorBlockViewController : UIViewController
