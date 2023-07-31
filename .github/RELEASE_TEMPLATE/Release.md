@@ -35,8 +35,9 @@ Current App Compatibility: `iOS/iPadOS 14.0` or later
 
 **RELEASE %youtube_version%-%ytliteplus_version%:** (%date%)
 
-- Updated Youtube
+- Updated Youtube from `` to ``
+- Updated YTLite from `` to ``
+
 
 ### Issues in this Release:
 - LowContrastMode doesn't work (it work with older YT version)
-- YTSpeed not working (both broken in v18.19.1+)
