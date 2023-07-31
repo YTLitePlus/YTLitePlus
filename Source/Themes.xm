@@ -103,6 +103,14 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     }
 }
 %end
+
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
@@ -485,6 +493,14 @@ UIColor* raisedColor = [UIColor blackColor];
     }
 }
 %end
+
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
