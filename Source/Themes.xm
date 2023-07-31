@@ -18,6 +18,15 @@ static BOOL oldDarkTheme() {
 %group gOldDarkTheme
 UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:1.0];
 %hook YTCommonColorPalette
+- (UIColor *)background1 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)background2 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)background3 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? customColor : %orig;
 }
@@ -36,64 +45,14 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 - (UIColor *)generalBackgroundA {
     return self.pageStyle == 1 ? customColor : %orig;
 }
-%end
-%hook UIView
-- (void)setBackgroundColor:(UIColor *)color {
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPivotBarView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
-        color = customColor;
-    }
-    %orig;
+- (UIColor *)generalBackgroundB {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)baseBackground {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)menuBackground {
+    return self.pageStyle == 1 ? customColor : %orig;
 }
 %end
 %hook SponsorBlockSettingsController
@@ -115,274 +74,276 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %hook ELMView
 - (void)didMoveToWindow {
     %orig;
-    if (isDarkMode()) {
         self.subviews[0].backgroundColor = [UIColor clearColor];
-    }
 }
 %end
 %hook YTAsyncCollectionView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
-        color = [UIColor clearColor];
+    color = [UIColor clearColor];
     } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
-        color = [UIColor clearColor];
+    color = [UIColor clearColor];
     } else {
-        color = customColor;
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
     %orig;
 }
 - (UIColor *)darkBackgroundColor {
-    return customColor;
+    return isDarkMode() ? customColor : %orig;
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTWatchNextResultsViewController")]) {
-        self.subviews[0].subviews[0].backgroundColor = customColor;
+        if (isDarkMode()) {
+            self.subviews[0].subviews[0].backgroundColor = customColor;
+        }
     }
 }
 %end
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTSubheaderContainerView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTAppView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTCollectionView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTChannelListSubMenuView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
+}
+%end
+%hook YTSettingsCell
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTSlideForActionsView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTPageView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTWatchView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTPlaylistMiniBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
+}
+%end
+%hook YTEngagementPanelView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTEngagementPanelHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTPlaylistPanelControlsView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTHorizontalCardListView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTWatchMiniBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTCreateCommentAccessoryView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTCreateCommentTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTSearchView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
-}
-%end
-%hook YTVideoView
-- (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTSearchBoxView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTTabTitlesView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTPrivacyTosFooterView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTOfflineStorageUsageView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTInlineSignInView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTFeedChannelFilterHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YCHLiveChatView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YCHLiveChatActionPanelView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTEmojiTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTTopAlignedView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTTopAlignedView *>(self, "_contentView").backgroundColor = customColor;
+    }
 }
 %end
 %hook GOODialogView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTNavigationBar
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 - (void)setBarTintColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTChannelMobileHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTChannelSubMenuView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTWrapperSplitView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTReelShelfCell
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTReelShelfItemView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTReelShelfView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTCommentView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTChannelListSubMenuAvatarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTSearchBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
-}
-%end
-%hook YCHLiveChatBannerCell
-- (void)layoutSubviews {
-    %orig();
-    MSHookIvar<UIImageView *>(self, "_bannerContainerImageView").hidden = YES;
-    MSHookIvar<UIView *>(self, "_bannerContainerView").backgroundColor = customColor;
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTDialogContainerScrollView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTShareTitleView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTShareBusyView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTELMView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTActionSheetHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
 %hook YTShareMainView
 - (void)layoutSubviews {
-	%orig();
+    %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = customColor;
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = customColor;
+  }
 }
 %end
 %hook _ASDisplayView
@@ -401,6 +362,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
             self.backgroundColor = customColor;
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTEditSheetControllerElementsContentViewController")]) {
+            self.backgroundColor = customColor;
+        }
+        if ([responder isKindOfClass:NSClassFromString(@"YTMainAppEngagementPanelViewController")]) {
             self.backgroundColor = customColor;
         }
         responder = [responder nextResponder];
@@ -432,10 +396,19 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %end
 %end
 
-// OLED dark mode by BandarHL
+// OLED dark mode by @BandarHL and modified by @arichorn
 UIColor* raisedColor = [UIColor blackColor];
 %group gOLED
 %hook YTCommonColorPalette
+- (UIColor *)background1 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)background2 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)background3 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
@@ -454,64 +427,14 @@ UIColor* raisedColor = [UIColor blackColor];
 - (UIColor *)generalBackgroundA {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
-%end
-%hook UIView
-- (void)setBackgroundColor:(UIColor *)color {
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPivotBarView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
-        color = [UIColor blackColor];
-    }
-    %orig;
+- (UIColor *)generalBackgroundB {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)baseBackground {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)menuBackground {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
 %hook SponsorBlockSettingsController
@@ -533,274 +456,276 @@ UIColor* raisedColor = [UIColor blackColor];
 %hook ELMView
 - (void)didMoveToWindow {
     %orig;
-    if (isDarkMode()) {
         self.subviews[0].backgroundColor = [UIColor clearColor];
-    }
 }
 %end
 %hook YTAsyncCollectionView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
-        color = [UIColor clearColor];
+    color = [UIColor clearColor];
     } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
-        color = [UIColor clearColor];
+    color = [UIColor clearColor];
     } else {
-        color = [UIColor blackColor];
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
     %orig;
 }
 - (UIColor *)darkBackgroundColor {
-    return [UIColor blackColor];
+    return isDarkMode() ? [UIColor blackColor] : %orig;
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTWatchNextResultsViewController")]) {
-        self.subviews[0].subviews[0].backgroundColor = [UIColor blackColor];
+        if (isDarkMode()) {
+            self.subviews[0].subviews[0].backgroundColor = [UIColor blackColor];
+        }
     }
 }
 %end
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTSubheaderContainerView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTAppView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTCollectionView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTChannelListSubMenuView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+}
+%end
+%hook YTSettingsCell
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTSlideForActionsView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTPageView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTWatchView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTPlaylistMiniBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+}
+%end
+%hook YTEngagementPanelView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTEngagementPanelHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTPlaylistPanelControlsView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTHorizontalCardListView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTWatchMiniBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTCreateCommentAccessoryView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTCreateCommentTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTSearchView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
-}
-%end
-%hook YTVideoView
-- (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTSearchBoxView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTTabTitlesView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTPrivacyTosFooterView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTOfflineStorageUsageView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTInlineSignInView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTFeedChannelFilterHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YCHLiveChatView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YCHLiveChatActionPanelView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTEmojiTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTTopAlignedView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTTopAlignedView *>(self, "_contentView").backgroundColor = [UIColor blackColor];
+    }
 }
 %end
 %hook GOODialogView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTNavigationBar
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 - (void)setBarTintColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTChannelMobileHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTChannelSubMenuView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTWrapperSplitView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTReelShelfCell
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTReelShelfItemView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTReelShelfView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTCommentView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTChannelListSubMenuAvatarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTSearchBarView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
-}
-%end
-%hook YCHLiveChatBannerCell
-- (void)layoutSubviews {
-    %orig();
-    MSHookIvar<UIImageView *>(self, "_bannerContainerImageView").hidden = YES;
-    MSHookIvar<UIView *>(self, "_bannerContainerView").backgroundColor = [UIColor blackColor];
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTDialogContainerScrollView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTShareTitleView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTShareBusyView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTELMView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTActionSheetHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
 %hook YTShareMainView
 - (void)layoutSubviews {
-	%orig();
+    %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = [UIColor blackColor];
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = [UIColor blackColor];
+  }
 }
 %end
 %hook _ASDisplayView
@@ -819,6 +744,9 @@ UIColor* raisedColor = [UIColor blackColor];
             self.backgroundColor = [UIColor blackColor];
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTEditSheetControllerElementsContentViewController")]) {
+            self.backgroundColor = [UIColor blackColor];
+        }
+        if ([responder isKindOfClass:NSClassFromString(@"YTMainAppEngagementPanelViewController")]) {
             self.backgroundColor = [UIColor blackColor];
         }
         responder = [responder nextResponder];
