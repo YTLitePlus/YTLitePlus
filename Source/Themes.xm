@@ -111,6 +111,12 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 
+%hook ASScrollView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(customColor) : %orig;
+}
+%end
+
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
@@ -503,6 +509,13 @@ UIColor* raisedColor = [UIColor blackColor];
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
+
+%hook ASScrollView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+}
+%end
+
 %hook YTHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
