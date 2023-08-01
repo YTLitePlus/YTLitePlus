@@ -201,22 +201,22 @@ Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus
 
 13. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
+14. **OLEDDarkmode**: Replace official Youtube darkmode with a true OLED darkmode.
+
+15. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
+
 any many more...
 </details>
 
 # Known issues
 
-1. **YTLite**: 
+1. **LowContrastMode**: this tweak doesn't work everywhere with every ui element on the YouTube App.
 
-- Hide Cast button is not working. (Workaround: Hide cast button in YTLitePlus settings)
+2. **YTUHD**: [Stuttering on 4K videos](https://github.com/qnblackcat/uYouPlus/issues/6).
 
-2. **LowContrastMode**: this tweak doesn't work everywhere with every ui element on the YouTube App.
+3. **YouPiP** (iOS 14.0 - 14.4.2): due to Apple's fault, you may encounter the *speedup-bug* as described [here](https://drive.google.com/file/d/1NKdv1fr_KRWgD8nhkMDfG2eLBnbdeVtX/view?usp=sharing). The bug also happens when you try to play multi-sources of sound at the same time. Enable **LegacyPiP** is a workaround. Keep in mind that LegacyPiP also removes UHD quality and breaks YouTube Autoplay next. Use it at your own risk!
 
-3. **YTUHD**: [Stuttering on 4K videos](https://github.com/qnblackcat/uYouPlus/issues/6).
-
-4. **YouPiP** (iOS 14.0 - 14.4.2): due to Apple's fault, you may encounter the *speedup-bug* as described [here](https://drive.google.com/file/d/1NKdv1fr_KRWgD8nhkMDfG2eLBnbdeVtX/view?usp=sharing). The bug also happens when you try to play multi-sources of sound at the same time. Enable **LegacyPiP** is a workaround. Keep in mind that LegacyPiP also removes UHD quality and breaks YouTube Autoplay next. Use it at your own risk!
-
-5. **Not a bug**: 
+4. **Not a bug**: 
 
 - The app won't be able to receive push notifications if you use a free developer account to sideload it. 
 
@@ -227,20 +227,19 @@ any many more...
 - **YTLitePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **YTLitePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
 
 - For AltStore user: 
-[Add to Altstore/Sidestore](https://tinyurl.com/YTLiteAltstore)
-
-[View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
+    - [Add to Altstore/Sidestore](https://tinyurl.com/YTLiteAltstore)
+    - [View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
 
 
 - Version info: _(Jul 18 2023)_
 
 <details>
-  <summary>Expand!</summary>
+  <summary>Expand</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
 | **YouTube** | Google Inc | 18.28.3 | ✖︎ |
-| **YTLite** | Dayanch96 | 2.3 | ✖︎ |
+| **YTLite** | Dayanch96 | 2.3.1 |[✔︎]|
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
 | **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
