@@ -70,15 +70,15 @@ jobs:
         id: SDK
         uses: actions/cache@v3.3.1
         env:
-          cache-name: iOS-15.5-SDK
+          cache-name: iOS-16.2-SDK
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
 
-      - name: Download iOS 15.5 SDK
+      - name: Download iOS 16.2 SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
-          svn checkout -q https://github.com/chrisharper22/sdks/trunk/iPhoneOS15.5.sdk
+          svn checkout -q https://github.com/arichorn/sdks/trunk/iPhoneOS16.2.sdk
           mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
