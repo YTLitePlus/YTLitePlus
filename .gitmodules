@@ -12,7 +12,7 @@
 	url = https://github.com/PoomSmart/YouTubeHeader.git
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
-	url = https://github.com/qnblackcat/Alderis.git
+	url = https://github.com/arichorn/Alderis.git
 [submodule "Tweaks/PSHeader"]
 	path = Tweaks/PSHeader
 	url = https://github.com/PoomSmart/PSHeader.git
