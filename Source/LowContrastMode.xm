@@ -14,6 +14,8 @@ static BOOL customContrastMode() {
     return IsEnabled(@"lowContrastMode_enabled") && contrastMode() == 1;
 }
 
+UIColor *lcmHexColor;
+
 %group gLowContrastMode // Low Contrast Mode v1.4.2 (Compatible with only YouTube v16.05.7-v17.38.10)
 %hook UIColor
 + (UIColor *)whiteColor { // Dark Theme Color
@@ -224,25 +226,25 @@ static BOOL customContrastMode() {
 %group gCustomContrastMode // Custom Contrast Mode (Hex Color)
 %hook UIColor
 + (UIColor *)whiteColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)lightTextColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)placeholderTextColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)labelColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)secondaryLabelColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)tertiaryLabelColor {
-         return hexColor;
+         return lcmHexColor;
 }
 + (UIColor *)quaternaryLabelColor {
-         return hexColor;
+         return lcmHexColor;
 }
 %end
 %hook YTCommonColorPalette
