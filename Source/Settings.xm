@@ -12,8 +12,8 @@ static BOOL IsEnabled(NSString *key) {
 static int GetSelection(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] integerForKey:key];
 }
-static int colorContrastMode() {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcmColor"];
+static int contrastMode() {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }
 static int appVersionSpoofer() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"versionSpoofer"];
@@ -124,80 +124,31 @@ extern NSBundle *YTLitePlusBundle();
     [sectionItems addObject:videoControlOverlayGroup];
 
 # pragma mark - LowContrastMode
-    YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"LCM_CHOOSE_COLOR")
+    YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Low Contrast Mode")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
-            switch (colorContrastMode()) {
+            switch (contrastMode()) {
                 case 1:
-                    return LOC(@"RED_UI");
-                case 2:
-                    return LOC(@"BLUE_UI");
-                case 3:
-                    return LOC(@"GREEN_UI");
-                case 4:
-                    return LOC(@"YELLOW_UI");
-                case 5:
-                    return LOC(@"ORANGE_UI");
-                case 6:
-                    return LOC(@"PURPLE_UI");
-                case 7:
-                    return LOC(@"VIOLET_UI");
-                case 8:
-                    return LOC(@"PINK_UI");
+                    return LOC(@"Hex Color");
                 case 0:
                 default:
-                    return LOC(@"DEFAULT_UI");
+                    return LOC(@"Default");
             }
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"DEFAULT_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"lcmColor"];
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Default") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"lcm"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"RED_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"BLUE_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"GREEN_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"YELLOW_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"ORANGE_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:5 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"PURPLE_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:6 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"VIOLET_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"lcmColor"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"PINK_UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:8 forKey:@"lcmColor"];
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Hex Color") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lcm"];
                     [settingsViewController reloadData];
                     return YES;
                 }]
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"LCM_CHOOSE_COLOR") pickerSectionTitle:nil rows:rows selectedItemIndex:colorContrastMode() parentResponder:[self parentResponder]];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Low Contrast Mode") pickerSectionTitle:nil rows:rows selectedItemIndex:contrastMode() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
