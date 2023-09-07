@@ -37,6 +37,8 @@ Current App Compatibility: `iOS/iPadOS 14.0` or later
 
 - Updated Youtube from `` to ``
 - Updated YTLite from `` to ``
-
 ### Issues in this Release:
-- LowContrastMode doesn't work (it work with older YT version)
+- LowContrastMode does not work (Compatible only with YouTube v16.05.7-v17.38.10)
+- Shorts are not hidden everywhere (problem with YTLite tweak)
+- VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)
+- Age-restricted videos don't load correctly #29 (enable "Skip content warning" in YTlite settings to resolve this issue)
