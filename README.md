@@ -229,6 +229,8 @@ any many more...
 - For AltStore user: 
     - [Add to Altstore/Sidestore](https://tinyurl.com/YTLiteAltstore)
     - [View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
+    - [Source direct link (copy paste to Altstore)](https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json)
+
 
 
 - Version info: _(Jul 18 2023)_
