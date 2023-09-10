@@ -1,7 +1,7 @@
 ## YTLite with more features!
 
 
-![IMAGE_YTLITEPLUS_PREVIEW](https://picsur.org/i/30c8b3a1-3e11-423f-8e1f-1c7665c41a23.jpg)
+![IMAGE_YTLITEPLUS_PREVIEW](https://gcdnb.pbrd.co/images/1US2eX2BKoib.png)
 
 
 <p align="center">
