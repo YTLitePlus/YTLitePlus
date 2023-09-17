@@ -123,6 +123,95 @@ extern NSBundle *YTLitePlusBundle();
     }];
     [sectionItems addObject:videoControlOverlayGroup];
 
+# pragma mark - App Settings Overlay Options
+    YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"App Settings Overlay Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_DONTEATMYCONTENT_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableDontEatMyContentSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDontEatMyContentSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOUTUBERETURNDISLIKE_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableReturnYouTubeDislikeSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+                
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOUPIP_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableYouPiPSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYouPiPSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_AUTOPLAY_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableAutoplaySection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAutoplaySection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_TRYNEWFEATURES_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableTryNewFeaturesSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableTryNewFeaturesSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_NOTIFICATIONS_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableNotificationsSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableNotificationsSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+                
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HISTORYANDPRIVACY_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableHistoryAndPrivacySection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableHistoryAndPrivacySection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_LIVECHAT_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableLiveChatSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableLiveChatSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0]
+        ];        
+        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"App Settings Overlay Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+        [settingsViewController pushViewController:picker];
+        return YES;
+    }];
+    [sectionItems addObject:appSettingsOverlayGroup];
+
 # pragma mark - LowContrastMode
     YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Low Contrast Mode")
         accessibilityIdentifier:nil
@@ -154,26 +243,26 @@ extern NSBundle *YTLitePlusBundle();
         }];
 
 # pragma mark - VersionSpoofer
-    YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:@"Version Spoofer Picker"
+    YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:@"VERSION_SPOOFER_TITLE"
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
             switch (appVersionSpoofer()) {
                 case 1:
-                    return @"v18.18.2 (Fixes YTClassicVideoQuality and YTSpeed)";
+                    return @"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)";
                 case 2:
                     return @"v17.49.6 (Removes Rounded Miniplayer)";
                 case 3:
-                    return @"v17.39.4 (Adds Rounded Thumbnails)";
-                case 4:
                     return @"v17.38.10 (Fixes LowContrastMode)";
+                case 4:
+                    return @"v17.01.4 (Removes New Overflow Video Player Menu)";
                 case 5:
-                    return @"v17.11.2 (Removes Chip Video Player Buttons)";
+                    return @"v16.46.5 (Removes Rounded Video Player Buttons)";
                 case 6:
-                    return @"v16.46.5 (Removes New Overflow Video Player Menu)";
-                case 7:
                     return @"v16.42.3";
+                case 7:
+                    return @"v16.08.2 (Old Comments & Description Menus)";
                 case 8:
-                    return @"v16.05.7 (Old Comment+Description Section)";
+                    return @"v16.05.7 (Oldest Working Version)";
                 case 0:
                 default:
                     return @"Default Version";
@@ -186,7 +275,7 @@ extern NSBundle *YTLitePlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.18.2 (Fixes YTClassicVideoQuality and YTSpeed)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
@@ -196,32 +285,32 @@ extern NSBundle *YTLitePlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.39.4 (Adds Rounded Thumbnails)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.38.10 (Fixes LowContrastMode)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.38.10 (Fixes LowContrastMode)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.01.4 (Removes New Overflow Video Player Menu)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.11.2 (Removes Chip Video Player Buttons)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.46.5 (Removes Rounded Video Player Buttons)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:5 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.46.5 (Removes New Overflow Video Player Menu)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.42.3" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:6 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.42.3" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.08.2 (Old Comments & Description Menus)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;      
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.05.7 (Old Comment+Description Section)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.05.7 (Oldest Working Version)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:8 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
@@ -382,16 +471,6 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DISABLE_WIFI_RELATED_SETTINGS")
-                titleDescription:LOC(@"DISABLE_WIFI_RELATED_SETTINGS_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableWifiRelatedSettings_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableWifiRelatedSettings_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"YT_SPEED")
                 titleDescription:LOC(@"YT_SPEED_DESC")
                 accessibilityIdentifier:nil
@@ -412,8 +491,8 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
-       [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable App Version Spoofer (Lite)")
-                titleDescription:LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required.")
+       [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"APP_VERSION_SPOOFER_LITE")
+                titleDescription:LOC(@"APP_VERSION_SPOOFER_LITE_DESC")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
