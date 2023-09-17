@@ -131,23 +131,21 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)shouldShowUpgradeDialog { return NO;}
 %end
 
-// Disable Wifi Related Settings - @arichorn
-%group gDisableWifiRelatedSettings
-%hook YTSettingsSectionItemManager
-- (void)updatePremiumEarlyAccessSectionWithEntry:(id)arg1 {} // Try New Features
-- (void)updateAutoplaySectionWithEntry:(id)arg1 {} // Autoplay
-- (void)updateNotificationSectionWithEntry:(id)arg1 {} // Notifications
-- (void)updateHistorySectionWithEntry:(id)arg1 {} // History
-- (void)updatePrivacySectionWithEntry:(id)arg1 {} // Privacy
-- (void)updateHistoryAndPrivacySectionWithEntry:(id)arg1 {} // History & Privacy
-- (void)updateLiveChatSectionWithEntry:(id)arg1 {} // Live Chat
-%end
-%end
-
 // YTNoModernUI - @arichorn
 %group gYTNoModernUI
-%hook YTVersionUtils // YTNoModernUI Version
-+ (NSString *)appVersion { return @"17.11.2"; }
+%hook YTVersionUtils // YTNoModernUI Original Version
++ (NSString *)appVersion { return @"17.38.10"; }
+%end
+
+%hook YTSettingsCell // made by Dayanch96
+- (void)setDetailText:(id)arg1 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
+
+    if ([arg1 isEqualToString:@"17.38.10"]) {
+        arg1 = appVersion;
+    } %orig(arg1);
+}
 %end
 
 %hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI - made by Dayanch96
@@ -158,7 +156,7 @@ static BOOL IsEnabled(NSString *key) {
 
 %hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI - made by Dayanch96
 - (void)setBufferedProgressBarColor:(id)arg1 {
-     [UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60];
+     [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.90];
 }
 %end
 
@@ -171,9 +169,6 @@ static BOOL IsEnabled(NSString *key) {
 %end
 
 %hook YTColdConfig
-// 16.xx.x Styled YouTube Channel Page Interface - YTNoModernUI
-- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
-- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Modern Content - YTNoModernUI
 - (BOOL)creatorClientConfigEnableStudioModernizedMdeThumbnailPickerForClient { return NO; }
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
@@ -189,9 +184,6 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)uiSystemsClientGlobalConfigEnableModernTabsForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
 // Disable Rounded Content - YTNoModernUI
-- (BOOL)iosEnableRoundedSearchBar { return NO; }
-- (BOOL)enableIosRoundedSearchBar { return NO; }
-- (BOOL)enableIosSearchBar { return NO; }
 - (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
 - (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNative { return NO; }
@@ -215,6 +207,9 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
+// 16.xx.x Styled YouTube Channel Page Interface - YTNoModernUI
+- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
+- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Optional Content - YTNoModernUI
 - (BOOL)elementsClientIosElementsEnableLayoutUpdateForIob { return NO; }
 - (BOOL)supportElementsInMenuItemSupportedRenderers { return NO; }
@@ -334,6 +329,57 @@ static BOOL IsEnabled(NSString *key) {
 %end
 %end
 
+// App Settings Overlay Options
+%group gDisableDontEatMyContentSection
+%hook YTSettingsSectionItemManager
+- (void)updateDEMCSectionWithEntry:(id)arg1 {} // DontEatMyContent
+%end
+%end
+
+%group gDisableReturnYouTubeDislikeSection
+%hook YTSettingsSectionItemManager
+- (void)updateRYDSectionWithEntry:(id)arg1 {} // Return YouTube Dislike
+%end
+%end
+
+%group gDisableYouPiPSection
+%hook YTSettingsSectionItemManager
+- (void)updateYouPiPSectionWithEntry:(id)arg1 {} // YouPiP
+%end
+%end
+
+%group gDisableAutoplaySection
+%hook YTSettingsSectionItemManager
+- (void)updateAutoplaySectionWithEntry:(id)arg1 {} // Autoplay
+%end
+%end
+
+%group gDisableTryNewFeaturesSection
+%hook YTSettingsSectionItemManager
+- (void)updatePremiumEarlyAccessSectionWithEntry:(id)arg1 {} // Try New Features
+%end
+%end
+
+%group gDisableNotificationsSection
+%hook YTSettingsSectionItemManager
+- (void)updateNotificationSectionWithEntry:(id)arg1 {} // Notifications
+%end
+%end
+
+%group gDisableHistoryAndPrivacySection
+%hook YTSettingsSectionItemManager
+- (void)updateHistoryAndPrivacySectionWithEntry:(id)arg1 {} // History And Privacy
+- (void)updateHistorySectionWithEntry:(id)arg1 {} // History
+- (void)updatePrivacySectionWithEntry:(id)arg1 {} // Privacy
+%end
+%end
+
+%group gDisableLiveChatSection
+%hook YTSettingsSectionItemManager
+- (void)updateLiveChatSectionWithEntry:(id)arg1 {} // Live chat
+%end
+%end
+
 // Miscellaneous
 %group giPadLayout // https://github.com/LillieH001/YouTube-Reborn
 %hook UIDevice
@@ -406,9 +452,6 @@ static BOOL IsEnabled(NSString *key) {
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
     }
-    if (IsEnabled(@"disableWifiRelatedSettings_enabled")) {
-        %init(gDisableWifiRelatedSettings);
-    }
     if (IsEnabled(@"hideHeatwaves_enabled")) {
         %init(gHideHeatwaves);
     }
@@ -420,6 +463,30 @@ static BOOL IsEnabled(NSString *key) {
     }
     if (IsEnabled(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
+    }
+    if (IsEnabled(@"disableDontEatMyContentSection_enabled")) {
+        %init(gDisableDontEatMyContentSection);
+    }
+    if (IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")) {
+        %init(gDisableReturnYouTubeDislikeSection);
+    }
+    if (IsEnabled(@"disableYouPiPSection_enabled")) {
+        %init(gDisableYouPiPSection);
+    }
+    if (IsEnabled(@"disableAutoplaySection_enabled")) {
+        %init(gDisableAutoplaySection);
+    }
+    if (IsEnabled(@"disableTryNewFeaturesSection_enabled")) {
+        %init(gDisableTryNewFeaturesSection);
+    }
+    if (IsEnabled(@"disableNotificationsSection_enabled")) {
+        %init(gDisableNotificationsSection);
+    }
+    if (IsEnabled(@"disableHistoryAndPrivacySection_enabled")) {
+        %init(gDisableHistoryAndPrivacySection);
+    }
+    if (IsEnabled(@"disableLiveChatSection_enabled")) {
+        %init(gDisableLiveChatSection);
     }
 
     // Change the default value of some options

@@ -41,55 +41,55 @@ static BOOL version8() {
     NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
     NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
     
-    return latestVersion ?: @"18.27.3"; // <-- Fallback Version
+    return latestVersion ?: @"18.35.4"; // <-- Fallback Version
 }
 %end
 %end
 
 %group gVersion1
-%hook YTVersionUtils // Fix YTClassicVideoQuality & YTSpeed
+%hook YTVersionUtils // Fixes YTClassicVideoQuality & YTSpeed
 + (NSString *)appVersion { return @"18.18.2"; }
 %end
 %end
 
 %group gVersion2
-%hook YTVersionUtils // Last v17 App Version
+%hook YTVersionUtils // Final v17 App Version
 + (NSString *)appVersion { return @"17.49.6"; }
 %end
 %end
 
 %group gVersion3
-%hook YTVersionUtils // Updated Interface - Breaks LowContrastMode
-+ (NSString *)appVersion { return @"17.39.4"; }
-%end
-%end
-
-%group gVersion4
-%hook YTVersionUtils // LowContrastMode Patch
+%hook YTVersionUtils // v17.38.10 Fixes the LowContrastMode Tweak + No Rounded Thumbnails
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 %end
 
-%group gVersion5
-%hook YTVersionUtils // Old Video Player Buttons
-+ (NSString *)appVersion { return @"17.11.2"; }
+%group gVersion4
+%hook YTVersionUtils // Last 2nd Supported YouTube App Version
++ (NSString *)appVersion { return @"17.01.4"; }
 %end
 %end
 
-%group gVersion6
-%hook YTVersionUtils // Last v16 App Version
+%group gVersion5
+%hook YTVersionUtils // Final v16 App Version
 + (NSString *)appVersion { return @"16.46.5"; }
 %end
 %end
 
-%group gVersion7
-%hook YTVersionUtils // Old Video Player Layout
+%group gVersion6
+%hook YTVersionUtils // Popular v16 App Version
 + (NSString *)appVersion { return @"16.42.3"; }
 %end
 %end
 
-%group gVersion8
+%group gVersion7
 %hook YTVersionUtils // Old Comment Section & Description Layout
++ (NSString *)appVersion { return @"16.08.2"; }
+%end
+%end
+
+%group gVersion8
+%hook YTVersionUtils // Last Supported YouTube App Version
 + (NSString *)appVersion { return @"16.05.7"; }
 %end
 %end
