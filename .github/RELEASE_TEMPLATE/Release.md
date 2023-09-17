@@ -1,13 +1,11 @@
 # YTLitePlus Features
 
-**YTNoModernUI:** This tweak changes and removes some newer UI elements from the app such as Some Rounded Buttons, Old Progress Bar, Old Buffer Bar & 16.42.3 App Version Number.
+**YTNoModernUI:** This tweak changes and removes some newer UI elements from the app such as Rounded Buttons, Red Progress Bar, Gray Buffer Progress & the v17.38.10 App Version Number. (Tweak made by arichorn)
 
 <details>
 <summary>More Features...</summary>
 
 **LowContrastMode:** This tweak helps remove the new contrasty looking UI that was first introduced way back in 2020 August/September. (Tweak made by arichorn)
-
-**LowContrastModeColors:** for users who doesn’t use gray will get a set of colors to switch which changes and improves the UI Customization. (Add-on added for LowContrastMode)
 
 **YTNoHeatwaves:** Turns off the Heatwaves Feature in the video player. `(YTLitePlus/VideoPlayerOverlayControls)`
 
@@ -21,7 +19,7 @@
 
 **HideSponsorBlockButton:** Hide the SponsorBlock Button shown on the Nav Bar. Added by Dayanch96
 
-**DisableWifiRelatedOptions:** want to remove sections that are only shown when internet is on? You can toggle this to remove all of those sections. Well not all, but toggling the option will remove some of the annoying sections that may not be used.
+**AppSettingsOverlayOptions:** this allows you to remove sections in the app such as `Account`, `Autoplay`, `Try new features`, `Video quality preferences`, `Notifications`, `Manage all history` `Your data in YouTube`, `Privacy`, `Live chat` & much more!
 
 **HideShadowOverlayButtons:** want to remove shadow overlay on the buttons used in the video player? Then toggle this to remove the Shadow Overlay on the buttons Previous, Next, Rewind, Forward.
 
