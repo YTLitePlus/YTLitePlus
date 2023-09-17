@@ -126,6 +126,16 @@ extern NSBundle *YTLitePlusBundle();
 # pragma mark - App Settings Overlay Options
     YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"App Settings Overlay Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_ACCOUNT_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableAccountSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAccountSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_DONTEATMYCONTENT_SECTION")
                 titleDescription:LOC(@"APP_RESTART_DESC")
                 accessibilityIdentifier:nil
@@ -176,6 +186,16 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_VIDEOQUALITYPREFERENCES_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableVideoQualityPreferencesSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableVideoQualityPreferencesSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_NOTIFICATIONS_SECTION")
                 titleDescription:LOC(@"APP_RESTART_DESC")
                 accessibilityIdentifier:nil
@@ -186,12 +206,32 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
                 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HISTORYANDPRIVACY_SECTION")
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_MANAGEALLHISTORY_SECTION")
                 titleDescription:LOC(@"APP_RESTART_DESC")
                 accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableHistoryAndPrivacySection_enabled")
+                switchOn:IsEnabled(@"disableManageAllHistorySection_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableHistoryAndPrivacySection_enabled"];
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableManageAllHistorySection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOURDATAINYOUTUBE_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableYourDataInYouTubeSection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYourDataInYouTubeSection_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_PRIVACY_SECTION")
+                titleDescription:LOC(@"APP_RESTART_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disablePrivacySection_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disablePrivacySection_enabled"];
                     return YES;
                 }
                 settingItemId:0],
