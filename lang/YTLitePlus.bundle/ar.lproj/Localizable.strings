@@ -1,57 +1,40 @@
 // Settings
-"VERSION" = "نسخة CercubePlus: %@";
+"VERSION" = "نسخة YTLitePlus: %@";
 "VERSION_CHECK" = "انقر للتحقق من وجود تحديث";
-
-// Video player options
-"VIDEO_PLAYER_OPTIONS" = "خيارات مشغل الفيديو";
-
-"SNAP_TO_CHAPTER" = "تعطيل الانجذاب للفصل";
-"SNAP_TO_CHAPTER_DESC" = "تعطيل الانجذاب التلقائي للفصل عند البحث في مقاطع الفيديو. مطلوب إعادة تشغيل التطبيق";
-
-"PINCH_TO_ZOOM" = "تعطيل القرص للتكبير";
-"PINCH_TO_ZOOM_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "خيارات تراكب ضوابط الفيديو";
 
-"HIDE_CHANNEL_WATERMARK" = "إخفاء القناة المائية";
-"HIDE_CHANNEL_WATERMARK_DESC" = "إخفاء العلامة المائية للقناة في تراكب عناصر التحكم في الفيديو. مطلوب إعادة تشغيل التطبيق";
+"ENABLE_SHARE_BUTTON" = "Enable Share Button";
+"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
 
-"RED_PROGRESS_BAR" = "شريط التقدم الأحمر";
-"RED_PROGRESS_BAR_DESC" = "أعد شريط التقدم الأحمر. مطلوب إعادة تشغيل التطبيق";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
 
-"DONT_EAT_MY_CONTENT" = "منع Notch / Island على محتوى فيديو 2: 1 (DontEatMyContent)";
-"DONT_EAT_MY_CONTENT_DESC" = "امنع الشق / Dynamic Island من مضغ محتوى فيديو 2: 1 في YouTube. مطلوب إعادة تشغيل التطبيق";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
+
+"HIDE_RIGHT_PANEL" = "إخفاء اللوحة اليمنى في وضع ملء الشاشة";
+"HIDE_RIGHT_PANEL_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
 "HIDE_HEATWAVES" = "إخفاء موجات الحر";
 "HIDE_HEATWAVES_DESC" = "يخفي موجات الحر في مشغل الفيديو. مطلوب إعادة تشغيل التطبيق.";
 
-// Shorts controls overlay options
-"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "شورت ضوابط تراكب الخيارات";
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 
-"HIDE_SHORTS_CHANNEL_AVATAR" = "إخفاء الصورة الرمزية لقناة شورت";
-"HIDE_SHORTS_CHANNEL_AVATAR_DESC" = "";
-
-"HIDE_SHORTS_LIKE_BUTTON" = "إخفاء السراويل مثل الزر";
-"HIDE_SHORTS_LIKE_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_DISLIKE_BUTTON" = "إخفاء زر عدم إعجاب السراويل القصيرة";
-"HIDE_SHORTS_DISLIKE_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_COMMENT_BUTTON" = "زر إخفاء التعليقات القصيرة";
-"HIDE_SHORTS_COMMENT_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_REMIX_BUTTON" = "زر "إخفاء شورت ريميكس"";
-"HIDE_SHORTS_REMIX_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_SHARE_BUTTON" = "إخفاء زر مشاركة السراويل القصيرة";
-"HIDE_SHORTS_SHARE_BUTTON_DESC" = "";
-
-"HIDE_SUPER_THANKS" = "إخفاء لافتة Buy Super Thanks";
-"HIDE_SUPER_THANKS_DESC" = "إخفاء لافتة Buy Super Thanks في السراويل القصيرة";
-
-"DISABLE_RESUME_TO_SHORTS" = "تعطيل استئناف للسراويل القصيرة";
-"DISABLE_RESUME_TO_SHORTS_DESC" = "تعطيل استئناف للسراويل القصيرة";
+"HIDE_ACCOUNT_SECTION" = "Hide `Account` Section";
+"HIDE_DONTEATMYCONTENT_SECTION" = "Hide `DontEatMyContent` Section";
+"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Hide `YouTube Return Dislike` Section";
+"HIDE_YOUPIP_SECTION" = "Hide `YouPiP` Section";
+"HIDE_AUTOPLAY_SECTION" = "Hide `Autoplay` Section";
+"HIDE_TRYNEWFEATURES_SECTION" = "Hide `Try New Features` Section";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide `Video quality preferences` Section";
+"HIDE_NOTIFICATIONS_SECTION" = "Hide `Notifications` Section";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Hide `Manage all history` Section";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide `Your data in YouTube` Section";
+"HIDE_PRIVACY_SECTION" = "Hide `Privacy` Section";
+"HIDE_LIVECHAT_SECTION" = "Hide `Live Chat` Section";
 
 // Theme
 "THEME_OPTIONS" = "Theme Options";
@@ -69,44 +52,26 @@
 "OLED_KEYBOARD" = "لوحة مفاتيح OLED (تجريبية)";
 "OLED_KEYBOARD_DESC" = "قد لا يعمل بشكل صحيح في بعض الحالات. مطلوب إعادة تشغيل التطبيق";
 
-// Customization Options
-"CUSTOMIZATION_OPTIONS" = "خيارات التخصيص";
+"LOW_CONTRAST_MODE" = "وضع التباين المنخفض";
+"LOW_CONTRAST_MODE_DESC" = "سيؤدي ذلك إلى ظهور نصوص وأزرار منخفضة التباين تمامًا مثل واجهة YouTube القديمة. مطلوب إعادة تشغيل التطبيق";
+"LCM_SELECTOR" = "Low contrast mode selection";
+"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "متنوع";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
 "HIDE_MODERN_INTERFACE" = "إخفاء الواجهة الحديثة (YTNoModernUI)";
 "HIDE_MODERN_INTERFACE_DESC" = "قم بتبديل هذا الخيار لإخفاء أي عنصر حديث أضافه YouTube. يزيل الوضع المحيط والتصميم المستدير والمزيد. مطلوب إعادة تشغيل التطبيق";
 
-"HIDE_YOUTUBE_LOGO" = "إخفاء شعار يوتيوب";
-"HIDE_YOUTUBE_LOGO_DESC" = "سيؤدي هذا إلى إخفاء شعار YouTube في الجزء العلوي الأيسر من الواجهة. مطلوب إعادة تشغيل التطبيق";
+"IPAD_LAYOUT" = "تخطيط iPad";
+"IPAD_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPad Layout على جهاز iPhone / iPod الحالي. مطلوب إعادة تشغيل التطبيق";
 
-"HIDE_TAB_BAR_LABELS" = "إخفاء التسميات في شريط علامات التبويب";
-"HIDE_TAB_BAR_LABELS_DESC" = "سيؤدي هذا إلى إخفاء كافة التسميات الموجودة في شريط علامات التبويب. مطلوب إعادة تشغيل التطبيق";
-
-"LOW_CONTRAST_MODE" = "وضع التباين المنخفض";
-"LOW_CONTRAST_MODE_DESC" = "سيؤدي ذلك إلى ظهور نصوص وأزرار منخفضة التباين تمامًا مثل واجهة YouTube القديمة. مطلوب إعادة تشغيل التطبيق";
-
-"RED_UI" = "واجهة مستخدم حمراء";
-"RED_UI_DESC" = "واجهة المستخدم الحمراء (مع إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"BLUE_UI" = "واجهة مستخدم زرقاء";
-"BLUE_UI_DESC" = "Blue UI (إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"GREEN_UI" = "واجهة المستخدم الخضراء";
-"GREEN_UI_DESC" = "واجهة المستخدم الخضراء (مع إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"YELLOW_UI" = "واجهة مستخدم صفراء";
-"YELLOW_UI_DESC" = "واجهة المستخدم الصفراء (مع إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"ORANGE_UI" = "واجهة المستخدم البرتقالية";
-"ORANGE_UI_DESC" = "واجهة المستخدم البرتقالية (مع إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"PURPLE_UI" = "واجهة مستخدم أرجوانية";
-"PURPLE_UI_DESC" = "واجهة المستخدم الأرجواني (أوقف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-"PINK_UI" = "واجهة المستخدم الوردي";
-"PINK_UI_DESC" = "واجهة المستخدم الوردية (مع إيقاف تشغيل كل ألوان واجهة المستخدم الأخرى) يلزم إعادة تشغيل التطبيق";
-
-// Miscellaneous
-"MISCELLANEOUS" = "متنوع";
+"IPHONE_LAYOUT" = "تخطيط iPhone";
+"IPHONE_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPhone Layout على جهاز iPad الحالي. مطلوب إعادة تشغيل التطبيق";
 
 "CAST_CONFIRM" = "تأكيد التنبيه قبل الإرسال (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "أظهر تنبيه تأكيد قبل الإرسال لمنع اختطاف التلفزيون عن طريق الخطأ";
@@ -115,77 +80,28 @@
 "MSG_YES" = "نعم";
 "MSG_CANCEL" = "يلغي";
 
-"DISABLE_HINTS" = "تعطيل التلميحات";
-"DISABLE_HINTS_DESC" = "تعطيل تلميحات الميزات من YouTube التي تظهر عادةً عند تثبيت التطبيق حديثًا";
-
-"ENABLE_FLEX" = "تمكين FLEX";
-"ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
-
-"FIX_GOOGLE_SIGNIN" = "إصلاح تسجيل الدخول إلى Google (لمستخدمي TrollStore فقط)";
-"FIX_GOOGLE_SIGNIN_DESC" = "قم بتشغيل هذا الخيار فقط عندما لا تتمكن من تسجيل الدخول باستخدام حساب Google الخاص بك وتم تثبيت التطبيق عبر TrollStore. إذا كنت تستطيع تسجيل الدخول بشكل طبيعي ، فابقه معطلاً. مطلوب إعادة تشغيل التطبيق";
-
-"HIDE_CHIP_BAR" = "إخفاء الشريط العلوي";
-"HIDE_CHIP_BAR_DESC" = "إخفاء الشريط العلوي في موجزات الصفحة الرئيسية (الاتجاهات والموسيقى والألعاب ...) وموجز الاشتراك (جميع مقاطع الفيديو ، تابع المشاهدة";
-
-"NEW_MINIPLAYER_STYLE" = "نمط بار لاعب صغير جديد (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE" = "نمط شريط miniplayer جديد (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
-"REPLACE_PREVIOUS_NEXT_BUTTON" = "استبدال الزر السابق والتالي";
-"REPLACE_PREVIOUS_NEXT_BUTTON_DESC" = "استبدل الزر السابق والزر التالي بزري التقديم السريع والإرجاع. مطلوب إعادة تشغيل التطبيق";
-
-"HIDE_PREVIOUS_AND_NEXT_BUTTON" = "إخفاء زر السابق والتالي";
-"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC" = "إخفاء زر "السابق" و "التالي" في تراكب عناصر التحكم في الفيديو";
-
-"HIDE_SHORTS_VIDEOS" = "إخفاء مقاطع الفيديو القصيرة";
-"HIDE_SHORTS_VIDEOS_DESC" = "إخفاء مقاطع الفيديو القصيرة في الصفحة الرئيسية ، موصى به";
-
-"YT_MINIPLAYER" = "قم بتمكين Miniplayer لجميع مقاطع فيديو YouTube";
-"YT_MINIPLAYER_DESC" = "مقاطع فيديو للأطفال على سبيل المثال.";
-
-"HIDE_CERCUBE_BUTTON" = "إخفاء زر Cercube في شريط التنقل";
-"HIDE_CERCUBE_BUTTON_DESC" = "";
-
-"HIDE_CERCUBE_PIP_BUTTON" = "إخفاء زر Cercube's PiP";
-"HIDE_CERCUBE_PIP_BUTTON_DESC" = "إخفاء زر PiP في Cercube في تراكب عناصر التحكم في الفيديو";
-
-"HIDE_CERCUBE_DOWNLOAD_BUTTON" = "إخفاء زر تنزيل Cercube";
-"HIDE_CERCUBE_DOWNLOAD_BUTTON_DESC" = "تم تمكين خيار إخفاء زر تنزيل Cercube افتراضيًا. لأنك غير قادر على تنزيل أي شيء الآن منذ اختفاء خوادم تنزيل Cercube";
+"STOCK_VOLUME_HUD" = "Use iOS stock volume HUD";
+"STOCK_VOLUME_HUD_DESC" = "";
 
 "HIDE_CAST_BUTTON" = "زر "إخفاء الإرسال";
 "HIDE_CAST_BUTTON_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
-"HIDE_HOVER_CARD" = "إخفاء بطاقات التمرير لشاشات النهاية (YTNoHoverCards)";
-"HIDE_HOVER_CARD_DESC" = "إخفاء شاشات نهاية المنشئ (الصور المصغرة) في نهاية مقاطع الفيديو";
+"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_RIGHT_PANEL" = "إخفاء اللوحة اليمنى في وضع ملء الشاشة";
-"HIDE_RIGHT_PANEL_DESC" = "مطلوب إعادة تشغيل التطبيق";
+"YT_SPEED" = "Enable YTSpeed";
+"YT_SPEED_DESC" = "Enable YTSpeed to have more Playback Speed Options. App restart is required.";
 
-"NEW_MINIPLAYER_STYLE" = "نمط شريط miniplayer جديد (BigYTMiniPlayer)";
-"NEW_MINIPLAYER_STYLE_DESC" = "مطلوب إعادة تشغيل التطبيق";
+"ENABLE_FLEX" = "تمكين FLEX";
+"ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
 
-"HIDE_SUBTITLES_BUTTON" = "زر إخفاء الترجمة";
-"HIDE_SUBTITLES_BUTTON_DESC" = "إخفاء زر الترجمة في تراكب عناصر التحكم في الفيديو";
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
+"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
 
-"HIDE_AUTOPLAY_SWITCH" = "إخفاء مفتاح التشغيل التلقائي";
-"HIDE_AUTOPLAY_SWITCH_DESC" = "إخفاء مفتاح التشغيل التلقائي في تراكب عناصر التحكم في الفيديو";
-
-"AUTO_FULLSCREEN" = "ملء الشاشة تلقائيًا (YTAutoFullScreen)";
-"AUTO_FULLSCREEN_DESC" = "تشغيل مقاطع الفيديو تلقائيًا في وضع ملء الشاشة";
-
-"HIDE_HUD_MESSAGES" = "إخفاء رسائل شاشة HUD";
-"HIDE_HUD_MESSAGES_DESC" = "مثال: تشغيل / إيقاف تشغيل CC ، حلقة الفيديو قيد التشغيل ، ...";
-
-"HIDE_PAID_PROMOTION_CARDS" = "إخفاء بطاقات الترويج المدفوعة";
-"HIDE_PAID_PROMOTION_CARDS_DESC" = "إخفاء بطاقة "تضمين العروض الترويجية المدفوعة" في بعض مقاطع الفيديو";
-
-"HIDE_NOTIFICATION_BUTTON" = "إخفاء زر الإعلام في شريط التنقل";
-"HIDE_NOTIFICATION_BUTTON_DESC" = "";
-
-"YT_RE_EXPLORE" = "استبدل علامة تبويب السراويل القصيرة بعلامة التبويب استكشاف (YTReExplore)";
-"YT_RE_EXPLORE_DESC" = "مطلوب إعادة تشغيل التطبيق";
-
-"IPAD_LAYOUT" = "تخطيط iPad";
-"IPAD_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPad Layout على جهاز iPhone / iPod الحالي. مطلوب إعادة تشغيل التطبيق";
-
-"IPHONE_LAYOUT" = "تخطيط iPhone";
-"IPHONE_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPhone Layout على جهاز iPad الحالي. مطلوب إعادة تشغيل التطبيق";
+// Other Localization
+"APP_RESTART_DESC" = "App restart is required.";

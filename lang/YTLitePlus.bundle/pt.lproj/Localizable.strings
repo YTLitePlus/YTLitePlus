@@ -2,71 +2,106 @@
 "VERSION" = "Versão do CercubePlus: %@";
 "VERSION_CHECK" = "Toque para verificar se há atualização!";
 
-"DONT_EAT_MY_CONTENT" = "Evitar o notch/Island em conteúdo de vídeo 2:1 (DontEatMyContent)";
-"DONT_EAT_MY_CONTENT_DESC" = "Evita que o notch/Dynamic Island coma conteúdo de vídeo 2:1 no YouTube. A reinicialização do app é necessária.";
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Controls Overlay Options";
 
-"REPLACE_PREVIOUS_NEXT_BUTTON" = "Substituir o botão Anterior e Próximo";
-"REPLACE_PREVIOUS_NEXT_BUTTON_DESC" = "Substitui o botão Anterior e Próximo pelo botão Avançar e Retroceder. A reinicialização do app é necessária.";
+"ENABLE_SHARE_BUTTON" = "Enable Share Button";
+"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
 
-"FIX_GOOGLE_SIGNIN" = "Corrigir o login do Google (somente para usuários da TrollStore)";
-"FIX_GOOGLE_SIGNIN_DESC" = "Ative esta opção somente quando você não conseguir fazer login com sua conta do Google e o aplicativo foi instalado via TrollStore. Se você conseguir fazer login normalmente, mantenha-o desativado. A reinicialização do app é necessária.";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
 
-"KILL_APP" = "Fechar o YouTube";
-"KILL_APP_DESC" = "Toque aqui para fechar o YouTube!";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
 
-"HIDE_PREVIOUS_AND_NEXT_BUTTON" = "Ocultar botão Anterior e Próximo";
-"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC" = "Oculta o botão Anterior e Próximo na sobreposição de controles de vídeo.";
+"HIDE_RIGHT_PANEL" = "Hide the right panel in fullscreen mode";
+"HIDE_RIGHT_PANEL_DESC" = "App restart is required.";
 
-"HIDE_SHORTS_VIDEOS" = "Ocultar vídeos de Shorts";
-"HIDE_SHORTS_VIDEOS_DESC" = "Ocultar vídeos de Shorts na Página inicial, Recomendado...";
+"HIDE_HEATWAVES" = "Hide Heatwaves";
+"HIDE_HEATWAVES_DESC" = "Hides the Heatwaves in the video player. App restart is required.";
 
-"YT_MINIPLAYER" = "Ative o Miniplayer para todos os vídeos do YouTube";
-"YT_MINIPLAYER_DESC" = "Vídeos infantis, por exemplo.";
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 
-"HIDE_CERCUBE_BUTTON" = "Ocultar o botão Cercube na barra de navegação";
-"HIDE_CERCUBE_BUTTON_DESC" = "";
+"HIDE_ACCOUNT_SECTION" = "Hide `Account` Section";
+"HIDE_DONTEATMYCONTENT_SECTION" = "Hide `DontEatMyContent` Section";
+"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Hide `YouTube Return Dislike` Section";
+"HIDE_YOUPIP_SECTION" = "Hide `YouPiP` Section";
+"HIDE_AUTOPLAY_SECTION" = "Hide `Autoplay` Section";
+"HIDE_TRYNEWFEATURES_SECTION" = "Hide `Try New Features` Section";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide `Video quality preferences` Section";
+"HIDE_NOTIFICATIONS_SECTION" = "Hide `Notifications` Section";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Hide `Manage all history` Section";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide `Your data in YouTube` Section";
+"HIDE_PRIVACY_SECTION" = "Hide `Privacy` Section";
+"HIDE_LIVECHAT_SECTION" = "Hide `Live Chat` Section";
 
-"HIDE_CERCUBE_PIP_BUTTON" = "Ocultar o botão PiP do Cercube";
-"HIDE_CERCUBE_PIP_BUTTON_DESC" = "A opção para ocultar o botão Download do Cercube foi ativada por padrão. porque você não pode baixar nada agora, já que os servidores de download do Cercube se foram.";
+// Theme
+"THEME_OPTIONS" = "Theme Options";
 
-"HIDE_CERCUBE_DOWNLOAD_BUTTON" = "Ocultar o botão Download do Cercube";
-"HIDE_CERCUBE_DOWNLOAD_BUTTON_DESC" = "Oculta o botão Download do Cercube na sobreposição de controles de vídeo.";
+"OLED_DARK_THEME" = "OLED dark theme";
+"OLED_DARK_THEME_2" = "OLED dark theme";
+"OLED_DARK_THEME_DESC" = "True dark theme. Might not work correctly in some cases. App restart is required after you enable/disable this option.";
 
-"HIDE_CAST_BUTTON" = "Ocultar Botão de transmissão";
-"HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
+"OLD_DARK_THEME" = "Old dark theme";
+"OLD_DARK_THEME_DESC" = "Old YouTube's dark theme (grey theme). App restart is required.";
 
-"HIDE_WATERMARKS" = "Ocultar Marcas d'água";
-"HIDE_WATERMARKS_DESC" = "Oculta as marcas d'água do canal na sobreposição de controles de vídeo.";
-
-"HIDE_HOVER_CARD" = "Ocultar Cartões flutuantes de telas finais (YTNoHoverCards)";
-"HIDE_HOVER_CARD_DESC" = "Oculta telas finais do criador (miniaturas) no final dos vídeos.";
-
-"NEW_MINIPLAYER_STYLE" = "Novo estilo de barra de miniplayer (BigYTMiniPlayer)";
-"NEW_MINIPLAYER_STYLE_DESC" = "A reinicialização do app é necessária.";
-
-"YT_RE_EXPLORE" = "Substituir a guia Shorts pela guia Explorar (YTReExplore)";
-"YT_RE_EXPLORE_DESC" = "A reinicialização do app é necessária.";
-
-"HIDE_SUBTITLES_BUTTON" = "Ocultar botão de Legendas";
-"HIDE_SUBTITLES_BUTTON_DESC" = "Oculta o botão de Legendas na sobreposição de controles de vídeo.";
-
-"HIDE_AUTOPLAY_SWITCH" = "Ocultar interruptor de Reprodução automática";
-"HIDE_AUTOPLAY_SWITCH_DESC" = "Oculta o interruptor de Reprodução automática na sobreposição de controles de vídeo.";
-
-"AUTO_FULLSCREEN" = "Tela cheia automática (YTAutoFullScreen)";
-"AUTO_FULLSCREEN_DESC" = "Reproduz videos em tela cheia automaticamente.";
-
-"HIDE_HUD_MESSAGES" = "Ocultar Mensagens do HUD";
-"HIDE_HUD_MESSAGES_DESC" = "Exemplo: Legendas/CC ativadas/desativadas, A repetição do vídeo está ativada,...";
-
-"OLED_DARKMODE" = "Modo escuro OLED";
-"OLED_DARKMODE_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária após você ativar/desativar essa opção.";
+"DEFAULT_THEME" = "Default";
+"DEFAULT_THEME_DESC" = "Default dark(er) theme of YouTube. App restart is required.";
 
 "OLED_KEYBOARD" = "Teclado OLED";
 "OLED_KEYBOARD_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária.";
 
-"HIDE_PAID_PROMOTION_CARDS" = "Ocultar Banner de promoção paga";
-"HIDE_PAID_PROMOTION_CARDS_DESC" = "Oculta o banner 'Contém promoção paga' em alguns vídeos.";
+"LOW_CONTRAST_MODE" = "Low Contrast Mode";
+"LOW_CONTRAST_MODE_DESC" = "This option will Low Contrast of the texts and buttons just like how the old YouTube Interface was. App restart is required.";
+"LCM_SELECTOR" = "Low contrast mode selection";
+"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
 
-"HIDE_NOTIFICATION_BUTTON" = "Ocultar botão de notificação na Barra de navegação";
-"HIDE_NOTIFICATION_BUTTON_DESC" = "";
+// Miscellaneous
+"MISCELLANEOUS" = "Miscellaneous";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Hide Modern Interface (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Toggle this on to hide any Modern Element added by YouTube. Removes Ambient Mode, Rounded Design & More. App restart is required.";
+
+"IPAD_LAYOUT" = "iPad Layout";
+"IPAD_LAYOUT_DESC" = "only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
+
+"IPHONE_LAYOUT" = "iPhone Layout";
+"IPHONE_LAYOUT_DESC" = "only use this if you want to have the iPhone Layout on your current iPad. App restart is required.";
+
+"CAST_CONFIRM" = "Confirm alert before casting (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Show a confirm alert before casting to prevent accidentally hijacking TV.";
+"CASTING" = "Castings";
+"MSG_ARE_YOU_SURE" = "Are you sure you want to start casting?";
+"MSG_YES" = "Yes";
+"MSG_CANCEL" = "Cancel";
+
+"NEW_MINIPLAYER_STYLE" = "Novo estilo de barra de miniplayer (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "A reinicialização do app é necessária.";
+
+"STOCK_VOLUME_HUD" = "Use iOS stock volume HUD";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+"HIDE_CAST_BUTTON" = "Ocultar Botão de transmissão";
+"HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"YT_SPEED" = "Enable YTSpeed";
+"YT_SPEED_DESC" = "Enable YTSpeed to have more Playback Speed Options. App restart is required.";
+
+"ENABLE_FLEX" = "Enable FLEX";
+"ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
+"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+
+// Other Localization
+"APP_RESTART_DESC" = "App restart is required.";

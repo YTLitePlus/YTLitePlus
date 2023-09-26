@@ -1,29 +1,8 @@
-// Paramètres
+// Settings
 "VERSION" = "YTLitePlus version : %@";
 "VERSION_CHECK" = "Appuyez pour vérifier les mises à jour !";
 
-// Options du lecteur vidéo
-"VIDEO_PLAYER_OPTIONS" = "Options du lecteur vidéo";
-
-"AUTO_FULLSCREEN" = "Plein écran automatique (YTAutoFullScreen)";
-"AUTO_FULLSCREEN_DESC" = "Lire les vidéos en plein écran automatiquement.";
-
-"TAP_TO_SKIP" = "Désactiver l'appui pour passer 10 secondes.";
-"TAP_TO_SKIP_DESC" = "Désactiver la fonctionnalité d'appui pour passer 10 secondes dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
-
-"SNAP_TO_CHAPTER" = "Désactiver l'alignement sur le chapitre";
-"SNAP_TO_CHAPTER_DESC" = "Désactiver l'alignement automatique sur le chapitre lors de la recherche dans les vidéos. Un redémarrage de l'application est nécessaire.";
-
-"PINCH_TO_ZOOM" = "Désactiver pincer pour zoomer";
-"PINCH_TO_ZOOM_DESC" = "Un redémarrage de l'application est nécessaire.";
-
-"YT_MINIPLAYER" = "Activer le mini-lecteur pour toutes les vidéos YouTube";
-"YT_MINIPLAYER_DESC" = "Par exemple, les vidéos pour enfants.";
-
-"STOCK_VOLUME_HUD" = "Utiliser le HUD de volume iOS par défaut";
-"STOCK_VOLUME_HUD_DESC" = "";
-
-// Options de l'overlay des contrôles vidéo
+// Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Options de l'overlay des contrôles vidéo";
 
 "ENABLE_SHARE_BUTTON" = "Activer le bouton Partager";
@@ -32,82 +11,32 @@
 "ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Activer le bouton 'Enregistrer dans la liste de lecture'";
 "ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Activer le bouton 'Enregistrer dans la liste de lecture' dans l'overlay des contrôles vidéo.";
 
-"HIDE_AUTOPLAY_SWITCH" = "Masquer le toggle de lecture automatique";
-"HIDE_AUTOPLAY_SWITCH_DESC" = "Masquer le toggle de lecture automatique dans l'overlay des contrôles vidéo.";
-
-"HIDE_SUBTITLES_BUTTON" = "Masquer le bouton Sous-titres";
-"HIDE_SUBTITLES_BUTTON_DESC" = "Masquer le bouton Sous-titres dans l'overlay des contrôles vidéo.";
-
-"HIDE_HUD_MESSAGES" = "Masquer les messages HUD";
-"HIDE_HUD_MESSAGES_DESC" = "Exemple : Les sous-titres sont activés/désactivés, la boucle vidéo est activée, ...";
-
-"HIDE_PAID_PROMOTION_CARDS" = "Masquer les cartes de promotion payante";
-"HIDE_PAID_PROMOTION_CARDS_DESC" = "Masquer la carte 'Contient des promotions payantes' dans certaines vidéos.";
-
-"HIDE_CHANNEL_WATERMARK" = "Masquer le filigrane de la chaîne";
-"HIDE_CHANNEL_WATERMARK_DESC" = "Masquer le filigrane de la chaîne dans l'overlay des contrôles vidéo. Un redémarrage de l'application est nécessaire.";
-
 "HIDE_SHADOW_OVERLAY_BUTTONS" = "Masquer l'overlay sombre";
 "HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Masquer l'overlay sombre sur les boutons Lecture/Pause, Précédent, Suivant, Avancer et Retour en arrière.";
-
-"HIDE_PREVIOUS_AND_NEXT_BUTTON" = "Masquer les boutons Précédent et Suivant";
-"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC" = "Masquer les boutons Précédent et Suivant dans l'overlay des contrôles vidéo.";
-
-"REPLACE_PREVIOUS_NEXT_BUTTON" = "Remplacer les boutons Précédent et Suivant";
-"REPLACE_PREVIOUS_NEXT_BUTTON_DESC" = "Remplacer les boutons Précédent et Suivant par les boutons Avance rapide et Retour en arrière. Un redémarrage de l'application est nécessaire.";
-
-"RED_PROGRESS_BAR" = "Barre de progression rouge";
-"RED_PROGRESS_BAR_DESC" = "Ramener la barre de progression rouge. Un redémarrage de l'application est nécessaire.";
-
-"DISABLE_VIDEO_PLAYER_ZOOM" = "Désactiver la fonction de zoom dans le lecteur vidéo. Un redémarrage de l'application est nécessaire.";
-"DISABLE_VIDEO_PLAYER_ZOOM_DESC" = "Désactiver la fonction de zoom sur l'iPhone et l'iPad.";
-
-"HIDE_HOVER_CARD" = "Masquer la prévisualisation de la vidéo";
-"HIDE_HOVER_CARD_DESC" = "Masquer la prévisualisation de la vidéo lors du survol de la barre de progression";
 
 "HIDE_RIGHT_PANEL" = "Masquer le panneau de droite en mode plein écran";
 "HIDE_RIGHT_PANEL_DESC" = "Le redémarrage de l'application est requis.";
 
-"DONT_EAT_MY_CONTENT" = "Empêcher l'encoche/Dynamic Island de masquer le contenu des vidéos 2:1 (DontEatMyContent)";
-"DONT_EAT_MY_CONTENT_DESC" = "Empêcher l'encoche/Dynamic Island de grignoter le contenu des vidéos 2:1 sur YouTube. Le redémarrage de l'application est requis.";
-
 "HIDE_HEATWAVES" = "Masquer les Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
-"HIDE_DARK_OVERLAY_BACKGROUND" = "Masquer l'arrière-plan sombre de l'overlay";
-"HIDE_DARK_OVERLAY_BACKGROUND_DESC" = "Masquer l'arrière-plan sombre de l'overlay du lecteur vidéo.";
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Paramètres des options d'overlay de l'application";
 
-// Options de l'overlay des contrôles des Shorts.
-"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Options de l'overlay des contrôles des Shorts.";
+"HIDE_ACCOUNT_SECTION" = "Masquer la section `Compte`";
+"HIDE_DONTEATMYCONTENT_SECTION" = "Masquer la section `DontEatMyContent`";
+"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Masquer la section `YouTube Return Dislike`";
+"HIDE_YOUPIP_SECTION" = "Masquer la section `YouPiP`";
+"HIDE_AUTOPLAY_SECTION" = "Masquer la section `Autoplay`";
+"HIDE_TRYNEWFEATURES_SECTION" = "Masquer la section `Essayer de nouvelles fonctionnalités`";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Masquer la section `Préférences de qualité vidéo`";
+"HIDE_NOTIFICATIONS_SECTION" = "Masquer la section `Notifications`";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Masquer la section `Gérer tout l'historique`";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Masquer la section `Vos données dans YouTube`";
+"HIDE_PRIVACY_SECTION" = "Masquer la section `Confidentialité`";
+"HIDE_LIVECHAT_SECTION" = "Masquer la section `Chat en direct`";
 
-"HIDE_SHORTS_VIDEOS" = "Masquer les vidéos Shorts";
-"HIDE_SHORTS_VIDEOS_DESC" = "Masquer les vidéos Shorts dans la page d'accueil, les vidéos recommandées...";
-
-"HIDE_SHORTS_CHANNEL_AVATAR" = "Masquer l'avatar de la chaîne des Shorts";
-"HIDE_SHORTS_CHANNEL_AVATAR_DESC" = "";
-
-"HIDE_SHORTS_LIKE_BUTTON" = "Masquer le bouton J'aime des Shorts";
-"HIDE_SHORTS_LIKE_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_DISLIKE_BUTTON" = "Masquer le bouton Je n'aime pas des Shorts";
-"HIDE_SHORTS_DISLIKE_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_COMMENT_BUTTON" = "Masquer le bouton de commentaire des Shorts";
-"HIDE_SHORTS_COMMENT_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_REMIX_BUTTON" = "Masquer le bouton de remix des Shorts";
-"HIDE_SHORTS_REMIX_BUTTON_DESC" = "";
-
-"HIDE_SHORTS_SHARE_BUTTON" = "Masquer le bouton de partage des Shorts";
-"HIDE_SHORTS_SHARE_BUTTON_DESC" = "";
-
-"HIDE_SUPER_THANKS" = "Masquer la bannière 'Acheter Super Thanks'";
-"HIDE_SUPER_THANKS_DESC" = "Masquer la bannière 'Acheter Super Thanks' dans les Shorts.";
-
-"HIDE_SUBSCRIPTIONS" = "Masquer le bouton Abonnements";
-"HIDE_SUBSCRIPTIONS_DESC" = "Masquer le bouton Abonnements qui apparaît lors de la pause.";
-
-// Thème
+// Theme
 "THEME_OPTIONS" = "Options de thème";
 
 "OLED_DARK_THEME" = "Thème sombre OLED";
@@ -125,29 +54,15 @@
 
 "LOW_CONTRAST_MODE" = "Mode faible contraste";
 "LOW_CONTRAST_MODE_DESC" = "Cette option réduira le contraste des textes et des boutons, comme l'ancienne interface YouTube. Le redémarrage de l'application est requis.";
+"LCM_SELECTOR" = "Low contrast mode selection";
+"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
 
-"LCM_CHOOSE_COLOR" = "Couleur du texte à faible contraste";
-"DEFAULT_UI" = "Par défaut";
-"RED_UI" = "Interface rouge";
-"BLUE_UI" = "Interface bleue";
-"GREEN_UI" = "Interface verte";
-"YELLOW_UI" = "Interface jaune";
-"ORANGE_UI" = "Interface orange";
-"PURPLE_UI" = "Interface violette";
-"VIOLET_UI" = "Interface pourpre";
-"PINK_UI" = "Interface rose";
-
-// Divers
+// Miscellaneous
 "MISCELLANEOUS" = "Divers";
 
 "ENABLE_YT_STARTUP_ANIMATION" = "Activer l'animation de démarrage YouTube";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
-
-"HIDE_YOUTUBE_LOGO" = "Masquer le logo YouTube";
-"HIDE_YOUTUBE_LOGO_DESC" = "Cela masquera le logo YouTube en haut à gauche de l'interface. Un redémarrage de l'application est requis.";
-
-"HIDE_CHIP_BAR" = "Masquer la barre supérieure";
-"HIDE_CHIP_BAR_DESC" = "Masquer la barre supérieure dans les flux Accueil (Tendances, Musique, Jeux...) et les flux Abonnements (Toutes les vidéos, Continuer à regarder...).";
 
 "HIDE_MODERN_INTERFACE" = "Masquer l'interface moderne (YTNoModernUI)";
 "HIDE_MODERN_INTERFACE_DESC" = "Activez cette option pour masquer tout élément moderne ajouté par YouTube. Supprime le mode Ambiant, le design arrondi et plus encore. Un redémarrage de l'application est requis.";
@@ -165,29 +80,28 @@
 "MSG_YES" = "Oui";
 "MSG_CANCEL" = "Annuler";
 
-"DISABLE_HINTS" = "Désactiver les astuces";
-"DISABLE_HINTS_DESC" = "Désactive les astuces de fonctionnalités de YouTube qui s'affichent généralement lorsque l'application est nouvellement installée.";
-
 "NEW_MINIPLAYER_STYLE" = "Nouveau style de mini-lecteur (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Un redémarrage de l'application est requis.";
+
+"STOCK_VOLUME_HUD" = "Utiliser le HUD de volume iOS par défaut";
+"STOCK_VOLUME_HUD_DESC" = "";
 
 "HIDE_CAST_BUTTON" = "Masquer le bouton Cast";
 "HIDE_CAST_BUTTON_DESC" = "Un redémarrage de l'application est requis.";
 
-"HIDE_NOTIFICATION_BUTTON" = "Masquer le bouton de notification dans la barre de navigation";
-"HIDE_NOTIFICATION_BUTTON_DESC" = "";
-
 "HIDE_SPONSORBLOCK_BUTTON" = "Masquer le bouton iSponsorBlock dans la barre de navigation";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"DISABLE_WIFI_RELATED_SETTINGS" = "Désactiver les paramètres liés au Wifi";
-"DISABLE_WIFI_RELATED_SETTINGS_DESC" = "Désactive les sections liées au Wifi (Notifications, applications connectées, confidentialité et chat en direct, etc.) dans le menu des paramètres. Un redémarrage de l'application est requis.";
-
-"YT_RE_EXPLORE" = "Remplacer l'onglet Shorts par l'onglet Explorer (YTReExplore)";
-"YT_RE_EXPLORE_DESC" = "Un redémarrage de l'application est requis.";
 
 "YT_SPEED" = "Activer YTSpeed";
 "YT_SPEED_DESC" = "Activez YTSpeed pour avoir plus d'options de vitesse de lecture. Un redémarrage de l'application est requis.";
 
 "ENABLE_FLEX" = "Activer FLEX";
 "ENABLE_FLEX_DESC" = "Activez FLEX pour le débogage (non recommandé). Laissez cette option désactivée, sauf si vous savez ce que vous faites.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Activer le Spoofer de Version de l'Application (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Activez cette option pour utiliser le Spoofer de Version de l'Application (Lite) et sélectionnez votre version préférée ci-dessous. Un redémarrage de l'application est requis.";
+"VERSION_SPOOFER_TITLE" = "Sélectionneur de Spoofer de Version";
+
+// Other Localization
+"APP_RESTART_DESC" = "Un redémarrage de l'application est requis.";
