@@ -21,20 +21,20 @@
 "HIDE_HEATWAVES_DESC" = "ビデオプレーヤーでヒートウェーブを非表示にします。アプリの再起動が必要です";
 
 // App settings overlay options
-"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
+"APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイオプション";
 
-"HIDE_ACCOUNT_SECTION" = "Hide `Account` Section";
-"HIDE_DONTEATMYCONTENT_SECTION" = "Hide `DontEatMyContent` Section";
-"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Hide `YouTube Return Dislike` Section";
-"HIDE_YOUPIP_SECTION" = "Hide `YouPiP` Section";
-"HIDE_AUTOPLAY_SECTION" = "Hide `Autoplay` Section";
-"HIDE_TRYNEWFEATURES_SECTION" = "Hide `Try New Features` Section";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide `Video quality preferences` Section";
-"HIDE_NOTIFICATIONS_SECTION" = "Hide `Notifications` Section";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Hide `Manage all history` Section";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide `Your data in YouTube` Section";
-"HIDE_PRIVACY_SECTION" = "Hide `Privacy` Section";
-"HIDE_LIVECHAT_SECTION" = "Hide `Live Chat` Section";
+"HIDE_ACCOUNT_SECTION" = "`Account`セクションを非表示にする";
+"HIDE_DONTEATMYCONTENT_SECTION" = "`DontEatMyContent`セクションを非表示にする";
+"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "`Return YouTube Dislike`セクションを非表示にする";
+"HIDE_YOUPIP_SECTION" = "`YouPiP`セクションを非表示にする";
+"HIDE_AUTOPLAY_SECTION" = "`自動再生`セクションを非表示にする";
+"HIDE_TRYNEWFEATURES_SECTION" = "`新機能を試す`セクションを非表示にする";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "`動画の画質設定`セクションを非表示にする";
+"HIDE_NOTIFICATIONS_SECTION" = "`通知`セクションを非表示にする";
+"HIDE_MANAGEALLHISTORY_SECTION" = "`すべての履歴を管理`セクションを非表示にする";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "`Your data in YouTube`セクションを非表示にする";
+"HIDE_PRIVACY_SECTION" = "`プライバシー`セクションを非表示にする";
+"HIDE_LIVECHAT_SECTION" = "`チャット`セクションを非表示にする";
 
 // Theme
 "THEME_OPTIONS" = "テーマオプション";
@@ -54,9 +54,9 @@
 
 "LOW_CONTRAST_MODE" = "低コントラストモード";
 "LOW_CONTRAST_MODE_DESC" = "このオプションは、テキストとボタンのコントラストを以前のYouTubeインターフェイスのように低くします。アプリの再起動が必要です";
-"LCM_SELECTOR" = "Low contrast mode selection";
-"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
-"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
+"LCM_SELECTOR" = "低コントラストモードの選択";
+"DEFAULT_LOWCONTRASTMODE" = "低コントラストモード(Default)";
+"CUSTOM_LOWCONTRASTMODE" = "低コントラストモード(Custom Color)";
 
 // Miscellaneous
 "MISCELLANEOUS" = "その他";
@@ -99,9 +99,9 @@
 "ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください";
 
 // Version Spoofer
-"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
-"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+"APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";
+"APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下からお好みのバージョンを選択してください。アプリの再起動が必要です。";
+"VERSION_SPOOFER_TITLE" = "偽装バージョンの選択";
 
 // Other Localization
-"APP_RESTART_DESC" = "App restart is required.";
+"APP_RESTART_DESC" = "アプリの再起動が必要です";
