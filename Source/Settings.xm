@@ -288,70 +288,77 @@ extern NSBundle *YTLitePlusBundle();
         detailTextBlock:^NSString *() {
             switch (appVersionSpoofer()) {
                 case 1:
-                    return @"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)";
+                    return @"v18.33.3 (Removes Playables)";
                 case 2:
-                    return @"v17.49.6 (Removes Rounded Miniplayer)";
+                    return @"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)";
                 case 3:
-                    return @"v17.38.10 (Fixes LowContrastMode)";
+                    return @"v17.49.6 (Removes Rounded Miniplayer)";
                 case 4:
-                    return @"v17.01.4 (Removes New Overflow Video Player Menu)";
+                    return @"v17.38.10 (Fixes LowContrastMode)";
                 case 5:
-                    return @"v16.46.5 (Removes Rounded Video Player Buttons)";
+                    return @"v17.01.4 (Removes New Overflow Video Player Menu)";
                 case 6:
-                    return @"v16.42.3";
+                    return @"v16.46.5 (Removes Rounded Video Player Buttons)";
                 case 7:
-                    return @"v16.08.2 (Old Comments & Description Menus)";
+                    return @"v16.42.3";
                 case 8:
+                    return @"v16.08.2 (Old Comments & Description Menus)";
+                case 9:
                     return @"v16.05.7 (Oldest Working Version)";
                 case 0:
                 default:
-                    return @"Default Version";
+                    return @"v18.34.5 (Enable Library Tab)";
             }
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"Latest Version" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.34.5 (Enable Library Tab)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.33.3 (Removes Playables)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.49.6 (Removes Rounded Miniplayer)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.18.2 (Fixes YTClassicVideoQuality & YTSpeed)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.38.10 (Fixes LowContrastMode)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.49.6 (Removes Rounded Miniplayer)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.01.4 (Removes New Overflow Video Player Menu)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.38.10 (Fixes LowContrastMode)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.46.5 (Removes Rounded Video Player Buttons)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.01.4 (Removes New Overflow Video Player Menu)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:5 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.42.3" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.46.5 (Removes Rounded Video Player Buttons)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:6 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.08.2 (Old Comments & Description Menus)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.42.3" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"versionSpoofer"];
+                    [settingsViewController reloadData];
+                    return YES;
+                }],
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.08.2 (Old Comments & Description Menus)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:8 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;      
                 }],
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v16.05.7 (Oldest Working Version)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:8 forKey:@"versionSpoofer"];
+                    [[NSUserDefaults standardUserDefaults] setInteger:9 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }]
