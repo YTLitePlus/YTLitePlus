@@ -32,133 +32,152 @@
 # Credits
 
 <table id='maintainer credit'>
-Special thanks to these developer(s) for maintaining and improving YTLitePlus (@qnblackcat is the OG dev)
+Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <tr>
-<td id='arichorn'>
+<td align="center">
+<a href='https://github.com/balackburn'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271853318-3005deb3-b484-4b2b-a093-44c2af79b9af.png' width='100;'>
+</a>
+<br>
+<a href='https://github.com/balackburn'>balackburn</a>
+</td>
+<td align="center">
 <a href='https://github.com/arichorn'>
-<img src='https://github.com/arichorn.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271853100-d5c74be7-4890-411c-907a-dc5f7b5fa46e.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://github.com/arichorn'>arichorn</a></h4>
+<br>
+<a href='https://github.com/arichorn'>arichorn</a>
 </td>
-<td id='qnblackcat'>
-<a href='https://github.com/qnblackcat'>
-<img src='https://github.com/qnblackcat.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/qnblackcat'>Qnblackcat</a></h4>
-</td>
-<td id='dayanch96'>
+<td align="center">
 <a href='https://github.com/dayanch96'>
-<img src='https://github.com/dayanch96.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271853514-129334b3-498f-4804-aceb-392bf5e373e6.png' width='100px;'>
 </a>
-<h4 align='center'><a href='https://github.com/dayanch96'>dayanch96</a></h4>
+<br>
+<a href='https://github.com/dayanch96'>dayanch96</a>
 </td>
 <td id='ssuesskind'>
 <a href='https://github.com/ssuesskind'>
-<img src='https://github.com/ssuesskind.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271853585-77271641-b825-43b1-af57-d9f5b12fe8ff.png' width='100px;'>
 </a>
-<h4 align='center'><a href='https://github.com/ssuesskind'>ssuesskind</a></h4>
+<br>
+<a href='https://github.com/ssuesskind'>ssuesskind</a>
 </td>
 
 <table id='credit'>
-Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus!
+Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus! (@qnblackcat is the OG dev)
     
-(YTLite is an original tweak by dayanch96 @dayanch96)
+(YTLite is an original tweak by @dayanch96)
 <tr>
-<td id='PoomSmart'>
-<a href='https://github.com/PoomSmart'>
-<img src='https://github.com/PoomSmart.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/PoomSmart'>PoomSmart</a></h4>
-</td>
-<td id='miro92'>
+<td align="center">
 <a href='https://github.com/MiRO92'>
-<img src='https://github.com/MiRO92.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271811861-da79accc-095c-4cb3-b7b4-8d48b1449259.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/miro92'>MiRO92</a></h4>
+<br>
+<a href='https://twitter.com/miro92'>MiRO92</a>
 </td>
-<td id='level3tjg'>
+<td align="center">
+<a href='https://github.com/qnblackcat'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812521-e52ebf96-7272-4ec0-a149-8e721c053508.png' width='100px'>
+</a>
+<br>
+<a href='https://twitter.com/qnblackcat'>qnblackcat</a>
+</td>
+<td align="center">
+<a href='https://github.com/PoomSmart'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271811615-96093202-4aec-4e50-a750-8c7b83f3862c.png' width='100px'>
+</a>
+<br>
+<a href='https://twitter.com/poomsmart'>PoomSmart</a>
+</td>
+<td align="center">
 <a href='https://github.com/level3tjg'>
-<img src='https://github.com/level3tjg.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812596-7854996a-3825-4971-a9ff-1001b4d153cb.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/level3tjg'>level3tjg</a></h4>
+<br>
+<a href='https://twitter.com/level3tjg'>level3tjg</a>
 </td>
-<td id='bandarHL'>
+<td align="center">
 <a href='https://github.com/BandarHL'>
-<img src='https://github.com/BandarHL.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812729-2bb63da0-5239-43a4-aa3e-e1daa67e8dc2.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/bandarhl'>BandarHelal</a></h4>
+<br>
+<a href='https://twitter.com/bandarhl'>BandarHelal</a>
 </td>
-<td id='galactic-dev'>
+<td align="center">
 <a href='https://github.com/Galactic-Dev'>
-<img src='https://github.com/Galactic-Dev.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812231-5b7d5d9f-6d19-4174-8478-8f07379ee1ca.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/dev_galactic'>galactic</a></h4>
+<br>
+<a href='https://twitter.com/dev_galactic'>galactic</a>
 </td>
-</tr>
-  
-<tr>
-<td id='hbang'>
-<a href='https://github.com/hbang'>
-<img src='https://github.com/hbang.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://twitter.com/hashbang'>HASHBANG</a></h4>
-</td>
-<td id='lyvendia'>
-<a href='https://github.com/Lyvendia'>
-<img src='https://github.com/Lyvendia.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/Lyvendia'>Lyvendia</a></h4>
-</td>
-<td id='foxster'>
-<a href='https://github.com/therealFoxster'>
-<img src='https://github.com/therealFoxster.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://twitter.com/therealFoxster'>Foxster</a></h4>
-</td>
-<td id='julioverne'>
+<td align="center">
 <a href='https://github.com/julioverne'>
-<img src='https://github.com/julioverne.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812914-bf26d603-2d94-49f4-9702-f5e66af3f44a.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/ijulioverne'>julioverne</a></h4>
-</td>
-<td id='ichitaso'>
-<a href='https://github.com/ichitaso'>
-<img src='https://github.com/ichitaso.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://twitter.com/ichitaso'>ichitaso</a></h4>
+<br>
+<a href='https://twitter.com/ijulioverne'>julioverne</a>
 </td>
 </tr>
   
 <tr>
-<td id='ahmed-bafkir'>
+<td align="center">
+<a href='https://github.com/hbang'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271813035-2e168ee5-fc47-43a6-9307-0fc20c7fca60.png' width='100px'>
+</a>
+<br>
+<a href='https://twitter.com/hashbang'>HASHBANG</a>
+</td>
+<td align="center">
+<a href='https://github.com/Lyvendia'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812187-1c0d5b24-caba-4616-b875-4c458d10ca55.png' width='100px'>
+</a>
+<br>
+<a href='https://github.com/Lyvendia'>Lyvendia</a>
+</td>
+<td align="center">
+<a href='https://github.com/therealFoxster'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812075-923038a7-5ffa-4ea4-9de4-fdf4e5d556c2.png' width='100px'>
+</a>
+<br>
+<a href='https://twitter.com/therealFoxster'>Foxster</a>
+</td>
+<td align="center">
+<a href='https://github.com/ichitaso'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271812398-c7e40fa3-4e0b-4be2-aa51-900444d59abd.png' width='100px'>
+</a>
+<br>
+<a href='https://twitter.com/ichitaso'>ichitaso</a>
+</td>
+<td align="center">
 <a href='https://github.com/AhmedBafkir'>
-<img src='https://github.com/AhmedBafkir.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271813114-dcb005f7-b83b-40e6-a9cb-9b661dd6b33b.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/Peaceful_0'>Ahmed Bafkir</a></h4>
+<br>
+<a href='https://twitter.com/Peaceful_0'>Ahmed Bafkir</a>
 </td>
-<td id='cokepokes'>
+<td align="center">
 <a href='https://github.com/CokePokes'>
-<img src='https://github.com/CokePokes.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271813228-d28471b4-cb67-442c-bd63-276f1641a14e.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://twitter.com/cokepokes'>CokePokes</a></h4>
+<br>
+<a href='https://twitter.com/cokepokes'>CokePokes</a>
 </td>
-<td id='isnackable'>
+<td align="center">
 <a href='https://github.com/ISnackable'>
-<img src='https://github.com/ISnackable.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271813311-2027a8de-a08d-4f1b-97a4-167f4bcef497.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://isnackable.me/'>Tommy Teo</a></h4>
+<br>
+<a href='https://isnackable.me/'>Tommy Teo</a>
 </td>
-<td id='SKIEDs'>
-<a href='https://github.com/SKEIDs'>
-<img src='https://github.com/SKEIDs.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/SKEIDs'>SKIEDs</a></h4>
-</td>
-<td id='theos-team'>
+</tr>
+
+<tr>
+<td align="center">
 <a href='https://github.com/theos/theos'>
-<img src='https://github.com/theos.png' width='140px;'>
+<img src='https://github-production-user-asset-6210df.s3.amazonaws.com/78001398/271813393-56a63730-a56d-41ba-b473-4d37761526c9.png' width='100px'>
 </a>
-<h4 align='center'><a href='https://theos.dev'>theos</a></h4>
+<br>
+<a href='https://theos.dev'>theos</a>
 </td>
 </tr>
 </table>
@@ -232,28 +251,28 @@ any many more...
 
 
 
-- Version info: _(Jul 18 2023)_
+- Version info: _(Oct 1 2023)_
 
 <details>
   <summary>Expand</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.28.3 | ✖︎ |
+| **YouTube** | Google Inc | 18.38.2 | ✖︎ |
 | **YTLite** | Dayanch96 | 2.3.1 |✔︎|
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
 | **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
-| **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.6 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
-| **LowContrastMode** | arichorn | 1.3.0 | [✔︎](https://github.com/arichorn/LowContrastMode) |
+| **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.11 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
+| **LowContrastMode** | arichorn | 1.5.0 | [✔︎](https://github.com/arichorn/LowContrastMode) |
 | **YTUHD** | PoomSmart | 1.4.0 | [✔︎](https://github.com/PoomSmart/YTUHD) |
 | **YouPiP** | PoomSmart | 1.7.20 | [✔︎](https://github.com/PoomSmart/YouPiP) |
-| **YTVideoOverlay** | PoomSmart | 1.1.0 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
-| **YouQuality** | PoomSmart | 1.1.2 | [✔︎](https://github.com/PoomSmart/YouQuality) |
-| **YouMute** | PoomSmart | 1.2.1 | [✔︎](https://github.com/PoomSmart/YouMute) |
-| **YTABConfig** | PoomSmart | 1.5.0-1 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
+| **YTVideoOverlay** | PoomSmart | 1.1.1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
+| **YouQuality** | PoomSmart | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
+| **YouMute** | PoomSmart | 1.2.1-2 | [✔︎](https://github.com/PoomSmart/YouMute) |
+| **YTABConfig** | PoomSmart | 1.5.0-2 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
 | **Return YouTube Dislike** | PoomSmart | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
-| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.1 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
+| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 
 </details>
 
