@@ -34,61 +34,66 @@ static BOOL version7() {
 static BOOL version8() {
     return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 8;
 }
-
-%group gDefault
-%hook YTVersionUtils
-+ (NSString *)appVersion {
-    NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
-    NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
-    
-    return latestVersion ?: @"18.35.4"; // <-- Fallback Version
+static BOOL version9() {
+    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 9;
 }
+
+%group gVersion0
+%hook YTVersionUtils // Brings back Library Tab
++ (NSString *)appVersion { return @"18.34.5"; }
+%end
 %end
 %end
 
 %group gVersion1
-%hook YTVersionUtils // Fixes YTClassicVideoQuality & YTSpeed
-+ (NSString *)appVersion { return @"18.18.2"; }
+%hook YTVersionUtils // Removes Playables in Explore
++ (NSString *)appVersion { return @"18.33.3"; }
 %end
 %end
 
 %group gVersion2
+%hook YTVersionUtils // Fixes YTClassicVideoQuality + YTSpeed
++ (NSString *)appVersion { return @"18.18.2"; }
+%end
+%end
+
+%group gVersion3
 %hook YTVersionUtils // Final v17 App Version
 + (NSString *)appVersion { return @"17.49.6"; }
 %end
 %end
 
-%group gVersion3
-%hook YTVersionUtils // v17.38.10 Fixes the LowContrastMode Tweak + No Rounded Thumbnails
+%group gVersion4
+%hook YTVersionUtils // v17.38.10 Fixes LowContrastMode + No Rounded Thumbnails
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 %end
 
-%group gVersion4
+%group gVersion5
 %hook YTVersionUtils // Last 2nd Supported YouTube App Version
 + (NSString *)appVersion { return @"17.01.4"; }
 %end
 %end
 
-%group gVersion5
+%group gVersion6
 %hook YTVersionUtils // Final v16 App Version
 + (NSString *)appVersion { return @"16.46.5"; }
 %end
 %end
 
-%group gVersion6
+%group gVersion7
 %hook YTVersionUtils // Popular v16 App Version
 + (NSString *)appVersion { return @"16.42.3"; }
 %end
 %end
 
-%group gVersion7
+%group gVersion8
 %hook YTVersionUtils // Old Comment Section & Description Layout
 + (NSString *)appVersion { return @"16.08.2"; }
 %end
 %end
 
-%group gVersion8
+%group gVersion9
 %hook YTVersionUtils // Last Supported YouTube App Version
 + (NSString *)appVersion { return @"16.05.7"; }
 %end
@@ -98,7 +103,7 @@ static BOOL version8() {
 %ctor {
     %init;
     if (version0()) { // 0
-        %init(gDefault);
+        %init(gVersion0);
     }
     if (version1()) { // 1
         %init(gVersion1);
@@ -123,5 +128,8 @@ static BOOL version8() {
     }
     if (version8()) { // 8
         %init(gVersion8);
+    }
+    if (version9()) { // 9
+        %init(gVersion9);
     }
 }
