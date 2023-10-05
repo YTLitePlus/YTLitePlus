@@ -39,28 +39,28 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <tr>
 <td align="center">
 <a href='https://github.com/balackburn'>
-<img src='https://user-images.githubusercontent.com/78001398/271853318-3005deb3-b484-4b2b-a093-44c2af79b9af.png' width='100;'>
+<img src='https://user-images.githubusercontent.com/78001398/271853318-3005deb3-b484-4b2b-a093-44c2af79b9af.png' width='110px;'>
 </a>
 <br>
 <a href='https://github.com/balackburn'>balackburn</a>
 </td>
 <td align="center">
 <a href='https://github.com/arichorn'>
-<img src='https://user-images.githubusercontent.com/78001398/271853100-d5c74be7-4890-411c-907a-dc5f7b5fa46e.png' width='100px'>
+<img src='https://user-images.githubusercontent.com/78001398/271853100-d5c74be7-4890-411c-907a-dc5f7b5fa46e.png' width='110px'>
 </a>
 <br>
 <a href='https://github.com/arichorn'>arichorn</a>
 </td>
 <td align="center">
 <a href='https://github.com/dayanch96'>
-<img src='https://user-images.githubusercontent.com/78001398/271853514-129334b3-498f-4804-aceb-392bf5e373e6.png' width='100px;'>
+<img src='https://user-images.githubusercontent.com/78001398/271853514-129334b3-498f-4804-aceb-392bf5e373e6.png' width='110px;'>
 </a>
 <br>
 <a href='https://github.com/dayanch96'>dayanch96</a>
 </td>
 <td id='ssuesskind'>
 <a href='https://github.com/ssuesskind'>
-<img src='https://user-images.githubusercontent.com/78001398/271853585-77271641-b825-43b1-af57-d9f5b12fe8ff.png' width='100px;'>
+<img src='https://user-images.githubusercontent.com/78001398/271853585-77271641-b825-43b1-af57-d9f5b12fe8ff.png' width='110px;'>
 </a>
 <br>
 <a href='https://github.com/ssuesskind'>ssuesskind</a>
