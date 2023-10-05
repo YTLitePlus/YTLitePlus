@@ -124,7 +124,7 @@ extern NSBundle *YTLitePlusBundle();
     [sectionItems addObject:videoControlOverlayGroup];
 
 # pragma mark - App Settings Overlay Options
-    YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"App Settings Overlay Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+    YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"APP_SETTINGS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_ACCOUNT_SECTION")
                 titleDescription:LOC(@"APP_RESTART_DESC")
@@ -282,7 +282,7 @@ extern NSBundle *YTLitePlusBundle();
             return YES;
         }];
 
-# pragma mark - VersionSpoofer
+# pragma mark - VersionSpooferLite
     YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:@"VERSION_SPOOFER_TITLE"
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
