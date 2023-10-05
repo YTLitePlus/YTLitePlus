@@ -43,7 +43,6 @@ static BOOL version9() {
 + (NSString *)appVersion { return @"18.34.5"; }
 %end
 %end
-%end
 
 %group gVersion1
 %hook YTVersionUtils // Removes Playables in Explore
