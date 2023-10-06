@@ -283,7 +283,7 @@ extern NSBundle *YTLitePlusBundle();
         }];
 
 # pragma mark - VersionSpooferLite
-    YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:@"VERSION_SPOOFER_TITLE"
+    YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VERSION_SPOOFER_TITLE")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
             switch (appVersionSpoofer()) {
