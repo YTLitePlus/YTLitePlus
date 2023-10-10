@@ -336,42 +336,6 @@ static BOOL IsEnabled(NSString *key) {
 %end
 %end
 
-%group gDisableDontEatMyContentSection
-%hook YTSettingsSectionItemManager
-- (void)updateDEMCSectionWithEntry:(id)arg1 { // DontEatMyContent
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"DontEatMyContent"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
-%end
-%end
-
-%group gDisableReturnYouTubeDislikeSection
-%hook YTSettingsSectionItemManager
-- (void)updateRYDSectionWithEntry:(id)arg1 { // Return YouTube Dislike
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Return YouTube Dislike"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
-%end
-%end
-
-%group gDisableYouPiPSection
-%hook YTSettingsSectionItemManager
-- (void)updateYouPiPSectionWithEntry:(id)arg1 { // YouPiP
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"YouPiP"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
-%end
-%end
-
 %group gDisableAutoplaySection
 %hook YTSettingsSectionItemManager
 - (void)updateAutoplaySectionWithEntry:(id)arg1 {} // Autoplay
@@ -506,15 +470,6 @@ static BOOL IsEnabled(NSString *key) {
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
-    }
-    if (IsEnabled(@"disableDontEatMyContentSection_enabled")) {
-        %init(gDisableDontEatMyContentSection);
-    }
-    if (IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")) {
-        %init(gDisableReturnYouTubeDislikeSection);
-    }
-    if (IsEnabled(@"disableYouPiPSection_enabled")) {
-        %init(gDisableYouPiPSection);
     }
     if (IsEnabled(@"disableAutoplaySection_enabled")) {
         %init(gDisableAutoplaySection);

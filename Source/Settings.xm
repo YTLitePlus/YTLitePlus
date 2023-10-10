@@ -136,36 +136,6 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_DONTEATMYCONTENT_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableDontEatMyContentSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDontEatMyContentSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOUTUBERETURNDISLIKE_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableReturnYouTubeDislikeSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOUPIP_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableYouPiPSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYouPiPSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_AUTOPLAY_SECTION")
                 titleDescription:LOC(@"APP_RESTART_DESC")
                 accessibilityIdentifier:nil
