@@ -174,22 +174,21 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
 - (BOOL)enableClientShortsSheetsModernization { return NO; }
 - (BOOL)enableTimestampModernizationForNative { return NO; }
-- (BOOL)mainAppCoreClientIosEnableModernOssPage { return NO; }
 - (BOOL)modernizeElementsTextColor { return NO; }
 - (BOOL)modernizeElementsBgColor { return NO; }
 - (BOOL)modernizeCollectionLockups { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableEpUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNativeLongTail { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableModernTabsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableModernTabsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableEpUxUpdates { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableSheetsUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
 // Disable Rounded Content - YTNoModernUI
 - (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
 - (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNativeLongTail { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedTimestampForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
 // Disable Darker Dark Mode - YTNoModernUI
 - (BOOL)enableDarkerDarkMode { return NO; }
 - (BOOL)useDarkerPaletteBgColorForElements { return NO; }
@@ -202,12 +201,13 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)enableCinematicContainerOnClient { return NO; }
 - (BOOL)enableCinematicContainerOnTablet { return NO; }
 - (BOOL)iosCinematicContainerClientImprovement { return NO; }
+- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
 - (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
 - (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
-// 16.xx.x Styled YouTube Channel Page Interface - YTNoModernUI
+// 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
 - (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
 - (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Optional Content - YTNoModernUI
@@ -215,6 +215,9 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)supportElementsInMenuItemSupportedRenderers { return NO; }
 - (BOOL)isNewRadioButtonStyleEnabled { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableButtonSentenceCasingForNative { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouTab { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouLatency { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouTabTablet { return NO; }
 %end
 
 %hook YTHotConfig
