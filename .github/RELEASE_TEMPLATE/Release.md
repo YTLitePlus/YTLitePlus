@@ -1,6 +1,6 @@
 # YTLitePlus Features
 
-**YTNoModernUI:** This tweak changes and removes some newer UI elements from the app such as Rounded Buttons, Red Progress Bar, Gray Buffer Progress & the v17.38.10 App Version Number. (Tweak made by arichorn)
+**YTNoModernUI:** This tweak changes and removes some newer ui elements from the app such as Some Rounded Buttons, Red Progress Bar, Gray Buffer Progress & 17.38.10 App Version Number. (Tweak made by arichorn)
 
 <details>
 <summary>More Features...</summary>
@@ -36,7 +36,13 @@ Current App Compatibility: `iOS/iPadOS 14.0` or later
 - Updated Youtube from `` to `%youtube_version%`
 - Updated YTLite from `` to `%ytliteplus_version%` 
 ### Issues in this Release:
-- LowContrastMode does not work (Compatible only with YouTube v16.05.7-v17.38.10)
-- Shorts are not hidden everywhere (problem with YTLite tweak)
-- VersionSpoofer (Lite) doesn't work with YTLite (as the version is already spoofed by YTLite to fix YTClassicVideoQuality)
-- Age-restricted videos don't load correctly #29 (enable "Skip content warning" in YTlite settings to resolve this issue)
+- LowContrastMode does not work *(Compatible only with YouTube v16.05.7-v17.38.10)*
+- Shorts are not hidden everywhere *(problem with YTLite tweak)*
+- VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*
+- Age-restricted videos don't load correctly #29 *(enable "Skip content warning" in YTlite settings to resolve this issue)*
+- Options Hide `Super Thanks button` & `Hide Description` will make shorts crash
+- <div style="display: flex; align-items: center;">
+  <p>YouTube Return Dislikes does not show the dislike counter on the Shorts Dislike Button (This issue isn't in YouTube v16.xx.x-v18.20.3)</p>
+  <img src="https://github.com/Balackburn/YTLitePlus/assets/78001398/57745283-308d-43fc-bc23-d2cb712558ff" alt="SHORTS_DISLIKE_BUTTON" style="margin-left: 10px; max-width: 150px;">
+</div>
+
