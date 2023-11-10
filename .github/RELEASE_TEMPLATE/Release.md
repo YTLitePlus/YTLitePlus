@@ -34,7 +34,8 @@ Current App Compatibility: `iOS/iPadOS 14.0` or later
 **RELEASE %youtube_version%-%ytliteplus_version%:** (%date%)
 
 - Updated Youtube from `` to `%youtube_version%`
-- Updated YTLite from `` to `%ytliteplus_version%` 
+- Updated YTLite from `` to `%ytliteplus_version%`
+  
 ### Issues in this Release:
 - LowContrastMode does not work *(Compatible only with YouTube v16.05.7-v17.38.10)*
 - Shorts are not hidden everywhere *(problem with YTLite tweak)*
