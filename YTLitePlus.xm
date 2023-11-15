@@ -137,7 +137,7 @@ static BOOL IsEnabled(NSString *key) {
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 
-%hook YTSettingsCell // made by Dayanch96
+%hook YTSettingsCell // Remove v17.38.10 Version Number - @Dayanch96
 - (void)setDetailText:(id)arg1 {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
@@ -148,24 +148,24 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-%hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI - made by Dayanch96
+%hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI
 - (id)quietProgressBarColor {
     return [UIColor redColor];
 }
 %end
 
-%hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI - made by Dayanch96
+%hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI
 - (void)setBufferedProgressBarColor:(id)arg1 {
      [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.90];
 }
 %end
 
-%hook YTQTMButton
-- (BOOL)buttonModernizationEnabled { return NO; }
+%hook YTQTMButton // No Modern/Rounded Buttons - YTNoModernUI
++ (BOOL)buttonModernizationEnabled { return NO; }
 %end
 
-%hook YTSearchBarView
-- (BOOL)_roundedSearchBarEnabled { return NO; }
+%hook YTBubbleHintView // No Modern/Rounded Hints - YTNoModernUI
++ (BOOL)modernRoundedCornersEnabled { return NO; }
 %end
 
 %hook YTColdConfig
@@ -200,13 +200,15 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)enableCinematicContainer { return NO; }
 - (BOOL)enableCinematicContainerOnClient { return NO; }
 - (BOOL)enableCinematicContainerOnTablet { return NO; }
+- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
+- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
 - (BOOL)iosCinematicContainerClientImprovement { return NO; }
-- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
 - (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
 - (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
+- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
 // 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
 - (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
 - (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
@@ -221,9 +223,28 @@ static BOOL IsEnabled(NSString *key) {
 %end
 
 %hook YTHotConfig
-- (BOOL)liveChatIosUseModernRotationDetectiom { return NO; } // Disable Modern Content (YTHotConfig)
+- (BOOL)liveChatIosUseModernRotationDetection { return NO; } // Disable Modern Content (YTHotConfig)
+- (BOOL)liveChatModernizeClassicElementizeTextMessage { return NO; }
 - (BOOL)iosShouldRepositionChannelBar { return NO; }
 - (BOOL)enableElementRendererOnChannelCreation { return NO; }
+%end
+%end
+
+%group gDisableAmbientMode
+%hook YTColdConfig
+- (BOOL)disableCinematicForLowPowerMode { return NO; }
+- (BOOL)enableCinematicContainer { return NO; }
+- (BOOL)enableCinematicContainerOnClient { return NO; }
+- (BOOL)enableCinematicContainerOnTablet { return NO; }
+- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
+- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
+- (BOOL)iosCinematicContainerClientImprovement { return NO; }
+- (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
+- (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
+- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
 %end
 %end
 
@@ -464,6 +485,9 @@ static BOOL IsEnabled(NSString *key) {
     }
     if (IsEnabled(@"ytNoModernUI_enabled")) {
         %init(gYTNoModernUI);
+    }
+    if (IsEnabled(@"disableAmbientMode_enabled")) {
+        %init(gDisableAmbientMode);
     }
     if (IsEnabled(@"ytSpeed_enabled")) {
         %init(gYTSpeed);
