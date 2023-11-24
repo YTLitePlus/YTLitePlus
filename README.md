@@ -1,6 +1,4 @@
 ## YTLite with more features!
-
-
 <p align="center">
   <a href="https://gcdnb.pbrd.co/images/1US2eX2BKoib.png">
     <img src="https://user-images.githubusercontent.com/78001398/272741114-8808d535-4cf3-421a-8fa4-fed8362e584c.png" alt="IMAGE_YTLITEPLUS_PREVIEW">
@@ -46,7 +44,7 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 </td>
 <td align="center">
 <a href='https://github.com/arichorn'>
-<img src='https://user-images.githubusercontent.com/78001398/271853100-d5c74be7-4890-411c-907a-dc5f7b5fa46e.png' width='110px'>
+<img src='https://user-images.githubusercontent.com/78001398/274782532-5a29d9a6-c0a8-4d34-a3f5-d75ea4fadcc1.png' width='110px'>
 </a>
 <br>
 <a href='https://github.com/arichorn'>arichorn</a>
@@ -65,6 +63,7 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <br>
 <a href='https://github.com/ssuesskind'>ssuesskind</a>
 </td>
+</tr>
 
 <table id='credit'>
 Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus! (YTLite is an original tweak by @dayanch96)<br>
@@ -259,7 +258,7 @@ any many more...
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.39.1 | ✖︎ |
+| **YouTube** | Google Inc | 18.40.1 | ✖︎ |
 | **YTLite** | Dayanch96 | 2.3.1 |✔︎|
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |

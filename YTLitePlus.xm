@@ -137,7 +137,7 @@ static BOOL IsEnabled(NSString *key) {
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 
-%hook YTSettingsCell // made by Dayanch96
+%hook YTSettingsCell // Remove v17.38.10 Version Number - @Dayanch96
 - (void)setDetailText:(id)arg1 {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
@@ -148,24 +148,24 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-%hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI - made by Dayanch96
+%hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI
 - (id)quietProgressBarColor {
     return [UIColor redColor];
 }
 %end
 
-%hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI - made by Dayanch96
+%hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI
 - (void)setBufferedProgressBarColor:(id)arg1 {
      [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.90];
 }
 %end
 
-%hook YTQTMButton
-- (BOOL)buttonModernizationEnabled { return NO; }
+%hook YTQTMButton // No Modern/Rounded Buttons - YTNoModernUI
++ (BOOL)buttonModernizationEnabled { return NO; }
 %end
 
-%hook YTSearchBarView
-- (BOOL)_roundedSearchBarEnabled { return NO; }
+%hook YTBubbleHintView // No Modern/Rounded Hints - YTNoModernUI
++ (BOOL)modernRoundedCornersEnabled { return NO; }
 %end
 
 %hook YTColdConfig
@@ -174,22 +174,21 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
 - (BOOL)enableClientShortsSheetsModernization { return NO; }
 - (BOOL)enableTimestampModernizationForNative { return NO; }
-- (BOOL)mainAppCoreClientIosEnableModernOssPage { return NO; }
 - (BOOL)modernizeElementsTextColor { return NO; }
 - (BOOL)modernizeElementsBgColor { return NO; }
 - (BOOL)modernizeCollectionLockups { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableEpUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNativeLongTail { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableModernTabsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableModernTabsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableEpUxUpdates { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableSheetsUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
 // Disable Rounded Content - YTNoModernUI
 - (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
 - (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNativeLongTail { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedTimestampForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
 // Disable Darker Dark Mode - YTNoModernUI
 - (BOOL)enableDarkerDarkMode { return NO; }
 - (BOOL)useDarkerPaletteBgColorForElements { return NO; }
@@ -201,13 +200,16 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)enableCinematicContainer { return NO; }
 - (BOOL)enableCinematicContainerOnClient { return NO; }
 - (BOOL)enableCinematicContainerOnTablet { return NO; }
+- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
+- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
 - (BOOL)iosCinematicContainerClientImprovement { return NO; }
 - (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
 - (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
 - (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
-// 16.xx.x Styled YouTube Channel Page Interface - YTNoModernUI
+- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
+// 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
 - (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
 - (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
 // Disable Optional Content - YTNoModernUI
@@ -215,12 +217,34 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)supportElementsInMenuItemSupportedRenderers { return NO; }
 - (BOOL)isNewRadioButtonStyleEnabled { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableButtonSentenceCasingForNative { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouTab { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouLatency { return NO; }
+- (BOOL)mainAppCoreClientEnableClientYouTabTablet { return NO; }
 %end
 
 %hook YTHotConfig
-- (BOOL)liveChatIosUseModernRotationDetectiom { return NO; } // Disable Modern Content (YTHotConfig)
+- (BOOL)liveChatIosUseModernRotationDetection { return NO; } // Disable Modern Content (YTHotConfig)
+- (BOOL)liveChatModernizeClassicElementizeTextMessage { return NO; }
 - (BOOL)iosShouldRepositionChannelBar { return NO; }
 - (BOOL)enableElementRendererOnChannelCreation { return NO; }
+%end
+%end
+
+%group gDisableAmbientMode
+%hook YTColdConfig
+- (BOOL)disableCinematicForLowPowerMode { return NO; }
+- (BOOL)enableCinematicContainer { return NO; }
+- (BOOL)enableCinematicContainerOnClient { return NO; }
+- (BOOL)enableCinematicContainerOnTablet { return NO; }
+- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
+- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
+- (BOOL)iosCinematicContainerClientImprovement { return NO; }
+- (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
+- (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
+- (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
+- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
 %end
 %end
 
@@ -333,42 +357,6 @@ static BOOL IsEnabled(NSString *key) {
 %group gDisableAccountSection
 %hook YTSettingsSectionItemManager
 - (void)updateAccountSwitcherSectionWithEntry:(id)arg1 {} // Account
-%end
-%end
-
-%group gDisableDontEatMyContentSection
-%hook YTSettingsSectionItemManager
-- (void)updateDEMCSectionWithEntry:(id)arg1 { // DontEatMyContent
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"DontEatMyContent"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
-%end
-%end
-
-%group gDisableReturnYouTubeDislikeSection
-%hook YTSettingsSectionItemManager
-- (void)updateRYDSectionWithEntry:(id)arg1 { // Return YouTube Dislike
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Return YouTube Dislike"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
-%end
-%end
-
-%group gDisableYouPiPSection
-%hook YTSettingsSectionItemManager
-- (void)updateYouPiPSectionWithEntry:(id)arg1 { // YouPiP
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"YouPiP"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
 %end
 %end
 
@@ -498,6 +486,9 @@ static BOOL IsEnabled(NSString *key) {
     if (IsEnabled(@"ytNoModernUI_enabled")) {
         %init(gYTNoModernUI);
     }
+    if (IsEnabled(@"disableAmbientMode_enabled")) {
+        %init(gDisableAmbientMode);
+    }
     if (IsEnabled(@"ytSpeed_enabled")) {
         %init(gYTSpeed);
     }
@@ -506,15 +497,6 @@ static BOOL IsEnabled(NSString *key) {
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
-    }
-    if (IsEnabled(@"disableDontEatMyContentSection_enabled")) {
-        %init(gDisableDontEatMyContentSection);
-    }
-    if (IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")) {
-        %init(gDisableReturnYouTubeDislikeSection);
-    }
-    if (IsEnabled(@"disableYouPiPSection_enabled")) {
-        %init(gDisableYouPiPSection);
     }
     if (IsEnabled(@"disableAutoplaySection_enabled")) {
         %init(gDisableAutoplaySection);

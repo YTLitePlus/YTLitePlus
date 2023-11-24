@@ -39,9 +39,6 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 
 "HIDE_ACCOUNT_SECTION" = "Hide `Account` Section";
-"HIDE_DONTEATMYCONTENT_SECTION" = "Hide `DontEatMyContent` Section";
-"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Hide `YouTube Return Dislike` Section";
-"HIDE_YOUPIP_SECTION" = "Hide `YouPiP` Section";
 "HIDE_AUTOPLAY_SECTION" = "Hide `Autoplay` Section";
 "HIDE_TRYNEWFEATURES_SECTION" = "Hide `Try New Features` Section";
 "HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide `Video quality preferences` Section";
