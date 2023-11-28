@@ -44,7 +44,7 @@
 "OLD_DARK_THEME_DESC" = "Antiguo tema oscuro de YouTube (tema gris). Es necesario reiniciar la aplicación.";
 
 "DEFAULT_THEME" = "Tema por defecto";
-"DEFAULT_THEME_DESC" = "Tema oscuro(er) predeterminado de YouTube. Es necesario reiniciar la aplicación".
+"DEFAULT_THEME_DESC" = "Tema oscuro predeterminado de YouTube. Es necesario reiniciar la aplicación.";
 
 "OLED_KEYBOARD" = "Teclado OLED";
 "OLED_KEYBOARD_DESC" = "Puede que no funcione correctamente en algunos casos. Es necesario reiniciar la aplicación.";
