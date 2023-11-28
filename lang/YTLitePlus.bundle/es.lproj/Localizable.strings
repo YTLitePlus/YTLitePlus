@@ -1,0 +1,104 @@
+// Settings
+"VERSION" = "Versión de YTLitePlus: %@";
+"VERSION_CHECK" = "Pulse para comprobar si hay actualizaciones.";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opciones de superposición de controles de vídeo";
+
+"ENABLE_SHARE_BUTTON" = "Habilitar botón de compartir";
+"ENABLE_SHARE_BUTTON_DESC" = "Habilitar el botón de compartir en la superposición de controles de vídeo.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Habilitar botón 'guardar en lista de reproducción'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Activa el botón 'guardar en lista de reproducción' en la superposición de controles de vídeo.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Ocultar botones de sombra superpuestos";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Ocultar la sombra superpuesta en los botones Reproducir/Pausa, Anterior, Siguiente, Adelante y Rebobinar.";
+
+"HIDE_RIGHT_PANEL" = "Ocultar el panel derecho en modo pantalla completa";
+"HIDE_RIGHT_PANEL_DESC" = "Es necesario reiniciar la aplicación.";
+
+"HIDE_HEATWAVES" = "Ocultar Heatwaves";
+"HIDE_HEATWAVES_DESC" = "Oculta las Heatwaves en el reproductor de vídeo. Es necesario reiniciar la aplicación.";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Opciones de superposición de los ajustes de la aplicación";
+
+"HIDE_ACCOUNT_SECTION" = "Ocultar la sección `Cuenta`";
+"HIDE_AUTOPLAY_SECTION" = "Ocultar la sección `Autoplay`";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ocultar la sección `Probar nuevas funciones`";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ocultar la sección `Preferencias de calidad de vídeo`";
+"HIDE_NOTIFICATIONS_SECTION" = "Ocultar la sección `Notificaciones`";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ocultar la sección `Gestionar todo el historial`";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ocultar la sección `Tus datos en YouTube`";
+"HIDE_PRIVACY_SECTION" = "Ocultar la sección `Privacidad`";
+"HIDE_LIVECHAT_SECTION" = "Ocultar la sección de chat en directo";
+
+// Theme
+"THEME_OPTIONS" = "Opciones de tema";
+
+"OLED_DARK_THEME" = "Tema oscuro OLED";
+"OLED_DARK_THEME_2" = "Tema oscuro OLED";
+"OLED_DARK_THEME_DESC" = "Tema oscuro real. Puede que no funcione correctamente en algunos casos. Es necesario reiniciar la aplicación después de activar/desactivar esta opción";
+
+"OLD_DARK_THEME" = "Antiguo tema oscuro";
+"OLD_DARK_THEME_DESC" = "Antiguo tema oscuro de YouTube (tema gris). Es necesario reiniciar la aplicación.";
+
+"DEFAULT_THEME" = "Tema por defecto";
+"DEFAULT_THEME_DESC" = "Tema oscuro predeterminado de YouTube. Es necesario reiniciar la aplicación.";
+
+"OLED_KEYBOARD" = "Teclado OLED";
+"OLED_KEYBOARD_DESC" = "Puede que no funcione correctamente en algunos casos. Es necesario reiniciar la aplicación.";
+
+"LOW_CONTRAST_MODE" = "Modo de bajo contraste";
+"LOW_CONTRAST_MODE_DESC" = "Esta opción bajará el contraste de los textos y botones como en la antigua interfaz de YouTube. Es necesario reiniciar la aplicación.";
+"LCM_SELECTOR" = "Selección de modo de bajo contraste";
+"DEFAULT_LOWCONTRASTMODE" = "(Por defecto) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Color personalizado) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Misceláneos";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Activar la animación de inicio de YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Ocultar interfaz moderna (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Activa esta opción para ocultar cualquier elemento moderno añadido por YouTube. Elimina el modo Ambiente, el diseño redondeado y mucho más. Es necesario reiniciar la aplicación.";
+
+"IPAD_LAYOUT" = "Diseño iPad";
+"IPAD_LAYOUT_DESC" = "Utilícelo sólo si desea tener el diseño del iPad en su iPhone/iPod actual. Es necesario reiniciar la aplicación.";
+
+"IPHONE_LAYOUT" = "Diseño iPhone";
+"IPHONE_LAYOUT_DESC" = "use esto sólo si desea tener el iPhone Layout en su iPad actual. Es necesario reiniciar la aplicación.";
+
+"CAST_CONFIRM" = "Confirmar alerta antes de emitir (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Mostrar una alerta de confirmación antes del casting para evitar el secuestro accidental de la TV";
+"CASTING" = "Castings";
+"MSG_ARE_YOU_SURE" = "¿Seguro que quieres empezar el casting?";
+"MSG_YES" = "Sí";
+"MSG_CANCEL" = "Cancelar";
+
+"NEW_MINIPLAYER_STYLE" = "Nuevo estilo de barra de minirreproductores (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Es necesario reiniciar la aplicación";
+
+"STOCK_VOLUME_HUD" = "Utilizar el HUD de volumen de acciones de iOS";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+"HIDE_CAST_BUTTON" = "Ocultar botón Cast";
+"HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"YT_SPEED" = "Activar YTSpeed";
+"YT_SPEED_DESC" = "Activa YTSpeed para tener más opciones de velocidad de reproducción. Es necesario reiniciar la aplicación.";
+
+"ENABLE_FLEX" = "Habilitar FLEX";
+"ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Activar App Version Spoofer (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Active esta opción para utilizar Version Spoofer (Lite) y seleccione su versión preferida a continuación. Es necesario reiniciar la aplicación.";
+"VERSION_SPOOFER_TITLE" = "Selector de versión Spoofer";
+
+// Other Localization
+"APP_RESTART_DESC" = "Es necesario reiniciar la aplicación.";
