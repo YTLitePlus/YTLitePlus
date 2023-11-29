@@ -98,8 +98,8 @@
 "ENABLE_FLEX" = "Activer FLEX";
 "ENABLE_FLEX_DESC" = "Activez FLEX pour le débogage (non recommandé). Laissez cette option désactivée, sauf si vous savez ce que vous faites.";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)"
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed."
+"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
+"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activer le Spoofer de Version de l'Application (Lite)";

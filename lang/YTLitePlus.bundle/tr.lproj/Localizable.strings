@@ -95,8 +95,8 @@
 "ENABLE_FLEX" = "Enable FLEX";
 "ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)"
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed."
+"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
+"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";

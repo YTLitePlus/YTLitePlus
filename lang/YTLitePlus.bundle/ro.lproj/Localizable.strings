@@ -95,8 +95,8 @@
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)"
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed."
+"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
+"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
