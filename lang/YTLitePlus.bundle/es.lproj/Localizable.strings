@@ -95,8 +95,8 @@
 "ENABLE_FLEX" = "Habilitar FLEX";
 "ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
+"UN_SHORTS" = "Ocultar Shorts (YTUnShorts)";
+"UN_SHORTS_DESC" = "Quitar los Shorts de YouTube";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activar App Version Spoofer (Lite)";
