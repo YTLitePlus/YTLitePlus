@@ -468,6 +468,16 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
+        [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"UN_SHORTS")
+            titleDescription:LOC(@"UN_SHORTS_DESC")
+            accessibilityIdentifier:nil
+            switchOn:IsEnabled(@"UnShorts_enabled")
+            switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"UnShorts_enabled"];
+                return YES                                                                                       ;
+            }
+            settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_CAST_BUTTON")
                 titleDescription:LOC(@"HIDE_CAST_BUTTON_DESC")
                 accessibilityIdentifier:nil

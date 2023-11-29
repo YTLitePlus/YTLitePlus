@@ -316,6 +316,24 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)isPromptForLocalNetworkPermissionsEnabled { return NO; }
 %end
 
+// YTUnShorts - https://github.com/PoomSmart/YTUnShorts
+%hook YTIElementRenderer
+- (NSData *)elementData {
+    NSString *description = [self description];
+    if (IsEnabled(@"UnShorts_enabled")) {
+        if ([description containsString:@"shorts_shelf.eml"] ||
+            [description containsString:@"#shorts"] ||
+            [description containsString:@"shorts_video_cell.eml"] ||
+            [description containsString:@"6Shorts"]) {
+            if (![description containsString:@"history*"]) {
+                return nil;
+            }
+        }
+    }
+    return %orig;
+}
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView

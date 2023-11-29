@@ -95,6 +95,9 @@
 "ENABLE_FLEX" = "تمكين FLEX";
 "ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
 
+"UN_SHORTS" = "Hide Shorts (YTUnShorts)"
+"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed."
+
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
