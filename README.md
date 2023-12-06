@@ -1,34 +1,29 @@
-## YTLite with more features!
 <p align="center">
-  <a href="https://gcdnb.pbrd.co/images/1US2eX2BKoib.png">
-    <img src="https://user-images.githubusercontent.com/78001398/272741114-8808d535-4cf3-421a-8fa4-fed8362e584c.png" alt="IMAGE_YTLITEPLUS_PREVIEW">
-  </a>
+  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/db9975a2-c403-4c6f-97eb-0b38d9ea5249" alt="YTLitePlus Banner" />
 </p>
 
-<p align="center">
-    <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow" alt="Badge"/>  
-</p>
+![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow)](https://developer.apple.com/iphone/index.action)
+![Release](https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total)
+<a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
+<a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
 
-<p align="center">
-    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total?label=Download" alt="Badge"></img></a>
-    <a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
-</p>
 
-<p align="center">
-   <img src="https://img.shields.io/github/stars/Balackburn/YTLitePlus?style=social" alt="Badge"/>
-   <img src="https://img.shields.io/github/forks/Balackburn/YTLitePlus?style=social" alt="Badge"/>
-   <a href="https://github.com/qnblackcat/uYouPlus#support-the-developers"><img src="https://img.shields.io/badge/-Support-lightgrey?style=social&logo=paypal" alt="Badge"></img></a>
-</p>
+<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
+&nbsp;
+<a href="https://balackburn.github.io/YTLitePlus"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/55b3dd67-b677-4f0d-a5e5-8701c421149e" width="200"></a>
+&nbsp;
+<a href="https://github.com/Balackburn/YTLitePlus/releases/download/v18.48.3-2.4/YTLitePlus_18.48.3_2.4.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
+&nbsp;
 
 # Table of Contents
 
 * [Credits](#credits)
 * [Features](#features)
 * [Known issues](#known-issues)
-* [Download (IPA)](#download-ipa)
+* [Altstore](#altstore)
 * [Support the developers!](#support-the-developers)
-* [Building (optional)](#building-optional)
+* [Building (optional)](#buildings-optional)
 
 # Credits
 
@@ -240,18 +235,19 @@ any many more...
 
 - It's impossible to fix deep-link (a.k.a Open in the YouTube app). However, you can use this [Shortcuts](https://shortcutsgallery.com/shortcuts/open-in-youtube/) as a workaround (tested on iOS 14). **Credit:** RandomAccessMemories#5025
 
-# Download (IPA)
+# AltStore
+  
+<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
+&nbsp;
 
-- **YTLitePlus** (or you can call it YTLite+) requires iOS & iPadOS 14.0 and later. The latest version of **YTLitePlus** can be found in the [Release tab](https://github.com/Balackburn/YTLitePlus/releases/latest).
+<a href="https://altsource.by.lao.sb/browse/?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://gcdnb.pbrd.co/images/Nfl3CG8rT8Va.png" width="200"></a>
+&nbsp;
 
-- For AltStore user: 
-    - [Add to Altstore/Sidestore](https://tinyurl.com/YTLiteAltstore)
-    - [View source online](https://therealfoxster.github.io/altsource-viewer/app.html?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json&id=com.google.ios.youtube)
-    - [Source direct link (copy paste to Altstore)](https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json)
+<a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://gcdnb.pbrd.co/images/pxhwQTTDPu2j.png" width="200"></a>
 
 
 
-- Version info: _(Oct 2 2023)_
+# Version info: _(Oct 2 2023)_
 
 <details>
   <summary>Expand</summary>
