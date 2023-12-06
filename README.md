@@ -2,19 +2,18 @@
   <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/db9975a2-c403-4c6f-97eb-0b38d9ea5249" alt="YTLitePlus Banner" />
 </p>
 
-![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow)](https://developer.apple.com/iphone/index.action)
-![Release](https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total)
-<a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
-<a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
-
-
 <a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
 &nbsp;
 <a href="https://balackburn.github.io/YTLitePlus"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/55b3dd67-b677-4f0d-a5e5-8701c421149e" width="200"></a>
 &nbsp;
 <a href="https://github.com/Balackburn/YTLitePlus/releases/download/v18.48.3-2.4/YTLitePlus_18.48.3_2.4.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
 &nbsp;
+
+![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow)](https://developer.apple.com/iphone/index.action)
+![Release](https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total)
+<a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
+<a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
 
 # Table of Contents
 
