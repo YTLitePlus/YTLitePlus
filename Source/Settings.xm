@@ -477,6 +477,16 @@ extern NSBundle *YTLitePlusBundle();
                 return YES                                                                                       ;
             }
             settingItemId:0],
+        
+        [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_COMMUNITY_POSTS")
+            titleDescription:LOC(@"HIDE_COMMUNITY_POSTS_DESC")
+            accessibilityIdentifier:nil
+            switchOn:IsEnabled(@"hideCommunityPosts_enabled")
+            switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideCommunityPosts_enabled"];
+                return YES;
+            }
+            settingItemId:0],
 
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_CAST_BUTTON")
                 titleDescription:LOC(@"HIDE_CAST_BUTTON_DESC")

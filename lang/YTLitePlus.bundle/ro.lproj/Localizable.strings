@@ -98,6 +98,9 @@
 "UN_SHORTS" = "Hide Shorts (YTUnShorts)";
 "UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
 
+"HIDE_COMMUNITY_POSTS" = "Hide community posts";
+"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
+
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Activați pentru a utiliza Version Spoofer (Lite) și alegeți versiunea preferată. Este necesară repornirea aplicației.";

@@ -101,6 +101,9 @@
 "UN_SHORTS" = "Hide Shorts (YTUnShorts)";
 "UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
 
+"HIDE_COMMUNITY_POSTS" = "Hide community posts";
+"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
+
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";
 "APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下からお好みのバージョンを選択してください。アプリの再起動が必要です。";

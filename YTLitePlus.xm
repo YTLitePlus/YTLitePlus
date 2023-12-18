@@ -330,6 +330,12 @@ static BOOL IsEnabled(NSString *key) {
             }
         }
     }
+// Hide Community Posts - @michael-winay & @arichorn
+    if (IsEnabled(@"hideCommunityPosts_enabled")) {
+        if ([description containsString:@"post_base_wrapper.eml"]) {
+            return nil;
+        }
+    }
     return %orig;
 }
 %end
@@ -592,6 +598,7 @@ static BOOL IsEnabled(NSString *key) {
     if (IsEnabled(@"disableLiveChatSection_enabled")) {
         %init(gDisableLiveChatSection);
     }
+    
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];

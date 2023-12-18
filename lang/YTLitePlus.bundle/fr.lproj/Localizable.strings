@@ -101,6 +101,9 @@
 "UN_SHORTS" = "Masquer les Shorts (YTUnShorts)" ;
 "UN_SHORTS_DESC" = "Supprimer les Shorts du feed de YouTube" ;
 
+"HIDE_COMMUNITY_POSTS" = "Masquer les messages de la communauté";
+"HIDE_COMMUNITY_POSTS_DESC" = "Masque les messages de la communauté. Le redémarrage de l'application est nécessaire.";
+
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activer le Spoofer de Version de l'Application (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Activez cette option pour utiliser le Spoofer de Version de l'Application (Lite) et sélectionnez votre version préférée ci-dessous. Un redémarrage de l'application est requis.";
