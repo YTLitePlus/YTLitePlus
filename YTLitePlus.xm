@@ -150,6 +150,17 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)shouldShowUpgradeDialog { return NO;}
 %end
 
+// YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
+%hook UIApplication
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSString *originalURLString = [url absoluteString];
+    NSString *modifiedURLString = [originalURLString stringByReplacingOccurrencesOfString:@"&si=[a-zA-Z0-9_-]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, originalURLString.length)];
+    NSURL *modifiedURL = [NSURL URLWithString:modifiedURLString];
+    BOOL result = %orig(application, modifiedURL, options);
+    return result;
+}
+%end
+
 // YTNoModernUI - @arichorn
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Original Version
