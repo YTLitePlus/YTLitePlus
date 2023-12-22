@@ -31,31 +31,24 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <tr>
 <td align="center">
 <a href='https://github.com/balackburn'>
-<img src='https://user-images.githubusercontent.com/78001398/271853318-3005deb3-b484-4b2b-a093-44c2af79b9af.png' width='110px;'>
-</a>
-<br>
-<a href='https://github.com/balackburn'>balackburn</a>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/d08ccf99-d3e5-4388-833f-22632dc66fd2' width='120px'>
 </td>
+</a>
 <td align="center">
 <a href='https://github.com/arichorn'>
-<img src='https://user-images.githubusercontent.com/78001398/274782532-5a29d9a6-c0a8-4d34-a3f5-d75ea4fadcc1.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/2753042f-9efa-404d-a719-4761ad48d323' width='120px'>
 </a>
-<br>
-<a href='https://github.com/arichorn'>arichorn</a>
 </td>
 <td align="center">
 <a href='https://github.com/dayanch96'>
-<img src='https://user-images.githubusercontent.com/78001398/271853514-129334b3-498f-4804-aceb-392bf5e373e6.png' width='110px;'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/293f1a61-00b8-424a-9e00-f520f5a88064' width='120px;'>
 </a>
-<br>
-<a href='https://github.com/dayanch96'>dayanch96</a>
 </td>
 <td id='ssuesskind'>
 <a href='https://github.com/ssuesskind'>
-<img src='https://user-images.githubusercontent.com/78001398/271853585-77271641-b825-43b1-af57-d9f5b12fe8ff.png' width='110px;'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/ed6bc6a0-ef55-4548-8d60-32d86f2aa9f3' width='120px;'>
 </a>
 <br>
-<a href='https://github.com/ssuesskind'>ssuesskind</a>
 </td>
 </tr>
 
