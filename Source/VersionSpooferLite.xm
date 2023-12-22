@@ -31,70 +31,52 @@ static BOOL version6() {
 static BOOL version7() {
     return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 7;
 }
-static BOOL version8() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 8;
-}
-static BOOL version9() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 9;
-}
 
 %group gVersion0
+%hook YTVersionUtils // Last v18 App Version
++ (NSString *)appVersion { return @"18.49.3"; }
+%end
+%end
+
+%group gVersion1
 %hook YTVersionUtils // Brings back Library Tab
 + (NSString *)appVersion { return @"18.34.5"; }
 %end
 %end
 
-%group gVersion1
+%group gVersion2
 %hook YTVersionUtils // Removes Playables in Explore
 + (NSString *)appVersion { return @"18.33.3"; }
 %end
 %end
 
-%group gVersion2
+%group gVersion3
 %hook YTVersionUtils // Fixes YTClassicVideoQuality + YTSpeed
 + (NSString *)appVersion { return @"18.18.2"; }
 %end
 %end
 
-%group gVersion3
-%hook YTVersionUtils // Final v17 App Version
+%group gVersion4
+%hook YTVersionUtils // First v18 App Version
++ (NSString *)appVersion { return @"18.01.2"; }
+%end
+%end
+
+%group gVersion5
+%hook YTVersionUtils // Last v17 App Version
 + (NSString *)appVersion { return @"17.49.6"; }
 %end
 %end
 
-%group gVersion4
+%group gVersion6
 %hook YTVersionUtils // v17.38.10 Fixes LowContrastMode + No Rounded Thumbnails
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 %end
 
-%group gVersion5
-%hook YTVersionUtils // Last 2nd Supported YouTube App Version
-+ (NSString *)appVersion { return @"17.01.4"; }
-%end
-%end
-
-%group gVersion6
-%hook YTVersionUtils // Final v16 App Version
-+ (NSString *)appVersion { return @"16.46.5"; }
-%end
-%end
-
 %group gVersion7
-%hook YTVersionUtils // Popular v16 App Version
-+ (NSString *)appVersion { return @"16.42.3"; }
-%end
-%end
-
-%group gVersion8
-%hook YTVersionUtils // Old Comment Section & Description Layout
-+ (NSString *)appVersion { return @"16.08.2"; }
-%end
-%end
-
-%group gVersion9
-%hook YTVersionUtils // Last Supported YouTube App Version
-+ (NSString *)appVersion { return @"16.05.7"; }
+%hook YTVersionUtils // Oldest Supported App Version (v17)
++ (NSString *)appVersion { return @"17.01.4"; }
 %end
 %end
 
@@ -124,11 +106,5 @@ static BOOL version9() {
     }
     if (version7()) { // 7
         %init(gVersion7);
-    }
-    if (version8()) { // 8
-        %init(gVersion8);
-    }
-    if (version9()) { // 9
-        %init(gVersion9);
     }
 }
