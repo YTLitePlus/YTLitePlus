@@ -185,7 +185,6 @@ Special thanks to all the developers who have contributed to YTLitePlus<br>
 
 15. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
 
-any many more...
 </details>
 
 # Known issues
