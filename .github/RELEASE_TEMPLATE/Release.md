@@ -1,30 +1,3 @@
-# YTLitePlus Features
-
-**YTNoModernUI:** This tweak changes and removes some newer ui elements from the app such as Some Rounded Buttons, Red Progress Bar, Gray Buffer Progress & 17.38.10 App Version Number. (Tweak made by arichorn)
-
-<details>
-<summary>More Features...</summary>
-
-**LowContrastMode:** This tweak helps remove the new contrasty looking UI that was first introduced way back in 2020 August/September. (Tweak made by arichorn)
-
-**YTNoHeatwaves:** Turns off the Heatwaves Feature in the video player. `(YTLitePlus/VideoPlayerOverlayControls)`
-
-**YTNoUpgradeDialog:** Disables the Upgrade Dialog so you won’t be prompted to update the app.
-
-**YouMute:** Mute/unmute videos in YouTube directly.
-
-**iPadLayout:** Gives iPhone users the ability to use the iPad’s Interface and the ability to use some of the YouTube features that are not on iPhone.
-
-**iPhoneLayout:** Gives iPad users the ability to use Community Posts, to create Shorts and the ability to use the buggy iPhone layout. but using it in split view mode fixes the UI.
-
-**HideSponsorBlockButton:** Hide the SponsorBlock Button shown on the Nav Bar. Added by Dayanch96
-
-**AppSettingsOverlayOptions:** this allows you to remove sections in the app such as `Account`, `Autoplay`, `Try new features`, `Video quality preferences`, `Notifications`, `Manage all history` `Your data in YouTube`, `Privacy`, `Live chat` & much more!
-
-**HideShadowOverlayButtons:** want to remove shadow overlay on the buttons used in the video player? Then toggle this to remove the Shadow Overlay on the buttons Previous, Next, Rewind, Forward.
-
-</details>
-
 # YTLitePlus Release Information
 
 Current YouTube IPA: `%youtube_version%`  
