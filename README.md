@@ -53,118 +53,93 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 </tr>
 
 <table id='credit'>
-Special thanks to all the developers who have contributed to uYouPlus/YTLitePlus! (YTLite is an original tweak by @dayanch96)<br>
+Special thanks to all the developers who have contributed to YTLitePlus<br>
 <tr>
 <td align="center">
 <a href='https://github.com/MiRO92'>
-<img src='https://user-images.githubusercontent.com/78001398/271811861-da79accc-095c-4cb3-b7b4-8d48b1449259.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/ca462139-3a55-4ce1-a774-ffd13c459c80' width='120px'>
+
 </a>
 <br>
-<a href='https://twitter.com/miro92'>MiRO92</a>
 </td>
 <td align="center">
 <a href='https://github.com/qnblackcat'>
-<img src='https://user-images.githubusercontent.com/78001398/271812521-e52ebf96-7272-4ec0-a149-8e721c053508.png' width='110px'>
+
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/20b0d6d9-d892-4af4-9762-6617d49743b8' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/qnblackcat'>qnblackcat</a>
 </td>
 <td align="center">
 <a href='https://github.com/PoomSmart'>
-<img src='https://user-images.githubusercontent.com/78001398/271811615-96093202-4aec-4e50-a750-8c7b83f3862c.png' width='110px'>
+
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/668fe74e-9da1-4115-8fd0-ed7c308976b3' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/poomsmart'>PoomSmart</a>
 </td>
 <td align="center">
 <a href='https://github.com/level3tjg'>
-<img src='https://user-images.githubusercontent.com/78001398/271812596-7854996a-3825-4971-a9ff-1001b4d153cb.png' width='110px'>
+
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/b11fe92d-aceb-4aa1-88bf-7699c5f4ac5f' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/level3tjg'>level3tjg</a>
 </td>
 <td align="center">
 <a href='https://github.com/BandarHL'>
-<img src='https://user-images.githubusercontent.com/78001398/271812729-2bb63da0-5239-43a4-aa3e-e1daa67e8dc2.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/dc4f0597-017b-44c1-8b52-33ec168a56f3' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/bandarhl'>BandarHelal</a>
-</td>
-<td align="center">
-<a href='https://github.com/Galactic-Dev'>
-<img src='https://user-images.githubusercontent.com/78001398/271812231-5b7d5d9f-6d19-4174-8478-8f07379ee1ca.png' width='110px'>
-</a>
-<br>
-<a href='https://twitter.com/dev_galactic'>galactic</a>
 </td>
 </tr>
   
 <tr>
 <td align="center">
-<a href='https://github.com/julioverne'>
-<img src='https://user-images.githubusercontent.com/78001398/271812914-bf26d603-2d94-49f4-9702-f5e66af3f44a.png' width='110px'>
+<a href='https://github.com/Galactic-Dev'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/f489e91e-3b04-45d3-b094-68b83c43da25' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/ijulioverne'>julioverne</a>
+</td>
+<td align="center">
+<a href='https://github.com/julioverne'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/0f7336ea-7f54-4155-995f-dea58d39f022' width='120px'>
+</a>
 </td>
 <td align="center">
 <a href='https://github.com/hbang'>
-<img src='https://user-images.githubusercontent.com/78001398/271813035-2e168ee5-fc47-43a6-9307-0fc20c7fca60.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/2eec50db-e2df-4217-a230-5c5cc7223934' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/hashbang'>HASHBANG</a>
 </td>
 <td align="center">
 <a href='https://github.com/Lyvendia'>
-<img src='https://user-images.githubusercontent.com/78001398/271812187-1c0d5b24-caba-4616-b875-4c458d10ca55.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/36902aa9-1f81-403c-b9b5-ebbd9e8b9ef9' width='120px'>
 </a>
-<br>
-<a href='https://github.com/Lyvendia'>Lyvendia</a>
 </td>
 <td align="center">
 <a href='https://github.com/therealFoxster'>
-<img src='https://user-images.githubusercontent.com/78001398/271812075-923038a7-5ffa-4ea4-9de4-fdf4e5d556c2.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/60427fc8-e019-43d6-86ae-01ad8b4a1e77' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/therealFoxster'>Foxster</a>
-</td>
-<td align="center">
-<a href='https://github.com/ichitaso'>
-<img src='https://user-images.githubusercontent.com/78001398/271812398-c7e40fa3-4e0b-4be2-aa51-900444d59abd.png' width='110px'>
-</a>
-<br>
-<a href='https://twitter.com/ichitaso'>ichitaso</a>
-</td>
-<td align="center">
-<a href='https://github.com/AhmedBafkir'>
-<img src='https://user-images.githubusercontent.com/78001398/271813114-dcb005f7-b83b-40e6-a9cb-9b661dd6b33b.png' width='110px'>
-</a>
-<br>
-<a href='https://twitter.com/Peaceful_0'>Ahmed Bafkir</a>
 </td>
 </tr>
 
 <tr>
 <td align="center">
-<a href='https://github.com/CokePokes'>
-<img src='https://user-images.githubusercontent.com/78001398/271813228-d28471b4-cb67-442c-bd63-276f1641a14e.png' width='110px'>
+<a href='https://github.com/ichitaso'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/6a1cb4b7-5eec-4cda-8bed-f5dea2408323' width='120px'>
 </a>
-<br>
-<a href='https://twitter.com/cokepokes'>CokePokes</a>
+</td>
+<td align="center">
+<a href='https://github.com/AhmedBafkir'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/55b270be-1d43-4e2c-81da-ee04d993d447' width='120px'>
+</a>
+</td>
+<td align="center">
+<a href='https://github.com/CokePokes'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/5a40346b-b652-4eca-955f-272baf45c6dd' width='120px'>
+</a>
 </td>
 <td align="center">
 <a href='https://github.com/ISnackable'>
-<img src='https://user-images.githubusercontent.com/78001398/271813311-2027a8de-a08d-4f1b-97a4-167f4bcef497.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/5b5355b1-0a7d-4202-affe-725406e9af72' width='120px'>
 </a>
-<br>
-<a href='https://isnackable.me/'>Tommy Teo</a>
 </td>
 <td align="center">
 <a href='https://github.com/theos/theos'>
-<img src='https://user-images.githubusercontent.com/78001398/271813393-56a63730-a56d-41ba-b473-4d37761526c9.png' width='110px'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/e5c37588-95f4-4773-b3fe-40ba02499160' width='120px'>
 </a>
-<br>
-<a href='https://theos.dev'>theos</a>
 </td>
 </tr>
 </table>
