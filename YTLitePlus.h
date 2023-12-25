@@ -1,5 +1,3 @@
-#import "Tweaks/YouTubeHeader/YTPlayerViewController.h" // Header.h
-#import "Tweaks/YouTubeHeader/YTQTMButton.h" // Header.h
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CaptainHook/CaptainHook.h>
@@ -8,7 +6,11 @@
 #import <sys/utsname.h>
 #import <substrate.h>
 #import <rootless.h>
+
 #import "Tweaks/FLEX/FLEX.h"
+#import "Tweaks/YouTubeHeader/YTAppDelegate.h"
+#import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
+#import "Tweaks/YouTubeHeader/YTQTMButton.h"
 #import "Tweaks/YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
 #import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchController.h"
@@ -181,4 +183,20 @@
 @end
 
 @interface UIPredictionViewController : UIViewController
+@end
+
+// Snack bar
+@interface YTHUDMessage : NSObject
++ (id)messageWithText:(id)text;
+- (void)setAction:(id)action;
+@end
+
+@interface GOOHUDMessageAction : NSObject
+- (void)setTitle:(NSString *)title;
+- (void)setHandler:(void (^)(id))handler;
+@end
+
+@interface GOOHUDManagerInternal : NSObject
+- (void)showMessageMainThread:(id)message;
++ (id)sharedInstance;
 @end
