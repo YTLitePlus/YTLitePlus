@@ -1,4 +1,4 @@
-#import "../Header.h"
+#import "../YTLitePlus.h"
 
 //
 static BOOL IsEnabled(NSString *key) {
@@ -16,7 +16,7 @@ static BOOL customContrastMode() {
 
 UIColor *lcmHexColor;
 
-%group gLowContrastMode // Low Contrast Mode v1.4.3 (Compatible with only YouTube v16.05.7-v17.38.10)
+%group gLowContrastMode // Low Contrast Mode v1.4.3 (Compatible with only YouTube v16.46.5-v17.38.10)
 %hook UIColor
 + (UIColor *)whiteColor { // Dark Theme Color
          return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
