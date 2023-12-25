@@ -1,4 +1,4 @@
-#import "../Header.h"
+#import "../YTLitePlus.h"
 
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
@@ -69,12 +69,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
         %orig;
         self.view.backgroundColor = customColor;
     } else { return %orig; }
-}
-%end
-%hook ELMView
-- (void)didMoveToWindow {
-    %orig;
-        self.subviews[0].backgroundColor = [UIColor clearColor];
 }
 %end
 %hook YTAsyncCollectionView
@@ -462,12 +456,6 @@ UIColor* raisedColor = [UIColor blackColor];
         %orig;
         self.view.backgroundColor = [UIColor blackColor];
     } else { return %orig; }
-}
-%end
-%hook ELMView
-- (void)didMoveToWindow {
-    %orig;
-        self.subviews[0].backgroundColor = [UIColor clearColor];
 }
 %end
 %hook YTAsyncCollectionView
