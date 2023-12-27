@@ -3,60 +3,57 @@
 "VERSION_CHECK" = "タップして更新をチェック!";
 
 // Video controls overlay options
-"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "ビデオコントロールオーバーレイの設定";
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールオーバーレイの設定";
 
 "ENABLE_SHARE_BUTTON" = "共有ボタンを有効化";
-"ENABLE_SHARE_BUTTON_DESC" = "ビデオコントロールオーバーレイの共有ボタンを有効にします";
+"ENABLE_SHARE_BUTTON_DESC" = "動画コントロールオーバーレイの共有ボタンを有効にします。";
 
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "「再生リストに保存」ボタンを有効化";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "ビデオコントロールオーバーレイの「再生リストに保存」ボタンを有効にします";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "再生リストに保存ボタンを有効化";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "動画コントロールオーバーレイの「再生リストに保存」ボタンを有効にします。";
 
 "HIDE_SHADOW_OVERLAY_BUTTONS" = "シャドウオーバーレイボタンを非表示";
-"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "再生/一時停止、前へ、次へ、進む、巻き戻しボタンのシャドウ オーバーレイを非表示にします";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "再生/一時停止,前へ/次へ,早送り/巻き戻しボタンのシャドウオーバーレイを非表示にします。";
 
 "HIDE_RIGHT_PANEL" = "フルスクリーンモードで右パネルを非表示";
-"HIDE_RIGHT_PANEL_DESC" = "アプリの再起動が必要です";
+"HIDE_RIGHT_PANEL_DESC" = "アプリの再起動が必要です。";
 
 "HIDE_HEATWAVES" = "ヒートウェーブを非表示";
-"HIDE_HEATWAVES_DESC" = "ビデオプレーヤーでヒートウェーブを非表示にします。アプリの再起動が必要です";
+"HIDE_HEATWAVES_DESC" = "動画プレーヤーのヒートウェーブを非表示にします。アプリの再起動が必要です。";
 
 // App settings overlay options
-"APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイオプション";
+"APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
 
-"HIDE_ACCOUNT_SECTION" = "`Account`セクションを非表示にする";
-"HIDE_DONTEATMYCONTENT_SECTION" = "`DontEatMyContent`セクションを非表示にする";
-"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "`Return YouTube Dislike`セクションを非表示にする";
-"HIDE_YOUPIP_SECTION" = "`YouPiP`セクションを非表示にする";
-"HIDE_AUTOPLAY_SECTION" = "`自動再生`セクションを非表示にする";
-"HIDE_TRYNEWFEATURES_SECTION" = "`新機能を試す`セクションを非表示にする";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "`動画の画質設定`セクションを非表示にする";
-"HIDE_NOTIFICATIONS_SECTION" = "`通知`セクションを非表示にする";
-"HIDE_MANAGEALLHISTORY_SECTION" = "`すべての履歴を管理`セクションを非表示にする";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "`Your data in YouTube`セクションを非表示にする";
-"HIDE_PRIVACY_SECTION" = "`プライバシー`セクションを非表示にする";
-"HIDE_LIVECHAT_SECTION" = "`チャット`セクションを非表示にする";
+"HIDE_ACCOUNT_SECTION" = "「アカウント」を非表示にする";
+"HIDE_AUTOPLAY_SECTION" = "「自動再生」を非表示にする";
+"HIDE_TRYNEWFEATURES_SECTION" = "「試験運用版の新機能を試す」を非表示にする";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "「動画の画質設定」を非表示にする";
+"HIDE_NOTIFICATIONS_SECTION" = "「通知」を非表示にする";
+"HIDE_MANAGEALLHISTORY_SECTION" = "「すべての履歴を管理」を非表示にする";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "「YouTubeでのデータ」を非表示にする";
+"HIDE_PRIVACY_SECTION" = "「プライバシー」を非表示にする";
+"HIDE_LIVECHAT_SECTION" = "「チャット」を非表示にする";
 
 // Theme
-"THEME_OPTIONS" = "テーマオプション";
+"THEME_OPTIONS" = "テーマの設定";
 
 "OLED_DARK_THEME" = "OLEDダークテーマ(実験的)";
 "OLED_DARK_THEME_2" = "OLEDダークテーマ";
-"OLED_DARK_THEME_DESC" = "真のダークテーマです。正しく動作しない場合があります。\nこのオプションを有効/無効にした後はアプリの再起動が必要です";
+"OLED_DARK_THEME_DESC" = "真のダークテーマです。\n正しく動作しない場合があります。アプリの再起動が必要です。";
 
 "OLD_DARK_THEME" = "古いダークモード";
-"OLD_DARK_THEME_DESC" = "以前のダークモードです(グレー) \nアプリの再起動が必要です";
+"OLD_DARK_THEME_DESC" = "以前のダークモードです(グレー) アプリの再起動が必要です。";
 
-"DEFAULT_THEME" = "デフォルト";
-"DEFAULT_THEME_DESC" = "デフォルトのダークモードです。\nアプリの再起動が必要です";
+"DEFAULT_THEME" = "通常";
+"DEFAULT_THEME_DESC" = "通常のダークモードです。アプリの再起動が必要です。";
 
 "OLED_KEYBOARD" = "OLEDキーボード(実験的)";
-"OLED_KEYBOARD_DESC" = "正常に動作しない可能性があります。アプリの再起動が必要です";
+"OLED_KEYBOARD_DESC" = "正しく動作しない場合があります。アプリの再起動が必要です。";
 
 "LOW_CONTRAST_MODE" = "低コントラストモード";
-"LOW_CONTRAST_MODE_DESC" = "このオプションは、テキストとボタンのコントラストを以前のYouTubeインターフェイスのように低くします。アプリの再起動が必要です";
+"LOW_CONTRAST_MODE_DESC" = "このオプションは、テキストとボタンのコントラストを以前のYouTubeインターフェイスのように低くします。アプリの再起動が必要です。";
 "LCM_SELECTOR" = "低コントラストモードの選択";
-"DEFAULT_LOWCONTRASTMODE" = "低コントラストモード(Default)";
-"CUSTOM_LOWCONTRASTMODE" = "低コントラストモード(Custom Color)";
+"DEFAULT_LOWCONTRASTMODE" = "低コントラストモード(デフォルト)";
+"CUSTOM_LOWCONTRASTMODE" = "低コントラストモード(カスタムカラー)";
 
 // Miscellaneous
 "MISCELLANEOUS" = "その他";
@@ -65,49 +62,49 @@
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
 "HIDE_MODERN_INTERFACE" = "モダンインターフェイスを非表示 (YTNoModernUI)";
-"HIDE_MODERN_INTERFACE_DESC" = "YouTubeによって追加されたモダンな要素を隠すにはこれを有効にしてください。アンビエントモード,丸みを帯びたデザインなどを削除します。\nアプリの再起動が必要です";
+"HIDE_MODERN_INTERFACE_DESC" = "YouTubeによって追加されたモダンな要素を非表示にします。アンビエントモード,丸みを帯びたデザインなどを削除します。アプリの再起動が必要です。";
 
 "IPAD_LAYOUT" = "iPadレイアウト";
-"IPAD_LAYOUT_DESC" = "現在使用しているiPhone/iPodでiPadのレイアウトを使用したい場合にのみ使用します。\nアプリの再起動が必要です";
+"IPAD_LAYOUT_DESC" = "現在使用しているiPhone/iPodでiPadのレイアウトを使用したい場合にのみ使用して下さい。アプリの再起動が必要です。";
 
 "IPHONE_LAYOUT" = "iPhoneレイアウト";
-"IPHONE_LAYOUT_DESC" = "現在使用しているiPadでiPhoneのレイアウトを使用したい場合にのみ使用します。\nアプリの再起動が必要です";
+"IPHONE_LAYOUT_DESC" = "現在使用しているiPadでiPhoneのレイアウトを使用したい場合にのみ使用して下さい。アプリの再起動が必要です。";
 
 "CAST_CONFIRM" = "キャストする前に確認する (YTCastConfirm)";
-"CAST_CONFIRM_DESC" = "誤ってテレビにキャストしないように、確認の警告を表示します";
+"CAST_CONFIRM_DESC" = "誤ってテレビにキャストしないように、確認の警告を表示します。";
 "CASTING" = "キャスト";
 "MSG_ARE_YOU_SURE" = "本当にキャストを開始しますか";
 "MSG_YES" = "はい";
 "MSG_CANCEL" = "いいえ";
 
 "NEW_MINIPLAYER_STYLE" = "新しいミニプレーヤーバー (BigYTMiniPlayer)";
-"NEW_MINIPLAYER_STYLE_DESC" = "アプリの再起動が必要です";
+"NEW_MINIPLAYER_STYLE_DESC" = "アプリの再起動が必要です。";
 
-"STOCK_VOLUME_HUD" = "iOSのstockボリュームHUDを利用する";
+"STOCK_VOLUME_HUD" = "iOSの標準の音量HUDを使用する";
 "STOCK_VOLUME_HUD_DESC" = "";
 
 "HIDE_CAST_BUTTON" = "キャストボタンを非表示";
-"HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です";
+"HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です。";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "ナビゲーションバーのiSponsorBlockボタンを非表示";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
 "YT_SPEED" = "YTSpeedを有効化";
-"YT_SPEED_DESC" = "より多くの再生速度を選択できるようになります。アプリの再起動が必要です";
+"YT_SPEED_DESC" = "より多くの再生速度を選択できるようになります。アプリの再起動が必要です。";
 
 "ENABLE_FLEX" = "FLEXを有効化";
-"ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください";
+"ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
+"UN_SHORTS" = "ショートを非表示 (YTUnShorts)";
+"UN_SHORTS_DESC" = "YouTubeフィードからショート動画を非表示にします。";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
+"HIDE_COMMUNITY_POSTS" = "コミュニティを非表示";
+"HIDE_COMMUNITY_POSTS_DESC" = "コミュニティを非表示にします。アプリの再起動が必要です。";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";
-"APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下からお好みのバージョンを選択してください。アプリの再起動が必要です。";
+"APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下でお好みのバージョンを選択してください。アプリの再起動が必要です。";
 "VERSION_SPOOFER_TITLE" = "偽装バージョンの選択";
 
 // Other Localization
-"APP_RESTART_DESC" = "アプリの再起動が必要です";
+"APP_RESTART_DESC" = "アプリの再起動が必要です。";
