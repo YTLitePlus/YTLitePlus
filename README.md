@@ -6,23 +6,27 @@
 &nbsp;
 <a href="https://balackburn.github.io/YTLitePlus"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/55b3dd67-b677-4f0d-a5e5-8701c421149e" width="200"></a>
 &nbsp;
-<a href="https://github.com/Balackburn/YTLitePlus/releases/download/v18.48.3-2.4/YTLitePlus_18.48.3_2.4.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
+<a href="https://github.com/Balackburn/YTLitePlus/releases/download/v18.49.3-2.4/YTLitePlus_18.49.3_2.4.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
 &nbsp;
 
-![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow)](https://developer.apple.com/iphone/index.action)
-![Release](https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total)
-<a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
-<a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?color=brightgreen&label=Latest%20release" alt="Badge"></img></a>
+![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-black?labelColor=black&style=flat)](https://developer.apple.com/iphone/index.action)
+![Release](https://img.shields.io/github/downloads/Balackburn/YTLitePlus/total?color=black&labelColor=black&style=flat)
+<a href="https://github.com/Balackburn/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?style=flat&color=black&labelColor=black&logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
+<a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?labelColor=black&style=flat&color=black&label=Latest%20release" alt="Badge"></img></a>
 
 # Table of Contents
+<a href="#credits"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/f82898cb-2785-4209-b50e-2d6624156279" width="200"></a>
 
-* [Credits](#credits)
-* [Features](#features)
-* [Known issues](#known-issues)
-* [Altstore](#altstore)
-* [Support the developers!](#support-the-developers)
-* [Building (optional)](#buildings-optional)
+<a href="#features"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/838c2376-fb4c-4ad7-ac3b-4ea5c97ae05f" width="200"></a>
+
+<a href="#known-issues"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/7ab38ec0-48a6-44dc-b8e8-169a8c9eb4ff" width="200"></a>
+
+<a href="#altstore"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/a6f2b1fe-14ea-4ae8-a1a1-6df6e0ff297b" width="200"></a>
+
+<a href="#support-the-developers"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/2ccc007d-8e71-48df-9944-277e04ed4f76" width="200"></a>
+
+<a href="#buildings-optional"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/08db4b9c-0b70-4ca4-b060-0089b739ed9b" width="200"></a>
 
 # Credits
 
@@ -157,7 +161,7 @@ Special thanks to all the developers who have contributed to YTLitePlus<br>
 5. **YouTube Dislike Return:** brings back Dislike counts under YouTube videos using **ReturnYoutubeDislike**'s API.
 
 <details>
-  <summary>and many more...!</summary>
+  <summary>and many more..</summary>
 
 6. **YTABGoodies:** allow you to disable some YouTube A/B testing features. It is a combination of several tweaks, such as:
 
