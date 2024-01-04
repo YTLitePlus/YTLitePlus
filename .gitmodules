@@ -47,3 +47,6 @@
 [submodule "Tweaks/YouQuality"]
 	path = Tweaks/YouQuality
 	url = https://github.com/PoomSmart/YouQuality
+[submodule "Tweaks/MrBeastify"]
+	path = Tweaks/MrBeastify
+	url = git@github.com:leminlimez/MrBeastify
