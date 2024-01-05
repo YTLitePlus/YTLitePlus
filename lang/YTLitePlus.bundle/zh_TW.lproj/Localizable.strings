@@ -1,1 +1,155 @@
-/
+// About
+"ABOUT" = "關於";
+
+"VERSION" = "版本";
+"VERSION_CHECK" = "檢查更新";
+
+"REPORT_AN_ISSUE" = "回報問題";
+"ADD_TITLE" = "在此新增標題...";
+
+"QUIT_YOUTUBE" = "退出 YouTube";
+
+"RESTART_YOUTUBE" = "重新啟動應用程式以套用變更";
+
+// App appearance
+"APP_THEME" = "外觀";
+"THEME_OPTIONS" = "主題設定";
+
+"DARK_THEME" = "暗黑主題";
+
+"DEFAULT_THEME" = "預設";
+"DEFAULT_THEME_DESC" = "ㄜ對就預設";
+
+"OLD_DARK_THEME" = "亮灰";
+"OLD_DARK_THEME_DESC" = "YouTube 懷舊主題";
+
+"OLED_DARK_THEME" = "OLED（實驗性）";
+"OLED_DARK_THEME_2" = "OLED";
+"OLED_DARK_THEME_DESC" = "純黑主題";
+
+"OLED_KEYBOARD" = "OLED 鍵盤 實驗性";
+"OLED_KEYBOARD_DESC" = "鍵盤全黑主題";
+
+// Video player options
+"VIDEO_PLAYER_OPTIONS" = "播放器選項";
+
+"AUTO_FULLSCREEN" = "自動全螢幕 （YTAutoFullScreen）";
+"AUTO_FULLSCREEN_DESC" = "自動全螢幕播放影片。";
+
+"DISABLE_DOUBLE_TAP_TO_SEEK" = "停用影片快轉與倒轉";
+"DISABLE_DOUBLE_TAP_TO_SEEK_DESC" = "";
+
+"SNAP_TO_CHAPTER" = "停用章節跳轉";
+"SNAP_TO_CHAPTER_DESC" = "停用影片快轉時自動跳轉到章節。需要重新啟動應用程式。";
+
+"PINCH_TO_ZOOM" = "停用手勢縮放";
+"PINCH_TO_ZOOM_DESC" = "需要重新啟動應用程式。";
+
+"YT_MINIPLAYER" = "為所有 YouTube 影片啟用迷你播放器";
+"YT_MINIPLAYER_DESC" = "例如兒童影片";
+
+"STOCK_VOLUME_HUD" = "使用 iOS 內建的音量 HUD";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "影片懸浮控制選項";
+
+"HIDE_AUTOPLAY_SWITCH" = "隱藏自動播放開關";
+"HIDE_AUTOPLAY_SWITCH_DESC" = "在影片控制中隱藏自動播放開關。";
+
+"HIDE_SUBTITLES_BUTTON" = "隱藏字幕按鈕";
+"HIDE_SUBTITLES_BUTTON_DESC" = "隱藏影片控制層中的字幕按鈕。";
+
+"HIDE_HUD_MESSAGES" = "隱藏 HUD 訊息";
+"HIDE_HUD_MESSAGES_DESC" = "例如：CC字幕、開啟/關閉、影片循環開啟等...";
+
+"HIDE_PAID_PROMOTION_CARDS" = "隱藏付費橫幅（YTNoPaidPromo）";
+"HIDE_PAID_PROMOTION_CARDS_DESC" = "在某些影片中隱藏「包括付費促銷」橫幅。";
+
+"HIDE_CHANNEL_WATERMARK" = "隱藏頻道浮水印";
+"HIDE_CHANNEL_WATERMARK_DESC" = "隱藏懸浮控制的頻道浮水印. 需要重新啟動應用程式。";
+
+"HIDE_PREVIOUS_AND_NEXT_BUTTON" = "隱藏上一個和下一個按鈕";
+"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC" = "在影片控制層中隱藏上一個和下一個按鈕";
+
+"REPLACE_PREVIOUS_NEXT_BUTTON" = "更換上一個/下一個按鈕";
+"REPLACE_PREVIOUS_NEXT_BUTTON_DESC" = "將影片播放器控制介面上的上一個/下一個按鈕替換成快轉/倒轉按鈕，需要重新啟動應用程式。";
+
+"HIDE_HOVER_CARD" = "隱藏片尾畫面懸浮卡 (YTNoHoverCards)";
+"HIDE_HOVER_CARD_DESC" = "在影片結尾隱藏創作者結束畫面。";
+
+"HIDE_RIGHT_PANEL" = "在全螢幕下隱藏右側面板";
+"HIDE_RIGHT_PANEL_DESC" = "需要重新啟動應用程式。";
+
+"RED_PROGRESS_BAR" = "紅色進度列";
+"RED_PROGRESS_BAR_DESC" = "恢復紅色進度列. 需要重新啟動應用程式。";
+
+"DONT_EAT_MY_CONTENT" = "2:1 影片瀏海/動態島優化（DontEatMyContent）";
+"DONT_EAT_MY_CONTENT_DESC" = "改進部分機型的瀏海區域/動態島在 2:1 影片中的遮擋問題，需要重新啟動應用程式。";
+
+// Shorts controls overlay options
+"SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Shorts 懸浮控制選項";
+
+"HIDE_SHORTS_CHANNEL_AVATAR" = "隱藏 Shorts 頻道大頭照";
+"HIDE_SHORTS_CHANNEL_AVATAR_DESC" = "";
+
+"HIDE_SHORTS_DISLIKE_BUTTON" = "隱藏 Shorts 不喜歡按鈕";
+"HIDE_SHORTS_DISLIKE_BUTTON_DESC" = "";
+
+"HIDE_SHORTS_COMMENT_BUTTON" = "隱藏 Shorts 留言按鈕";
+"HIDE_SHORTS_COMMENT_BUTTON_DESC" = "";
+
+"HIDE_SHORTS_REMIX_BUTTON" = "隱藏 Shorts remix 按鈕";
+"HIDE_SHORTS_REMIX_BUTTON_DESC" = "";
+
+"HIDE_SHORTS_SHARE_BUTTON" = "隱藏 Shorts 分享按鈕";
+"HIDE_SHORTS_SHARE_BUTTON_DESC" = "";
+
+"HIDE_UYOU_SHORTS_DOWNLOAD_BUTTON" = "隱藏 uYou 按鈕";
+"HIDE_UYOU_SHORTS_DOWNLOAD_BUTTON_DESC" = "在 Shorts 中隱藏 uYou 下載按鈕.";
+
+"HIDE_SUBCRIPTIONS" = "隱藏訂閱按鈕";
+"HIDE_SUBCRIPTIONS_DESC" = "隱藏當暫停時出現的訂閱按鈕。";
+
+"HIDE_SUPER_THANKS" = "隱藏 '購買超級感謝' 橫幅";
+"HIDE_SUPER_THANKS_DESC" = "在 Shorts 中隱藏 '購買超級感謝' 橫幅.";
+
+"DISABLE_RESUME_TO_SHORTS" = "停用恢復播放 Shorts";
+"DISABLE_RESUME_TO_SHORTS_DESC" = "如果你在觀看 Shorts 時關閉程式,下次開啟程式時將不再自動播放 Shorts.";
+
+// Miscellaneous
+"MISCELLANEOUS" = "雜項";
+
+"CAST_CONFIRM" = "投放前確認 (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "在投放前顯示確認訊息，以防止家人幹樵。";
+"CASTING" = "投放中";
+"MSG_ARE_YOU_SURE" = "是否開始投放？";
+"MSG_YES" = "確定";
+"MSG_CANCEL" = "取消";
+
+"DISABLE_HINTS" = "停用提示";
+"DISABLE_HINTS_DESC" = "停用初次安裝應用程式時顯示的功能提示。";
+
+"ENABLE_FLEX" = "啟用 FLEX";
+"ENABLE_FLEX_DESC" = "啟用 FLEX 供除錯 (不推薦)。 當你不知道你在幹嘛時請勿使用。";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "啟用 Youtube 歡迎動畫";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"FIX_GOOGLE_SIGNIN" = "修復 Google 帳號登入問題（僅TrollStore 使用者有效）";
+"FIX_GOOGLE_SIGNIN_DESC" = "僅在使用 TrollStore 時有效：啟用此設定可正常登入 Google。需要重新啟動應用程式。";
+
+"HIDE_CHIP_BAR" = "隱藏上層欄位";
+"HIDE_CHIP_BAR_DESC" = "隱藏主畫面上層欄位 (話題, 音樂, 遊戲...) 和訂閱對象動態 (所有影片, 繼續觀看...). 需要重新啟動應用程式。";
+
+"HIDE_PLAY_NEXT_IN_QUEUE" = "隱藏「播放序列中下一部」";
+"HIDE_PLAY_NEXT_IN_QUEUE_DESC" = "隱藏 Youtube Premium「播放序列中下一部」";
+
+"NEW_MINIPLAYER_STYLE" = "迷你播放器 (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "需要重新啟動應用程式。";
+
+"YT_RE_EXPLORE" = "用探索分頁代替 Shorts 分頁 (YTReExplore)";
+"YT_RE_EXPLORE_DESC" = "需要重新啟動應用程式。";
+
+"IPHONE_LAYOUT" = "iPhone 佈局";
+"IPHONE_LAYOUT_DESC" = "使用 iPhone 佈局。 需要重新啟動應用程式。";
