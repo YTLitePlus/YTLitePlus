@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/d3908e19-73c1-4aec-81a3-21f06a87990f" alt="YTLitePlus Banner" />
+  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/8439d786-3a75-4cbc-b342-168ee2948fa1" alt="YTLitePlus Banner" />
 </p>
 
 <a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
