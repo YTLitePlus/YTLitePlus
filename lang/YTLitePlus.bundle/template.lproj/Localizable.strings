@@ -14,19 +14,19 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 */
 
 // Settings
-"VERSION" = "YTLitePlus 版本：%@";
-"VERSION_CHECK" = "檢查更新";
+"VERSION" = "YTLitePlus's version: %@";
+"VERSION_CHECK" = "Tap to check for update!";
 
 // Video controls overlay options
-"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "影片區覆蓋按鈕設定";
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Controls Overlay Options";
 
-"ENABLE_SHARE_BUTTON" = "顯示分享按鈕";
-"ENABLE_SHARE_BUTTON_DESC" = "在影片覆蓋按鈕區域中顯示分享按鈕";
+"ENABLE_SHARE_BUTTON" = "Enable Share Button";
+"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
 
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "顯示「儲存至播放清單」按鈕";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在影片覆蓋按鈕區域中顯示「儲存至播放清單」";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
 
-"HIDE_SHADOW_OVERLAY_BUTTONS" = "停用按鈕影子效果";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
 "HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
 
 "HIDE_RIGHT_PANEL" = "Hide the right panel in fullscreen mode";
