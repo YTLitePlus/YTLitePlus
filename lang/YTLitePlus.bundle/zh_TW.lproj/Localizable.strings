@@ -65,47 +65,47 @@
 "HIDE_MODERN_INTERFACE" = "懷舊 YouTube 介面（YTNoModernUI）";
 "HIDE_MODERN_INTERFACE_DESC" = "可移除微光效果、曲線按鈕邊緣等等。重新啟動應用程式以套用變更。";
 
-"IPAD_LAYOUT" = "iPad 界面";
+"IPAD_LAYOUT" = "iPad 排版";
 "IPAD_LAYOUT_DESC" = "重新啟動應用程式以套用變更";
 
-"IPHONE_LAYOUT" = "iPhone Layout";
-"IPHONE_LAYOUT_DESC" = "only use this if you want to have the iPhone Layout on your current iPad. 重新啟動應用程式以套用變更。";
+"IPHONE_LAYOUT" = "iPhone 排版";
+"IPHONE_LAYOUT_DESC" = "重新啟動應用程式以套用變更。";
 
-"CAST_CONFIRM" = "Confirm alert before casting (YTCastConfirm)";
-"CAST_CONFIRM_DESC" = "Show a confirm alert before casting to prevent accidentally hijacking TV.";
-"CASTING" = "ChromeCast";
+"CAST_CONFIRM" = "在投放前確認（YTCastConfirm）";
+"CAST_CONFIRM_DESC" = "再三確認以避免被家人訐譙";
+"CASTING" = "投放";
 "MSG_ARE_YOU_SURE" = "是否投放影片？";
 "MSG_YES" = "確認";
 "MSG_CANCEL" = "取消";
 
-"NEW_MINIPLAYER_STYLE" = "New mini player bar style (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE" = "啟用應用程式內的新迷你播放器（BigYTMiniPlayer）";
 "NEW_MINIPLAYER_STYLE_DESC" = "重新啟動應用程式以套用變更。";
 
-"STOCK_VOLUME_HUD" = "Use iOS stock volume HUD";
+"STOCK_VOLUME_HUD" = "使用 iOS 預設音量條";
 "STOCK_VOLUME_HUD_DESC" = "";
 
-"HIDE_CAST_BUTTON" = "Hide Cast button";
+"HIDE_CAST_BUTTON" = "隱藏投放按鈕";
 "HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
 
-"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON" = "隱藏 iSponsorBlock 按鈕";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"YT_SPEED" = "Enable YTSpeed";
-"YT_SPEED_DESC" = "Enable YTSpeed to have more Playback Speed Options. 重新啟動應用程式以套用變更。";
+"YT_SPEED" = "啟用 YTSpeed";
+"YT_SPEED_DESC" = "擁有更多種影片速度。重新啟動應用程式以套用變更。";
 
-"ENABLE_FLEX" = "Enable FLEX";
-"ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
+"ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
+"ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
+"UN_SHORTS" = "隱藏 Shorts（YTUnShorts）";
+"UN_SHORTS_DESC" = "瀏覽影片時隱藏 Shorts";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. 重新啟動應用程式以套用變更。";
+"HIDE_COMMUNITY_POSTS" = "隱藏社群貼文";
+"HIDE_COMMUNITY_POSTS_DESC" = "重新啟動應用程式以套用變更。";
 
 // Version Spoofer
-"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. 重新啟動應用程式以套用變更。";
-"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+"APP_VERSION_SPOOFER_LITE" = "改變應用程式版本";
+"APP_VERSION_SPOOFER_LITE_DESC" = "請在底下選擇版本。重新啟動應用程式以套用變更。";
+"VERSION_SPOOFER_TITLE" = "版本選擇器";
 
 // Other Localization
 "APP_RESTART_DESC" = "重新啟動應用程式以套用變更。";
