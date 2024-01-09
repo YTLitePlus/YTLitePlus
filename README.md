@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/d3908e19-73c1-4aec-81a3-21f06a87990f" alt="YTLitePlus Banner" />
+  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/8439d786-3a75-4cbc-b342-168ee2948fa1" alt="YTLitePlus Banner" />
 </p>
 
 <a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
@@ -16,17 +16,15 @@
 <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?labelColor=black&style=flat&color=black&label=Latest%20release" alt="Badge"></img></a>
 
 # Table of Contents
-<a href="#credits"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/f82898cb-2785-4209-b50e-2d6624156279" width="200"></a>
+<a href="#credits"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3aeca24b-2847-4ffc-8f6b-253c69a7d7da" width="170"></a>
 
-<a href="#features"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/838c2376-fb4c-4ad7-ac3b-4ea5c97ae05f" width="200"></a>
+<a href="#features"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/53d62a16-4099-432b-b04e-8e5abc922222" width="170"></a>
 
-<a href="#known-issues"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/7ab38ec0-48a6-44dc-b8e8-169a8c9eb4ff" width="200"></a>
+<a href="#altstore"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/e82762ec-7501-4747-a75c-745b18017c76" width="170"></a>
 
-<a href="#altstore"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/a6f2b1fe-14ea-4ae8-a1a1-6df6e0ff297b" width="200"></a>
+<a href="#donations"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/69001a58-67ef-4044-aec4-749712d1da28" width="170"></a>
 
-<a href="#support-the-developers"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/2ccc007d-8e71-48df-9944-277e04ed4f76" width="200"></a>
-
-<a href="#buildings-optional"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/08db4b9c-0b70-4ca4-b060-0089b739ed9b" width="200"></a>
+<a href="#building"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/da4569fd-5483-4b1e-a757-b56e0c912306" width="170"></a>
 
 # Credits
 
@@ -150,60 +148,47 @@ Special thanks to all the developers who have contributed to YTLitePlus<br>
 
 # Features
 
-1. **YTLite:** +50 customization options for YouTube, YTLite enhances your viewing experience by removing ads, enabling background playback, and providing control over navigation, overlay, player, tab bar, and Shorts settings.
+1. **YTLite**: A tweak that enhances the YouTube experience by removing ads, enabling background playback, and providing customizable navigation and tab bars.
 
-2. **iSponsorBlock:** Skips annoying sponsor ads inside videos. iSponsorBlock is based on [SponsorBlock engine](https://sponsor.ajay.app/). Basically, this is the iOS version of the SponsorBlock extension.
+2. **YTUHD**: This tweak unlocks 1440p (2K) and 2160p (4K) resolutions in the iOS YouTube app.
 
-3. **YouPiP:** enable YouTube's **native PiP**. More options are in YouTube Settings => General.
+3. **YouPiP**: Enables native Picture-in-Picture feature for videos in the YouTube app.
 
-4. **YTUHD:** unlock VP9 codec and in effect, enables video quality of 2K and 4K. You can configure YTUHD in YouTube's Settings - Video quality preferences.
+4. **YTABConfig**: Adds a new section named "A/B" in the YouTube app settings where all features can be toggled freely by the user.
 
-5. **YouTube Dislike Return:** brings back Dislike counts under YouTube videos using **ReturnYoutubeDislike**'s API.
+5. **YouMute**: Allows users to mute/unmute videos directly in the YouTube Video Player.
 
-<details>
-  <summary>and many more..</summary>
+6. **DontEatMyContent**: Prevents the notch/Dynamic Island from covering 2:1 video content in YouTube.
 
-6. **YTABGoodies:** allow you to disable some YouTube A/B testing features. It is a combination of several tweaks, such as:
+7. **Return YouTube Dislikes**: Brings back Dislike counts under YouTube videos using ReturnYoutubeDislike's API.
 
-- YouAreThere: disable "Video paused. Continue watching?" popup in the YouTube app when you play a long video.
+8. **iSponsorBlock**: Skips annoying sponsor ads inside YouTube videos.
 
-- YouRememberCaption: make YouTube remember your video caption setting (if not already).
+9. **YouRememberCaption**: Makes YouTube remember your video caption setting.
 
-- YTNoCheckLocalNetwork: block the Local Network permission popup.
+10. **YTNoTracking**: An iOS YouTube Tweak that disables Tracking Parameters in the YouTube App.
 
-7. **YTSpeed**: a toggleable tweak to add 2.25x, 2.5x, 2.75x, 3x, 3.25x, 3.5x, 3.75x, 4x & 5x playback speed options in the video player.
+11. **YTUnShorts**: Remove Shorts from YouTube app's feed.
 
-8. **YTMiniplayerEnabler**: enable Miniplayer for all YouTube videos.
+12. **YTNoCheckLocalNetWor**k: Blocks the Local Network permission popup in YouTube.
 
-9. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
+13. **BigYTMiniPlayer**: Jailbreak tweak that makes the miniplayer in youtube easier to see. 
 
-10. **YTABConfig**: allow user to control over YouTube A/B testing flags.
+14. **YTSpeed**: Adds 2.25x to 5x playback speed options in the YouTube video player.
 
-11. **YouMute**: Mute/unmute videos in the YouTube Video Player directly.
+15. **YTHoldForSpeed**: Allows you to quickly toggle between a selected video playback speed by tapping and holding on the video player in the YouTube application.
 
-12. **YTNoCommunityPosts**: this can disable all the Community Posts on the YouTube app.
+16. **YTVideoOverlay**: A helper tweak that adds buttons on the YouTube video overlay.
 
-13. **LowContrastMode**: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
+17. **YouQuality**: Enables you to view and change video quality in YouTube faster.
 
-14. **OLEDDarkmode**: Replace official Youtube darkmode with a true OLED darkmode.
+18. **YTNoModernUI**: This tweak changes and removes some newer UI elements from the YouTube app such as some rounded buttons, old progress bar, and old buffer bar.
 
-15. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
+19. **OLEDDarkmode**: Replace official Youtube darkmode with a true OLED darkmode.
 
-</details>
+20. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
 
-# Known issues
-
-1. **LowContrastMode**: this tweak doesn't work everywhere with every ui element on the YouTube App.
-
-2. **YTUHD**: [Stuttering on 4K videos](https://github.com/qnblackcat/uYouPlus/issues/6).
-
-3. **YouPiP** (iOS 14.0 - 14.4.2): due to Apple's fault, you may encounter the *speedup-bug* as described [here](https://drive.google.com/file/d/1NKdv1fr_KRWgD8nhkMDfG2eLBnbdeVtX/view?usp=sharing). The bug also happens when you try to play multi-sources of sound at the same time. Enable **LegacyPiP** is a workaround. Keep in mind that LegacyPiP also removes UHD quality and breaks YouTube Autoplay next. Use it at your own risk!
-
-4. **Not a bug**: 
-
-- The app won't be able to receive push notifications if you use a free developer account to sideload it. 
-
-- It's impossible to fix deep-link (a.k.a Open in the YouTube app). However, you can use this [Shortcuts](https://shortcutsgallery.com/shortcuts/open-in-youtube/) as a workaround (tested on iOS 14). **Credit:** RandomAccessMemories#5025
+21. **LowContrastMode**: Makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
 # AltStore
   
@@ -215,41 +200,21 @@ Special thanks to all the developers who have contributed to YTLitePlus<br>
 
 <a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://gcdnb.pbrd.co/images/pxhwQTTDPu2j.png" width="200"></a>
 
+# Donations
+<a href="https://www.paypal.com/paypalme/DBrett684"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/e637cb56-668d-4ebf-8644-49de3df0e5a3" width="200"></a>
+&nbsp;
+<a href="https://venmo.com/u/DavidBrett"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/24c6e8f0-5ef1-46ce-94d4-e3f70271a82c" width="200"></a>
 
+<a href="https://github.com/MiRO92/uYou-for-YouTube#support"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/72829aa6-2eee-456a-a560-9dc28501e001" width="200"></a>
+&nbsp;
 
-# Version info: _(Oct 2 2023)_
+<a href="https://www.paypal.com/paypalme/BandarHL"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/aba31ab0-28d3-4c1e-8ed6-13df03a26249" width="200"></a>
+&nbsp;
 
-<details>
-  <summary>Expand</summary>
+<a href="https://ko-fi.com/level3tjg"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/98f0a392-d999-4882-a22d-33b1c59cd2c0" width="200"></a>
+&nbsp;
 
-| **Tweaks/App** | **Developer** | **Version** | **Open source** |
-| - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.40.1 | ✖︎ |
-| **YTLite** | Dayanch96 | 2.3.1 |✔︎|
-| **Open in YouTube** | [CokePokes](https://github.com/CokePokes/) | 1.2 | ✖︎ |
-| **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
-| **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
-| **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.11 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
-| **LowContrastMode** | arichorn | 1.5.0 | [✔︎](https://github.com/arichorn/LowContrastMode) |
-| **YTUHD** | PoomSmart | 1.4.0 | [✔︎](https://github.com/PoomSmart/YTUHD) |
-| **YouPiP** | PoomSmart | 1.7.20 | [✔︎](https://github.com/PoomSmart/YouPiP) |
-| **YTVideoOverlay** | PoomSmart | 1.1.1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
-| **YouQuality** | PoomSmart | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
-| **YouMute** | PoomSmart | 1.2.1-2 | [✔︎](https://github.com/PoomSmart/YouMute) |
-| **YTABConfig** | PoomSmart | 1.5.0-2 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
-| **Return YouTube Dislike** | PoomSmart | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
-| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
+<a href="https://www.patreon.com/julioverne"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/f4dabaad-3fc9-4877-bc96-0ffa9e5ce381" width="200"></a>
 
-</details>
-
-# Support the developers
-- [**MiRO92**](https://twitter.com/miro92): https://github.com/MiRO92/uYou-for-YouTube#support
-- [**level3tjg**](https://twitter.com/level3tjg): https://ko-fi.com/level3tjg
-- [**BandarHL**](https://twitter.com/bandarhl): https://www.paypal.com/paypalme/BandarHL
-- [**julioverne**](https://twitter.com/ijulioverne): https://www.patreon.com/julioverne
-- [**Galactic-dev**](https://twitter.com/dev_galactic):   
-  - Paypal: https://www.paypal.com/paypalme/DBrett684 
-  - Venmo: https://venmo.com/u/DavidBrett
-
-# Building(s) (optional)
+# Building
 See [uYouPlus/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
