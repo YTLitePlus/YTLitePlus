@@ -29,6 +29,9 @@
 "DONT_EAT_MY_CONTENT" = "Ngăn Notch/Đảo trên nội dung video 2:1 (DontEatMyContent)";
 "DONT_EAT_MY_CONTENT_DESC" = "Ngăn notch/Dynamic Island nghiền ngẫm nội dung video 2:1 trên YouTube. Khởi động lại ứng dụng là bắt buộc.";
 
+"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
+
 "HIDE_HEATWAVES" = "Ẩn sóng nhiệt";
 "HIDE_HEATWAVES_DESC" = "Ẩn Sóng nhiệt trong trình phát video. Khởi động lại ứng dụng là bắt buộc.";
 
