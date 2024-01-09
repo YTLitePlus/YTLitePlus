@@ -1,0 +1,111 @@
+
+// Settings
+"VERSION" = "YTLitePlus 版本：%@";
+"VERSION_CHECK" = "檢查更新";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "影片區覆蓋按鈕設定";
+
+"ENABLE_SHARE_BUTTON" = "顯示分享按鈕";
+"ENABLE_SHARE_BUTTON_DESC" = "在影片覆蓋按鈕區域中顯示分享按鈕";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "顯示「儲存至播放清單」按鈕";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在播放器覆蓋按鈕區域中顯示「儲存至播放清單」";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "停用按鈕影子效果";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "隱藏播放/暫停、上一首、下一首、快轉和倒轉按鈕影子。";
+
+"HIDE_RIGHT_PANEL" = "在全螢幕中隱藏右面板";
+"HIDE_RIGHT_PANEL_DESC" = "需要重新啟動應用程式";
+
+"HIDE_HEATWAVES" = "隱藏熱浪";
+"HIDE_HEATWAVES_DESC" = "在播放器中隱藏熱浪";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "應用程式設定隱藏項目";
+
+"HIDE_ACCOUNT_SECTION" = "購買會員與會員資格";
+"HIDE_AUTOPLAY_SECTION" = "自動播放";
+"HIDE_TRYNEWFEATURES_SECTION" = "";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "影片畫質偏好設定";
+"HIDE_NOTIFICATIONS_SECTION" = "通知";
+"HIDE_MANAGEALLHISTORY_SECTION" = "管理所有紀錄";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "已連結的應用程式";
+"HIDE_PRIVACY_SECTION" = "隱私設定";
+"HIDE_LIVECHAT_SECTION" = "聊天室";
+
+// Theme
+"THEME_OPTIONS" = "外觀";
+
+"OLED_DARK_THEME" = "OLED 暗黑主題";
+"OLED_DARK_THEME_2" = "OLED 暗黑主題";
+"OLED_DARK_THEME_DESC" = "全黑主題。此功能不穩定。重新啟動應用程式以套用變更。";
+
+"OLD_DARK_THEME" = "懷舊亮灰主題";
+"OLD_DARK_THEME_DESC" = "YouTube 亮灰懷舊暗黑主題。重新啟動應用程式以套用變更。";
+
+"DEFAULT_THEME" = "預設主題";
+"DEFAULT_THEME_DESC" = "";
+
+"OLED_KEYBOARD" = "OLED 鍵盤";
+"OLED_KEYBOARD_DESC" = "此功能不穩定。重新啟動應用程式以套用變更。";
+
+"LOW_CONTRAST_MODE" = "低對比模式";
+"LOW_CONTRAST_MODE_DESC" = "模擬舊式 YouTube。重新啟動應用程式以套用變更。";
+"LCM_SELECTOR" = "低對比模式樣是";
+"DEFAULT_LOWCONTRASTMODE" = "（預設）LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "（自訂顏色）LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "更多";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "啟用 Youtube 歡迎動畫";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "懷舊 YouTube 介面（YTNoModernUI）";
+"HIDE_MODERN_INTERFACE_DESC" = "可移除微光效果、曲線按鈕邊緣等等。重新啟動應用程式以套用變更。";
+
+"IPAD_LAYOUT" = "iPad 排版";
+"IPAD_LAYOUT_DESC" = "重新啟動應用程式以套用變更";
+
+"IPHONE_LAYOUT" = "iPhone 排版";
+"IPHONE_LAYOUT_DESC" = "重新啟動應用程式以套用變更。";
+
+"CAST_CONFIRM" = "在投放前確認（YTCastConfirm）";
+"CAST_CONFIRM_DESC" = "再三確認以避免被家人訐譙";
+"CASTING" = "投放";
+"MSG_ARE_YOU_SURE" = "是否投放影片？";
+"MSG_YES" = "確認";
+"MSG_CANCEL" = "取消";
+
+"NEW_MINIPLAYER_STYLE" = "啟用應用程式內的新迷你播放器（BigYTMiniPlayer）";
+"NEW_MINIPLAYER_STYLE_DESC" = "重新啟動應用程式以套用變更。";
+
+"STOCK_VOLUME_HUD" = "使用 iOS 預設音量條";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+"HIDE_CAST_BUTTON" = "隱藏投放按鈕";
+"HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "隱藏 iSponsorBlock 按鈕";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"YT_SPEED" = "啟用 YTSpeed";
+"YT_SPEED_DESC" = "擁有更多種影片速度。重新啟動應用程式以套用變更。";
+
+"ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
+"ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
+
+"UN_SHORTS" = "隱藏 Shorts（YTUnShorts）";
+"UN_SHORTS_DESC" = "瀏覽影片時隱藏 Shorts";
+
+"HIDE_COMMUNITY_POSTS" = "隱藏社群貼文";
+"HIDE_COMMUNITY_POSTS_DESC" = "重新啟動應用程式以套用變更。";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "改變應用程式版本";
+"APP_VERSION_SPOOFER_LITE_DESC" = "請在底下選擇版本。重新啟動應用程式以套用變更。";
+"VERSION_SPOOFER_TITLE" = "版本選擇器";
+
+// Other Localization
+"APP_RESTART_DESC" = "重新啟動應用程式以套用變更。";
