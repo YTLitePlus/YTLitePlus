@@ -17,6 +17,9 @@
 "HIDE_RIGHT_PANEL" = "إخفاء اللوحة اليمنى في وضع ملء الشاشة";
 "HIDE_RIGHT_PANEL_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
+"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
+
 "HIDE_HEATWAVES" = "إخفاء موجات الحر";
 "HIDE_HEATWAVES_DESC" = "يخفي موجات الحر في مشغل الفيديو. مطلوب إعادة تشغيل التطبيق.";
 

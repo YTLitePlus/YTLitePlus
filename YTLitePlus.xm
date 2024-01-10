@@ -351,6 +351,16 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+// YTNoSuggestedVideo - https://github.com/bhackel/YTNoSuggestedVideo
+%hook YTMainAppVideoPlayerOverlayViewController
+- (bool)shouldShowAutonavEndscreen {
+    if (IsEnabled(@"noSuggestedVideo_enabled")) {
+        return false;
+    }
+    return %orig;
+}
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView

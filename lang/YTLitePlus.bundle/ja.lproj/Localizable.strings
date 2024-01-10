@@ -17,6 +17,9 @@
 "HIDE_RIGHT_PANEL" = "フルスクリーンモードで右パネルを非表示";
 "HIDE_RIGHT_PANEL_DESC" = "アプリの再起動が必要です。";
 
+"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
+
 "HIDE_HEATWAVES" = "ヒートウェーブを非表示";
 "HIDE_HEATWAVES_DESC" = "動画プレーヤーのヒートウェーブを非表示にします。アプリの再起動が必要です。";
 

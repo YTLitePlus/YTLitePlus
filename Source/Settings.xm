@@ -107,6 +107,16 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"NO_SUGGESTED_VIDEO")
+                titleDescription:LOC(@"NO_SUGGESTED_VIDEO_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"noSuggestedVideo_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"noSuggestedVideo_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HEATWAVES")
                 titleDescription:LOC(@"HIDE_HEATWAVES_DESC")
                 accessibilityIdentifier:nil
