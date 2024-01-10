@@ -190,6 +190,8 @@ Special thanks to all the developers who have contributed to YTLitePlus<br>
 
 21. **LowContrastMode**: Makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
+22. **YTNoSuggestedVideo**: Removes the suggested video popup when finishing a video.
+
 # AltStore
   
 <a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
