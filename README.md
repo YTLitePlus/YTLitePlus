@@ -31,15 +31,15 @@
 <table id='ytliteplus credit'>
 <tr>
 <td align="center">
-<a href='https://github.com/balackburn'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/d08ccf99-d3e5-4388-833f-22632dc66fd2' width='120px'>
-</td>
-</a>
-<td align="center">
 <a href='https://github.com/arichorn'>
 <img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/2753042f-9efa-404d-a719-4761ad48d323' width='120px'>
 </a>
 </td>
+<td align="center">
+<a href='https://github.com/balackburn'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/d08ccf99-d3e5-4388-833f-22632dc66fd2' width='120px'>
+</td>
+</a>
 <td align="center">
 <a href='https://github.com/dayanch96'>
 <img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/293f1a61-00b8-424a-9e00-f520f5a88064' width='120px;'>
