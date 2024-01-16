@@ -29,7 +29,6 @@
 # Credits
 
 <table id='ytliteplus credit'>
-Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <tr>
 <td align="center">
 <a href='https://github.com/balackburn'>
@@ -50,12 +49,13 @@ Special thanks to these developer(s) for maintaining and improving YTLitePlus
 <a href='https://github.com/ssuesskind'>
 <img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/ed6bc6a0-ef55-4548-8d60-32d86f2aa9f3' width='120px;'>
 </a>
+<td align="center">
+<a href='https://github.com/Deci8BelioS'>
+<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/8cca7bf9-4c52-4c25-99dd-2b26434b7deb' width='120px'>
+</a>
 <br>
-</td>
 </tr>
-
-<table id='credit'>
-Special thanks to all the developers who have contributed to YTLitePlus<br>
+<br>
 <tr>
 <td align="center">
 <a href='https://github.com/MiRO92'>
