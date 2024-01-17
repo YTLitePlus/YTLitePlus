@@ -17,8 +17,8 @@
 "HIDE_RIGHT_PANEL" = "Masquer le panneau de droite en mode plein écran";
 "HIDE_RIGHT_PANEL_DESC" = "Le redémarrage de l'application est requis.";
 
-"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
+"NO_SUGGESTED_VIDEO" = "Masquer la vidéo suggérée (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Supprime le popup de suggestion de vidéo à la fin d'une vidéo";
 
 "HIDE_HEATWAVES" = "Masquer les Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
