@@ -17,8 +17,8 @@
 "HIDE_RIGHT_PANEL" = "Ocultar el panel derecho en modo pantalla completa";
 "HIDE_RIGHT_PANEL_DESC" = "Es necesario reiniciar la aplicación.";
 
-"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
+"NO_SUGGESTED_VIDEO" = "Ocultar vídeos sugeridos (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Eliminar la ventana emergente de vídeo sugerido al terminar un vídeo";
 
 "HIDE_HEATWAVES" = "Ocultar Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Oculta las Heatwaves en el reproductor de vídeo. Es necesario reiniciar la aplicación.";
@@ -101,8 +101,8 @@
 "UN_SHORTS" = "Ocultar Shorts (YTUnShorts)";
 "UN_SHORTS_DESC" = "Quitar los Shorts de YouTube";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
+"HIDE_COMMUNITY_POSTS" = "Ocultar publicaciones de la comunidad";
+"HIDE_COMMUNITY_POSTS_DESC" = "Oculta las publicaciones de la comunidad. Es necesario reiniciar la aplicación.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activar App Version Spoofer (Lite)";
