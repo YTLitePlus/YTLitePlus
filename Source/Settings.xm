@@ -539,8 +539,10 @@ extern NSBundle *YTLitePlusBundle();
     }];
     [sectionItems addObject:miscellaneousGroup];
 
-    [settingsViewController setSectionItems:sectionItems forCategory:YTLitePlusSection title:@"YTLitePlus" titleDescription:LOC(@"TITLE DESCRIPTION") headerHidden:YES];
-}
+    if ([settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)])
+        [settingsViewController setSectionItems:sectionItems forCategory:YTLitePlusSection title:@"YTLitePlus" icon:nil titleDescription:LOC(@"TITLE DESCRIPTION") headerHidden:YES];
+    else
+        [settingsViewController setSectionItems:sectionItems forCategory:YTLitePlusSection title:@"YTLitePlus" titleDescription:LOC(@"TITLE DESCRIPTION") headerHidden:YES];}
 
 - (void)updateSectionForCategory:(NSUInteger)category withEntry:(id)entry {
     if (category == YTLitePlusSection) {
