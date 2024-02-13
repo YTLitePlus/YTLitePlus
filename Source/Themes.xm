@@ -112,6 +112,13 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 }
 %end
 
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
 // Explore
 %hook ASScrollView 
 - (void)didMoveToWindow {
@@ -352,6 +359,13 @@ UIColor *customHexColor;
 }
 - (UIColor *)generalBackgroundA {
     return self.pageStyle == 1 ? customHexColor : %orig;
+}
+%end
+
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
 }
 %end
 
