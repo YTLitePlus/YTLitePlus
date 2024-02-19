@@ -6,7 +6,7 @@
 &nbsp;
 <a href="https://balackburn.github.io/YTLitePlus"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/55b3dd67-b677-4f0d-a5e5-8701c421149e" width="200"></a>
 &nbsp;
-<a href="https://github.com/Balackburn/YTLitePlus/releases/download/v19.03.2-2.4.1/YTLitePlus_19.03.2_2.4.1.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
+<a href="https://github.com/Balackburn/YTLitePlus/releases/download/v19.06.2-2.6/YTLitePlus_19.06.2_2.6.ipa"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3abfb7bb-79c7-4984-8231-14a16fdfe7f2" width="148,148148148148148"></a>
 &nbsp;
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
