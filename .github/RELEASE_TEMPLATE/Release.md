@@ -1,7 +1,7 @@
 # YTLitePlus Release Information
 
 Current YouTube IPA: `%youtube_version%`  
-Current YTLitePlus Version: `%ytliteplus_version%`  
+Current YTLite Version: `%ytliteplus_version%`  
 Current App Compatibility: `iOS/iPadOS 14.0` or later
 
 **RELEASE %youtube_version%-%ytliteplus_version%:** (%date%)

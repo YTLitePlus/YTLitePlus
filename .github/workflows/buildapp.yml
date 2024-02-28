@@ -18,7 +18,7 @@ on:
         type: string
       ytliteplus_version:
         description: "The version of YTLitePlus"
-        default: "2.4"
+        default: "2.7"
         required: true
         type: string
       bundle_id:
