@@ -165,13 +165,19 @@
 @interface _ASDisplayView : UIView
 @end
 
+@interface ELMContainerNode : NSObject
+@end
+
+@interface YTAutonavEndscreenView : UIView
+@end
+
 @interface YTPivotBarIndicatorView : UIView
 @end
 
 @interface YTCommentDetailHeaderCell : UIView
 @end
 
-@interface SponsorBlockSettingsController : UITableViewController
+@interface SponsorBlockSettingsController : UITableViewController 
 @end
 
 @interface SponsorBlockViewController : UIViewController
@@ -181,6 +187,19 @@
 @end
 
 @interface UIPredictionViewController : UIViewController
+@end
+
+@interface TUIEmojiSearchView : UIView
+@end
+
+@interface FRPreferences : UITableViewController
+@end
+
+@interface FRPSelectListTable : UITableViewController
+@end
+
+@interface settingsReorderTable : UIViewController
+@property(nonatomic, strong) UITableView *tableView;
 @end
 
 // Snack bar
