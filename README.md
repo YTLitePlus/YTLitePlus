@@ -197,10 +197,10 @@
 <a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
 &nbsp;
 
-<a href="https://altsource.by.lao.sb/browse/?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://gcdnb.pbrd.co/images/Nfl3CG8rT8Va.png" width="200"></a>
+<a href="https://altsource.by.lao.sb/browse/?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/5d61e0b6-3d28-4353-8c02-05f1e3b60093" width="200"></a>
 &nbsp;
 
-<a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://gcdnb.pbrd.co/images/pxhwQTTDPu2j.png" width="200"></a>
+<a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/72c2830a-2f06-4a5c-b4bb-214a757bb5f7" width="200"></a>
 
 # Donations
 <a href="https://www.paypal.com/paypalme/DBrett684"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/e637cb56-668d-4ebf-8644-49de3df0e5a3" width="200"></a>
