@@ -48,3 +48,6 @@
 [submodule "Tweaks/YouQuality"]
 	path = Tweaks/YouQuality
 	url = https://github.com/arichorn/YouQuality.git
+[submodule "Tweaks/protobuf"]
+	path = Tweaks/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
