@@ -219,4 +219,4 @@
 <a href="https://www.patreon.com/julioverne"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/f4dabaad-3fc9-4877-bc96-0ffa9e5ce381" width="200"></a>
 
 # Building
-See [uYouPlus/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
+See [YTLitePlus/Building - Wiki](https://github.com/Balackburn/YTLitePlus/wiki/Building)
