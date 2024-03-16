@@ -26,14 +26,14 @@
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opciones de superposición de los ajustes de la aplicación";
 
-"HIDE_ACCOUNT_SECTION" = "Ocultar la sección `Cuenta`";
-"HIDE_AUTOPLAY_SECTION" = "Ocultar la sección `Autoplay`";
-"HIDE_TRYNEWFEATURES_SECTION" = "Ocultar la sección `Probar nuevas funciones`";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ocultar la sección `Preferencias de calidad de vídeo`";
-"HIDE_NOTIFICATIONS_SECTION" = "Ocultar la sección `Notificaciones`";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Ocultar la sección `Gestionar todo el historial`";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ocultar la sección `Tus datos en YouTube`";
-"HIDE_PRIVACY_SECTION" = "Ocultar la sección `Privacidad`";
+"HIDE_ACCOUNT_SECTION" = "Ocultar la sección \"Cuenta\"";
+"HIDE_AUTOPLAY_SECTION" = "Ocultar la sección \"Autoplay\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ocultar la sección \"Probar nuevas funciones\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ocultar la sección \"Preferencias de calidad de vídeo\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ocultar la sección \"Notificaciones\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ocultar la sección \"Gestionar todo el historial\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ocultar la sección \"Tus datos en YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ocultar la sección \"Privacidad\"";
 "HIDE_LIVECHAT_SECTION" = "Ocultar la sección de chat en directo";
 
 // Theme

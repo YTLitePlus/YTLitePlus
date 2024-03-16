@@ -26,18 +26,18 @@
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Paramètres des options d'overlay de l'application";
 
-"HIDE_ACCOUNT_SECTION" = "Masquer la section `Compte`";
-"HIDE_DONTEATMYCONTENT_SECTION" = "Masquer la section `DontEatMyContent`";
-"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Masquer la section `YouTube Return Dislike`";
-"HIDE_YOUPIP_SECTION" = "Masquer la section `YouPiP`";
-"HIDE_AUTOPLAY_SECTION" = "Masquer la section `Autoplay`";
-"HIDE_TRYNEWFEATURES_SECTION" = "Masquer la section `Essayer de nouvelles fonctionnalités`";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Masquer la section `Préférences de qualité vidéo`";
-"HIDE_NOTIFICATIONS_SECTION" = "Masquer la section `Notifications`";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Masquer la section `Gérer tout l'historique`";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Masquer la section `Vos données dans YouTube`";
-"HIDE_PRIVACY_SECTION" = "Masquer la section `Confidentialité`";
-"HIDE_LIVECHAT_SECTION" = "Masquer la section `Chat en direct`";
+"HIDE_ACCOUNT_SECTION" = "Masquer la section \"Compte\"";
+"HIDE_DONTEATMYCONTENT_SECTION" = "Masquer la section \"DontEatMyContent\"";
+"HIDE_YOUTUBERETURNDISLIKE_SECTION" = "Masquer la section \"YouTube Return Dislike\"";
+"HIDE_YOUPIP_SECTION" = "Masquer la section \"YouPiP\"";
+"HIDE_AUTOPLAY_SECTION" = "Masquer la section \"Autoplay\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Masquer la section \"Essayer de nouvelles fonctionnalités\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Masquer la section \"Préférences de qualité vidéo\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Masquer la section \"Notifications\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Masquer la section \"Gérer tout l'historique\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Masquer la section \"Vos données dans YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Masquer la section \"Confidentialité\"";
+"HIDE_LIVECHAT_SECTION" = "Masquer la section \"Chat en direct\"";
 
 // Theme
 "THEME_OPTIONS" = "Options de thème";

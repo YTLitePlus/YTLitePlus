@@ -26,15 +26,15 @@
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
 
-"HIDE_ACCOUNT_SECTION" = "Ascunde secțiunea `Cont`";
-"HIDE_AUTOPLAY_SECTION" = "Ascunde secțiunea `Redare automată`";
-"HIDE_TRYNEWFEATURES_SECTION" = "Ascunde secțiunea `Încearcă funcții noi`";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ascunde secțiunea `Preferințe privind calitatea video`";
-"HIDE_NOTIFICATIONS_SECTION" = "Ascunde secțiunea `Notificări`";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Ascunde secțiunea `Gestionează întregul istoric`";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ascunde secțiunea `Datele tale din YouTube`";
-"HIDE_PRIVACY_SECTION" = "Ascunde secțiunea `Confidențialitate`";
-"HIDE_LIVECHAT_SECTION" = "Ascunde secțiunea `Chat live`";
+"HIDE_ACCOUNT_SECTION" = "Ascunde secțiunea \"Cont\"";
+"HIDE_AUTOPLAY_SECTION" = "Ascunde secțiunea \"Redare automată\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ascunde secțiunea \"Încearcă funcții noi\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ascunde secțiunea \"Preferințe privind calitatea video\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ascunde secțiunea \"Notificări\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ascunde secțiunea \"Gestionează întregul istoric\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ascunde secțiunea \"Datele tale din YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ascunde secțiunea \"Confidențialitate\"";
+"HIDE_LIVECHAT_SECTION" = "Ascunde secțiunea \"Chat live\"";
 
 // Theme
 "THEME_OPTIONS" = "Opțiuni temă";

@@ -41,15 +41,15 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 
-"HIDE_ACCOUNT_SECTION" = "Hide `Account` Section";
-"HIDE_AUTOPLAY_SECTION" = "Hide `Autoplay` Section";
-"HIDE_TRYNEWFEATURES_SECTION" = "Hide `Try New Features` Section";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide `Video quality preferences` Section";
-"HIDE_NOTIFICATIONS_SECTION" = "Hide `Notifications` Section";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Hide `Manage all history` Section";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide `Your data in YouTube` Section";
-"HIDE_PRIVACY_SECTION" = "Hide `Privacy` Section";
-"HIDE_LIVECHAT_SECTION" = "Hide `Live Chat` Section";
+"HIDE_ACCOUNT_SECTION" = "Hide \"Account\" Section";
+"HIDE_AUTOPLAY_SECTION" = "Hide \"Autoplay\" Section";
+"HIDE_TRYNEWFEATURES_SECTION" = "Hide \"Try New Features\" Section";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide \"Video quality preferences\" Section";
+"HIDE_NOTIFICATIONS_SECTION" = "Hide \"Notifications\" Section";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Hide \"Manage all history\" Section";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide \"Your data in YouTube\" Section";
+"HIDE_PRIVACY_SECTION" = "Hide \"Privacy\" Section";
+"HIDE_LIVECHAT_SECTION" = "Hide \"Live Chat\" Section";
 
 // Theme
 "THEME_OPTIONS" = "Theme Options";
