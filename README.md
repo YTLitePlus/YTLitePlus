@@ -146,7 +146,7 @@
 
 # Features
 
-1. **YTLite**: A tweak that enhances the YouTube experience by removing ads, enabling background playback, and providing customizable navigation and tab bars.
+1. **YTLite**: A tweak that enhances the YouTube experience by removing ads, enabling background playback and offering over 60 customization options.
 
 2. **YTUHD**: This tweak unlocks 1440p (2K) and 2160p (4K) resolutions in the iOS YouTube app.
 
