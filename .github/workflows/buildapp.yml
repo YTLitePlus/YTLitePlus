@@ -55,7 +55,7 @@ jobs:
           path: main
           submodules: recursive
       - name: show what kinda of shells we have
-        run: ls -al
+        run: ls -al ~/
 
       - name: Install Dependencies
         run: brew install ldid dpkg make
