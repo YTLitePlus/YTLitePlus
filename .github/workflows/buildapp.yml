@@ -115,6 +115,9 @@ jobs:
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
 
+      - name: Do the echo part beforehand
+        run: (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.zprofile)
+
       - name: Fix Compiling & Build Package
         id: build_package
         run: |
