@@ -115,7 +115,7 @@ jobs:
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = '$yt_version'-${{ inputs.ytliteplus_version }}/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = $yt_version-${{ inputs.ytliteplus_version }}/" Makefile
           make package FINALPACKAGE=1
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YOUTUBE_VERSION }}_${{ env.ytliteplus_version }}.ipa")        
           echo "package=$(ls -t packages | head -n1)" >>$GITHUB_OUTPUT
@@ -131,15 +131,16 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         env:
           ytliteplus_version: ${{ inputs.ytliteplus_version }}
+          YOUTUBE_VERSION: $yt_version
         with:
-          name: YTLitePlus_"$yt_version"_${{ env.ytliteplus_version }}
+          name: YTLitePlus_${{ env.YOUTUBE_VERSION }}_${{ env.ytliteplus_version }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
       
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ inputs.ytliteplus_version }}/g; s/%youtube_version%/'$yt_version'/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ inputs.ytliteplus_version }}/g; s/%youtube_version%/$yt_version/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
