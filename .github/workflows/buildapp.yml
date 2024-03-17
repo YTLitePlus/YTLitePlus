@@ -119,13 +119,13 @@ jobs:
 
       - name: Do the echo part beforehand
         run: |
-          (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bashrc)
-          cat ~/.bashrc
+          (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bash_profile)
+          cat ~/.bash_profile
 
       - name: Fix Compiling & Build Package
         id: build_package
         run: |
-          #(echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bashrc)
+          #(echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bash_profile)
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
