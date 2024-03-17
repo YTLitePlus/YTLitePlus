@@ -106,7 +106,7 @@ jobs:
           echo -e "==> \033[1mYouTube v${{ inputs.youtube_version }} downloaded! \033[0m"
           unzip -q main/YouTube.ipa -d main/tmp
           # New
-          ls -la main/tmp
+          cat main/tmp/Payload/YouTube.app/Info.plist
           exit 1
           # New end
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
