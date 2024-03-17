@@ -54,8 +54,6 @@ jobs:
         with:
           path: main
           submodules: recursive
-      - name: show what is inside bashrc
-        run: cat ~/.bashrc
 
       - name: Install Dependencies
         run: brew install ldid dpkg make
@@ -122,7 +120,6 @@ jobs:
         run: |
           (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
           source ~/.bash_profile
-          make --version
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
