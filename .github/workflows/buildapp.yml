@@ -105,6 +105,10 @@ jobs:
           wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
           echo -e "==> \033[1mYouTube v${{ inputs.youtube_version }} downloaded! \033[0m"
           unzip -q main/YouTube.ipa -d main/tmp
+          # New
+          ls -la main/tmp
+          exit 1
+          # New end
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
