@@ -149,7 +149,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ytliteplus_version: ${{ inputs.ytliteplus_version }}
-          YOUTUBE_VERSION: $yt_versio
+          YOUTUBE_VERSION: $yt_version
           DRAFT: ${{ inputs.create_release }}
         with:
           tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
