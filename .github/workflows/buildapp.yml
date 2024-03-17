@@ -54,8 +54,8 @@ jobs:
         with:
           path: main
           submodules: recursive
-      - name: show what kinda of shells we have
-        run: ls -al ~/
+      - name: show what is inside bashrc
+        run: cat ~/.bashrc
 
       - name: Install Dependencies
         run: brew install ldid dpkg make
@@ -118,12 +118,14 @@ jobs:
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
 
       - name: Do the echo part beforehand
-        run: (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.zprofile)
+        run: |
+          (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bashrc)
+          cat ~/.bashrc
 
       - name: Fix Compiling & Build Package
         id: build_package
         run: |
-          (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.zprofile)
+          #(echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bashrc)
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
