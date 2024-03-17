@@ -106,18 +106,22 @@ jobs:
           echo -e "==> \033[1mYouTube v${{ inputs.youtube_version }} downloaded! \033[0m"
           unzip -q main/YouTube.ipa -d main/tmp
           # New
-          cat main/tmp/Payload/YouTube.app/Info.plist
-          exit 1
+          echo yt_version=$(grep -A 1 "<key>CFBundleVersion</key>" main/tmp/Payload/YouTube.app/Info.plist | grep "<string>" | awk -F'[><]' '{print $3}') >> "$GITHUB_ENV"
+          echo "$yt_version"
           # New end
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
           echo -e "==> \033[1mYouTube v${{ inputs.youtube_version }} unpacked! \033[0m"
-
         env:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
+
+      - name: show yt version
+        run: |
+          echo "$yt_version"
+          exit 1
 
       - name: Fix Compiling & Build Package
         id: build_package
