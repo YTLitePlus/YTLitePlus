@@ -65,7 +65,10 @@ jobs:
           (echo PATH=\"$(brew --prefix make)/libexec/gnubin:\$PATH\" >> ~/.bash_profile)
           cat ~/.bash_profile
           whereis make
-          make
+          whereis gmake
+          make --version
+          export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+          make --version
 
       - name: Setup Theos
         uses: actions/checkout@v3.5.3
