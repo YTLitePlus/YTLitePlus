@@ -98,11 +98,11 @@
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
+"UN_SHORTS" = "Ascunde Shorts (YTUnShorts)";
+"UN_SHORTS_DESC" = "Ascunde Shorts din feed-ul YouTube.";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
+"HIDE_COMMUNITY_POSTS" = "Ascunde posturi Comunitate";
+"HIDE_COMMUNITY_POSTS_DESC" = "Ascunde posturile tip Comunitate. Este necesară repornirea aplicației.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
