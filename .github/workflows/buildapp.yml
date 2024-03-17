@@ -149,10 +149,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ytliteplus_version: ${{ inputs.ytliteplus_version }}
+          YOUTUBE_VERSION: $yt_versio
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v$yt_version-${{ env.ytliteplus_version }}
-          name: v$yt_version-${{ env.ytliteplus_version }} - YTLitePlus
+          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
+          name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
           body_path: ${{ github.workspace }}/release_notes.md
