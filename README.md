@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/8439d786-3a75-4cbc-b342-168ee2948fa1" alt="YTLitePlus Banner" />
+  <img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Banner.png" alt="YTLitePlus Banner" />
 </p>
 
-<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
+<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Altstore.png" width="200"></a>
 &nbsp;
-<a href="https://balackburn.github.io/YTLitePlus"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/55b3dd67-b677-4f0d-a5e5-8701c421149e" width="200"></a>
+<a href="https://balackburn.github.io/YTLitePlus"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Website.png" width="200"></a>
 &nbsp;
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
@@ -14,15 +14,15 @@
 <a href="https://github.com/Balackburn/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?labelColor=black&style=flat&color=black&label=Latest%20release" alt="Badge"></img></a>
 
 # Table of Contents
-<a href="#credits"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/3aeca24b-2847-4ffc-8f6b-253c69a7d7da" width="170"></a>
+<a href="#credits"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Credits.png" width="170"></a>
 
-<a href="#features"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/53d62a16-4099-432b-b04e-8e5abc922222" width="170"></a>
+<a href="#features"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Features.png" width="170"></a>
 
-<a href="#altstore"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/e82762ec-7501-4747-a75c-745b18017c76" width="170"></a>
+<a href="#altstore"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Altstore.png" width="170"></a>
 
-<a href="#donations"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/69001a58-67ef-4044-aec4-749712d1da28" width="170"></a>
+<a href="#donations"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Donations.png" width="170"></a>
 
-<a href="#building"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/da4569fd-5483-4b1e-a757-b56e0c912306" width="170"></a>
+<a href="#building"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Building.png" width="170"></a>
 
 # Credits
 
@@ -192,29 +192,29 @@
 
 # AltStore
   
-<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://balackburn.github.io/Apollo/images/UI/image_1.webp" width="200"></a>
+<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Altstore/Altstore.png" width="200"></a>
 &nbsp;
 
-<a href="https://altsource.by.lao.sb/browse/?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/5d61e0b6-3d28-4353-8c02-05f1e3b60093" width="200"></a>
+<a href="https://altsource.by.lao.sb/browse/?source=https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Altstore/altsource.by.lao.sb.png" width="200"></a>
 &nbsp;
 
-<a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/72c2830a-2f06-4a5c-b4bb-214a757bb5f7" width="200"></a>
+<a href="https://raw.githubusercontent.com/Balackburn/YTLitePlusAltstore/main/apps.json"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Altstore/URL.png" width="200"></a>
 
 # Donations
-<a href="https://www.paypal.com/paypalme/DBrett684"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/e637cb56-668d-4ebf-8644-49de3df0e5a3" width="200"></a>
+<a href="https://www.paypal.com/paypalme/DBrett684"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/Galactic-dev(Paypal).png" width="200"></a>
 &nbsp;
-<a href="https://venmo.com/u/DavidBrett"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/24c6e8f0-5ef1-46ce-94d4-e3f70271a82c" width="200"></a>
+<a href="https://venmo.com/u/DavidBrett"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/Galactic-dev(Venmo).png?raw=true" width="200"></a>
 
-<a href="https://github.com/MiRO92/uYou-for-YouTube#support"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/72829aa6-2eee-456a-a560-9dc28501e001" width="200"></a>
-&nbsp;
-
-<a href="https://www.paypal.com/paypalme/BandarHL"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/aba31ab0-28d3-4c1e-8ed6-13df03a26249" width="200"></a>
+<a href="https://github.com/MiRO92/uYou-for-YouTube#support"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Donations/MIRO92.png" width="200"></a>
 &nbsp;
 
-<a href="https://ko-fi.com/level3tjg"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/98f0a392-d999-4882-a22d-33b1c59cd2c0" width="200"></a>
+<a href="https://www.paypal.com/paypalme/BandarHL"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/BandarHL.png" width="200"></a>
 &nbsp;
 
-<a href="https://www.patreon.com/julioverne"><img src="https://github.com/Balackburn/YTLitePlus/assets/93828569/f4dabaad-3fc9-4877-bc96-0ffa9e5ce381" width="200"></a>
+<a href="https://ko-fi.com/level3tjg"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/level3tjg.png?raw=true" width="200"></a>
+&nbsp;
+
+<a href="https://www.patreon.com/julioverne"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/julioverne.png?raw=true" width="200"></a>
 
 # Building
 See [YTLitePlus/Building - Wiki](https://github.com/Balackburn/YTLitePlus/wiki/Building)
