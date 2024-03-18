@@ -113,6 +113,11 @@ jobs:
           (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
           source ~/.bash_profile
           cd ${{ github.workspace }}/main
+          # test
+          cat Tweaks/YTLite/Makefile
+          cat Tweaks/YTLite/Makefile | grep -i PACKAGE_VERSION
+          exit 1
+          # test
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
           sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ inputs.ytliteplus_version }}/" Makefile
