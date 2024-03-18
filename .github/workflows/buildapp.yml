@@ -99,7 +99,7 @@ jobs:
         run: |
           wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
           unzip -q main/YouTube.ipa -d main/tmp
-          echo yt_version=$(grep -A 1 "<key>CFBundleVersion</key>" main/tmp/Payload/YouTube.app/Info.plist | grep "<string>" | awk -F'[><]' '{print $3}') >> "$GITHUB_ENV"
+          echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
@@ -115,7 +115,7 @@ jobs:
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = $yt_version-${{ inputs.ytliteplus_version }}/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ inputs.ytliteplus_version }}/" Makefile
           make package FINALPACKAGE=1
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YOUTUBE_VERSION }}_${{ env.ytliteplus_version }}.ipa")        
           echo "package=$(ls -t packages | head -n1)" >>$GITHUB_OUTPUT
@@ -131,16 +131,15 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         env:
           ytliteplus_version: ${{ inputs.ytliteplus_version }}
-          YOUTUBE_VERSION: $yt_version
         with:
-          name: YTLitePlus_${{ env.YOUTUBE_VERSION }}_${{ env.ytliteplus_version }}
+          name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.ytliteplus_version }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
       
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ inputs.ytliteplus_version }}/g; s/%youtube_version%/$yt_version/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ inputs.ytliteplus_version }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
@@ -149,11 +148,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ytliteplus_version: ${{ inputs.ytliteplus_version }}
-          YOUTUBE_VERSION: $yt_version
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }}
-          name: v${{ env.YOUTUBE_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
+          tag_name: v${{ env.YT_VERSION }}-${{ env.ytliteplus_version }}
+          name: v${{ env.YT_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
           body_path: ${{ github.workspace }}/release_notes.md
