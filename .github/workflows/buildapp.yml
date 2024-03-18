@@ -11,11 +11,6 @@ on:
         default: ""
         required: true
         type: string
-      ytliteplus_version:
-        description: "The version of YTLitePlus"
-        default: "3.0.1"
-        required: true
-        type: string
       bundle_id:
         description: "Modify the bundle ID. Not recommended"
         default: "com.google.ios.youtube"
@@ -103,6 +98,7 @@ jobs:
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
+          echo "YTLITE_VERSION=$(grep ^PACKAGE_VERSION ${{ github.workspace }}/main/Tweaks/YTLite/Makefile | awk '{print $3}')" >> $GITHUB_ENV
         env:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
@@ -115,31 +111,28 @@ jobs:
           cd ${{ github.workspace }}/main
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ inputs.ytliteplus_version }}/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}/" Makefile
           make package FINALPACKAGE=1
-          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.ytliteplus_version }}.ipa")        
+          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")        
           echo "package=$(ls -t packages | head -n1)" >>$GITHUB_OUTPUT
           echo -e "==> \033[1mSHASUM256: $(shasum -a 256 packages/*.ipa | cut -f1 -d' ')\033[0m"
           echo -e "==> \033[1mBundle ID: ${{ env.BUNDLE_ID }}\033[0m"
         env:
           THEOS: ${{ github.workspace }}/theos
-          ytliteplus_version: ${{ inputs.ytliteplus_version }}
           BUNDLE_ID: ${{ inputs.bundle_id }}
           APP_NAME: ${{ inputs.app_name }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.1
-        env:
-          ytliteplus_version: ${{ inputs.ytliteplus_version }}
         with:
-          name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.ytliteplus_version }}
+          name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
       
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ inputs.ytliteplus_version }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
@@ -147,11 +140,10 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ytliteplus_version: ${{ inputs.ytliteplus_version }}
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v${{ env.YT_VERSION }}-${{ env.ytliteplus_version }}
-          name: v${{ env.YT_VERSION }}-${{ env.ytliteplus_version }} - YTLitePlus
+          tag_name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}
+          name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }} - YTLitePlus
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
           body_path: ${{ github.workspace }}/release_notes.md
