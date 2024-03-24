@@ -280,7 +280,7 @@ extern NSBundle *YTLitePlusBundle();
                 case 6:
                     return @"v17.38.10 (Fixes LowContrastMode)";
                 case 7:
-                    return @"v17.01.4 (Oldest Supported Version)";
+                    return @"v17.33.2 (Oldest Supported Version)";
                 case 0:
                 default:
                     return @"v18.49.3 (Last v18 Version)";
@@ -323,7 +323,7 @@ extern NSBundle *YTLitePlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.01.4 (Oldest Supported Version)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v17.33.2 (Oldest Supported Version)" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
