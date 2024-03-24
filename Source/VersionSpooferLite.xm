@@ -28,9 +28,6 @@ static BOOL version5() {
 static BOOL version6() {
     return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 6;
 }
-static BOOL version7() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 7;
-}
 
 %group gVersion0
 %hook YTVersionUtils // Last v18 App Version
@@ -74,12 +71,6 @@ static BOOL version7() {
 %end
 %end
 
-%group gVersion7
-%hook YTVersionUtils // Oldest Supported App Version (v17)
-+ (NSString *)appVersion { return @"17.01.4"; }
-%end
-%end
-
 # pragma mark - ctor
 %ctor {
     %init;
@@ -103,8 +94,5 @@ static BOOL version7() {
     }
     if (version6()) { // 6
         %init(gVersion6);
-    }
-    if (version7()) { // 7
-        %init(gVersion7);
     }
 }
