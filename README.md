@@ -2,9 +2,9 @@
   <img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Banner.png" alt="YTLitePlus Banner" />
 </p>
 
-<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Altstore.png" width="200"></a>
+<a href="https://tinyurl.com/YTLiteAltstore"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Altstore.png" height="70"></a>
 &nbsp;
-<a href="https://balackburn.github.io/YTLitePlus"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Website.png" width="200"></a>
+<a href="https://balackburn.github.io/YTLitePlus"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Website.png" height="70"></a>
 &nbsp;
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
