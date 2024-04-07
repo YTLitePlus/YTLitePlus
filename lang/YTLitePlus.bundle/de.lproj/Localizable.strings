@@ -1,0 +1,113 @@
+// Settings
+"VERSION" = "YTLitePlus's version: %@";
+"VERSION_CHECK" = "Tippen Sie hier, um nach Updates zu suchen!";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Overlay-Optionen für Videosteuerungen";
+
+"ENABLE_SHARE_BUTTON" = "Teilen Button AKtivieren";
+"ENABLE_SHARE_BUTTON_DESC" = "Aktivieren Sie die Schaltfläche „Teilen“ im Videosteuerelement-Overlay.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Aktivieren Sie die Schaltfläche „In Playlist speichern“.";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Aktivieren Sie die Schaltfläche „In Playlist speichern“ im Videosteuerelement-Overlay.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Schattenüberlagerungsschaltflächen ausblenden";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Blenden Sie die Schattenüberlagerung auf den Schaltflächen „Wiedergabe/Pause“, „Zurück“, „Weiter“, „Vorwärts“ und „Rücklauf“ aus.";
+
+"HIDE_RIGHT_PANEL" = "Blenden Sie das rechte Feld im Vollbildmodus aus";
+"HIDE_RIGHT_PANEL_DESC" = "Ein Neustart der App ist erforderlich.";
+
+"NO_SUGGESTED_VIDEO" = "Vorgeschlagenes Video ausblenden (YTNoSuggestedVideo)";
+"NO_SUGGESTED_VIDEO_DESC" = "Entferne das vorgeschlagene Video-Popup, wenn ein Video zuende geht.";
+
+"HIDE_HEATWAVES" = "Hitzewellen ausblenden";
+"HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";
+
+"HIDE_ACCOUNT_SECTION" = "Verstecke \"Account\" Abschnitt";
+"HIDE_AUTOPLAY_SECTION" = "Verstecke \"Automatisches Abspielen\" Abschnitt";
+"HIDE_TRYNEWFEATURES_SECTION" = "Verstecke \"Probieren Sie neue Funktionen aus\" Abschnitt";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Verstecke \"Präferenzen für die Videoqualität\" Abschnitt";
+"HIDE_NOTIFICATIONS_SECTION" = "Verstecke \"Benachrichtigungen\" Abschnitt";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Verstecke \"Verwalten Sie den gesamten Verlauf\" Abschnitt";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Verstecke \"Ihre Daten in YouTube\" Abschnitt";
+"HIDE_PRIVACY_SECTION" = "Verstecke \"Privatsphäre\" Abschnitt";
+"HIDE_LIVECHAT_SECTION" = "Verstecke \"Live Chat\" Abschnitt";
+
+// Theme
+"THEME_OPTIONS" = "Theme Optionen";
+
+"OLED_DARK_THEME" = "OLED dunkel theme";
+"OLED_DARK_THEME_2" = "OLED dunkel theme";
+"OLED_DARK_THEME_DESC" = "Wirklich dunkles Thema. Funktioniert in manchen Fällen möglicherweise nicht richtig. Nachdem Sie diese Option aktiviert/deaktiviert haben, ist ein Neustart der App erforderlich.";
+
+"OLD_DARK_THEME" = "Altes dunkel theme";
+"OLD_DARK_THEME_DESC" = "Das dunkle Theme des alten YouTube (graues Theme). Ein Neustart der App ist erforderlich.";
+
+"DEFAULT_THEME" = "Standard";
+"DEFAULT_THEME_DESC" = "Dunkles Standardthema von YouTube. Ein Neustart der App ist erforderlich.";
+
+"OLED_KEYBOARD" = "OLED Tastatur";
+"OLED_KEYBOARD_DESC" = "Funktioniert in manchen Fällen möglicherweise nicht richtig. Ein Neustart der App ist erforderlich.";
+
+"LOW_CONTRAST_MODE" = "Geringer Contrast Modus";
+"LOW_CONTRAST_MODE_DESC" = "Diese Option führt zu einem niedrigen Kontrast der Texte und Schaltflächen, genau wie bei der alten YouTube-Benutzeroberfläche. Ein Neustart der App ist erforderlich.";
+"LCM_SELECTOR" = "Auswahl des Modus für niedrigen Kontrast";
+"DEFAULT_LOWCONTRASTMODE" = "(Standard) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Benutzerdefinierte Farbe) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Verschiedenes";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Aktivieren Sie die YouTube-Startanimation";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Moderne Interfaces ausblenden (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Schalten Sie diese Option ein, um alle von YouTube hinzugefügten modernen Elemente auszublenden. Entfernt den Umgebungsmodus, das abgerundete Design und mehr. Ein Neustart der App ist erforderlich.";
+
+"IPAD_LAYOUT" = "iPad Layout";
+"IPAD_LAYOUT_DESC" = "Verwenden Sie dies nur, wenn Sie das iPad-Layout auf Ihrem aktuellen iPhone/iPod haben möchten. Ein Neustart der App ist erforderlich.";
+
+"IPHONE_LAYOUT" = "iPhone Layout";
+"IPHONE_LAYOUT_DESC" = "Verwenden Sie dies nur, wenn Sie das iPhone-Layout auf Ihrem aktuellen iPad haben möchten. Ein Neustart der App ist erforderlich.";
+
+"CAST_CONFIRM" = "Benachrichtigung vor dem Casting bestätigen (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Zeigen Sie vor dem Streamen eine Bestätigungswarnung an, um zu verhindern, dass der Fernseher versehentlich gekapert wird.";
+"CASTING" = "Castings";
+"MSG_ARE_YOU_SURE" = "Sind Sie sicher, dass Sie mit dem Casting beginnen möchten?";
+"MSG_YES" = "Ja";
+"MSG_CANCEL" = "Abbrechen";
+
+"NEW_MINIPLAYER_STYLE" = "Neuer Mini-Player-Leistenstil (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Ein Neustart der App ist erforderlich.";
+
+"STOCK_VOLUME_HUD" = "Verwenden Sie das iOS-Aktienvolumen-HUD";
+"STOCK_VOLUME_HUD_DESC" = "";
+
+"HIDE_CAST_BUTTON" = "Cast button verstecken";
+"HIDE_CAST_BUTTON_DESC" = "Ein Neustart der App ist erforderlich.";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Blenden Sie die iSponsorBlock-Schaltfläche in der Navigationsleiste aus";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"YT_SPEED" = "YTSpeed AKtivieren";
+"YT_SPEED_DESC" = "Aktivieren Sie YTSpeed, um mehr Optionen für die Wiedergabegeschwindigkeit zu haben. Ein Neustart der App ist erforderlich.";
+
+"ENABLE_FLEX" = "FLEX Aktivieren";
+"ENABLE_FLEX_DESC" = "Aktivieren Sie FLEX zum Debuggen (nicht empfohlen). Lassen Sie dies weg, es sei denn, Sie wissen, was Sie tun.";
+
+"UN_SHORTS" = "Shorts ausblenden (YTUnShorts)";
+"UN_SHORTS_DESC" = "Entfernen Sie Shorts aus dem YouTube-Feed.";
+
+"HIDE_COMMUNITY_POSTS" = "Community-Beiträge ausblenden";
+"HIDE_COMMUNITY_POSTS_DESC" = "Versteckt die Community-Beiträge. Ein Neustart der App ist erforderlich.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "App-Versions-Spoofer aktivieren (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Aktivieren Sie dies, um den Versions-Spoofer (Lite) zu verwenden, und wählen Sie unten Ihre bevorzugte Version aus. Ein Neustart der App ist erforderlich.";
+"VERSION_SPOOFER_TITLE" = "Versions-Spoofer-Auswahl";
+
+// Other Localization
+"APP_RESTART_DESC" = "Ein Neustart der App ist erforderlich.";
