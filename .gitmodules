@@ -19,7 +19,7 @@
 	url = https://github.com/PoomSmart/PSHeader.git
 [submodule "Tweaks/YTABConfig"]
 	path = Tweaks/YTABConfig
-	url = https://github.com/arichornlover/YTABConfig.git
+	url = https://github.com/Balackburn/YTABConfig.git
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
 	url = https://github.com/arichornlover/YouMute.git
@@ -50,3 +50,6 @@
 [submodule "Tweaks/protobuf"]
 	path = Tweaks/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "Tweaks/YouGroupSettings"]
+	path = Tweaks/YouGroupSettings
+	url = https://github.com/arichornlover/YouGroupSettings.git
