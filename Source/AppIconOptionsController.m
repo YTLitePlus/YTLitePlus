@@ -34,7 +34,7 @@
     self.iconPreview.clipsToBounds = YES;
     [self.view addSubview:self.iconPreview];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"YTLitePlus" ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     self.appIcons = [bundle pathsForResourcesOfType:@"png" inDirectory:@"AppIcons"];
     
