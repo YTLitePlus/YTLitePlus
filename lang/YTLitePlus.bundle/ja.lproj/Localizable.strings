@@ -111,3 +111,4 @@
 
 // Other Localization
 "APP_RESTART_DESC" = "アプリの再起動が必要です。";
+“CHANGE_APP_ICON” = “Change App Icon”;

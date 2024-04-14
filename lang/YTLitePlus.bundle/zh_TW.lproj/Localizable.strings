@@ -109,3 +109,4 @@
 
 // Other Localization
 "APP_RESTART_DESC" = "重新啟動應用程式以套用變更。";
+“CHANGE_APP_ICON” = “Change App Icon”;
