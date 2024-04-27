@@ -3,7 +3,7 @@
 	url = https://github.com/arichorn/YTUHD.git
 [submodule "Tweaks/YouPiP"]
 	path = Tweaks/YouPiP
-	url = https://github.com/arichorn/YouPiP.git
+	url = https://github.com/Balackburn/YouPiP.git
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
 	url = https://github.com/arichorn/Return-YouTube-Dislikes.git
