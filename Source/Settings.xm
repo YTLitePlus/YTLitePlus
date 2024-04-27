@@ -65,7 +65,6 @@ extern NSBundle *YTLitePlusBundle();
     }];
     [sectionItems addObject:main];
 
-/*
     YTSettingsSectionItem *appIcon = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"CHANGE_APP_ICON")
         titleDescription:nil
@@ -78,7 +77,6 @@ extern NSBundle *YTLitePlusBundle();
         }
     ];
     [sectionItems addObject:appIcon];
-*/
 
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
