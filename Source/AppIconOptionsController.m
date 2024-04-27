@@ -107,11 +107,24 @@
 }
 
 - (void)saveIcon {
-    NSString *selectedIconPath = self.selectedIconIndex >= 0 ? self.appIcons[self.selectedIconIndex] : nil;
-    if (selectedIconPath) {
-        NSURL *iconURL = [NSURL fileURLWithPath:selectedIconPath];
-        if ([[UIApplication sharedApplication] respondsToSelector:@selector(setAlternateIconName:completionHandler:)]) {
-            [[UIApplication sharedApplication] setAlternateIconName:selectedIconPath completionHandler:^(NSError * _Nullable error) {
+    NSString *selectedIcon = self.selectedIconIndex >= 0 ? self.appIcons[self.selectedIconIndex] : nil;
+    if (selectedIcon) {
+        NSString *iconName = [selectedIcon.lastPathComponent stringByDeletingPathExtension];
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+        NSMutableDictionary *infoDict = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+        NSMutableDictionary *iconsDict = [infoDict objectForKey:@"CFBundleIcons"];
+        
+        if (iconsDict) {
+            NSMutableDictionary *primaryIconDict = [iconsDict objectForKey:@"CFBundlePrimaryIcon"];
+            if (primaryIconDict) {
+                NSMutableArray *iconFiles = [primaryIconDict objectForKey:@"CFBundleIconFiles"];
+                [iconFiles addObject:iconName];
+                primaryIconDict[@"CFBundleIconFiles"] = iconFiles;
+            }
+            [infoDict setObject:iconsDict forKey:@"CFBundleIcons"];
+            [infoDict writeToFile:plistPath atomically:YES];
+            
+            [[UIApplication sharedApplication] setAlternateIconName:iconName completionHandler:^(NSError * _Nullable error) {
                 if (error) {
                     NSLog(@"Error setting alternate icon: %@", error.localizedDescription);
                     [self showAlertWithTitle:@"Error" message:@"Failed to set alternate icon"];
@@ -121,13 +134,10 @@
                 }
             }];
         } else {
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            [dict setObject:iconURL forKey:@"iconURL"];
-            NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
-            [dict writeToFile:filePath atomically:YES];
-
-            [self showAlertWithTitle:@"Alternate Icon" message:@"Please restart the app to apply the alternate icon"];
+            NSLog(@"CFBundleIcons key not found in Info.plist");
         }
+    } else {
+        NSLog(@"Selected icon path is nil");
     }
 }
 
