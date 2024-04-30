@@ -67,6 +67,16 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+// Fix Google Sign in by @PoomSmart and @level3tjg (qnblackcat/uYouPlus#684)
+%hook NSBundle
+- (NSDictionary *)infoDictionary {
+    NSMutableDictionary *info = %orig.mutableCopy;
+    if ([self isEqual:NSBundle.mainBundle])
+        info[@"CFBundleIdentifier"] = @"com.google.ios.youtube";
+    return info;
+}
+%end
+
 // Skips content warning before playing *some videos - @PoomSmart
 %hook YTPlayabilityResolutionUserActionUIController
 - (void)showConfirmAlert { [self confirmAlertDidPressConfirm]; }
