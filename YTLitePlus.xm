@@ -660,6 +660,9 @@ BOOL selectedTabIndex = NO;
     if (IsEnabled(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
     }
+    if (IsEnabled(@"autoHideHomeBar_enabled")) {
+        %init(gAutoHideHomeBar);
+    }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
     }
