@@ -535,45 +535,6 @@ static NSData *cellDividerData = nil;
 %end
 
 // Miscellaneous
-%group gAutoHideHomeBar // Auto-Hide Home Bar - @arichornlover
-%hook UIViewController
-- (BOOL)prefersHomeIndicatorAutoHidden {
-    return YES;
-}
-%end
-%end
-
-BOOL selectedTabIndex = NO;
-
-%hook YTPivotBarViewController // https://github.com/LillieH001/YouTube-Reborn
-- (void)viewDidAppear:(BOOL)animated {
-    %orig();
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"kStartupPageIntVTwo"]) {
-        int selectedTab = [[NSUserDefaults standardUserDefaults] integerForKey:@"kStartupPageIntVTwo"];
-        if (selectedTab == 0 && !selectedTabIndex) {
-            [self selectItemWithPivotIdentifier:@"FEwhat_to_watch"];
-            selectedTabIndex = YES;
-        }
-        if (selectedTab == 1 && !selectedTabIndex) {
-            [self selectItemWithPivotIdentifier:@"FEexplore"];
-            selectedTabIndex = YES;
-        }
-        if (selectedTab == 2 && !selectedTabIndex) {
-            [self selectItemWithPivotIdentifier:@"FEshorts"];
-            selectedTabIndex = YES;
-        }
-        if (selectedTab == 3 && !selectedTabIndex) {
-            [self selectItemWithPivotIdentifier:@"FEsubscriptions"];
-            selectedTabIndex = YES;
-        }
-        if (selectedTab == 4 && !selectedTabIndex) {
-            [self selectItemWithPivotIdentifier:@"FElibrary"];
-            selectedTabIndex = YES;
-        }
-    }
-}
-%end
-
 %group giPadLayout // https://github.com/LillieH001/YouTube-Reborn
 %hook UIDevice
 - (long long)userInterfaceIdiom {
@@ -659,9 +620,6 @@ BOOL selectedTabIndex = NO;
     }
     if (IsEnabled(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
-    }
-    if (IsEnabled(@"autoHideHomeBar_enabled")) {
-        %init(gAutoHideHomeBar);
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
