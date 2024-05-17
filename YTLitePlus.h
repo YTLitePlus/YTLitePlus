@@ -16,6 +16,7 @@
 #import "Tweaks/YouTubeHeader/YTWatchController.h"
 #import "Tweaks/YouTubeHeader/YTIGuideResponse.h"
 #import "Tweaks/YouTubeHeader/YTIGuideResponseSupportedRenderers.h"
+#import "Tweaks/YouTubeHeader/YTIPivotBarItemRenderer.h"
 #import "Tweaks/YouTubeHeader/YTIPivotBarSupportedRenderers.h"
 #import "Tweaks/YouTubeHeader/YTIPivotBarRenderer.h"
 #import "Tweaks/YouTubeHeader/YTIBrowseRequest.h"
@@ -37,7 +38,7 @@
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
 #define YT_NAME @"YouTube"
-#define LOWCONTRASTMODE_CUTOFF_VERSION @"17.38.10"
+#define YOUTUBE_CUTOFF_VERSION @"17.33.2" // Oldest Supported Version
 #define IS_ENABLED(k) [[NSUserDefaults standardUserDefaults] boolForKey:k]
 #define APP_THEME_IDX [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"]
 
