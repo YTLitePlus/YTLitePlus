@@ -70,6 +70,10 @@
 @interface YTChipCloudCell : UIView
 @end
 
+@interface YTPivotBarViewController : UIViewController
+- (void)selectItemWithPivotIdentifier:(id)pivotIndentifier;
+@end
+
 @interface YTPlayabilityResolutionUserActionUIController : NSObject // Skips content warning before playing *some videos - @PoomSmart
 - (void)confirmAlertDidPressConfirm;
 @end 
