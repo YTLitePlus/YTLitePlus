@@ -6,7 +6,7 @@
 
 Current YouTube IPA: `%youtube_version%`  
 Current YTLite Version: `%ytliteplus_version%`  
-Current App Compatibility: `iOS/iPadOS 14.0` or later
+Current App Compatibility: `iOS/iPadOS 15.0` or later
 
 **RELEASE %youtube_version%-%ytliteplus_version%:** (%date%)
 
@@ -15,5 +15,4 @@ Current App Compatibility: `iOS/iPadOS 14.0` or later
   
 ### Issues in this Release:
 - LowContrastMode does not work *(Compatible only with YouTube v17.33.2-v17.38.10)*
-- VersionSpoofer (Lite) doesn't work with YTLite *(as the version is already spoofed by YTLite to fix YTClassicVideoQuality)*
 - Hiding Shorts creates an empty space instead #55
