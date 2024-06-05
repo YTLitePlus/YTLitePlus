@@ -29,6 +29,7 @@
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
+	branch = f8c8ebdc0590bad24f46fb155181d7fe667dbde1
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
 	url = https://github.com/arichorn/YTHoldForSpeed.git
