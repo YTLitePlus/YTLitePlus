@@ -9,7 +9,7 @@ on:
       decrypted_youtube_url:
         description: "The direct URL to the decrypted YouTube ipa"
         default: ""
-        required: true
+        required: false
         type: string
       bundle_id:
         description: "Modify the bundle ID. Not recommended"
@@ -93,6 +93,22 @@ jobs:
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
+      - name: Download IPA (Auto)
+        if: ${{ inputs.create_release && !inputs.decrypted_youtube_url }}
+        uses: level3tjg/decryptedappstore-action@main
+        with:
+          appstore_url: "https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664"
+          cache: true
+          path: main/YouTube.ipa
+          token: ${{ secrets.DECRYPTEDAPPSTORE_SESSION_TOKEN }}
+
+      - name: Download IPA (Manual)
+        if: ${{ inputs.create_release && inputs.decrypted_youtube_url }}
+        run: |
+          curl -Lo "main/YouTube.ipa" "${{ inputs.decrypted_youtube_url }}"
+        env:
+          YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
+
       - name: Install Theos Jailed
         run: |
           ./theos-jailed/install
@@ -101,7 +117,6 @@ jobs:
 
       - name: Prepare YouTube iPA
         run: |
-          wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
           unzip -q main/YouTube.ipa -d main/tmp
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
@@ -114,7 +129,6 @@ jobs:
           echo "YTLITE_VERSION=$YTLITE_VERSION" >> $GITHUB_ENV
         env:
           THEOS: ${{ github.workspace }}/theos
-          YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
 
       - name: Fix Compiling & Build Package
         id: build_package
