@@ -21,6 +21,11 @@ on:
         default: "YouTube"
         required: true
         type: string
+      commit_id:
+        description: "(Optional) Commit ID to build at"
+        default: ""
+        required: false
+        type: string
       create_release:
         description: "Create a draft release"
         default: true
@@ -40,16 +45,17 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.6
         with:
           path: main
+          ref: ${{ github.event.inputs.commit_id || github.ref }}
           submodules: recursive
 
       - name: Install Dependencies
         run: brew install ldid dpkg make
 
       - name: Setup Theos
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.6
         with:
           repository: theos/theos
           ref: 3da31488281ecf4394d10302d2629607f4a1aa07
@@ -58,9 +64,9 @@ jobs:
 
       - name: Caching
         id: SDK
-        uses: actions/cache@v4.0.1
+        uses: actions/cache@v4.0.2
         env:
-          cache-name: iOS-16.2-SDK
+          cache-name: iOS-16.4-SDK
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
@@ -77,7 +83,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Setup Theos Jailed
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.6
         with:
           repository: qnblackcat/theos-jailed
           ref: master
@@ -131,7 +137,7 @@ jobs:
           TARGET: "iphone:latest:14.0"
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
@@ -145,7 +151,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v2.0.4
+        uses: softprops/action-gh-release@v2.0.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRAFT: ${{ inputs.create_release }}
