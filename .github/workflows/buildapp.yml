@@ -108,7 +108,6 @@ jobs:
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
           echo "YTLITE_VERSION=$(grep ^PACKAGE_VERSION ${{ github.workspace }}/main/Tweaks/YTLite/Makefile | awk '{print $3}')" >> $GITHUB_ENV
-          
           LATEST_RELEASE=$(curl -s "https://api.github.com/repos/dayanch96/YTLite/releases/latest" | jq -r ".tag_name")
           YTLITE_VERSION=$(echo "$LATEST_RELEASE" | sed 's/v//')
           echo "YTLITE_VERSION=$YTLITE_VERSION" >> $GITHUB_ENV
