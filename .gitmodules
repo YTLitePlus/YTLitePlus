@@ -28,7 +28,7 @@
 	url = https://github.com/qnblackcat/FLEX-Classes.git
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
-	url = https://github.com/arichornlover/iSponsorBlock.git
+	url = https://github.com/Galactic-Dev/iSponsorBlock.git
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
 	url = https://github.com/arichorn/YTHoldForSpeed.git
