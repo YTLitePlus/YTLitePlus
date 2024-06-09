@@ -23,7 +23,7 @@ on:
         type: string
       commit_id:
         description: "(Optional) Commit ID to build at"
-        default: "f78647efe0e7236c3a4dffca0c0fe9cb62d8f55e"
+        default: ""
         required: false
         type: string
       create_release:
