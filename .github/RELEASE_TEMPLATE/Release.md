@@ -16,3 +16,6 @@ Current App Compatibility: `iOS/iPadOS 15.0` or later
 ### Issues in this Release:
 - LowContrastMode does not work *(Compatible only with YouTube v17.33.2-v17.38.10)*
 - Hiding Shorts creates an empty space instead #55
+
+### Catbox
+`%catbox_url%`
