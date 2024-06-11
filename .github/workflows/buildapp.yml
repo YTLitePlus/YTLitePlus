@@ -119,14 +119,13 @@ jobs:
         run: |
           unzip -q main/YouTube.ipa -d main/tmp
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
+          wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
+          YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' main/tmp/release_page.html | head -n 1 | sed 's/\/tag\/v//')
+          echo "YTLITE_VERSION=${YTLITE_VERSION}" >> $GITHUB_ENV
+          echo $YTLITE_VERSION
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
-          echo "YTLITE_VERSION=$(grep ^PACKAGE_VERSION ${{ github.workspace }}/main/Tweaks/YTLite/Makefile | awk '{print $3}')" >> $GITHUB_ENV
-          
-          LATEST_RELEASE=$(curl -s "https://api.github.com/repos/dayanch96/YTLite/releases/latest" | jq -r ".tag_name")
-          YTLITE_VERSION=$(echo "$LATEST_RELEASE" | sed 's/v//')
-          echo "YTLITE_VERSION=$YTLITE_VERSION" >> $GITHUB_ENV
         env:
           THEOS: ${{ github.workspace }}/theos
 
@@ -148,7 +147,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
           BUNDLE_ID: ${{ inputs.bundle_id }}
           APP_NAME: ${{ inputs.app_name }}
-          TARGET: "iphone:latest:14.0"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.3
@@ -156,11 +154,19 @@ jobs:
           name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
+          
+      - name: Upload Artifact to Catbox
+        run: |
+          RESPONSE=$(curl -F "reqtype=fileupload" -F "fileToUpload=@${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}" https://catbox.moe/user/api.php)
+          CATBOX_URL=$(echo $RESPONSE | grep -o -E 'https://files.catbox.moe/[^"]*')
+          echo "Uploaded artifact to $CATBOX_URL"
+          CATBOX_FILE=$(echo $CATBOX_URL | sed 's|https://files.catbox.moe/||')
+          echo "CATBOX_FILE=$CATBOX_FILE" >> $GITHUB_ENV
       
       - name: Prepare Release Notes
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
