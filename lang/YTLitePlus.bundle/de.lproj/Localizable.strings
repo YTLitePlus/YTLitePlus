@@ -5,14 +5,14 @@
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Overlay-Optionen für Videosteuerungen";
 
-"ENABLE_SHARE_BUTTON" = "Schaltfläche „Teilen“ aktivieren";
-"ENABLE_SHARE_BUTTON_DESC" = "Die Schaltfläche "Teilen" im Overlay der Videosteuerung aktivieren.";
+"ENABLE_SHARE_BUTTON" = "Schaltfläche \"Teilen\" aktivieren";
+"ENABLE_SHARE_BUTTON_DESC" = "Die Schaltfläche \"Teilen\" im Overlay der Videosteuerung aktivieren.";
 
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Schaltfläche „In Playlist speichern“ aktivieren";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Die Schaltfläche "In Playlist speichern" im Overlay der Videosteuerung aktivieren.";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Schaltfläche \"In Playlist speichern\" aktivieren";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Die Schaltfläche \"In Playlist speichern\" im Overlay der Videosteuerung aktivieren.";
 
 "HIDE_SHADOW_OVERLAY_BUTTONS" = "Schattenüberlagerung ausblenden";
-"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Blende die Schattenüberlagerung auf den Schaltflächen „Wiedergabe/Pause“, „Zurück“, „Weiter“, „Vorwärts“ & „Rücklauf“ aus.";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Blende die Schattenüberlagerung auf den Schaltflächen \"Wiedergabe/Pause\", \"Zurück\", \"Weiter\", \"Vorwärts\" & \"Rücklauf\" aus.";
 
 "HIDE_RIGHT_PANEL" = "Rechtes Bedienfeld im Vollbildmodus ausbleden";
 "HIDE_RIGHT_PANEL_DESC" = "Blende das rechte Bedienfeld im Vollbildmodus aus. Ein Neustart der App ist erforderlich.";
