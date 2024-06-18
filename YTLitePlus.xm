@@ -341,11 +341,6 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-// YTNOCheckLocalNetWork - https://poomsmart.github.io/repo/depictions/ytnochecklocalnetwork.html
-%hook YTHotConfig
-- (BOOL)isPromptForLocalNetworkPermissionsEnabled { return NO; }
-%end
-
 // YTUnShorts - https://github.com/PoomSmart/YTUnShorts
 %hook YTIElementRenderer
 
