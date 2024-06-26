@@ -1,6 +1,6 @@
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
-	url = https://github.com/arichorn/YTUHD.git
+	url = https://github.com/arichornloverALT/YTUHD.git
 [submodule "Tweaks/YouPiP"]
 	path = Tweaks/YouPiP
 	url = https://github.com/Balackburn/YouPiP.git
@@ -10,7 +10,7 @@
 	branch = uYouEnhanced
 [submodule "Tweaks/YouTubeHeader"]
 	path = Tweaks/YouTubeHeader
-	url = https://github.com/arichornlover/YouTubeHeader.git
+	url = https://github.com/arichornloverALT/YouTubeHeader.git
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
 	url = https://github.com/hbang/Alderis.git
@@ -22,7 +22,7 @@
 	url = https://github.com/Balackburn/YTABConfig.git
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
-	url = https://github.com/arichornlover/YouMute.git
+	url = https://github.com/arichornloverALT/YouMute.git
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
 	url = https://github.com/qnblackcat/FLEX-Classes.git
@@ -31,7 +31,7 @@
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
-	url = https://github.com/arichorn/YTHoldForSpeed.git
+	url = https://github.com/arichornloverALT/YTHoldForSpeed.git
 [submodule "Tweaks/DontEatMyContent"]
 	path = Tweaks/DontEatMyContent
 	url = https://github.com/therealFoxster/DontEatMyContent.git
@@ -40,7 +40,7 @@
 	url = https://github.com/CokePokes/YoutubeExtensions.git
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
-	url = https://github.com/arichorn/YTVideoOverlay.git
+	url = https://github.com/arichornloverALT/YTVideoOverlay.git
 [submodule "Tweaks/YouQuality"]
 	path = Tweaks/YouQuality
 	url = https://github.com/Balackburn/YouQuality.git
@@ -49,4 +49,4 @@
 	url = https://github.com/protocolbuffers/protobuf.git
 [submodule "Tweaks/YouGroupSettings"]
 	path = Tweaks/YouGroupSettings
-	url = https://github.com/arichornlover/YouGroupSettings.git
+	url = https://github.com/arichornloverALT/YouGroupSettings.git
