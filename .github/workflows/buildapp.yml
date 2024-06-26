@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v4.1.7
         with:
           path: main
           ref: ${{ github.event.inputs.commit_id || github.ref }}
@@ -55,7 +55,7 @@ jobs:
         run: brew install ldid dpkg make
 
       - name: Setup Theos
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v4.1.7
         with:
           repository: theos/theos
           ref: 3da31488281ecf4394d10302d2629607f4a1aa07
@@ -71,19 +71,19 @@ jobs:
           path: theos/sdks/
           key: ${{ env.cache-name }}
 
-      - name: Download iOS 16.4 SDK
+      - name: Download iOS 16.5 SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
-          git clone -n --depth=1 --filter=tree:0 https://github.com/arichorn/sdks/
+          git clone -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
           cd sdks
-          git sparse-checkout set --no-cone iPhoneOS16.4.sdk
+          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
           git checkout
           mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Setup Theos Jailed
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v4.1.7
         with:
           repository: qnblackcat/theos-jailed
           ref: master
