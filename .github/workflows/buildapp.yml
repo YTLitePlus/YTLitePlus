@@ -66,7 +66,7 @@ jobs:
         id: SDK
         uses: actions/cache@v4.0.2
         env:
-          cache-name: iOS-16.4-SDK
+          cache-name: iOS-16.5-SDK
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
@@ -157,7 +157,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v2.0.5
+        uses: softprops/action-gh-release@v2.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRAFT: ${{ inputs.create_release }}
