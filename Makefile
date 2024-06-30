@@ -1,22 +1,27 @@
 TARGET = iphone:clang:16.5:15.0
 YTLitePlus_USE_FISHHOOK = 0
-ARCHS = arm64
+ARCHS = arm64 arm64e
 MODULES = jailed
 FINALPACKAGE = 1
 CODESIGN_IPA = 0
 PACKAGE_VERSION = X.X.X-X.X
 
 TWEAK_NAME = YTLitePlus
-DISPLAY_NAME = YouTube
+DISPLAY_NAME = MyrTube
 BUNDLE_ID = com.google.ios.youtube
 
 EXTRA_CFLAGS := $(addprefix -I,$(shell find Tweaks/FLEX -name '*.h' -exec dirname {} \;)) -I$(THEOS_PROJECT_DIR)/Tweaks
 
-YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib .theos/obj/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/YouMute.dylib .theos/obj/DontEatMyContent.dylib .theos/obj/YTHoldForSpeed.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouGroupSettings.dylib .theos/obj/YouQuality.dylib
+# Directly reference the centralized libcolorpicker.dylib
+YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib .theos/obj/common/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/YouMute.dylib .theos/obj/DontEatMyContent.dylib .theos/obj/YTHoldForSpeed.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouGroupSettings.dylib .theos/obj/YouQuality.dylib
 YTLitePlus_FILES = YTLitePlus.xm $(shell find Source -name '*.xm' -o -name '*.x' -o -name '*.m') $(shell find Tweaks/FLEX -type f \( -iname \*.c -o -iname \*.m -o -iname \*.mm \))
 YTLitePlus_IPA = ./tmp/Payload/YouTube.app
 YTLitePlus_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unsupported-availability-guard -Wno-unused-but-set-variable -DTWEAK_VERSION=$(PACKAGE_VERSION) $(EXTRA_CFLAGS)
+YTLitePlus_LDFLAGS = -L$(THEOS_PROJECT_DIR)/.theos/obj/common -lcolorpicker
 YTLitePlus_FRAMEWORKS = UIKit Security
+
+export Alderis_XCODEOPTS = LD_DYLIB_INSTALL_NAME=@rpath/Alderis.framework/Alderis
+export Alderis_XCODEFLAGS = DYLIB_INSTALL_NAME_BASE=/Library/Frameworks BUILD_LIBRARY_FOR_DISTRIBUTION=YES ARCHS="$(ARCHS)"
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
@@ -28,9 +33,16 @@ YTLITE_VERSION := $(shell wget -qO- "https://github.com/dayanch96/YTLite/release
 YTLITE_DEB = $(YTLITE_PATH)/com.dvntm.ytlite_$(YTLITE_VERSION)_iphoneos-arm64.deb
 YTLITE_DYLIB = $(YTLITE_PATH)/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib
 YTLITE_BUNDLE = $(YTLITE_PATH)/var/jb/Library/Application\ Support/YTLite.bundle
+
+# Add a target to clean the old dylib files
+clean-libs:
+	@echo -e "==> \033[1mCleaning old dylib files...\033[0m"
+	@rm -f /Users/williamjordan/YTLitePlus/.theos/obj/arm64/libcolorpicker.dylib
+	@rm -f /Users/williamjordan/YTLitePlus/.theos/obj/arm64e/libcolorpicker.dylib
+
 before-package::
-	@echo -e "==> \033[1mMoving tweak's bundle to Resources/...\033[0m"
-	@mkdir -p Resources/Frameworks/Alderis.framework && find .theos/obj/install/Library/Frameworks/Alderis.framework -maxdepth 1 -type f -exec cp {} Resources/Frameworks/Alderis.framework/ \;
+	@echo -e "==> \033[1mBuilding and moving Alderis.framework to Resources/...\033[0m"
+	@mkdir -p Resources/Frameworks && cp -R $(_THEOS_LOCAL_DATA_DIR)/$(THEOS_OBJ_DIR_NAME)/install_Alderis.xcarchive/Products/var/jb/Library/Frameworks/Alderis.framework Resources/Frameworks/
 	@cp -R Tweaks/YTLite/var/jb/Library/Application\ Support/YTLite.bundle Resources/
 	@cp -R Tweaks/YTUHD/layout/Library/Application\ Support/YTUHD.bundle Resources/
 	@cp -R Tweaks/YouPiP/layout/Library/Application\ Support/YouPiP.bundle Resources/
@@ -43,14 +55,17 @@ before-package::
 	@cp -R Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle Resources/
 	@cp -R Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle Resources/
 	@cp -R lang/YTLitePlus.bundle Resources/
-	@echo -e "==> \033[1mChanging the installation path of dylibs...\033[0m"
+	@echo -e "==> \033[1mCopying libcolorpicker.dylib to architecture-specific directories...\033[0m"
+	@mkdir -p .theos/obj/arm64/ .theos/obj/arm64e/
+	@cp .theos/obj/common/libcolorpicker.dylib .theos/obj/arm64/libcolorpicker.dylib
+	@cp .theos/obj/common/libcolorpicker.dylib .theos/obj/arm64e/libcolorpicker.dylib
 	@ldid -r .theos/obj/iSponsorBlock.dylib && install_name_tool -change /usr/lib/libcolorpicker.dylib @rpath/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib
-	@codesign --remove-signature .theos/obj/libcolorpicker.dylib && install_name_tool -change /Library/Frameworks/Alderis.framework/Alderis @rpath/Alderis.framework/Alderis .theos/obj/libcolorpicker.dylib
+	@codesign --remove-signature .theos/obj/common/libcolorpicker.dylib && install_name_tool -change /Library/Frameworks/Alderis.framework/Alderis @rpath/Alderis.framework/Alderis .theos/obj/common/libcolorpicker.dylib
 
 internal-clean::
 	@rm -rf $(YTLITE_PATH)/*
 
-before-all::
+before-all:: clean-libs
 	@if [[ ! -f $(YTLITE_DEB) ]]; then \
 		rm -rf $(YTLITE_PATH)/*; \
 		$(PRINT_FORMAT_BLUE) "Downloading YTLite"; \
