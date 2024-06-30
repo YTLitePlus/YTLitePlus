@@ -76,3 +76,8 @@ before-all:: clean-libs
 			$(PRINT_FORMAT_ERROR) "Failed to extract YTLite"; exit 1; \
 		fi; \
 	fi
+
+# Add commands to create directories, download libcolorpicker.dylib, and modify Info.plist
+	@mkdir -p .theos/obj/common/
+	@curl -L -o .theos/obj/common/libcolorpicker.dylib https://raw.githubusercontent.com/yarshure/libcolorpicker/master/.theos/obj/debug/arm64/libcolorpicker.dylib
+	@sed -i '' '/<key>UISupportedDevices<\/key>/,/<\/array>/d' Payload/YouTube.app/Info.plist

@@ -5,3 +5,5 @@ tmp/
 Tweaks/Cercube/*
 !Tweaks/Cercube/.gitkeep
 Resources/
+*.ipa
+Payload
