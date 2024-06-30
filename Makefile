@@ -7,7 +7,7 @@ CODESIGN_IPA = 0
 PACKAGE_VERSION = X.X.X-X.X
 
 TWEAK_NAME = YTLitePlus
-DISPLAY_NAME = MyrTube
+DISPLAY_NAME = YouTube
 BUNDLE_ID = com.google.ios.youtube
 
 EXTRA_CFLAGS := $(addprefix -I,$(shell find Tweaks/FLEX -name '*.h' -exec dirname {} \;)) -I$(THEOS_PROJECT_DIR)/Tweaks
@@ -37,8 +37,8 @@ YTLITE_BUNDLE = $(YTLITE_PATH)/var/jb/Library/Application\ Support/YTLite.bundle
 # Add a target to clean the old dylib files
 clean-libs:
 	@echo -e "==> \033[1mCleaning old dylib files...\033[0m"
-	@rm -f /Users/williamjordan/YTLitePlus/.theos/obj/arm64/libcolorpicker.dylib
-	@rm -f /Users/williamjordan/YTLitePlus/.theos/obj/arm64e/libcolorpicker.dylib
+	@rm -f .theos/obj/arm64/libcolorpicker.dylib
+	@rm -f .theos/obj/arm64e/libcolorpicker.dylib
 
 before-package::
 	@echo -e "==> \033[1mBuilding and moving Alderis.framework to Resources/...\033[0m"
