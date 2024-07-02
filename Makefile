@@ -4,7 +4,7 @@ ARCHS = arm64 arm64e
 MODULES = jailed
 FINALPACKAGE = 1
 CODESIGN_IPA = 0
-PACKAGE_VERSION = X.X.X-X.X
+PACKAGE_VERSION = 19.25.4-4.0.1
 
 TWEAK_NAME = YTLitePlus
 DISPLAY_NAME = YouTube
@@ -80,4 +80,4 @@ before-all:: clean-libs
 # Add commands to create directories, download libcolorpicker.dylib, and modify Info.plist
 	@mkdir -p .theos/obj/common/
 	@curl -L -o .theos/obj/common/libcolorpicker.dylib https://raw.githubusercontent.com/yarshure/libcolorpicker/master/.theos/obj/debug/arm64/libcolorpicker.dylib
-	@sed -i '' '/<key>UISupportedDevices<\/key>/,/<\/array>/d' Payload/YouTube.app/Info.plist
+	@sed -i '' '/<key>UISupportedDevices<\/key>/,/<\/array>/d' extracted/Payload/YouTube.app/Info.plist
