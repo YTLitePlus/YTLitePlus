@@ -7,6 +7,18 @@
 #import "../Tweaks/YouTubeHeader/YTSettingsPickerViewController.h"
 // #import "AppIconOptionsController.h"
 
+// Basic switch item
+#define BASIC_SWITCH(title, description, key) \
+    [YTSettingsSectionItemClass switchItemWithTitle:title \
+        titleDescription:description \
+        accessibilityIdentifier:nil \
+        switchOn:IsEnabled(key) \
+        switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) { \
+            [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:key]; \
+            return YES; \
+        } \
+        settingItemId:0]
+
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
 }
@@ -83,65 +95,12 @@ extern NSBundle *YTLitePlusBundle();
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_SHARE_BUTTON")
-                titleDescription:LOC(@"ENABLE_SHARE_BUTTON_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"enableShareButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableShareButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_SAVE_TO_PLAYLIST_BUTTON")
-                titleDescription:LOC(@"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"enableSaveToButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableSaveToButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_SHADOW_OVERLAY_BUTTONS")
-                titleDescription:LOC(@"HIDE_SHADOW_OVERLAY_BUTTONS_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideVideoPlayerShadowOverlayButtons_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_RIGHT_PANEL")
-                titleDescription:LOC(@"HIDE_RIGHT_PANEL_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideRightPanel_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideRightPanel_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"NO_SUGGESTED_VIDEO")
-                titleDescription:LOC(@"NO_SUGGESTED_VIDEO_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"noSuggestedVideo_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"noSuggestedVideo_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HEATWAVES")
-                titleDescription:LOC(@"HIDE_HEATWAVES_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideHeatwaves_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideHeatwaves_enabled"];
-                    return YES;
-                }
-                settingItemId:0]
+            BASIC_SWITCH(LOC(@"ENABLE_SHARE_BUTTON"), LOC(@"ENABLE_SHARE_BUTTON_DESC"), @"enableShareButton_enabled"),
+            BASIC_SWITCH(LOC(@"ENABLE_SAVE_TO_PLAYLIST_BUTTON"), LOC(@"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC"), @"enableSaveToButton_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_SHADOW_OVERLAY_BUTTONS"), LOC(@"HIDE_SHADOW_OVERLAY_BUTTONS_DESC"), @"hideVideoPlayerShadowOverlayButtons_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_RIGHT_PANEL"), LOC(@"HIDE_RIGHT_PANEL_DESC"), @"hideRightPanel_enabled"),
+            BASIC_SWITCH(LOC(@"NO_SUGGESTED_VIDEO"), LOC(@"NO_SUGGESTED_VIDEO_DESC"), @"noSuggestedVideo_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_HEATWAVES"), LOC(@"HIDE_HEATWAVES_DESC"), @"hideHeatwaves_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -152,95 +111,15 @@ extern NSBundle *YTLitePlusBundle();
 # pragma mark - App Settings Overlay Options
     YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"APP_SETTINGS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_ACCOUNT_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableAccountSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAccountSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_AUTOPLAY_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableAutoplaySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAutoplaySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_TRYNEWFEATURES_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableTryNewFeaturesSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableTryNewFeaturesSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_VIDEOQUALITYPREFERENCES_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableVideoQualityPreferencesSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableVideoQualityPreferencesSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_NOTIFICATIONS_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableNotificationsSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableNotificationsSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_MANAGEALLHISTORY_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableManageAllHistorySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableManageAllHistorySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_YOURDATAINYOUTUBE_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableYourDataInYouTubeSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYourDataInYouTubeSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_PRIVACY_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disablePrivacySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disablePrivacySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_LIVECHAT_SECTION")
-                titleDescription:LOC(@"APP_RESTART_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableLiveChatSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableLiveChatSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0]
+            BASIC_SWITCH(LOC(@"HIDE_ACCOUNT_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableAccountSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_AUTOPLAY_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableAutoplaySection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_TRYNEWFEATURES_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableTryNewFeaturesSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_VIDEOQUALITYPREFERENCES_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableVideoQualityPreferencesSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_NOTIFICATIONS_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableNotificationsSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_MANAGEALLHISTORY_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableManageAllHistorySection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_YOURDATAINYOUTUBE_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableYourDataInYouTubeSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_PRIVACY_SECTION"), LOC(@"APP_RESTART_DESC"), @"disablePrivacySection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_LIVECHAT_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableLiveChatSection_enabled")
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"App Settings Overlay Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -381,26 +260,10 @@ extern NSBundle *YTLitePlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-
-                [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"OLED_KEYBOARD")
-                titleDescription:LOC(@"OLED_KEYBOARD_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"oledKeyBoard_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"oledKeyBoard_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-                [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"LOW_CONTRAST_MODE")
-                titleDescription:LOC(@"LOW_CONTRAST_MODE_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"lowContrastMode_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"lowContrastMode_enabled"];
-                    return YES;
-                }
-                settingItemId:0], lowContrastModeSection];
+                BASIC_SWITCH(LOC(@"OLED_KEYBOARD"), LOC(@"OLED_KEYBOARD_DESC"), @"oledKeyBoard_enabled"),
+                BASIC_SWITCH(LOC(@"LOW_CONTRAST_MODE"), LOC(@"LOW_CONTRAST_MODE_DESC"), @"lowContrastMode_enabled"),
+                lowContrastModeSection
+            ];
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetSelection(@"appTheme") parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
@@ -410,155 +273,23 @@ extern NSBundle *YTLitePlusBundle();
 # pragma mark - Miscellaneous
     YTSettingsSectionItem *miscellaneousGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"MISCELLANEOUS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_YT_STARTUP_ANIMATION")
-                titleDescription:LOC(@"ENABLE_YT_STARTUP_ANIMATION_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytStartupAnimation_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytStartupAnimation_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_MODERN_INTERFACE")
-                titleDescription:LOC(@"HIDE_MODERN_INTERFACE_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytNoModernUI_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytNoModernUI_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"IPAD_LAYOUT")
-                titleDescription:LOC(@"IPAD_LAYOUT_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"iPadLayout_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"iPadLayout_enabled"];
-                    return YES;
-                }
-                settingItemId:0], 
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"IPHONE_LAYOUT")
-                titleDescription:LOC(@"IPHONE_LAYOUT_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"iPhoneLayout_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"iPhoneLayout_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"CAST_CONFIRM")
-                titleDescription:LOC(@"CAST_CONFIRM_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"castConfirm_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"castConfirm_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"NEW_MINIPLAYER_STYLE")
-                titleDescription:LOC(@"NEW_MINIPLAYER_STYLE_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"bigYTMiniPlayer_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"bigYTMiniPlayer_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"STOCK_VOLUME_HUD")
-                titleDescription:LOC(@"STOCK_VOLUME_HUD_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"stockVolumeHUD_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"stockVolumeHUD_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-        [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"UN_SHORTS")
-            titleDescription:LOC(@"UN_SHORTS_DESC")
-            accessibilityIdentifier:nil
-            switchOn:IsEnabled(@"UnShorts_enabled")
-            switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"UnShorts_enabled"];
-                return YES                                                                                       ;
-            }
-            settingItemId:0],
-        
-        [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_COMMUNITY_POSTS")
-            titleDescription:LOC(@"HIDE_COMMUNITY_POSTS_DESC")
-            accessibilityIdentifier:nil
-            switchOn:IsEnabled(@"hideCommunityPosts_enabled")
-            switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideCommunityPosts_enabled"];
-                return YES;
-            }
-            settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_CAST_BUTTON")
-                titleDescription:LOC(@"HIDE_CAST_BUTTON_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideCastButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideCastButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_SPONSORBLOCK_BUTTON")
-                titleDescription:LOC(@"HIDE_SPONSORBLOCK_BUTTON_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideSponsorBlockButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideSponsorBlockButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"YT_SPEED")
-                titleDescription:LOC(@"YT_SPEED_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytSpeed_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytSpeed_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HOME_TAB")
-                titleDescription:LOC(@"HIDE_HOME_TAB_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideHomeTab_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideHomeTab_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_FLEX")
-                titleDescription:LOC(@"ENABLE_FLEX_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"flex_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"flex_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-       [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"APP_VERSION_SPOOFER_LITE")
-                titleDescription:LOC(@"APP_VERSION_SPOOFER_LITE_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableVersionSpoofer_enabled"];
-                    return YES;
-                }
-                settingItemId:0], versionSpooferSection];
+            BASIC_SWITCH(LOC(@"ENABLE_YT_STARTUP_ANIMATION"), LOC(@"ENABLE_YT_STARTUP_ANIMATION_DESC"), @"ytStartupAnimation_enabled"), 
+            BASIC_SWITCH(LOC(@"HIDE_MODERN_INTERFACE"), LOC(@"HIDE_MODERN_INTERFACE_DESC"), @"ytNoModernUI_enabled"),
+            BASIC_SWITCH(LOC(@"IPAD_LAYOUT"), LOC(@"IPAD_LAYOUT_DESC"), @"iPadLayout_enabled"),
+            BASIC_SWITCH(LOC(@"IPHONE_LAYOUT"), LOC(@"IPHONE_LAYOUT_DESC"), @"iPhoneLayout_enabled"),
+            BASIC_SWITCH(LOC(@"CAST_CONFIRM"), LOC(@"CAST_CONFIRM_DESC"), @"castConfirm_enabled"),
+            BASIC_SWITCH(LOC(@"NEW_MINIPLAYER_STYLE"), LOC(@"NEW_MINIPLAYER_STYLE_DESC"), @"bigYTMiniPlayer_enabled"),
+            BASIC_SWITCH(LOC(@"STOCK_VOLUME_HUD"), LOC(@"STOCK_VOLUME_HUD_DESC"), @"stockVolumeHUD_enabled"),
+            BASIC_SWITCH(LOC(@"UN_SHORTS"), LOC(@"UN_SHORTS_DESC"), @"UnShorts_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_COMMUNITY_POSTS"), LOC(@"HIDE_COMMUNITY_POSTS_DESC"), @"hideCommunityPosts_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_CAST_BUTTON"), LOC(@"HIDE_CAST_BUTTON_DESC"), @"hideCastButton_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_SPONSORBLOCK_BUTTON"), LOC(@"HIDE_SPONSORBLOCK_BUTTON_DESC"), @"hideSponsorBlockButton_enabled"),
+            BASIC_SWITCH(LOC(@"YT_SPEED"), LOC(@"YT_SPEED_DESC"), @"ytSpeed_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_HOME_TAB"), LOC(@"HIDE_HOME_TAB_DESC"), @"hideHomeTab_enabled"),
+            BASIC_SWITCH(LOC(@"ENABLE_FLEX"), LOC(@"ENABLE_FLEX_DESC"), @"flex_enabled"),
+            BASIC_SWITCH(LOC(@"APP_VERSION_SPOOFER_LITE"), LOC(@"APP_VERSION_SPOOFER_LITE_DESC"), @"enableVersionSpoofer_enabled"),    
+            versionSpooferSection
+        ];
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"MISCELLANEOUS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
         return YES;
