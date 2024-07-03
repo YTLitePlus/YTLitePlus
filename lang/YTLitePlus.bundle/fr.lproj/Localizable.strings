@@ -23,6 +23,9 @@
 "HIDE_HEATWAVES" = "Masquer les Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Paramètres des options d'overlay de l'application";
 

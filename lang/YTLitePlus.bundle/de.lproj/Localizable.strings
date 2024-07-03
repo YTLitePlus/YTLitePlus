@@ -23,6 +23,9 @@
 "HIDE_HEATWAVES" = "Hitzewellen ausblenden";
 "HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
 
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";
 

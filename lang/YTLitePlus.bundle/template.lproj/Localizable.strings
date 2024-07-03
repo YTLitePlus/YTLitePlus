@@ -38,6 +38,9 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "HIDE_HEATWAVES" = "Hide Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Hides the Heatwaves in the video player. App restart is required.";
 
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 

@@ -101,6 +101,7 @@ extern NSBundle *YTLitePlusBundle();
             BASIC_SWITCH(LOC(@"HIDE_RIGHT_PANEL"), LOC(@"HIDE_RIGHT_PANEL_DESC"), @"hideRightPanel_enabled"),
             BASIC_SWITCH(LOC(@"NO_SUGGESTED_VIDEO"), LOC(@"NO_SUGGESTED_VIDEO_DESC"), @"noSuggestedVideo_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_HEATWAVES"), LOC(@"HIDE_HEATWAVES_DESC"), @"hideHeatwaves_enabled"),
+            BASIC_SWITCH(LOC(@"SEEK_ANYWHERE"), LOC(@"SEEK_ANYWHERE_DESC"), @"seekAnywhere_enabled")
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

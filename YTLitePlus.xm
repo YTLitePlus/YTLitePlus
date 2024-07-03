@@ -440,6 +440,13 @@ static NSData *cellDividerData = nil;
 }
 %end
 
+// Seek anywhere gesture - @bhackel
+%hook YTColdConfig
+- (BOOL)speedMasterArm2FastForwardWithoutSeekBySliding {
+    return IsEnabled(@"seekAnywhere_enabled") ? NO : %orig;
+}
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
