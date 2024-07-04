@@ -6,18 +6,23 @@ name: Build and Release YTLitePlus
 on:
   workflow_dispatch:
     inputs:
+      sdk_version:
+        description: "iOS SDK Version"
+        default: "16.5"
+        required: true
+        type: string
       decrypted_youtube_url:
-        description: "The direct URL to the decrypted YouTube ipa"
+        description: "Direct URL of the decrypted YouTube ipa"
         default: ""
         required: true
         type: string
       bundle_id:
-        description: "Modify the bundle ID. Not recommended"
+        description: "Modify the bundle ID"
         default: "com.google.ios.youtube"
         required: true
         type: string
       app_name:
-        description: "Modify the name of the app on the Home Screen. Not recommended"
+        description: "Modify the app name"
         default: "YouTube"
         required: true
         type: string
@@ -26,9 +31,19 @@ on:
         default: ""
         required: false
         type: string
+      upload_artifact:
+        description: "Upload ipa as artifact"
+        default: true
+        required: false
+        type: boolean
+      catbox_upload:
+        description: "Upload ipa to Catbox.moe"
+        default: false
+        required: false
+        type: boolean
       create_release:
         description: "Create a draft release"
-        default: true
+        default: false
         required: false
         type: boolean
 
@@ -62,21 +77,22 @@ jobs:
           path: theos
           submodules: recursive
 
-      - name: Caching
+      - name: SDK Caching
         id: SDK
         uses: actions/cache@v4.0.2
         env:
-          cache-name: iOS-16.5-SDK
+          cache-name: iOS-${{ inputs.sdk_version }}-SDK
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
+          restore-keys: ${{ env.cache-name }}
 
-      - name: Download iOS 16.5 SDK
+      - name: Download iOS SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
           git clone -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
           cd sdks
-          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
           mv *.sdk $THEOS/sdks
         env:
@@ -124,6 +140,7 @@ jobs:
           sed -i '' "12s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "11s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
           sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}/" Makefile
+          sed -i '' "1s#.*#export TARGET = iphone:clang:${{ inputs.sdk_version }}:15.0#g" Makefile
           make package FINALPACKAGE=1
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")        
           echo "package=$(ls -t packages | head -n1)" >>$GITHUB_OUTPUT
@@ -135,6 +152,7 @@ jobs:
           APP_NAME: ${{ inputs.app_name }}
 
       - name: Upload Artifact
+        if: ${{ inputs.upload_artifact }}
         uses: actions/upload-artifact@v4.3.3
         with:
           name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
@@ -142,6 +160,7 @@ jobs:
           if-no-files-found: error
           
       - name: Upload Artifact to Catbox
+        if: ${{ inputs.catbox_upload }}
         run: |
           RESPONSE=$(curl -F "reqtype=fileupload" -F "fileToUpload=@${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}" https://catbox.moe/user/api.php)
           CATBOX_URL=$(echo $RESPONSE | grep -o -E 'https://files.catbox.moe/[^"]*')
@@ -150,25 +169,27 @@ jobs:
           echo "CATBOX_FILE=$CATBOX_FILE" >> $GITHUB_ENV
       
       - name: Prepare Release Notes
+        if: ${{ inputs.create_release }}
         run: |
           export TODAY=$(date '+%Y-%m-%d')
           sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Release
+        if: ${{ inputs.create_release }}
         id: create_release
         uses: softprops/action-gh-release@v2.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DRAFT: ${{ inputs.create_release }}
         with:
           tag_name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}
           name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }} - YTLitePlus
           files: main/packages/*.ipa
-          draft: ${{ env.DRAFT }}
+          draft: true
           body_path: ${{ github.workspace }}/release_notes.md
 
       - name: Update Altstore Source with latest release
+        if: ${{ inputs.create_release }}
         run: |
           curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/dispatches' \
           --header 'Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}' \
