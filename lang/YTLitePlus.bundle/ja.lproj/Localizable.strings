@@ -95,6 +95,9 @@
 "YT_SPEED" = "YTSpeedを有効化";
 "YT_SPEED_DESC" = "より多くの再生速度を選択できるようになります。アプリの再起動が必要です。";
 
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
 "ENABLE_FLEX" = "FLEXを有効化";
 "ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
 

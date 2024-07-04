@@ -95,6 +95,9 @@
 "YT_SPEED" = "YTSpeed aktivieren";
 "YT_SPEED_DESC" = "Aktiviere YTSpeed, um mehr Optionen für die Wiedergabegeschwindigkeit freizuschalten. Ein Neustart der App ist erforderlich.";
 
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
 
