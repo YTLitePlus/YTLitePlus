@@ -182,7 +182,7 @@ static BOOL IsEnabled(NSString *key) {
 
 // Hide Home Tab - @bhackel
 %group gHideHomeTab
-%hook YTPivotBarViewController
+%hook YTPivotBarView
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     // Iterate over each renderer item
     NSUInteger indexToRemove = -1;
@@ -202,6 +202,35 @@ static BOOL IsEnabled(NSString *key) {
         [itemsArray removeObjectAtIndex:indexToRemove];
     }
     %orig;
+}
+%end
+// Fix bug where contents of leftmost tab is replaced by Home tab
+BOOL isTabSelected = NO;
+%hook YTPivotBarViewController
+- (void)viewDidAppear:(BOOL)animated {
+    %orig;
+    if (!isTabSelected) {
+        // Get the identifier of the selected pivot
+        NSString *selectedPivotIdentifier = self.selectedPivotIdentifier;
+        // Find any different tab to switch from by looping through the renderer items
+        YTIPivotBarRenderer *renderer = self.renderer;
+        NSArray <YTIPivotBarSupportedRenderers *> *itemsArray = renderer.itemsArray;
+        for (YTIPivotBarSupportedRenderers *item in itemsArray) {
+            YTIPivotBarItemRenderer *pivotBarItemRenderer = item.pivotBarItemRenderer;
+            NSString *pivotIdentifier = pivotBarItemRenderer.pivotIdentifier;
+            if (![pivotIdentifier isEqualToString:selectedPivotIdentifier]) {
+                // Switch to this tab
+                [self selectItemWithPivotIdentifier:pivotIdentifier];
+                break;
+            }
+        }
+        // Clear any cached controllers to delete the broken home tab
+        [self resetViewControllersCache];
+        // Switch back to the original tab
+        [self selectItemWithPivotIdentifier:selectedPivotIdentifier];
+        // Update flag to not do it again
+        isTabSelected = YES;
+    }
 }
 %end
 %end
