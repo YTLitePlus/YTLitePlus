@@ -95,6 +95,9 @@
 "YT_SPEED" = "Activare YTSpeed";
 "YT_SPEED_DESC" = "Activați YTSpeed pentru a avea mai multe opțiuni pentru viteza redării. Este necesară repornirea aplicației.";
 
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
 

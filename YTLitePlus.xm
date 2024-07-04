@@ -180,6 +180,32 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+// Hide Home Tab - @bhackel
+%group gHideHomeTab
+%hook YTPivotBarViewController
+- (void)setRenderer:(YTIPivotBarRenderer *)renderer {
+    // Iterate over each renderer item
+    NSUInteger indexToRemove = -1;
+    NSMutableArray <YTIPivotBarSupportedRenderers *> *itemsArray = renderer.itemsArray;
+    for (NSUInteger i = 0; i < itemsArray.count; i++) {
+        YTIPivotBarSupportedRenderers *item = itemsArray[i];
+        // Check if this is the home tab button
+        YTIPivotBarItemRenderer *pivotBarItemRenderer = item.pivotBarItemRenderer;
+        NSString *pivotIdentifier = pivotBarItemRenderer.pivotIdentifier;
+        if ([pivotIdentifier isEqualToString:@"FEwhat_to_watch"]) {
+            // Remove the home tab button
+            indexToRemove = i;
+            break;
+        }
+    }
+    if (indexToRemove != -1) {
+        [itemsArray removeObjectAtIndex:indexToRemove];
+    }
+    %orig;
+}
+%end
+%end
+
 // YTNoModernUI - @arichorn
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Original Version
@@ -642,6 +668,9 @@ static NSData *cellDividerData = nil;
     }
     if (IsEnabled(@"disableLiveChatSection_enabled")) {
         %init(gDisableLiveChatSection);
+    }
+    if (IsEnabled(@"hideHomeTab_enabled")) {
+        %init(gHideHomeTab);
     }
     
 
