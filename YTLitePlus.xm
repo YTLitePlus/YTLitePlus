@@ -447,6 +447,13 @@ static NSData *cellDividerData = nil;
 }
 %end
 
+// New Settings UI - @bhackel
+%hook YTColdConfig
+- (BOOL)mainAppCoreClientEnableCairoSettings { 
+    return IS_ENABLED(@"newSettingsUI_enabled"); 
+}
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -718,4 +725,7 @@ static NSData *cellDividerData = nil;
     if (![allKeys containsObject:@"YouPiPEnabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 
 	}
+    if (![allKeys containsObject:@"newSettingsUI_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"newSettingsUI_enabled"]; 
+    }
 }

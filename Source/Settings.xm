@@ -39,6 +39,25 @@ static const NSInteger YTLitePlusSection = 788;
 
 extern NSBundle *YTLitePlusBundle();
 
+// Add both YTLite and YTLitePlus to YouGroupSettings
+static const NSInteger YTLiteSection = 789; // Grabbed from YTLite
+%hook YTSettingsGroupData
++ (NSMutableArray <NSNumber *> *)tweaks {
+   NSMutableArray <NSNumber *> *originalTweaks = %orig;
+
+   // Use a static variable to ensure the array is modified only once.
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
+       [originalTweaks addObject:@(YTLitePlusSection)];
+       [originalTweaks addObject:@(YTLiteSection)];
+   });
+
+   // Return the modified array.
+   return originalTweaks;
+}
+%end
+
+
 // Settings
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
@@ -271,9 +290,51 @@ extern NSBundle *YTLitePlusBundle();
         }];
     [sectionItems addObject:themeGroup];
 
+# pragma mark - Copy of Playback in feeds section - @bhackel
+    // This section is hidden in vanilla YouTube when using the new settings UI, so
+    // we can recreate it here
+    YTSettingsSectionItem *playbackInFeedsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"PLAYBACK_IN_FEEDS")
+        accessibilityIdentifier:nil
+        detailTextBlock:^NSString *() {
+            switch (GetSelection(@"inline_muted_playback_enabled")) {
+                case 3:
+                    return LOC(@"PLAYBACK_IN_FEEDS_WIFI_ONLY");
+                case 1:
+                    return LOC(@"PLAYBACK_IN_FEEDS_OFF");
+                case 2:
+                default:
+                    return LOC(@"PLAYBACK_IN_FEEDS_ALWAYS_ON");
+            }
+        }
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            NSArray <YTSettingsSectionItem *> *rows = @[
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"PLAYBACK_IN_FEEDS_OFF") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"inline_muted_playback_enabled"];
+                    [settingsViewController reloadData];
+                    return YES;
+                }],
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"PLAYBACK_IN_FEEDS_ALWAYS_ON") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"inline_muted_playback_enabled"];
+                    [settingsViewController reloadData];
+                    return YES;
+                }],
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"PLAYBACK_IN_FEEDS_WIFI_ONLY") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"inline_muted_playback_enabled"];
+                    [settingsViewController reloadData];
+                    return YES;
+                }],
+            ];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"PLAYBACK_IN_FEEDS") pickerSectionTitle:nil rows:rows selectedItemIndex:(GetSelection(@"inline_muted_playback_enabled") - 1) parentResponder:[self parentResponder]];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }
+    ];
+
 # pragma mark - Miscellaneous
     YTSettingsSectionItem *miscellaneousGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"MISCELLANEOUS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            playbackInFeedsGroup,
+            BASIC_SWITCH(LOC(@"NEW_SETTINGS_UI"), LOC(@"NEW_SETTINGS_UI_DESC"), @"newSettingsUI_enabled"),
             BASIC_SWITCH(LOC(@"ENABLE_YT_STARTUP_ANIMATION"), LOC(@"ENABLE_YT_STARTUP_ANIMATION_DESC"), @"ytStartupAnimation_enabled"), 
             BASIC_SWITCH(LOC(@"HIDE_MODERN_INTERFACE"), LOC(@"HIDE_MODERN_INTERFACE_DESC"), @"ytNoModernUI_enabled"),
             BASIC_SWITCH(LOC(@"IPAD_LAYOUT"), LOC(@"IPAD_LAYOUT_DESC"), @"iPadLayout_enabled"),

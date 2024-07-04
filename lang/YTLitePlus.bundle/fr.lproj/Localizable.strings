@@ -67,6 +67,14 @@
 // Miscellaneous
 "MISCELLANEOUS" = "Divers";
 
+"PLAYBACK_IN_FEEDS" = "Playback in feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
+"PLAYBACK_IN_FEEDS_OFF" = "Off";
+
+"NEW_SETTINGS_UI" = "New Settings UI";
+"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+
 "ENABLE_YT_STARTUP_ANIMATION" = "Activer l'animation de démarrage YouTube";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
