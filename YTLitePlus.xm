@@ -667,6 +667,9 @@ static NSData *cellDividerData = nil;
 # pragma mark - ctor
 %ctor {
     %init;
+    // Access YouGroupSettings methods
+    dlopen([[NSString stringWithFormat:@"%@/Frameworks/YouGroupSettings.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
+
     if (IsEnabled(@"hideCastButton_enabled")) {
         %init(gHideCastButton);
     }
@@ -729,8 +732,7 @@ static NSData *cellDividerData = nil;
     }
     if (IsEnabled(@"fixCasting_enabled")) {
         %init(gFixCasting);
-    }
-    
+    }    
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];

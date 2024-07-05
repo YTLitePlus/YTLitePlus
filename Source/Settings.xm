@@ -31,7 +31,6 @@ static int contrastMode() {
 static int appVersionSpoofer() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"versionSpoofer"];
 }
-static const NSInteger YTLitePlusSection = 788;
 
 @interface YTSettingsSectionItemManager (YTLitePlus)
 - (void)updateYTLitePlusSectionWithEntry:(id)entry;
@@ -40,20 +39,20 @@ static const NSInteger YTLitePlusSection = 788;
 extern NSBundle *YTLitePlusBundle();
 
 // Add both YTLite and YTLitePlus to YouGroupSettings
-static const NSInteger YTLiteSection = 789; // Grabbed from YTLite
+static const NSInteger YTLitePlusSection = 788;
+static const NSInteger YTLiteSection = 789;
 %hook YTSettingsGroupData
 + (NSMutableArray <NSNumber *> *)tweaks {
-   NSMutableArray <NSNumber *> *originalTweaks = %orig;
+    NSLog(@"bhackel: called hooked 'tweaks' method.");
+    NSMutableArray <NSNumber *> *originalTweaks = %orig;
 
-   // Use a static variable to ensure the array is modified only once.
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-       [originalTweaks addObject:@(YTLitePlusSection)];
-       [originalTweaks addObject:@(YTLiteSection)];
-   });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [originalTweaks addObject:@(YTLitePlusSection)];
+        [originalTweaks addObject:@(YTLiteSection)];
+    });
 
-   // Return the modified array.
-   return originalTweaks;
+    return originalTweaks;
 }
 %end
 
