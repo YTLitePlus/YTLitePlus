@@ -324,7 +324,12 @@ static const NSInteger YTLiteSection = 789; // Grabbed from YTLite
                     return YES;
                 }],
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"PLAYBACK_IN_FEEDS") pickerSectionTitle:nil rows:rows selectedItemIndex:(GetSelection(@"inline_muted_playback_enabled") - 1) parentResponder:[self parentResponder]];
+            // It seems values greater than 3 act the same as Always On (Index 1)
+            int (^getInlineSelection)() = ^int() {
+                int selection = GetSelection(@"inline_muted_playback_enabled") - 1;
+                return selection > 3 ? 1 : selection;
+            };
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"PLAYBACK_IN_FEEDS") pickerSectionTitle:nil rows:rows selectedItemIndex:getInlineSelection() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }
