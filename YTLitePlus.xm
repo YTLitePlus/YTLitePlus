@@ -161,7 +161,7 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)commercePlatformClientEnablePopupWebviewInWebviewDialogController { return NO;}
 %end
 
-// Hide Upgrade Dialog - @arichorn
+// Hide Upgrade Dialog - @arichornlover
 %hook YTGlobalConfig
 - (BOOL)shouldBlockUpgradeDialog { return YES;}
 - (BOOL)shouldForceUpgrade { return NO;}
@@ -169,18 +169,33 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)shouldShowUpgradeDialog { return NO;}
 %end
 
-// YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
-%hook UIApplication
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    NSString *originalURLString = [url absoluteString];
-    NSString *modifiedURLString = [originalURLString stringByReplacingOccurrencesOfString:@"&si=[a-zA-Z0-9_-]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, originalURLString.length)];
-    NSURL *modifiedURL = [NSURL URLWithString:modifiedURLString];
-    BOOL result = %orig(application, modifiedURL, options);
-    return result;
+// Hide Home Tab - @bhackel
+%group gHideHomeTab
+%hook YTPivotBarViewController
+- (void)setRenderer:(YTIPivotBarRenderer *)renderer {
+    // Iterate over each renderer item
+    NSUInteger indexToRemove = -1;
+    NSMutableArray <YTIPivotBarSupportedRenderers *> *itemsArray = renderer.itemsArray;
+    for (NSUInteger i = 0; i < itemsArray.count; i++) {
+        YTIPivotBarSupportedRenderers *item = itemsArray[i];
+        // Check if this is the home tab button
+        YTIPivotBarItemRenderer *pivotBarItemRenderer = item.pivotBarItemRenderer;
+        NSString *pivotIdentifier = pivotBarItemRenderer.pivotIdentifier;
+        if ([pivotIdentifier isEqualToString:@"FEwhat_to_watch"]) {
+            // Remove the home tab button
+            indexToRemove = i;
+            break;
+        }
+    }
+    if (indexToRemove != -1) {
+        [itemsArray removeObjectAtIndex:indexToRemove];
+    }
+    %orig;
 }
 %end
+%end
 
-// YTNoModernUI - @arichorn
+// YTNoModernUI - @arichornlover
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Original Version
 + (NSString *)appVersion { return @"17.38.10"; }
@@ -223,14 +238,27 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
 - (BOOL)enableClientShortsSheetsModernization { return NO; }
 - (BOOL)enableTimestampModernizationForNative { return NO; }
-- (BOOL)modernizeElementsTextColor { return NO; }
-- (BOOL)modernizeElementsBgColor { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaFeedStretchBottom { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedBottomBar { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBar { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBarUpdatedBackdrop { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedTopBar { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaOpacityPivotBar { return NO; }
+- (BOOL)mainAppCoreClientEnableModernIaTopAndBottomBarIconRefresh { return NO; }
+- (BOOL)mainAppCoreClientEnableModernizedBedtimeReminderU18DefaultSettings { return NO; }
+- (BOOL)modernizeCameoNavbar { return NO; }
 - (BOOL)modernizeCollectionLockups { return NO; }
+- (BOOL)modernizeCollectionLockupsShowVideoCount { return NO; }
+- (BOOL)modernizeElementsBgColor { return NO; }
+- (BOOL)modernizeElementsTextColor { return NO; }
+- (BOOL)postsCreatorClientEnableModernButtonsUi { return NO; }
+- (BOOL)pullToFullModernEdu { return NO; }
+- (BOOL)showModernMiniplayerRedesign { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableModernTabsForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigIosEnableEpUxUpdates { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigIosEnableSheetsUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigModernizeNativeBgColor { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigModernizeNativeTextColor { return NO; }
 // Disable Rounded Content - YTNoModernUI
 - (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
 - (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
@@ -642,6 +670,9 @@ static NSData *cellDividerData = nil;
     }
     if (IsEnabled(@"disableLiveChatSection_enabled")) {
         %init(gDisableLiveChatSection);
+    }
+    if (IsEnabled(@"hideHomeTab_enabled")) {
+        %init(gHideHomeTab);
     }
     
 

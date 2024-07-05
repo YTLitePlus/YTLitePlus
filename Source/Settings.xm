@@ -530,6 +530,16 @@ extern NSBundle *YTLitePlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HOME_TAB")
+                titleDescription:LOC(@"HIDE_HOME_TAB_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"hideHomeTab_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideHomeTab_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_FLEX")
                 titleDescription:LOC(@"ENABLE_FLEX_DESC")
                 accessibilityIdentifier:nil

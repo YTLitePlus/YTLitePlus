@@ -1,43 +1,45 @@
-name: Delete Workflow Runs
+name: Delete old workflow runs
 on:
   workflow_dispatch:
     inputs:
       days:
-        description: 'Number of days.'
+        description: 'Days-worth of runs to keep for each workflow'
         required: true
-        default: 0
+        default: '7' # default value is "30"
       minimum_runs:
-        description: 'The minimum runs to keep for each workflow.'
+        description: 'Minimum runs to keep for each workflow'
         required: true
-        default: 0
+        default: '5' # default value is "6"
       delete_workflow_pattern:
-        description: 'The name or filename of the workflow. if not set then it will target all workflows.'
+        description: 'Name or filename of the workflow (if not set, all workflows are targeted)'
         required: false
+        default: 'Build and Release uYouEnhanced' # default value is ""
       delete_workflow_by_state_pattern:
-        description: 'Remove workflow by state: active, deleted, disabled_fork, disabled_inactivity, disabled_manually'
+        description: 'Filter workflows by state: active, deleted, disabled_fork, disabled_inactivity, disabled_manually'
         required: true
-        default: "All"
+        default: "ALL"
         type: choice
         options:
-          - "All"
+          - "ALL"
           - active
           - deleted
           - disabled_inactivity
           - disabled_manually
       delete_run_by_conclusion_pattern:
-        description: 'Remove workflow by conclusion: action_required, cancelled, failure, skipped, success'
+        description: 'Remove runs based on conclusion: action_required, cancelled, failure, skipped, success'
         required: true
-        default: "All"
+        default: "ALL"
         type: choice
         options:
-          - "All"
+          - "ALL"
+          - "Unsuccessful: action_required,cancelled,failure,skipped"
           - action_required
           - cancelled
           - failure
           - skipped
           - success
       dry_run:
-        description: 'Only log actions, do not perform any delete operations.'
+        description: 'Logs simulated changes, no deletions are performed'
         required: false
 
 jobs:
@@ -45,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
+      contents: read
     steps:
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
@@ -55,5 +58,10 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.minimum_runs }}
           delete_workflow_pattern: ${{ github.event.inputs.delete_workflow_pattern }}
           delete_workflow_by_state_pattern: ${{ github.event.inputs.delete_workflow_by_state_pattern }}
-          delete_run_by_conclusion_pattern: ${{ github.event.inputs.delete_run_by_conclusion_pattern }}
+          delete_run_by_conclusion_pattern: >-
+            ${{
+              startsWith(github.event.inputs.delete_run_by_conclusion_pattern, 'Unsuccessful:')
+              && 'action_required,cancelled,failure,skipped'
+              || github.event.inputs.delete_run_by_conclusion_pattern
+            }}
           dry_run: ${{ github.event.inputs.dry_run }}

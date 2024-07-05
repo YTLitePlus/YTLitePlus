@@ -93,6 +93,9 @@
 "YT_SPEED" = "啟用 YTSpeed";
 "YT_SPEED_DESC" = "擁有更多種影片速度。重新啟動應用程式以套用變更。";
 
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
 "ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
 "ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
 

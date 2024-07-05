@@ -110,6 +110,9 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "YT_SPEED" = "Enable YTSpeed";
 "YT_SPEED_DESC" = "Enable YTSpeed to have more Playback Speed Options. App restart is required.";
 
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
 "ENABLE_FLEX" = "Enable FLEX";
 "ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
 
