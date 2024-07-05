@@ -396,6 +396,18 @@ BOOL isTabSelected = NO;
 }
 %end
 
+// Fix Casting: https://github.com/arichornlover/uYouEnhanced/issues/606#issuecomment-2098289942
+%group gFixCasting
+%hook YTColdConfig
+- (BOOL)cxClientEnableIosLocalNetworkPermissionReliabilityFixes { return YES; }
+- (BOOL)cxClientEnableIosLocalNetworkPermissionUsingSockets { return NO; }
+- (BOOL)cxClientEnableIosLocalNetworkPermissionWifiFixes { return YES; }
+%end
+%hook YTHotConfig
+- (BOOL)isPromptForLocalNetworkPermissionsEnabled { return YES; }
+%end
+%end
+
 // YTUnShorts - https://github.com/PoomSmart/YTUnShorts
 %hook YTIElementRenderer
 
@@ -715,6 +727,9 @@ static NSData *cellDividerData = nil;
     if (IsEnabled(@"hideHomeTab_enabled")) {
         %init(gHideHomeTab);
     }
+    if (IsEnabled(@"fixCasting_enabled")) {
+        %init(gFixCasting);
+    }
     
 
     // Change the default value of some options
@@ -727,5 +742,8 @@ static NSData *cellDividerData = nil;
 	}
     if (![allKeys containsObject:@"newSettingsUI_enabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"newSettingsUI_enabled"]; 
+    }
+    if (![allKeys containsObject:@"fixCasting_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
     }
 }

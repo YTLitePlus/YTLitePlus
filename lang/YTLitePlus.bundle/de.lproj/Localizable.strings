@@ -109,6 +109,9 @@
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
 

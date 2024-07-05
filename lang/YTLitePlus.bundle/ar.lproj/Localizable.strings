@@ -109,6 +109,9 @@
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
 "ENABLE_FLEX" = "تمكين FLEX";
 "ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
 

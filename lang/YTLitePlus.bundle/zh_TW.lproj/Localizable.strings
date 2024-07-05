@@ -107,6 +107,9 @@
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
 "ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
 "ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
 

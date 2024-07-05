@@ -112,6 +112,9 @@
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
 "ENABLE_FLEX" = "Activer FLEX";
 "ENABLE_FLEX_DESC" = "Activez FLEX pour le débogage (non recommandé). Laissez cette option désactivée, sauf si vous savez ce que vous faites.";
 
