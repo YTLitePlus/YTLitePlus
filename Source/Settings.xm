@@ -43,7 +43,6 @@ static const NSInteger YTLitePlusSection = 788;
 static const NSInteger YTLiteSection = 789;
 %hook YTSettingsGroupData
 + (NSMutableArray <NSNumber *> *)tweaks {
-    NSLog(@"bhackel: called hooked 'tweaks' method.");
     NSMutableArray <NSNumber *> *originalTweaks = %orig;
 
     static dispatch_once_t onceToken;
