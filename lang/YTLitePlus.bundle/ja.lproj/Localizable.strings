@@ -97,9 +97,6 @@
 "HIDE_SPONSORBLOCK_BUTTON" = "ナビゲーションバーのiSponsorBlockボタンを非表示";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"YT_SPEED" = "YTSpeedを有効化";
-"YT_SPEED_DESC" = "より多くの再生速度を選択できるようになります。アプリの再起動が必要です。";
-
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 

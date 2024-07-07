@@ -97,9 +97,6 @@
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"YT_SPEED" = "Activar YTSpeed";
-"YT_SPEED_DESC" = "Activa YTSpeed para tener más opciones de velocidad de reproducción. Es necesario reiniciar la aplicación.";
-
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 

@@ -97,9 +97,6 @@
 "HIDE_SPONSORBLOCK_BUTTON" = "Ascundere buton iSponsorBlock în bara de navigație";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"YT_SPEED" = "Activare YTSpeed";
-"YT_SPEED_DESC" = "Activați YTSpeed pentru a avea mai multe opțiuni pentru viteza redării. Este necesară repornirea aplicației.";
-
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
 
