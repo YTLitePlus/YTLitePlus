@@ -107,9 +107,6 @@
 "ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
 "ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
 
-"HIDE_COMMUNITY_POSTS" = "隱藏社群貼文";
-"HIDE_COMMUNITY_POSTS_DESC" = "重新啟動應用程式以套用變更。";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "改變應用程式版本";
 "APP_VERSION_SPOOFER_LITE_DESC" = "請在底下選擇版本。重新啟動應用程式以套用變更。";

@@ -106,9 +106,6 @@
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
 
-"HIDE_COMMUNITY_POSTS" = "Ascunde posturi Comunitate";
-"HIDE_COMMUNITY_POSTS_DESC" = "Ascunde posturile tip Comunitate. Este necesară repornirea aplicației.";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Activați pentru a utiliza Version Spoofer (Lite) și alegeți versiunea preferată. Este necesară repornirea aplicației.";

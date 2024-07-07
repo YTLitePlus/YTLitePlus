@@ -106,9 +106,6 @@
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
 
-"HIDE_COMMUNITY_POSTS" = "Community-Beiträge ausblenden";
-"HIDE_COMMUNITY_POSTS_DESC" = "Versteckt die Community-Beiträge. Ein Neustart der App ist erforderlich.";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "App-Version-Spoofer aktivieren (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Aktiviere dies, um den Version-Spoofer (Lite) zu verwenden, und wähle unten deine bevorzugte Version aus. Ein Neustart der App ist erforderlich.";

@@ -130,9 +130,6 @@
 "ENABLE_FLEX" = "Kích hoạt FLEX";
 "ENABLE_FLEX_DESC" = "Bật FLEX để gỡ lỗi (không khuyến nghị). Bỏ qua điều này trừ khi bạn biết những gì bạn đang làm.";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
-
 "FIX_GOOGLE_SIGNIN" = "Sửa lỗi Đăng nhập bằng Google (chỉ dành cho người dùng TrollStore)";
 "FIX_GOOGLE_SIGNIN_DESC" = "Chỉ bật tùy chọn này khi bạn không thể đăng nhập bằng tài khoản Google của mình và ứng dụng đã được cài đặt qua TrollStore. Nếu bạn có thể đăng nhập bình thường, hãy tắt nó đi. Khởi động lại ứng dụng là bắt buộc.";
 

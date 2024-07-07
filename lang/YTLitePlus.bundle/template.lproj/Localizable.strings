@@ -121,9 +121,6 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "ENABLE_FLEX" = "Enable FLEX";
 "ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
 
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";

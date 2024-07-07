@@ -410,20 +410,6 @@ BOOL isTabSelected = NO;
 %end
 %end
 
-// Hide Community Posts - @michael-winay & @arichorn
-%hook YTIElementRenderer
-static NSData *cellDividerData = nil;
-- (NSData *)elementData {
-    NSString *description = [self description];
-    if (IsEnabled(@"hideCommunityPosts_enabled")) {
-        if ([description containsString:@"post_base_wrapper.eml"]) {
-            return nil;
-        }
-    }
-    return %orig;
-}
-%end
-
 // Seek anywhere gesture - @bhackel
 %hook YTColdConfig
 - (BOOL)speedMasterArm2FastForwardWithoutSeekBySliding {

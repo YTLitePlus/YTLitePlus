@@ -106,9 +106,6 @@
 "ENABLE_FLEX" = "FLEXを有効化";
 "ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
 
-"HIDE_COMMUNITY_POSTS" = "コミュニティを非表示";
-"HIDE_COMMUNITY_POSTS_DESC" = "コミュニティを非表示にします。アプリの再起動が必要です。";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";
 "APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下でお好みのバージョンを選択してください。アプリの再起動が必要です。";

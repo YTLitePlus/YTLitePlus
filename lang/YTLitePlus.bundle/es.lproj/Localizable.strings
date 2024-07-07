@@ -106,9 +106,6 @@
 "ENABLE_FLEX" = "Habilitar FLEX";
 "ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
 
-"HIDE_COMMUNITY_POSTS" = "Ocultar publicaciones de la comunidad";
-"HIDE_COMMUNITY_POSTS_DESC" = "Oculta las publicaciones de la comunidad. Es necesario reiniciar la aplicación.";
-
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activar App Version Spoofer (Lite)";
 "APP_VERSION_SPOOFER_LITE_DESC" = "Active esta opción para utilizar Version Spoofer (Lite) y seleccione su versión preferida a continuación. Es necesario reiniciar la aplicación.";
