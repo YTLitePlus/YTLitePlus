@@ -23,6 +23,9 @@
 "HIDE_HEATWAVES" = "Hitzewellen ausblenden";
 "HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
 
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";
 
@@ -61,6 +64,14 @@
 // Miscellaneous
 "MISCELLANEOUS" = "Verschiedenes";
 
+"PLAYBACK_IN_FEEDS" = "Playback in feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
+"PLAYBACK_IN_FEEDS_OFF" = "Off";
+
+"NEW_SETTINGS_UI" = "New Settings UI";
+"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+
 "ENABLE_YT_STARTUP_ANIMATION" = "YouTube-Startanimation aktivieren";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
@@ -97,6 +108,9 @@
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
 
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";

@@ -171,7 +171,7 @@ static BOOL IsEnabled(NSString *key) {
 
 // Hide Home Tab - @bhackel
 %group gHideHomeTab
-%hook YTPivotBarViewController
+%hook YTPivotBarView
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     // Iterate over each renderer item
     NSUInteger indexToRemove = -1;
@@ -191,6 +191,35 @@ static BOOL IsEnabled(NSString *key) {
         [itemsArray removeObjectAtIndex:indexToRemove];
     }
     %orig;
+}
+%end
+// Fix bug where contents of leftmost tab is replaced by Home tab
+BOOL isTabSelected = NO;
+%hook YTPivotBarViewController
+- (void)viewDidAppear:(BOOL)animated {
+    %orig;
+    if (!isTabSelected) {
+        // Get the identifier of the selected pivot
+        NSString *selectedPivotIdentifier = self.selectedPivotIdentifier;
+        // Find any different tab to switch from by looping through the renderer items
+        YTIPivotBarRenderer *renderer = self.renderer;
+        NSArray <YTIPivotBarSupportedRenderers *> *itemsArray = renderer.itemsArray;
+        for (YTIPivotBarSupportedRenderers *item in itemsArray) {
+            YTIPivotBarItemRenderer *pivotBarItemRenderer = item.pivotBarItemRenderer;
+            NSString *pivotIdentifier = pivotBarItemRenderer.pivotIdentifier;
+            if (![pivotIdentifier isEqualToString:selectedPivotIdentifier]) {
+                // Switch to this tab
+                [self selectItemWithPivotIdentifier:pivotIdentifier];
+                break;
+            }
+        }
+        // Clear any cached controllers to delete the broken home tab
+        [self resetViewControllersCache];
+        // Switch back to the original tab
+        [self selectItemWithPivotIdentifier:selectedPivotIdentifier];
+        // Update flag to not do it again
+        isTabSelected = YES;
+    }
 }
 %end
 %end
@@ -369,6 +398,18 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+// Fix Casting: https://github.com/arichornlover/uYouEnhanced/issues/606#issuecomment-2098289942
+%group gFixCasting
+%hook YTColdConfig
+- (BOOL)cxClientEnableIosLocalNetworkPermissionReliabilityFixes { return YES; }
+- (BOOL)cxClientEnableIosLocalNetworkPermissionUsingSockets { return NO; }
+- (BOOL)cxClientEnableIosLocalNetworkPermissionWifiFixes { return YES; }
+%end
+%hook YTHotConfig
+- (BOOL)isPromptForLocalNetworkPermissionsEnabled { return YES; }
+%end
+%end
+
 // YTUnShorts - https://github.com/PoomSmart/YTUnShorts
 %hook YTIElementRenderer
 
@@ -410,6 +451,20 @@ static NSData *cellDividerData = nil;
         return false;
     }
     return %orig;
+}
+%end
+
+// Seek anywhere gesture - @bhackel
+%hook YTColdConfig
+- (BOOL)speedMasterArm2FastForwardWithoutSeekBySliding {
+    return IsEnabled(@"seekAnywhere_enabled") ? NO : %orig;
+}
+%end
+
+// New Settings UI - @bhackel
+%hook YTColdConfig
+- (BOOL)mainAppCoreClientEnableCairoSettings { 
+    return IS_ENABLED(@"newSettingsUI_enabled"); 
 }
 %end
 
@@ -614,6 +669,9 @@ static NSData *cellDividerData = nil;
 # pragma mark - ctor
 %ctor {
     %init;
+    // Access YouGroupSettings methods
+    dlopen([[NSString stringWithFormat:@"%@/Frameworks/YouGroupSettings.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
+
     if (IsEnabled(@"hideCastButton_enabled")) {
         %init(gHideCastButton);
     }
@@ -674,7 +732,9 @@ static NSData *cellDividerData = nil;
     if (IsEnabled(@"hideHomeTab_enabled")) {
         %init(gHideHomeTab);
     }
-    
+    if (IsEnabled(@"fixCasting_enabled")) {
+        %init(gFixCasting);
+    }
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
@@ -684,4 +744,10 @@ static NSData *cellDividerData = nil;
     if (![allKeys containsObject:@"YouPiPEnabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 
 	}
+    if (![allKeys containsObject:@"newSettingsUI_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"newSettingsUI_enabled"]; 
+    }
+    if (![allKeys containsObject:@"fixCasting_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
+    }
 }
