@@ -61,7 +61,6 @@
 - (void)setRate:(float)rate;
 @end
 
-// IAmYouTube
 @interface SSOConfiguration : NSObject
 @end
 
