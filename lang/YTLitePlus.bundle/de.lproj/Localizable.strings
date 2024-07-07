@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Rechtes Bedienfeld im Vollbildmodus ausbleden";
 "HIDE_RIGHT_PANEL_DESC" = "Blende das rechte Bedienfeld im Vollbildmodus aus. Ein Neustart der App ist erforderlich.";
 
-"NO_SUGGESTED_VIDEO" = "Vorgeschlagenes Video ausblenden";
-"NO_SUGGESTED_VIDEO_DESC" = "(YTNoSuggestedVideo) Entferne das vorgeschlagene Video-Popup, wenn ein Video endet.";
-
 "HIDE_HEATWAVES" = "Hitzewellen ausblenden";
 "HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
 
@@ -94,17 +91,11 @@
 "NEW_MINIPLAYER_STYLE" = "Neuer Mini-Player-Leistenstil";
 "NEW_MINIPLAYER_STYLE_DESC" = "(BigYTMiniPlayer) Ein Neustart der App ist erforderlich.";
 
-"STOCK_VOLUME_HUD" = "iOS Lautstärkeanzeige";
-"STOCK_VOLUME_HUD_DESC" = "Verwende die iOS Lautstärkeanzeige, wenn du die Lautstärke anpasst.";
-
 "HIDE_CAST_BUTTON" = "Cast button verstecken";
 "HIDE_CAST_BUTTON_DESC" = "Google-Cast Button verstecken. Ein Neustart der App ist erforderlich.";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "iSponsorBlock ausblenden";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "Blende die iSponsorBlock-Schaltfläche in der Navigationsleiste aus";
-
-"YT_SPEED" = "YTSpeed aktivieren";
-"YT_SPEED_DESC" = "Aktiviere YTSpeed, um mehr Optionen für die Wiedergabegeschwindigkeit freizuschalten. Ein Neustart der App ist erforderlich.";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -114,12 +105,6 @@
 
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
-
-"UN_SHORTS" = "Shorts ausblenden (YTUnShorts)";
-"UN_SHORTS_DESC" = "Entferne die Shorts aus dem YouTube-Feed.";
-
-"HIDE_COMMUNITY_POSTS" = "Community-Beiträge ausblenden";
-"HIDE_COMMUNITY_POSTS_DESC" = "Versteckt die Community-Beiträge. Ein Neustart der App ist erforderlich.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "App-Version-Spoofer aktivieren (Lite)";

@@ -14,9 +14,6 @@
 "YT_MINIPLAYER" = "Bật trình phát mini cho tất cả các video trên YouTube";
 "YT_MINIPLAYER_DESC" = "Ví dụ: video dành cho trẻ em";
 
-"STOCK_VOLUME_HUD" = "Use iOS stock volume HUD";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Tùy chọn lớp phủ điều khiển video";
 
@@ -28,9 +25,6 @@
 
 "DONT_EAT_MY_CONTENT" = "Ngăn Notch/Đảo trên nội dung video 2:1 (DontEatMyContent)";
 "DONT_EAT_MY_CONTENT_DESC" = "Ngăn notch/Dynamic Island nghiền ngẫm nội dung video 2:1 trên YouTube. Khởi động lại ứng dụng là bắt buộc.";
-
-"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
 
 "HIDE_HEATWAVES" = "Ẩn sóng nhiệt";
 "HIDE_HEATWAVES_DESC" = "Ẩn Sóng nhiệt trong trình phát video. Khởi động lại ứng dụng là bắt buộc.";
@@ -135,12 +129,6 @@
 
 "ENABLE_FLEX" = "Kích hoạt FLEX";
 "ENABLE_FLEX_DESC" = "Bật FLEX để gỡ lỗi (không khuyến nghị). Bỏ qua điều này trừ khi bạn biết những gì bạn đang làm.";
-
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
-
-"HIDE_COMMUNITY_POSTS" = "Hide community posts";
-"HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
 
 "FIX_GOOGLE_SIGNIN" = "Sửa lỗi Đăng nhập bằng Google (chỉ dành cho người dùng TrollStore)";
 "FIX_GOOGLE_SIGNIN_DESC" = "Chỉ bật tùy chọn này khi bạn không thể đăng nhập bằng tài khoản Google của mình và ứng dụng đã được cài đặt qua TrollStore. Nếu bạn có thể đăng nhập bình thường, hãy tắt nó đi. Khởi động lại ứng dụng là bắt buộc.";

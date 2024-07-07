@@ -92,17 +92,11 @@
 "NEW_MINIPLAYER_STYLE" = "啟用應用程式內的新迷你播放器（BigYTMiniPlayer）";
 "NEW_MINIPLAYER_STYLE_DESC" = "重新啟動應用程式以套用變更。";
 
-"STOCK_VOLUME_HUD" = "使用 iOS 預設音量條";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "隱藏投放按鈕";
 "HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "隱藏 iSponsorBlock 按鈕";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"YT_SPEED" = "啟用 YTSpeed";
-"YT_SPEED_DESC" = "擁有更多種影片速度。重新啟動應用程式以套用變更。";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -112,12 +106,6 @@
 
 "ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
 "ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
-
-"UN_SHORTS" = "隱藏 Shorts（YTUnShorts）";
-"UN_SHORTS_DESC" = "瀏覽影片時隱藏 Shorts";
-
-"HIDE_COMMUNITY_POSTS" = "隱藏社群貼文";
-"HIDE_COMMUNITY_POSTS_DESC" = "重新啟動應用程式以套用變更。";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "改變應用程式版本";

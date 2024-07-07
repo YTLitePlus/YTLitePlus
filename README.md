@@ -166,8 +166,6 @@
 
 10. **YTNoTracking**: An iOS YouTube Tweak that disables Tracking Parameters in the YouTube App.
 
-11. **YTUnShorts**: Remove Shorts from YouTube app's feed.
-
 12. **YTNoCheckLocalNetWor**k: Blocks the Local Network permission popup in YouTube.
 
 13. **BigYTMiniPlayer**: Jailbreak tweak that makes the miniplayer in youtube easier to see. 
@@ -187,8 +185,6 @@
 20. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
 
 21. **LowContrastMode**: Makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
-
-22. **YTNoSuggestedVideo**: Removes the suggested video popup when finishing a video.
 
 # AltStore
   

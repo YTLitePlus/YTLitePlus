@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Masquer le panneau de droite en mode plein écran";
 "HIDE_RIGHT_PANEL_DESC" = "Le redémarrage de l'application est requis.";
 
-"NO_SUGGESTED_VIDEO" = "Masquer la vidéo suggérée (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Supprime le popup de suggestion de vidéo à la fin d'une vidéo";
-
 "HIDE_HEATWAVES" = "Masquer les Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Masque les Heatwaves dans le lecteur vidéo. Le redémarrage de l'application est requis.";
 
@@ -97,17 +94,11 @@
 "NEW_MINIPLAYER_STYLE" = "Nouveau style de mini-lecteur (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Un redémarrage de l'application est requis.";
 
-"STOCK_VOLUME_HUD" = "Utiliser le HUD de volume iOS par défaut";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Masquer le bouton Cast";
 "HIDE_CAST_BUTTON_DESC" = "Un redémarrage de l'application est requis.";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Masquer le bouton iSponsorBlock dans la barre de navigation";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"YT_SPEED" = "Activer YTSpeed";
-"YT_SPEED_DESC" = "Activez YTSpeed pour avoir plus d'options de vitesse de lecture. Un redémarrage de l'application est requis.";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -120,9 +111,6 @@
 
 "UN_SHORTS" = "Masquer les Shorts (YTUnShorts)" ;
 "UN_SHORTS_DESC" = "Supprimer les Shorts du feed de YouTube" ;
-
-"HIDE_COMMUNITY_POSTS" = "Masquer les messages de la communauté";
-"HIDE_COMMUNITY_POSTS_DESC" = "Masque les messages de la communauté. Le redémarrage de l'application est nécessaire.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activer le Spoofer de Version de l'Application (Lite)";

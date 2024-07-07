@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "フルスクリーンモードで右パネルを非表示";
 "HIDE_RIGHT_PANEL_DESC" = "アプリの再起動が必要です。";
 
-"NO_SUGGESTED_VIDEO" = "おすすめ動画を非表示(YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "動画終了時のおすすめ動画のポップアップを非表示にします。";
-
 "HIDE_HEATWAVES" = "ヒートウェーブを非表示";
 "HIDE_HEATWAVES_DESC" = "動画プレーヤーのヒートウェーブを非表示にします。アプリの再起動が必要です。";
 
@@ -94,17 +91,11 @@
 "NEW_MINIPLAYER_STYLE" = "新しいミニプレーヤーバー (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "アプリの再起動が必要です。";
 
-"STOCK_VOLUME_HUD" = "iOSの標準の音量HUDを使用する";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "キャストボタンを非表示";
 "HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です。";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "ナビゲーションバーのiSponsorBlockボタンを非表示";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"YT_SPEED" = "YTSpeedを有効化";
-"YT_SPEED_DESC" = "より多くの再生速度を選択できるようになります。アプリの再起動が必要です。";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -114,12 +105,6 @@
 
 "ENABLE_FLEX" = "FLEXを有効化";
 "ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
-
-"UN_SHORTS" = "ショートを非表示 (YTUnShorts)";
-"UN_SHORTS_DESC" = "YouTubeフィードからショート動画を非表示にします。";
-
-"HIDE_COMMUNITY_POSTS" = "コミュニティを非表示";
-"HIDE_COMMUNITY_POSTS_DESC" = "コミュニティを非表示にします。アプリの再起動が必要です。";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";

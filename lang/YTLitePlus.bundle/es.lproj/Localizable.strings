@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Ocultar el panel derecho en modo pantalla completa";
 "HIDE_RIGHT_PANEL_DESC" = "Es necesario reiniciar la aplicación.";
 
-"NO_SUGGESTED_VIDEO" = "Ocultar vídeos sugeridos (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Eliminar la ventana emergente de vídeo sugerido al terminar un vídeo";
-
 "HIDE_HEATWAVES" = "Ocultar Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Oculta las Heatwaves en el reproductor de vídeo. Es necesario reiniciar la aplicación.";
 
@@ -94,17 +91,11 @@
 "NEW_MINIPLAYER_STYLE" = "Nuevo estilo de barra de minirreproductores (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Es necesario reiniciar la aplicación";
 
-"STOCK_VOLUME_HUD" = "Utilizar el HUD de volumen de acciones de iOS";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Ocultar botón Cast";
 "HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"YT_SPEED" = "Activar YTSpeed";
-"YT_SPEED_DESC" = "Activa YTSpeed para tener más opciones de velocidad de reproducción. Es necesario reiniciar la aplicación.";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -114,12 +105,6 @@
 
 "ENABLE_FLEX" = "Habilitar FLEX";
 "ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
-
-"UN_SHORTS" = "Ocultar Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Quitar los Shorts de YouTube";
-
-"HIDE_COMMUNITY_POSTS" = "Ocultar publicaciones de la comunidad";
-"HIDE_COMMUNITY_POSTS_DESC" = "Oculta las publicaciones de la comunidad. Es necesario reiniciar la aplicación.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activar App Version Spoofer (Lite)";

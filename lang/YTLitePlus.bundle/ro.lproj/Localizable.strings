@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Ascunde panoul lateral în modul ecran complet";
 "HIDE_RIGHT_PANEL_DESC" = "Este necesară repornirea aplicației.";
 
-"NO_SUGGESTED_VIDEO" = "Ascundere videoclipuri sugerate (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Ascunde fereastra de clipuri sugerate care apare după terminarea videoclipului curent.";
-
 "HIDE_HEATWAVES" = "Ascunde Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Ascundere Heatwaves în player-ul video. Este necesară repornirea aplicației.";
 
@@ -94,17 +91,11 @@
 "NEW_MINIPLAYER_STYLE" = "Stil nou bară Miniplayer (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Este necesară repornirea aplicației.";
 
-"STOCK_VOLUME_HUD" = "Utilizare aspect bară volum al iOS-ului";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Ascundere buton Proiectare";
 "HIDE_CAST_BUTTON_DESC" = "Este necesară repornirea aplicației.";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ascundere buton iSponsorBlock în bara de navigație";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
-
-"YT_SPEED" = "Activare YTSpeed";
-"YT_SPEED_DESC" = "Activați YTSpeed pentru a avea mai multe opțiuni pentru viteza redării. Este necesară repornirea aplicației.";
 
 "HIDE_HOME_TAB" = "Hide Home Tab";
 "HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
@@ -114,12 +105,6 @@
 
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
-
-"UN_SHORTS" = "Ascunde Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Ascunde Shorts din feed-ul YouTube.";
-
-"HIDE_COMMUNITY_POSTS" = "Ascunde posturi Comunitate";
-"HIDE_COMMUNITY_POSTS_DESC" = "Ascunde posturile tip Comunitate. Este necesară repornirea aplicației.";
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
