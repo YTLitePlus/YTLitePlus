@@ -20,6 +20,12 @@
 "HIDE_HEATWAVES" = "إخفاء موجات الحر";
 "HIDE_HEATWAVES_DESC" = "يخفي موجات الحر في مشغل الفيديو. مطلوب إعادة تشغيل التطبيق.";
 
+"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+
 "SEEK_ANYWHERE" = "Seek Anywhere Gesture";
 "SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
 

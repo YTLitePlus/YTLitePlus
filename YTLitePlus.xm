@@ -336,24 +336,6 @@ BOOL isTabSelected = NO;
 %end
 %end
 
-%group gDisableAmbientMode
-%hook YTColdConfig
-- (BOOL)disableCinematicForLowPowerMode { return NO; }
-- (BOOL)enableCinematicContainer { return NO; }
-- (BOOL)enableCinematicContainerOnClient { return NO; }
-- (BOOL)enableCinematicContainerOnTablet { return NO; }
-- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
-- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
-- (BOOL)iosCinematicContainerClientImprovement { return NO; }
-- (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
-- (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
-- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
-%end
-%end
-
 // Hide YouTube Heatwaves in Video Player (YouTube v17.19.2-present) - @level3tjg - https://www.reddit.com/r/jailbreak/comments/v29yvk/
 %group gHideHeatwaves
 %hook YTInlinePlayerBarContainerView
@@ -496,6 +478,22 @@ BOOL isTabSelected = NO;
         return;
     }
     %orig;
+}
+%end
+
+// Disable Ambient Mode - @bhackel
+%hook YTWatchCinematicContainerController
+- (BOOL)isCinematicLightingAvailable {
+    // Check if we are in fullscreen or not, then decide if ambient is disabled
+    YTWatchViewController *watchViewController = (YTWatchViewController *) self.parentResponder;
+    BOOL isFullscreen = watchViewController.fullscreen;
+    if (IsEnabled(@"disableAmbientModePortrait_enabled") && !isFullscreen) {
+        return NO;   
+    }
+    if (IsEnabled(@"disableAmbientModeFullscreen_enabled") && isFullscreen) {
+        return NO;
+    }
+    return %orig;
 }
 %end
 
@@ -659,9 +657,6 @@ BOOL isTabSelected = NO;
     }
     if (IsEnabled(@"ytNoModernUI_enabled")) {
         %init(gYTNoModernUI);
-    }
-    if (IsEnabled(@"disableAmbientMode_enabled")) {
-        %init(gDisableAmbientMode);
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
