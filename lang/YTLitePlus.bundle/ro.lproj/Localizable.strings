@@ -26,6 +26,9 @@
 "ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
 "ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
 
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
 

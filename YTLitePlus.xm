@@ -446,6 +446,27 @@ BOOL isTabSelected = NO;
     %end
 %end
 
+// Disable pull to enter vertical/portrait fullscreen gesture - @bhackel
+// This was introduced in version 19.XX
+// This does not apply to portrait videos
+%group gDisablePullToFull
+%hook YTWatchPullToFullController
+- (BOOL)shouldRecognizeOverscrollEventsFromWatchOverscrollController:(id)arg1 {
+    // Get the current player orientation
+    YTWatchViewController *watchViewController = self.playerViewSource;
+    NSUInteger allowedFullScreenOrientations = [watchViewController allowedFullScreenOrientations];
+    // Check if the current player orientation is portrait
+    if (allowedFullScreenOrientations == UIInterfaceOrientationMaskAllButUpsideDown
+            || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortrait
+            || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortraitUpsideDown) {
+        return %orig;
+    } else {
+        return NO;
+    }
+}
+%end
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -645,6 +666,9 @@ BOOL isTabSelected = NO;
     }
     if (IsEnabled(@"YTTapToSeek_enabled")) {
         %init(gYTTapToSeek);
+    }
+    if (IsEnabled(@"disablePullToFull_enabled")) {
+        %init(gDisablePullToFull);
     }
 
     // Change the default value of some options
