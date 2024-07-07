@@ -33,6 +33,11 @@
 #import "Tweaks/YouTubeHeader/YTVideoWithContextNode.h"
 #import "Tweaks/YouTubeHeader/ELMCellNode.h"
 #import "Tweaks/YouTubeHeader/ELMNodeController.h"
+#import "Tweaks/YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
+#import "Tweaks/YouTubeHeader/YTInlinePlayerBarContainerView.h"
+#import "Tweaks/YouTubeHeader/YTWatchViewController.h"
+#import "Tweaks/YouTubeHeader/YTWatchPullToFullController.h"
+#import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -73,9 +78,6 @@
 - (void)confirmAlertDidPressConfirm;
 @end 
 
-@interface YTMainAppControlsOverlayView: UIView
-@end
-
 @interface YTTransportControlsButtonView : UIView
 @end
 
@@ -112,7 +114,7 @@
 @end
 
 // BigYTMiniPlayer
-@interface YTMainAppVideoPlayerOverlayView : UIView
+@interface YTMainAppVideoPlayerOverlayView (YTLitePlus)
 - (UIViewController *)_viewControllerForAncestor;
 @end
 
