@@ -109,9 +109,6 @@
 "ENABLE_FLEX" = "Habilitar FLEX";
 "ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
 
-"UN_SHORTS" = "Ocultar Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Quitar los Shorts de YouTube";
-
 "HIDE_COMMUNITY_POSTS" = "Ocultar publicaciones de la comunidad";
 "HIDE_COMMUNITY_POSTS_DESC" = "Oculta las publicaciones de la comunidad. Es necesario reiniciar la aplicación.";
 

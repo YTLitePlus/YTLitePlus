@@ -124,9 +124,6 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "ENABLE_FLEX" = "Enable FLEX";
 "ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
-
 "HIDE_COMMUNITY_POSTS" = "Hide community posts";
 "HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
 

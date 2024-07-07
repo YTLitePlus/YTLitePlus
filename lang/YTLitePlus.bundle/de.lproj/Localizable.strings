@@ -109,9 +109,6 @@
 "ENABLE_FLEX" = "FLEX aktivieren";
 "ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
 
-"UN_SHORTS" = "Shorts ausblenden (YTUnShorts)";
-"UN_SHORTS_DESC" = "Entferne die Shorts aus dem YouTube-Feed.";
-
 "HIDE_COMMUNITY_POSTS" = "Community-Beiträge ausblenden";
 "HIDE_COMMUNITY_POSTS_DESC" = "Versteckt die Community-Beiträge. Ein Neustart der App ist erforderlich.";
 

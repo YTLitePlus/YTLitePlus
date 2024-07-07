@@ -109,9 +109,6 @@
 "ENABLE_FLEX" = "تمكين FLEX";
 "ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
 
-"UN_SHORTS" = "Hide Shorts (YTUnShorts)";
-"UN_SHORTS_DESC" = "Remove Shorts from YouTube feed.";
-
 "HIDE_COMMUNITY_POSTS" = "Hide community posts";
 "HIDE_COMMUNITY_POSTS_DESC" = "Hides the Community Posts. App restart is required.";
 
