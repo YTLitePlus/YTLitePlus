@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Hide the right panel in fullscreen mode";
 "HIDE_RIGHT_PANEL_DESC" = "App restart is required.";
 
-"NO_SUGGESTED_VIDEO" = "Hide Suggested Video (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Remove the suggested video popup when finishing a video";
-
 "HIDE_HEATWAVES" = "Hide Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Hides the Heatwaves in the video player. App restart is required.";
 

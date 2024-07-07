@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Ocultar el panel derecho en modo pantalla completa";
 "HIDE_RIGHT_PANEL_DESC" = "Es necesario reiniciar la aplicación.";
 
-"NO_SUGGESTED_VIDEO" = "Ocultar vídeos sugeridos (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Eliminar la ventana emergente de vídeo sugerido al terminar un vídeo";
-
 "HIDE_HEATWAVES" = "Ocultar Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Oculta las Heatwaves en el reproductor de vídeo. Es necesario reiniciar la aplicación.";
 

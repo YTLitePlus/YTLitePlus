@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Rechtes Bedienfeld im Vollbildmodus ausbleden";
 "HIDE_RIGHT_PANEL_DESC" = "Blende das rechte Bedienfeld im Vollbildmodus aus. Ein Neustart der App ist erforderlich.";
 
-"NO_SUGGESTED_VIDEO" = "Vorgeschlagenes Video ausblenden";
-"NO_SUGGESTED_VIDEO_DESC" = "(YTNoSuggestedVideo) Entferne das vorgeschlagene Video-Popup, wenn ein Video endet.";
-
 "HIDE_HEATWAVES" = "Hitzewellen ausblenden";
 "HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
 

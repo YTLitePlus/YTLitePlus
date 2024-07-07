@@ -17,9 +17,6 @@
 "HIDE_RIGHT_PANEL" = "Ascunde panoul lateral în modul ecran complet";
 "HIDE_RIGHT_PANEL_DESC" = "Este necesară repornirea aplicației.";
 
-"NO_SUGGESTED_VIDEO" = "Ascundere videoclipuri sugerate (YTNoSuggestedVideo)";
-"NO_SUGGESTED_VIDEO_DESC" = "Ascunde fereastra de clipuri sugerate care apare după terminarea videoclipului curent.";
-
 "HIDE_HEATWAVES" = "Ascunde Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Ascundere Heatwaves în player-ul video. Este necesară repornirea aplicației.";
 

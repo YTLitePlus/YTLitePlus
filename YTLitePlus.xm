@@ -444,16 +444,6 @@ static NSData *cellDividerData = nil;
 }
 %end
 
-// YTNoSuggestedVideo - https://github.com/bhackel/YTNoSuggestedVideo
-%hook YTMainAppVideoPlayerOverlayViewController
-- (bool)shouldShowAutonavEndscreen {
-    if (IsEnabled(@"noSuggestedVideo_enabled")) {
-        return false;
-    }
-    return %orig;
-}
-%end
-
 // Seek anywhere gesture - @bhackel
 %hook YTColdConfig
 - (BOOL)speedMasterArm2FastForwardWithoutSeekBySliding {
