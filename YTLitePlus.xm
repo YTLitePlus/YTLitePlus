@@ -462,8 +462,6 @@ static NSData *cellDividerData = nil;
 // New Settings UI - @bhackel
 %hook YTColdConfig
 - (BOOL)mainAppCoreClientEnableCairoSettings { 
-    NSLog(@"bhackel: mainAppCoreClientEnableCairoSettings");
-    return YES;
     return IS_ENABLED(@"newSettingsUI_enabled"); 
 }
 %end
