@@ -23,6 +23,9 @@
 "SEEK_ANYWHERE" = "Seek Anywhere Gesture";
 "SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
 
+"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
+"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
 
