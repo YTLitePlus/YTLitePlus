@@ -467,6 +467,38 @@ BOOL isTabSelected = NO;
 %end
 %end
 
+// Always use remaining time in the video player - @bhackel
+%hook YTPlayerBarController
+// When a new video is played, enable time remaining flag
+- (void)setActiveSingleVideo:(id)arg1 {
+    %orig;
+    if (IS_ENABLED(@"alwaysShowRemainingTime_enabled")) {
+        // Get the player bar view
+        YTInlinePlayerBarContainerView *playerBar = self.playerBar;
+        if (playerBar) {
+            // Enable the time remaining flag
+            playerBar.shouldDisplayTimeRemaining = YES;
+        }
+    }
+}
+%end
+
+// Disable toggle time remaining - @bhackel
+%hook YTInlinePlayerBarContainerView
+- (void)setShouldDisplayTimeRemaining:(BOOL)arg1 {
+    if (IS_ENABLED(@"disableRemainingTime_enabled")) {
+        // Set true if alwaysShowRemainingTime
+        if (IS_ENABLED(@"alwaysShowRemainingTime_enabled")) {
+            %orig(YES);
+        } else {
+            %orig(NO);
+        }
+        return;
+    }
+    %orig;
+}
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
