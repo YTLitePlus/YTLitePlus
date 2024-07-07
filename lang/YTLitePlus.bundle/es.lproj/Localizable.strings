@@ -91,9 +91,6 @@
 "NEW_MINIPLAYER_STYLE" = "Nuevo estilo de barra de minirreproductores (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Es necesario reiniciar la aplicación";
 
-"STOCK_VOLUME_HUD" = "Utilizar el HUD de volumen de acciones de iOS";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Ocultar botón Cast";
 "HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
 

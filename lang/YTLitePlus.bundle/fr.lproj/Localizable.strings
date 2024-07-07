@@ -94,9 +94,6 @@
 "NEW_MINIPLAYER_STYLE" = "Nouveau style de mini-lecteur (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Un redémarrage de l'application est requis.";
 
-"STOCK_VOLUME_HUD" = "Utiliser le HUD de volume iOS par défaut";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Masquer le bouton Cast";
 "HIDE_CAST_BUTTON_DESC" = "Un redémarrage de l'application est requis.";
 

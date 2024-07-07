@@ -91,9 +91,6 @@
 "NEW_MINIPLAYER_STYLE" = "新しいミニプレーヤーバー (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "アプリの再起動が必要です。";
 
-"STOCK_VOLUME_HUD" = "iOSの標準の音量HUDを使用する";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "キャストボタンを非表示";
 "HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です。";
 

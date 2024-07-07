@@ -106,9 +106,6 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "NEW_MINIPLAYER_STYLE" = "New mini player bar style (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "App restart is required.";
 
-"STOCK_VOLUME_HUD" = "Use iOS stock volume HUD";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "Hide Cast button";
 "HIDE_CAST_BUTTON_DESC" = "App restart is required.";
 

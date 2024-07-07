@@ -532,21 +532,6 @@ static NSData *cellDividerData = nil;
 %end
 %end
 
-// YTStockVolumeHUD - https://github.com/lilacvibes/YTStockVolumeHUD
-%group gStockVolumeHUD
-%hook YTVolumeBarView
-- (void)volumeChanged:(id)arg1 {
-	%orig(nil);
-}
-%end
-
-%hook UIApplication 
-- (void)setSystemVolumeHUDEnabled:(BOOL)arg1 forAudioCategory:(id)arg2 {
-	%orig(true, arg2);
-}
-%end
-%end
-
 // App Settings Overlay Options
 %group gDisableAccountSection
 %hook YTSettingsSectionItemManager
@@ -688,9 +673,6 @@ static NSData *cellDividerData = nil;
     }
     if (IsEnabled(@"ytSpeed_enabled")) {
         %init(gYTSpeed);
-    }
-    if (IsEnabled(@"stockVolumeHUD_enabled")) {
-        %init(gStockVolumeHUD);
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);

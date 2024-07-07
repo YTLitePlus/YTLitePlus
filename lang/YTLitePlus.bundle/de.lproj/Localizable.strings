@@ -91,9 +91,6 @@
 "NEW_MINIPLAYER_STYLE" = "Neuer Mini-Player-Leistenstil";
 "NEW_MINIPLAYER_STYLE_DESC" = "(BigYTMiniPlayer) Ein Neustart der App ist erforderlich.";
 
-"STOCK_VOLUME_HUD" = "iOS Lautstärkeanzeige";
-"STOCK_VOLUME_HUD_DESC" = "Verwende die iOS Lautstärkeanzeige, wenn du die Lautstärke anpasst.";
-
 "HIDE_CAST_BUTTON" = "Cast button verstecken";
 "HIDE_CAST_BUTTON_DESC" = "Google-Cast Button verstecken. Ein Neustart der App ist erforderlich.";
 

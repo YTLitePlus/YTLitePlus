@@ -92,9 +92,6 @@
 "NEW_MINIPLAYER_STYLE" = "啟用應用程式內的新迷你播放器（BigYTMiniPlayer）";
 "NEW_MINIPLAYER_STYLE_DESC" = "重新啟動應用程式以套用變更。";
 
-"STOCK_VOLUME_HUD" = "使用 iOS 預設音量條";
-"STOCK_VOLUME_HUD_DESC" = "";
-
 "HIDE_CAST_BUTTON" = "隱藏投放按鈕";
 "HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
 
