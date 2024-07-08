@@ -29,8 +29,26 @@
 "HIDE_HEATWAVES" = "Ẩn sóng nhiệt";
 "HIDE_HEATWAVES_DESC" = "Ẩn Sóng nhiệt trong trình phát video. Khởi động lại ứng dụng là bắt buộc.";
 
+"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+
 "SEEK_ANYWHERE" = "Seek Anywhere Gesture";
 "SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
+"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
 
 // Shorts controls overlay options
 "SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Tùy chọn lớp phủ điều khiển quần short";

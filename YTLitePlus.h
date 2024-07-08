@@ -33,6 +33,12 @@
 #import "Tweaks/YouTubeHeader/YTVideoWithContextNode.h"
 #import "Tweaks/YouTubeHeader/ELMCellNode.h"
 #import "Tweaks/YouTubeHeader/ELMNodeController.h"
+#import "Tweaks/YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
+#import "Tweaks/YouTubeHeader/YTInlinePlayerBarContainerView.h"
+#import "Tweaks/YouTubeHeader/YTWatchViewController.h"
+#import "Tweaks/YouTubeHeader/YTWatchPullToFullController.h"
+#import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
+#import "Tweaks/YouTubeHeader/YTResponder.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -72,9 +78,6 @@
 - (void)confirmAlertDidPressConfirm;
 @end 
 
-@interface YTMainAppControlsOverlayView: UIView
-@end
-
 @interface YTTransportControlsButtonView : UIView
 @end
 
@@ -101,6 +104,16 @@
 - (void)resetViewControllersCache;
 @end
 
+// Disable ambient mode - @bhackel
+@interface YTWatchViewController (YTLitePlus) <YTResponder>
+@property (nonatomic, assign, readwrite, getter=isFullscreen) BOOL fullscreen;
+@end
+
+@interface YTWatchCinematicContainerController : NSObject
+@property id <YTResponder> parentResponder;
+@end
+
+
 // SponsorBlock button in Nav bar
 @interface MDCButton : UIButton
 @end
@@ -111,7 +124,7 @@
 @end
 
 // BigYTMiniPlayer
-@interface YTMainAppVideoPlayerOverlayView : UIView
+@interface YTMainAppVideoPlayerOverlayView (YTLitePlus)
 - (UIViewController *)_viewControllerForAncestor;
 @end
 
