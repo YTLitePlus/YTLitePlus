@@ -6,8 +6,7 @@
 	url = https://github.com/Balackburn/YouPiP.git
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
-	url = https://github.com/arichornloverALT/Return-YouTube-Dislikes.git
-	branch = uYouEnhanced
+	url = https://github.com/Balackburn/Return-YouTube-Dislikes.git
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
 	url = https://github.com/hbang/Alderis.git
