@@ -67,6 +67,7 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+/* TEMP-DISABLED
 // Fix Google Sign in by @PoomSmart, @level3tjg & Dayanch96 (qnblackcat/uYouPlus#684)
 BOOL isSelf() {
     NSArray *address = [NSThread callStackReturnAddresses];
@@ -99,6 +100,7 @@ BOOL isSelf() {
     return %orig;
 }
 %end
+*/
 
 // Skips content warning before playing *some videos - @PoomSmart
 %hook YTPlayabilityResolutionUserActionUIController
