@@ -67,6 +67,39 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
+// Fix Google Sign in by @PoomSmart, @level3tjg & Dayanch96 (qnblackcat/uYouPlus#684)
+BOOL isSelf() {
+    NSArray *address = [NSThread callStackReturnAddresses];
+    Dl_info info = {0};
+    if (dladdr((void *)[address[2] longLongValue], &info) == 0) return NO;
+    NSString *path = [NSString stringWithUTF8String:info.dli_fname];
+    return [path hasPrefix:NSBundle.mainBundle.bundlePath];
+}
+%hook NSBundle
+- (NSString *)bundleIdentifier {
+    return isSelf() ? "com.google.ios.youtube" : %orig;
+}
+- (NSDictionary *)infoDictionary {
+    NSDictionary *dict = %orig;
+    if (!isSelf())
+        return %orig;
+    NSMutableDictionary *info = [dict mutableCopy];
+    if (info[@"CFBundleIdentifier"]) info[@"CFBundleIdentifier"] = @"com.google.ios.youtube";
+    if (info[@"CFBundleDisplayName"]) info[@"CFBundleDisplayName"] = @"YouTube";
+    if (info[@"CFBundleName"]) info[@"CFBundleName"] = @"YouTube";
+    return info;
+}
+- (id)objectForInfoDictionaryKey:(NSString *)key {
+    if (!isSelf())
+        return %orig;
+    if ([key isEqualToString:@"CFBundleIdentifier"])
+        return @"com.google.ios.youtube";
+    if ([key isEqualToString:@"CFBundleDisplayName"] || [key isEqualToString:@"CFBundleName"])
+        return @"YouTube";
+    return %orig;
+}
+%end
+
 // Skips content warning before playing *some videos - @PoomSmart
 %hook YTPlayabilityResolutionUserActionUIController
 - (void)showConfirmAlert { [self confirmAlertDidPressConfirm]; }
