@@ -28,7 +28,7 @@
         switchBlock:^BOOL (YTSettingsCell *cell, BOOL enable) { \
             code \
         } \
-        settingItemId:0]]
+        settingItemId:0]
 
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
