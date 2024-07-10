@@ -431,6 +431,32 @@ BOOL isTabSelected = NO;
 }
 %end
 
+// Fullscreen to the Right (iPhone-exclusive) - @arichornlover
+// NOTE: Please turn off the “Portrait Fullscreen” Option in YTLite while the option "Fullscreen to the Right" is enabled below.
+%group gFullscreenToTheRight
+%hook YTWatchViewController
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    if ([self isFullscreen] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationLandscapeRight;
+    }
+    return %orig;
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if ([self isFullscreen] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskLandscape;
+    }
+    return %orig;
+}
+%new
+- (void)forceRightFullscreenOrientation {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    }
+}
+%end
+%end
+
 // YTTapToSeek - https://github.com/bhackel/YTTapToSeek
 %group gYTTapToSeek
     %hook YTInlinePlayerBarContainerView
@@ -715,6 +741,9 @@ BOOL isTabSelected = NO;
     }
     if (IsEnabled(@"fixCasting_enabled")) {
         %init(gFixCasting);
+    }
+    if (IsEnabled(@"fullscreenToTheRight_enabled")) {
+        %init(gFullscreenToTheRight);
     }
     if (IsEnabled(@"YTTapToSeek_enabled")) {
         %init(gYTTapToSeek);
