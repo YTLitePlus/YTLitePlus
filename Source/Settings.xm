@@ -19,6 +19,7 @@
         } \
         settingItemId:0]
 
+/*
 // Custom switch item that has customizable code
 #define CUSTOM_SWITCH(title, description, key, code) \
     [YTSettingsSectionItemClass switchItemWithTitle:title \
@@ -29,6 +30,7 @@
             code \
         } \
         settingItemId:0]
+*/
 
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
@@ -130,23 +132,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"HIDE_HEATWAVES"), LOC(@"HIDE_HEATWAVES_DESC"), @"hideHeatwaves_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_AMBIENT_PORTRAIT"), LOC(@"DISABLE_AMBIENT_PORTRAIT_DESC"), @"disableAmbientModePortrait_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_AMBIENT_FULLSCREEN"), LOC(@"DISABLE_AMBIENT_FULLSCREEN_DESC"), @"disableAmbientModeFullscreen_enabled"),
-            CUSTOM_SWITCH(
-                LOC(@"FULLSCREEN_TO_THE_RIGHT"), 
-                LOC(@"FULLSCREEN_TO_THE_RIGHT_DESC"), 
-                @"fullscreenToTheRight_enabled",
-                ({
-                    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-                        [[NSUserDefaults standardUserDefaults] setBool:enable forKey:@"fullscreenToTheRight_enabled"];
-                        return YES;
-                    } else {
-                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"IPAD_UNSUPPORTED_TITLE" message:@"IPAD_UNSUPPORTED_MESSAGE" preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                        [alert addAction:okAction];
-                        [settingsViewController presentViewController:alert animated:YES completion:nil];
-                        return NO;
-                    }
-                });
-            );
+            BASIC_SWITCH(LOC(@"FULLSCREEN_TO_THE_RIGHT"), LOC(@"FULLSCREEN_TO_THE_RIGHT_DESC"), @"fullscreenToTheRight_enabled"),
             BASIC_SWITCH(LOC(@"SEEK_ANYWHERE"), LOC(@"SEEK_ANYWHERE_DESC"), @"seekAnywhere_enabled"),
             BASIC_SWITCH(LOC(@"ENABLE_TAP_TO_SEEK"), LOC(@"ENABLE_TAP_TO_SEEK_DESC"), @"YTTapToSeek_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_PULL_TO_FULLSCREEN_GESTURE"), LOC(@"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC"), @"disablePullToFull_enabled"),
