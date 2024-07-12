@@ -633,7 +633,10 @@ BOOL isTabSelected = NO;
 %hook UIDevice
 - (long long)userInterfaceIdiom {
     return YES;
-} 
+}
+- (NSInteger)userInterfaceIdiom {
+    return UIUserInterfaceIdiomPad;
+}
 %end
 %hook UIStatusBarStyleAttributes
 - (long long)idiom {
