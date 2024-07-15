@@ -4,11 +4,9 @@
 [submodule "Tweaks/YouPiP"]
 	path = Tweaks/YouPiP
 	url = https://github.com/arichornloverALT/YouPiP.git
-	branch = 19.20.2
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
 	url = https://github.com/arichornloverALT/Return-YouTube-Dislikes.git
-	branch = 19.20.2
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
 	url = https://github.com/hbang/Alderis.git
