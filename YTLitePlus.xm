@@ -249,6 +249,14 @@ BOOL isTabSelected = NO;
 %end
 %end
 
+%group gDisableEngagementOverlay
+%hook YTFullscreenEngagementOverlayController
+- (void)setEnabled:(BOOL)enabled {
+    %orig(NO);
+}
+%end
+%end
+
 // YTNoModernUI - @arichornlover
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Original Version
@@ -758,6 +766,9 @@ BOOL isTabSelected = NO;
     }
     if (IsEnabled(@"disablePullToFull_enabled")) {
         %init(gDisablePullToFull);
+    }
+    if (IsEnabled(@"disableEngagementOverlay_enabled")) {
+        %init(gDisableEngagementOverlay);
     }
 
     // Change the default value of some options
