@@ -13,7 +13,7 @@ on:
       delete_workflow_pattern:
         description: 'Name or filename of the workflow (if not set, all workflows are targeted)'
         required: false
-        default: 'Build and Release uYouEnhanced' # default value is ""
+        default: 'Build and Release YTLitePlus' # default value is ""
       delete_workflow_by_state_pattern:
         description: 'Filter workflows by state: active, deleted, disabled_fork, disabled_inactivity, disabled_manually'
         required: true

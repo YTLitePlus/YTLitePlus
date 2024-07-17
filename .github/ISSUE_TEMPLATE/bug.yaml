@@ -1,47 +1,100 @@
 name: Bug
-description: Make sure you complete the template. Otherwise, it will be closed without further explanation!
+description: Report a bug here
 title: "[Bug] Replace this with your title"
 labels: bug
 body:
 - type: checkboxes
   attributes:
     label: Is there an existing issue for this?
-    description: _Please search to see if an issue already exists for the bug you encountered_
     options:
     - label: I have searched the existing issues
       required: true
-      
-- type: checkboxes
+
+- type: markdown
   attributes:
-    label: Have you read the FAQ?
-    description: _Make sure you visit the [**FAQ**](https://github.com/qnblackcat/YTLitePlus/wiki/FAQ) page first!_
-    options:
-    - label: Yes, I read the FAQ
-      required: true
-    
-- type: textarea
+    value: "## Device Info"
+
+- type: input
   attributes:
-    label: Device info
-    description: 
-    value: |
-        - iOS/iPadOS version:
-        - Device model:
-        - Sideload tool (AltStore, Sideloadly, TrollStore,...):
-        - The specific version of YTLitePlus (**latest** or **newest** is **NOT** a version number!):
+    label: iOS/iPadOS version
+    placeholder: iOS 17.5.1
   validations:
     required: true
+
+- type: input
+  attributes:
+    label: Device model
+    placeholder: iPhone 15 Pro Max
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: Sideload method
+    placeholder: AltStore, Sideloadly, TrollStore, Signulous, deb, ...
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: Tweak version
+    placeholder: YTLitePlus - v19.xx.x-4.0.1
+    description: "**latest or newest is NOT a version number!**"
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Do you use YouTube Premium?
+    options:
+      - ❌ No, I don't use YouTube Premium
+      - ✅ Yes, I do use YouTube Premium
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Are you using the newest version of YTLitePlus?
+    description: Update to the [latest version](https://github.com/YTLitePlus/YTLitePlus/releases) to see if it fixes your issue
+    options:
+      - ✅ Yes, I'm using the latest version
+      - ❌ No, I'll explain at the end
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Does the issue happen with the official YouTube from AppStore?
+    options:
+      - ❌ No, I can't reproduce this issue in the official YouTube from AppStore 
+      - ✅ Yes, I can reproduce this issue in the official YouTube from AppStore 
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Method used to build the iPA
+    options:
+      - buildapp.yml (GitHub Actions)
+      - build.sh (Shell script)
+  validations:
+    required: true
+
+- type: markdown
+  attributes:
+    value: "## Description"
 
 - type: textarea
   attributes:
     label: Describe the bug
-    description: _Please attach videos or screenshots if possible_
+    description: Please attach videos or screenshots if possible
   validations:
     required: true
 
 - type: textarea
   attributes:
     label: Steps to reproduce the issue
-    description: _Please attach videos or screenshots if possible_
+    description: Please attach videos or screenshots if possible
     value: |
         1. 
         2. 
@@ -53,34 +106,11 @@ body:
   id: logs
   attributes:
     label: Crash log (if the app crashes)
-    description: _If somehow the app crashes, **you must provide the crash log**. It can be found in your device's Settings App > Privacy > Analytics & Improvements > Analytics Data > Youtube-xxx-xxx.ips_
+    description: It can be found in Settings App > Privacy > Analytics & Improvements > Analytics Data > Youtube-xxx-xxx.ips
     render: shell
-
-- type: dropdown
-  attributes:
-    label: Are you using the newest version of YTLitePlus? If not, why?
-    description: _Developers spend time and effort to fix bugs & add improvements with every release. Why don't you update to the [latest version](https://github.com/Balackburn/YTLitePlus/releases/latest) before reporting about an issue?_
-    multiple: false
-    options:
-      - ✅ Yes, I'm using the latest version of YTLitePlus right now
-      - ❌ No, I'll explain at the end of the template
-  validations:
-    required: true
-
-- type: dropdown
-  attributes:
-    label: Does the issue happen with the official YouTube from AppStore?
-    description: _Well, YouTube itself is buggy sometimes..._
-    multiple: false
-    options:
-      - ❌ No, It doesn't
-      - ✅ Yes, It does
-  validations:
-    required: true
 
 - type: textarea
   attributes:
     label: Additional context
-    description: _Um, anything else you want to say?_
   validations:
     required: false
