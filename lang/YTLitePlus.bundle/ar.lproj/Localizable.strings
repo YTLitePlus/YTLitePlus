@@ -41,6 +41,9 @@
 "DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
 "DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
 
+"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 

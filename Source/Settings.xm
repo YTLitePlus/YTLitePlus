@@ -138,6 +138,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"DISABLE_PULL_TO_FULLSCREEN_GESTURE"), LOC(@"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC"), @"disablePullToFull_enabled"),
             BASIC_SWITCH(LOC(@"ALWAYS_USE_REMAINING_TIME"), LOC(@"ALWAYS_USE_REMAINING_TIME_DESC"), @"alwaysShowRemainingTime_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_TOGGLE_TIME_REMAINING"), LOC(@"DISABLE_TOGGLE_TIME_REMAINING_DESC"), @"disableRemainingTime_enabled"),
+            BASIC_SWITCH(LOC(@"DISABLE_ENGAGEMENT_OVERLAY"), LOC(@"DISABLE_ENGAGEMENT_OVERLAY_DESC"), @"disableEngagementOverlay_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
