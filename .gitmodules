@@ -1,9 +1,6 @@
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
 	url = https://github.com/arichornloverALT/YTUHD.git
-[submodule "Tweaks/YouPiP"]
-	path = Tweaks/YouPiP
-	url = https://github.com/Balackburn/YouPiP.git
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
 	url = https://github.com/Balackburn/Return-YouTube-Dislikes.git
@@ -49,3 +46,6 @@
 [submodule "Tweaks/YouTubeHeader"]
 	path = Tweaks/YouTubeHeader
 	url = https://github.com/PoomSmart/YouTubeHeader.git
+[submodule "Tweaks/YouPiP"]
+	path = Tweaks/YouPiP
+	url = https://github.com/bhackel/YouPiP
