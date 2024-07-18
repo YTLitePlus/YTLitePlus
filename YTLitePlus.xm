@@ -440,8 +440,8 @@ BOOL isTabSelected = NO;
 }
 %end
 
-// Fullscreen to the Right - @arichornlover
-// NOTE: Please turn off the “Portrait Fullscreen” Option in YTLite while the option "Fullscreen to the Right" is enabled below.
+// Fullscreen to the Right (iPhone-Exclusive) - @arichornlover & @bhackel
+// WARNING: Please turn off the “Portrait Fullscreen” or "iPad Layout" Option in YTLite while the option "Fullscreen to the Right" is enabled below.
 %group gFullscreenToTheRight
 %hook YTWatchViewController
 - (UIInterfaceOrientationMask)allowedFullScreenOrientations {
