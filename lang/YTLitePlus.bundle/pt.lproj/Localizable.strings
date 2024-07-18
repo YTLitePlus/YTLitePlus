@@ -1,137 +1,137 @@
 // Settings
-"VERSION" = "Versão do CercubePlus: %@";
+"VERSION" = "Versão do YTLitePlus: %@";
 "VERSION_CHECK" = "Toque para verificar se há atualização!";
 
 // Video controls overlay options
-"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Controls Overlay Options";
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opções de Sobreposição de Controles de Vídeo";
 
-"ENABLE_SHARE_BUTTON" = "Enable Share Button";
-"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
+"ENABLE_SHARE_BUTTON" = "Ativar o botão 'Compartilhar'";
+"ENABLE_SHARE_BUTTON_DESC" = "Ativa o botão Compartilhar na sobreposição de controles de vídeo.";
 
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Ativar o botão 'Salvar'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Ativa o botão 'Salvar' na sobreposição de controles de vídeo.";
 
-"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
-"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Ocultar Sombras nos Botões de Sobreposição";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Oculta as sombras nos botões de sobreposição Reproduzir/Pausar, Anterior, Próximo, Avançar e Retroceder.";
 
-"HIDE_RIGHT_PANEL" = "Hide the right panel in fullscreen mode";
-"HIDE_RIGHT_PANEL_DESC" = "App restart is required.";
+"HIDE_RIGHT_PANEL" = "Ocultar o painel direito no modo de tela cheia";
+"HIDE_RIGHT_PANEL_DESC" = "A reinicialização do app é necessária.";
 
-"HIDE_HEATWAVES" = "Hide Heatwaves";
-"HIDE_HEATWAVES_DESC" = "Hides the Heatwaves in the video player. App restart is required.";
+"HIDE_HEATWAVES" = "Ocultar Ondas de calor";
+"HIDE_HEATWAVES_DESC" = "Oculta as Ondas de calor no player de vídeo. A reinicialização do app é necessária.";
 
-"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
-"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+"DISABLE_AMBIENT_PORTRAIT" = "Desativar Iluminação cinematográfica (Retrato)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Desativa a iluminação ao redor do título do vídeo";
 
-"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN" = "Desativar Iluminação cinematográfica (Tela cheia)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Desativa a iluminação ao redor do player de vídeo";
 
-"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
-"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+"SEEK_ANYWHERE" = "Gesto de Busca em qualquer lugar";
+"SEEK_ANYWHERE_DESC" = "Segure e arraste o player de vídeo para buscar. Você deve desativar o YTLite - Segurar para velocidade (Hold for speed)";
 
-"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
-"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+"ENABLE_TAP_TO_SEEK" = "Ativar Toque para Buscar";
+"ENABLE_TAP_TO_SEEK_DESC" = "Vá para qualquer lugar em um vídeo tocando uma vez na barra de busca";
 
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Desativar gesto de puxar para tela cheia";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Desativa o gesto de arrastar para entrar em tela cheia vertical. Aplica-se apenas a vídeos em paisagem.";
 
-"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
-"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+"ALWAYS_USE_REMAINING_TIME" = "Sempre usar o tempo restante";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Altera o padrão para mostrar o tempo restante na barra do player.";
 
-"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
-"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+"DISABLE_TOGGLE_TIME_REMAINING" = "Desativar alternar tempo restante";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Desativa a alteração do tempo decorrido para o tempo restante. Use com outra configuração para mostrar sempre o tempo restante.";
 
 "DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
 
 // App settings overlay options
-"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
 
-"HIDE_ACCOUNT_SECTION" = "Hide \"Account\" Section";
-"HIDE_AUTOPLAY_SECTION" = "Hide \"Autoplay\" Section";
-"HIDE_TRYNEWFEATURES_SECTION" = "Hide \"Try New Features\" Section";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide \"Video quality preferences\" Section";
-"HIDE_NOTIFICATIONS_SECTION" = "Hide \"Notifications\" Section";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Hide \"Manage all history\" Section";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide \"Your data in YouTube\" Section";
-"HIDE_PRIVACY_SECTION" = "Hide \"Privacy\" Section";
-"HIDE_LIVECHAT_SECTION" = "Hide \"Live Chat\" Section";
+"HIDE_ACCOUNT_SECTION" = "Ocultar a sessão \"Conta\"";
+"HIDE_AUTOPLAY_SECTION" = "Ocultar a sessão \"Reprodução automática\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ocultar a sessão \"Experimente novos recursos\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ocultar a sessão \"Preferências de qualidade de vídeo\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ocultar a sessão \"Notificações\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ocultar a sessão \"Gerencie todo o histórico\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ocultar a sessão \"Seus dados no YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ocultar a sessão \"Privacidade\"";
+"HIDE_LIVECHAT_SECTION" = "Ocultar a sessão \"Chat ao vivo\"";
 
 // Theme
-"THEME_OPTIONS" = "Theme Options";
+"THEME_OPTIONS" = "Opções de Temas";
 
-"OLED_DARK_THEME" = "OLED dark theme";
-"OLED_DARK_THEME_2" = "OLED dark theme";
-"OLED_DARK_THEME_DESC" = "True dark theme. Might not work correctly in some cases. App restart is required after you enable/disable this option.";
+"OLED_DARK_THEME" = "Modo escuro OLED";
+"OLED_DARK_THEME_2" = "Modo escuro OLED";
+"OLED_DARK_THEME_DESC" = "Verdadeiro tema escuro. Pode não funcionar corretamente em alguns casos. App restart is required after you enable/disable this option.";
 
-"OLD_DARK_THEME" = "Old dark theme";
-"OLD_DARK_THEME_DESC" = "Old YouTube's dark theme (grey theme). App restart is required.";
+"OLD_DARK_THEME" = "Antigo tema escuro";
+"OLD_DARK_THEME_DESC" = "Tema escuro do YouTube antigo (tema cinza). A reinicialização do app é necessária.";
 
-"DEFAULT_THEME" = "Default";
-"DEFAULT_THEME_DESC" = "Default dark(er) theme of YouTube. App restart is required.";
+"DEFAULT_THEME" = "Padrão";
+"DEFAULT_THEME_DESC" = "Tema escuro padrão do YouTube. A reinicialização do app é necessária.";
 
 "OLED_KEYBOARD" = "Teclado OLED";
 "OLED_KEYBOARD_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária.";
 
-"LOW_CONTRAST_MODE" = "Low Contrast Mode";
-"LOW_CONTRAST_MODE_DESC" = "This option will Low Contrast of the texts and buttons just like how the old YouTube Interface was. App restart is required.";
-"LCM_SELECTOR" = "Low contrast mode selection";
-"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
-"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
+"LOW_CONTRAST_MODE" = "Modo de Baixo Contraste";
+"LOW_CONTRAST_MODE_DESC" = "Esta opção terá baixo contraste dos textos e botões, assim como era a antiga interface do YouTube. A reinicialização do app é necessária.";
+"LCM_SELECTOR" = "Seleção do modo de baixo contraste";
+"DEFAULT_LOWCONTRASTMODE" = "(Padrão) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Cor Personalizada) LowContrastMode";
 
 // Miscellaneous
-"MISCELLANEOUS" = "Miscellaneous";
+"MISCELLANEOUS" = "Diversos";
 
-"PLAYBACK_IN_FEEDS" = "Playback in feeds";
-"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
-"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
-"PLAYBACK_IN_FEEDS_OFF" = "Off";
+"PLAYBACK_IN_FEEDS" = "Reprodução nos feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Sempre ativada";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Somente Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Desativada";
 
-"NEW_SETTINGS_UI" = "New Settings UI";
-"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+"NEW_SETTINGS_UI" = "Nova Interface de Configurações";
+"NEW_SETTINGS_UI_DESC" = "Usa a nova Interface de configurações agrupadas. Pode ocultar algumas configurações";
 
-"ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
+"ENABLE_YT_STARTUP_ANIMATION" = "Ative a animação de inicialização do YouTube";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
-"HIDE_MODERN_INTERFACE" = "Hide Modern Interface (YTNoModernUI)";
-"HIDE_MODERN_INTERFACE_DESC" = "Toggle this on to hide any Modern Element added by YouTube. Removes Ambient Mode, Rounded Design & More. App restart is required.";
+"HIDE_MODERN_INTERFACE" = "Ocultar Interface Moderna (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Ative esta opção para ocultar qualquer elemento moderno adicionado pelo YouTube. Remove a iluminação cinematogrática, design arredondado e muito mais. A reinicialização do app é necessária.";
 
-"IPAD_LAYOUT" = "iPad Layout";
-"IPAD_LAYOUT_DESC" = "only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
+"IPAD_LAYOUT" = "Layout do iPad";
+"IPAD_LAYOUT_DESC" = "Use isso apenas se quiser ter o layout do iPad no seu iPhone/iPod atual. A reinicialização do app é necessária.";
 
-"IPHONE_LAYOUT" = "iPhone Layout";
-"IPHONE_LAYOUT_DESC" = "only use this if you want to have the iPhone Layout on your current iPad. App restart is required.";
+"IPHONE_LAYOUT" = "Layout do iPhone";
+"IPHONE_LAYOUT_DESC" = "Use isso apenas se quiser ter o layout do iPhone no seu iPad atual. A reinicialização do app é necessária.";
 
-"CAST_CONFIRM" = "Confirm alert before casting (YTCastConfirm)";
-"CAST_CONFIRM_DESC" = "Show a confirm alert before casting to prevent accidentally hijacking TV.";
-"CASTING" = "Castings";
-"MSG_ARE_YOU_SURE" = "Are you sure you want to start casting?";
-"MSG_YES" = "Yes";
-"MSG_CANCEL" = "Cancel";
+"CAST_CONFIRM" = "Alerta de confirmação antes de transmitir (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Mostra um alerta de confirmação antes da transmissão para evitar o sequestro acidental da TV.";
+"CASTING" = "Transmissão";
+"MSG_ARE_YOU_SURE" = "Tem certeza de que deseja começar a transmitir?";
+"MSG_YES" = "Sim";
+"MSG_CANCEL" = "Cancelar";
 
 "NEW_MINIPLAYER_STYLE" = "Novo estilo de barra de miniplayer (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "A reinicialização do app é necessária.";
 
-"HIDE_CAST_BUTTON" = "Ocultar Botão de transmissão";
+"HIDE_CAST_BUTTON" = "Ocultar o botão Transmitir";
 "HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
 
-"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON" = "Ocultar o botão iSponsorBlock na barra de navegação";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_HOME_TAB" = "Hide Home Tab";
-"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+"HIDE_HOME_TAB" = "Ocultar guia Início";
+"HIDE_HOME_TAB_DESC" = "Tenha cuidado ao ocultar todas as guias";
 
-"FIX_CASTING" = "Fix Casting";
-"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+"FIX_CASTING" = "Corrigir Transmissão";
+"FIX_CASTING_DESC" = "Altera alguns sinalizadores AB para corrigir a transmissão";
 
-"ENABLE_FLEX" = "Enable FLEX";
-"ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
+"ENABLE_FLEX" = "Ativar FLEX";
+"ENABLE_FLEX_DESC" = "Ativa o FLEX para depuração (não recomendado). Deixe isso desligado, a menos que você saiba o que está fazendo.";
 
 // Version Spoofer
-"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
-"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+"APP_VERSION_SPOOFER_LITE" = "Ativar Falsificação da Versão do App (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Ative isto para usar a Falsificação de Versão (Lite) e selecione sua versão preferida abaixo. A reinicialização do app é necessária.";
+"VERSION_SPOOFER_TITLE" = "Selecionar Versão Falsa";
 
 // Other Localization
-"APP_RESTART_DESC" = "App restart is required.";
-"CHANGE_APP_ICON" = "Change App Icon";
+"APP_RESTART_DESC" = "A reinicialização do app é necessária.";
+"CHANGE_APP_ICON" = "Mudar o Ícone do Aplicativo";
