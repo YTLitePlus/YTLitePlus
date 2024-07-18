@@ -41,6 +41,9 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
 "DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
 
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
 "SEEK_ANYWHERE" = "Seek Anywhere Gesture";
 "SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
 

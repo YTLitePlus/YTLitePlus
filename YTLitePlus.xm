@@ -249,6 +249,7 @@ BOOL isTabSelected = NO;
 %end
 %end
 
+// Disable fullscreen engagement overlay - @bhackel
 %group gDisableEngagementOverlay
 %hook YTFullscreenEngagementOverlayController
 - (void)setEnabled:(BOOL)enabled {
@@ -439,30 +440,14 @@ BOOL isTabSelected = NO;
 }
 %end
 
-// Fullscreen to the Right (iPhone-exclusive) - @arichornlover
+// Fullscreen to the Right - @arichornlover
 // NOTE: Please turn off the “Portrait Fullscreen” Option in YTLite while the option "Fullscreen to the Right" is enabled below.
 %group gFullscreenToTheRight
 %hook YTWatchViewController
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    if ([self isFullscreen] && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationLandscapeRight;
-    }
-    return %orig;
+- (UIInterfaceOrientationMask)allowedFullScreenOrientations {
+    UIInterfaceOrientationMask orientations = UIInterfaceOrientationMaskLandscapeRight;
+    return orientations;
 }
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    if ([self isFullscreen] && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskLandscape;
-    }
-    return %orig;
-}
-%new
-- (void)forceRightFullscreenOrientation {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
-        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
-    }
-}
-%end
 %end
 
 // YTTapToSeek - https://github.com/bhackel/YTTapToSeek

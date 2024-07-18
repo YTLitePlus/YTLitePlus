@@ -26,6 +26,9 @@
 "DISABLE_AMBIENT_FULLSCREEN" = "Desativar Iluminação cinematográfica (Tela cheia)";
 "DISABLE_AMBIENT_FULLSCREEN_DESC" = "Desativa a iluminação ao redor do player de vídeo";
 
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
 "SEEK_ANYWHERE" = "Gesto de Busca em qualquer lugar";
 "SEEK_ANYWHERE_DESC" = "Segure e arraste o player de vídeo para buscar. Você deve desativar o YTLite - Segurar para velocidade (Hold for speed)";
 
