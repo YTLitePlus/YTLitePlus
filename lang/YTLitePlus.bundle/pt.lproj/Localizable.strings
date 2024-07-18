@@ -41,8 +41,8 @@
 "DISABLE_TOGGLE_TIME_REMAINING" = "Desativar alternar tempo restante";
 "DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Desativa a alteração do tempo decorrido para o tempo restante. Use com outra configuração para mostrar sempre o tempo restante.";
 
-"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
-"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+"DISABLE_ENGAGEMENT_OVERLAY" = "Desativar sobreposição de engajamento em tela cheia";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desativa o gesto de deslizar para cima e a lista de vídeos sugeridos em tela cheia";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
