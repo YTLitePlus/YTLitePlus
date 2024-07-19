@@ -22,9 +22,6 @@
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
 	url = https://github.com/arichornloverALT/YTVideoOverlay.git
-[submodule "Tweaks/YouQuality"]
-	path = Tweaks/YouQuality
-	url = https://github.com/Balackburn/YouQuality.git
 [submodule "Tweaks/protobuf"]
 	path = Tweaks/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
@@ -49,3 +46,6 @@
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
 	url = https://github.com/PoomSmart/YouMute
+[submodule "Tweaks/YouQuality"]
+	path = Tweaks/YouQuality
+	url = https://github.com/PoomSmart/YouQuality
