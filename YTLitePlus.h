@@ -104,7 +104,7 @@
 - (void)resetViewControllersCache;
 @end
 
-// Disable ambient mode & Fullscreen to the Right - @bhackel
+// Disable ambient mode - @bhackel
 @interface YTWatchViewController (YTLitePlus) <YTResponder>
 @property (nonatomic, assign, readwrite, getter=isFullscreen) BOOL fullscreen;
 @end
