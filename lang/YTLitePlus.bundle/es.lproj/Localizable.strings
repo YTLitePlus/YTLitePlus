@@ -20,32 +20,32 @@
 "HIDE_HEATWAVES" = "Ocultar Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Oculta las Heatwaves en el reproductor de vídeo. Es necesario reiniciar la aplicación.";
 
-"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
-"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+"DISABLE_AMBIENT_PORTRAIT" = "Desactivar el modo ambiente (Retrato)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Desactivar la iluminación alrededor del título del vídeo";
 
-"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN" = "Desactivar el modo ambiente (pantalla completa)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Desactivar la iluminación que rodea al reproductor de vídeo";
 
-"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
-"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+"FULLSCREEN_TO_THE_RIGHT" = "Pantalla completa a la derecha";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Entra siempre en pantalla completa con el botón de inicio a la derecha.";
 
-"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
-"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+"SEEK_ANYWHERE" = "Busca cualquier gesto";
+"SEEK_ANYWHERE_DESC" = "Mantén pulsado y arrastra en el reproductor de vídeo para buscar. Debe desactivar YTLite - Mantener para acelerar";
 
-"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
-"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+"ENABLE_TAP_TO_SEEK" = "Activar el toque para buscar";
+"ENABLE_TAP_TO_SEEK_DESC" = "Salta a cualquier parte de un vídeo pulsando una sola vez la barra de búsqueda";
 
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Desactivar el gesto de pantalla completa";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Desactiva el gesto de arrastrar para entrar en pantalla completa vertical. Solo se aplica a los vídeos apaisados.";
 
-"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
-"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+"ALWAYS_USE_REMAINING_TIME" = "Utilizar siempre el tiempo restante";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Cambia el valor predeterminado para mostrar el tiempo restante en la barra del reproductor.";
 
-"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
-"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+"DISABLE_TOGGLE_TIME_REMAINING" = "Desactivar alternar tiempo restante";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Desactiva el cambio de tiempo transcurrido a tiempo restante. Utilícelo con otro ajuste para mostrar siempre el tiempo restante.";
 
-"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
-"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+"DISABLE_ENGAGEMENT_OVERLAY" = "Desactivar la superposición de compromiso a pantalla completa";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desactivar el gesto de deslizar hacia arriba y la lista de vídeos sugeridos en pantalla completa";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opciones de superposición de los ajustes de la aplicación";
@@ -79,19 +79,19 @@
 "LOW_CONTRAST_MODE" = "Modo de bajo contraste";
 "LOW_CONTRAST_MODE_DESC" = "Esta opción bajará el contraste de los textos y botones como en la antigua interfaz de YouTube. Es necesario reiniciar la aplicación.";
 "LCM_SELECTOR" = "Selección de modo de bajo contraste";
-"DEFAULT_LOWCONTRASTMODE" = "(Por defecto) LowContrastMode";
-"CUSTOM_LOWCONTRASTMODE" = "(Color personalizado) LowContrastMode";
+"DEFAULT_LOWCONTRASTMODE" = "(Por defecto) Modo de bajo contraste";
+"CUSTOM_LOWCONTRASTMODE" = "(Color personalizado) Modo de bajo contraste";
 
 // Miscellaneous
 "MISCELLANEOUS" = "Misceláneos";
 
-"PLAYBACK_IN_FEEDS" = "Playback in feeds";
-"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
-"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
-"PLAYBACK_IN_FEEDS_OFF" = "Off";
+"PLAYBACK_IN_FEEDS" = "Reproducción en feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Siempre encendido";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Sólo Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Desactivado";
 
-"NEW_SETTINGS_UI" = "New Settings UI";
-"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+"NEW_SETTINGS_UI" = "Nueva interfaz de configuración";
+"NEW_SETTINGS_UI_DESC" = "Utiliza la nueva interfaz de configuración agrupada. Puede ocultar algunos ajustes";
 
 "ENABLE_YT_STARTUP_ANIMATION" = "Activar la animación de inicio de YouTube";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
@@ -106,26 +106,26 @@
 "IPHONE_LAYOUT_DESC" = "use esto sólo si desea tener el iPhone Layout en su iPad actual. Es necesario reiniciar la aplicación.";
 
 "CAST_CONFIRM" = "Confirmar alerta antes de emitir (YTCastConfirm)";
-"CAST_CONFIRM_DESC" = "Mostrar una alerta de confirmación antes del casting para evitar el secuestro accidental de la TV";
-"CASTING" = "Castings";
-"MSG_ARE_YOU_SURE" = "¿Seguro que quieres empezar el casting?";
+"CAST_CONFIRM_DESC" = "Mostrar una alerta de confirmación antes de emitir para evitar el secuestro accidental de la TV";
+"CASTING" = "Emitir";
+"MSG_ARE_YOU_SURE" = "¿Seguro que quieres empezar la emisión?";
 "MSG_YES" = "Sí";
 "MSG_CANCEL" = "Cancelar";
 
 "NEW_MINIPLAYER_STYLE" = "Nuevo estilo de barra de minirreproductores (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "Es necesario reiniciar la aplicación";
 
-"HIDE_CAST_BUTTON" = "Ocultar botón Cast";
+"HIDE_CAST_BUTTON" = "Ocultar botón Emitir";
 "HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_HOME_TAB" = "Hide Home Tab";
-"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+"HIDE_HOME_TAB" = "Ocultar pestaña Inicio";
+"HIDE_HOME_TAB_DESC" = "Cuidado al ocultar todas las pestañas";
 
-"FIX_CASTING" = "Fix Casting";
-"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+"FIX_CASTING" = "Reparación de emisión";
+"FIX_CASTING_DESC" = "Cambia algunas banderas AB para fijar la emisión";
 
 "ENABLE_FLEX" = "Habilitar FLEX";
 "ENABLE_FLEX_DESC" = "Habilitar FLEX para depuración (no recomendado). Déjelo desactivado a menos que sepa lo que está haciendo";
@@ -137,4 +137,4 @@
 
 // Other Localization
 "APP_RESTART_DESC" = "Es necesario reiniciar la aplicación.";
-"CHANGE_APP_ICON" = "Change App Icon";
+"CHANGE_APP_ICON" = "Cambiar el icono de la aplicación";
