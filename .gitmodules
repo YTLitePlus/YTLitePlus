@@ -4,9 +4,6 @@
 [submodule "Tweaks/PSHeader"]
 	path = Tweaks/PSHeader
 	url = https://github.com/PoomSmart/PSHeader.git
-[submodule "Tweaks/YouMute"]
-	path = Tweaks/YouMute
-	url = https://github.com/arichornloverALT/YouMute.git
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
 	url = https://github.com/qnblackcat/FLEX-Classes.git
@@ -49,3 +46,6 @@
 [submodule "Tweaks/YouGroupSettings"]
 	path = Tweaks/YouGroupSettings
 	url = https://github.com/PoomSmart/YouGroupSettings
+[submodule "Tweaks/YouMute"]
+	path = Tweaks/YouMute
+	url = https://github.com/PoomSmart/YouMute
