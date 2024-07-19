@@ -449,6 +449,7 @@ BOOL isTabSelected = NO;
     return orientations;
 }
 %end
+%end
 
 // YTTapToSeek - https://github.com/bhackel/YTTapToSeek
 %group gYTTapToSeek
