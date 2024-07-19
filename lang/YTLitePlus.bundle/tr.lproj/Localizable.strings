@@ -26,6 +26,9 @@
 "DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
 "DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
 
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
 "SEEK_ANYWHERE" = "Seek Anywhere Gesture";
 "SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
 
@@ -40,6 +43,9 @@
 
 "DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
 "DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
