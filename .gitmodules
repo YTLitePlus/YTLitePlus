@@ -1,24 +1,9 @@
-[submodule "Tweaks/YTUHD"]
-	path = Tweaks/YTUHD
-	url = https://github.com/arichornloverALT/YTUHD.git
-[submodule "Tweaks/YouPiP"]
-	path = Tweaks/YouPiP
-	url = https://github.com/Balackburn/YouPiP.git
-[submodule "Tweaks/Return-YouTube-Dislikes"]
-	path = Tweaks/Return-YouTube-Dislikes
-	url = https://github.com/Balackburn/Return-YouTube-Dislikes.git
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
 	url = https://github.com/hbang/Alderis.git
 [submodule "Tweaks/PSHeader"]
 	path = Tweaks/PSHeader
 	url = https://github.com/PoomSmart/PSHeader.git
-[submodule "Tweaks/YTABConfig"]
-	path = Tweaks/YTABConfig
-	url = https://github.com/Balackburn/YTABConfig.git
-[submodule "Tweaks/YouMute"]
-	path = Tweaks/YouMute
-	url = https://github.com/arichornloverALT/YouMute.git
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
 	url = https://github.com/qnblackcat/FLEX-Classes.git
@@ -37,15 +22,30 @@
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
 	url = https://github.com/arichornloverALT/YTVideoOverlay.git
-[submodule "Tweaks/YouQuality"]
-	path = Tweaks/YouQuality
-	url = https://github.com/Balackburn/YouQuality.git
 [submodule "Tweaks/protobuf"]
 	path = Tweaks/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
-[submodule "Tweaks/YouGroupSettings"]
-	path = Tweaks/YouGroupSettings
-	url = https://github.com/arichornloverALT/YouGroupSettings.git
 [submodule "Tweaks/YouTubeHeader"]
 	path = Tweaks/YouTubeHeader
 	url = https://github.com/PoomSmart/YouTubeHeader.git
+[submodule "Tweaks/YouPiP"]
+	path = Tweaks/YouPiP
+	url = https://github.com/PoomSmart/YouPiP
+[submodule "Tweaks/YTABConfig"]
+	path = Tweaks/YTABConfig
+	url = https://github.com/PoomSmart/YTABConfig
+[submodule "Tweaks/YTUHD"]
+	path = Tweaks/YTUHD
+	url = https://github.com/PoomSmart/YTUHD
+[submodule "Tweaks/YouGroupSettings"]
+	path = Tweaks/YouGroupSettings
+	url = https://github.com/PoomSmart/YouGroupSettings
+[submodule "Tweaks/YouMute"]
+	path = Tweaks/YouMute
+	url = https://github.com/PoomSmart/YouMute
+[submodule "Tweaks/YouQuality"]
+	path = Tweaks/YouQuality
+	url = https://github.com/PoomSmart/YouQuality
+[submodule "Tweaks/Return-YouTube-Dislikes"]
+	path = Tweaks/Return-YouTube-Dislikes
+	url = https://github.com/arichornloverALT/Return-YouTube-Dislikes.git
