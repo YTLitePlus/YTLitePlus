@@ -49,3 +49,6 @@
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
 	url = https://github.com/arichornloverALT/Return-YouTube-Dislikes.git
+[submodule "Tweaks/YTHeaders"]
+	path = Tweaks/YTHeaders
+	url = https://github.com/therealFoxster/YTHeaders
