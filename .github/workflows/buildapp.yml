@@ -122,8 +122,10 @@ jobs:
 
       - name: Prepare YouTube iPA
         run: |
+          # Download and unzip iPA
           wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
           unzip -q main/YouTube.ipa -d main/tmp
+          # Get the version number of the YouTube app and store it
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
           # Get the version number of the latest release
           wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
@@ -175,7 +177,9 @@ jobs:
           CATBOX_URL=$(echo $RESPONSE | grep -o -E 'https://files.catbox.moe/[^"]*')
           echo "Uploaded artifact to $CATBOX_URL"
           CATBOX_FILE=$(echo $CATBOX_URL | sed 's|https://files.catbox.moe/||')
+          # Pass Catbox URL to the release steps
           echo "CATBOX_FILE=$CATBOX_FILE" >> $GITHUB_ENV
+          echo "CATBOX_URL=$CATBOX_URL" >> $GITHUB_ENV
       
       - name: Prepare Release Notes
         if: ${{ inputs.create_release }}
@@ -206,3 +210,30 @@ jobs:
           --data-raw '{
             "event_type": "update-altstore-source-trigger"
           }'
+
+      - name: Job Summary
+        run: |
+          echo -e '### 📺 Build Complete' >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Artifact Upload
+        if: ${{ inputs.upload_artifact }}
+        run: |
+          echo -e '### 📦 Artifact Upload\n\nThe artifact was uploaded successfully! [Scroll down](#artifacts) to view the artifact. Note that you must be signed in to GitHub to download it.' >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Catbox Upload
+        if: ${{ inputs.catbox_upload}}
+        run: |
+          echo -e '### 🐱 Catbox Upload\n\nThe Catbox upload was successful! Here is a permanent shareable link: '$CATBOX_URL >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Draft Release
+        if: ${{ inputs.create_release }}
+        run: |
+          REPO_URL="https://github.com/${{ github.repository }}"
+          RELEASES_URL="$REPO_URL/releases"
+          echo -e '### 🚀 Draft Release\n\nThe release draft has been created successfully! You can view your releases here: '$RELEASES_URL >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Link to remove GitHub Action runs
+        run: |
+          REPO_URL="https://github.com/${{ github.repository }}"
+          DELETE_RUNS_URL="$REPO_URL/actions/workflows/delete-workflow-runs.yml"
+          echo -e '### 🧹 Cleanup\n\nYou can remove previous GitHub Action runs here: '$DELETE_RUNS_URL >> $GITHUB_STEP_SUMMARY
