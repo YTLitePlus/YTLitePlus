@@ -135,6 +135,22 @@ jobs:
           # Remove contents in the iPA that interfere with sideloading
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
+          # Modify Info.plist to remove UISupportedDevices (Python script)
+          python - <<EOF
+          import plistlib
+          def remove_uisupporteddevices(filepath):
+              with open(filepath, 'rb') as f:
+                  plist = plistlib.load(f)
+
+              if 'UISupportedDevices' in plist:
+                  del plist['UISupportedDevices']
+
+              with open(filepath, 'wb') as f:
+                  plistlib.dump(plist, f)
+
+          filepath = 'main/tmp/Payload/YouTube.app/Info.plist'
+          remove_uisupporteddevices(filepath)
+          EOF
         env:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
