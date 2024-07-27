@@ -47,10 +47,6 @@ on:
         required: false
         type: boolean
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
     name: Build YTLitePlus
@@ -234,7 +230,7 @@ jobs:
       - name: Job Summary - Artifact Upload
         if: ${{ inputs.upload_artifact }}
         run: |
-          echo -e '### 📦 Artifact Upload\n\nThe artifact was uploaded successfully! [Scroll down](#artifacts) to view the artifact. Note that you must be signed in to GitHub to download it.' >> $GITHUB_STEP_SUMMARY
+          echo -e '### 📦 Artifact Upload\n\nThe artifact was uploaded successfully! Refresh and [scroll down](#artifacts) to view the artifact. Note that you must be signed in to GitHub to download it.' >> $GITHUB_STEP_SUMMARY
 
       - name: Job Summary - Catbox Upload
         if: ${{ inputs.catbox_upload}}
