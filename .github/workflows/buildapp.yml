@@ -120,17 +120,16 @@ jobs:
         run: |
           # Download and unzip iPA
           wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
-          unzip -q main/YouTube.ipa -d main/tmp
+          cd ${{ github.workspace }}/main
+          mv YouTube.ipa YouTube.zip
+          unzip -q YouTube.zip
           # Get the version number of the YouTube app and store it
-          echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
-          # Get the version number of the latest release
-          wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
-          YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' main/tmp/release_page.html | head -n 1 | sed 's/\/tag\/v//')
+          echo "YT_VERSION=$(defaults read "$(pwd)/Payload/YouTube.app/Info" CFBundleVersion)" >> $GITHUB_ENV
+          # Get the version number of the latest release of YTLite
+          wget -qO- https://github.com/dayanch96/YTLite/releases/latest > release_page.html
+          YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' release_page.html | head -n 1 | sed 's/\/tag\/v//')
           echo "YTLITE_VERSION=${YTLITE_VERSION}" >> $GITHUB_ENV
           echo $YTLITE_VERSION
-          # Remove contents in the iPA that interfere with sideloading
-          rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
-          rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
           # Modify Info.plist to remove UISupportedDevices (Python script)
           python - <<EOF
           import plistlib
@@ -144,7 +143,7 @@ jobs:
               with open(filepath, 'wb') as f:
                   plistlib.dump(plist, f)
 
-          filepath = 'main/tmp/Payload/YouTube.app/Info.plist'
+          filepath = 'Payload/YouTube.app/Info.plist'
           remove_uisupporteddevices(filepath)
           EOF
         env:
@@ -161,7 +160,7 @@ jobs:
           sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}/" Makefile
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
           # Build the package
-          make package
+          make package THEOS_PACKAGE_SCHEME=rootless IPA=Payload/YouTube.app FINALPACKAGE=1
           # Rename the package based on the version
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")
           # Pass package name to the upload step
