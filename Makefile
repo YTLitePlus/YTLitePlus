@@ -1,63 +1,58 @@
-export TARGET = iphone:clang:16.5:14.0
-export ARCHS = arm64
-
-# Setup libcolorpicker and Alderis to install correctly
-export libcolorpicker_ARCHS = arm64
-export libFLEX_ARCHS = arm64
-export Alderis_XCODEOPTS = LD_DYLIB_INSTALL_NAME=@rpath/Alderis.framework/Alderis
-export Alderis_XCODEFLAGS = DYLIB_INSTALL_NAME_BASE=/Library/Frameworks BUILD_LIBRARY_FOR_DISTRIBUTION=YES ARCHS="$(ARCHS)"
-export libcolorpicker_LDFLAGS = -F$(TARGET_PRIVATE_FRAMEWORK_PATH) -install_name @rpath/libcolorpicker.dylib
-# Add RemoteLog, and allow YouTubeHeader to be accessible using #include <...>
-export ADDITIONAL_CFLAGS = -I$(THEOS_PROJECT_DIR)/Tweaks/RemoteLog -I$(THEOS_PROJECT_DIR)/Tweaks
-
-# Todo figure out what this does
-ifneq ($(JAILBROKEN),1)
-export DEBUGFLAG = -ggdb -Wno-unused-command-line-argument -L$(THEOS_OBJ_DIR) -F$(_THEOS_LOCAL_DATA_DIR)/$(THEOS_OBJ_DIR_NAME)/install/Library/Frameworks
+TARGET = iphone:clang:16.5:15.0
+YTLitePlus_USE_FISHHOOK = 0
+ARCHS = arm64
 MODULES = jailed
-endif
-
+FINALPACKAGE = 1
+CODESIGN_IPA = 0
 PACKAGE_VERSION = X.X.X-X.X
 
-INSTALL_TARGET_PROCESSES = YouTube
 TWEAK_NAME = YTLitePlus
 DISPLAY_NAME = YouTube
 BUNDLE_ID = com.google.ios.youtube
 
-# Setup variables for YTLite download and install
+EXTRA_CFLAGS := $(addprefix -I,$(shell find Tweaks/FLEX -name '*.h' -exec dirname {} \;)) -I$(THEOS_PROJECT_DIR)/Tweaks
+
+# Allow YouTubeHeader to be accessible using #include <...>
+export ADDITIONAL_CFLAGS = -I$(THEOS_PROJECT_DIR)/Tweaks
+
+YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib .theos/obj/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/YouMute.dylib .theos/obj/DontEatMyContent.dylib .theos/obj/YTHoldForSpeed.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouGroupSettings.dylib .theos/obj/YouQuality.dylib
+YTLitePlus_FILES = YTLitePlus.xm $(shell find Source -name '*.xm' -o -name '*.x' -o -name '*.m') $(shell find Tweaks/FLEX -type f \( -iname \*.c -o -iname \*.m -o -iname \*.mm \))
+YTLitePlus_IPA = ./tmp/Payload/YouTube.app
+YTLitePlus_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unsupported-availability-guard -Wno-unused-but-set-variable -DTWEAK_VERSION=$(PACKAGE_VERSION) $(EXTRA_CFLAGS)
+YTLitePlus_FRAMEWORKS = UIKit Security
+
+include $(THEOS)/makefiles/common.mk
+include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += Tweaks/Alderis Tweaks/iSponsorBlock Tweaks/YTUHD Tweaks/YouPiP Tweaks/Return-YouTube-Dislikes Tweaks/YTABConfig Tweaks/YouMute Tweaks/DontEatMyContent Tweaks/YTHoldForSpeed Tweaks/YTVideoOverlay Tweaks/YouQuality Tweaks/YouGroupSettings
+include $(THEOS_MAKE_PATH)/aggregate.mk
+
 YTLITE_PATH = Tweaks/YTLite
-# Grab the YTLite version from the releases page on GitHub
 YTLITE_VERSION := $(shell wget -qO- "https://github.com/dayanch96/YTLite/releases/latest" | grep -o -E '/tag/v[^"]+' | head -n 1 | sed 's/\/tag\/v//')
 YTLITE_DEB = $(YTLITE_PATH)/com.dvntm.ytlite_$(YTLITE_VERSION)_iphoneos-arm64.deb
 YTLITE_DYLIB = $(YTLITE_PATH)/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib
 YTLITE_BUNDLE = $(YTLITE_PATH)/var/jb/Library/Application\ Support/YTLite.bundle
-
-# Todo figure out the purpose of this
-EXTRA_CFLAGS := $(addprefix -I,$(shell find Tweaks/FLEX -name '*.h' -exec dirname {} \;)) -I$(THEOS_PROJECT_DIR)/Tweaks
-
-$(TWEAK_NAME)_FILES = YTLitePlus.xm $(wildcard Sources/*.xm) $(wildcard Sources/*.x) $(wildcard Sources/*.m) $(shell find Tweaks/FLEX -type f \( -iname \*.c -o -iname \*.m -o -iname \*.mm \))
-$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation AVFoundation AVKit Photos Accelerate CoreMotion GameController VideoToolbox Security
-$(TWEAK_NAME)_LIBRARIES = bz2 c++ iconv z
-$(TWEAK_NAME)_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unsupported-availability-guard -Wno-unused-but-set-variable -DTWEAK_VERSION=$(PACKAGE_VERSION) $(EXTRA_CFLAGS)
-$(TWEAK_NAME)_INJECT_DYLIBS = $(YTLITE_DYLIB) $(THEOS_OBJ_DIR)/libcolorpicker.dylib $(THEOS_OBJ_DIR)/iSponsorBlock.dylib $(THEOS_OBJ_DIR)/YTUHD.dylib $(THEOS_OBJ_DIR)/YouPiP.dylib $(THEOS_OBJ_DIR)/YouTubeDislikesReturn.dylib $(THEOS_OBJ_DIR)/YTABConfig.dylib $(THEOS_OBJ_DIR)/YouMute.dylib $(THEOS_OBJ_DIR)/DontEatMyContent.dylib $(THEOS_OBJ_DIR)/YTHoldForSpeed.dylib $(THEOS_OBJ_DIR)/YTVideoOverlay.dylib $(THEOS_OBJ_DIR)/YouGroupSettings.dylib $(THEOS_OBJ_DIR)/YouQuality.dylib
-$(TWEAK_NAME)_EMBED_LIBRARIES = $(THEOS_OBJ_DIR)/libcolorpicker.dylib
-$(TWEAK_NAME)_EMBED_FRAMEWORKS = $(_THEOS_LOCAL_DATA_DIR)/$(THEOS_OBJ_DIR_NAME)/install_Alderis.xcarchive/Products/var/jb/Library/Frameworks/Alderis.framework
-$(TWEAK_NAME)_EMBED_BUNDLES = $(wildcard Bundles/*.bundle)
-$(TWEAK_NAME)_EMBED_EXTENSIONS = $(wildcard Extensions/*.appex)
-
-include $(THEOS)/makefiles/common.mk
-ifneq ($(JAILBROKEN),1)
-SUBPROJECTS += Tweaks/Alderis Tweaks/iSponsorBlock Tweaks/YTUHD Tweaks/YouPiP Tweaks/Return-YouTube-Dislikes Tweaks/YTABConfig Tweaks/YouMute Tweaks/DontEatMyContent Tweaks/YTHoldForSpeed Tweaks/YTVideoOverlay Tweaks/YouQuality Tweaks/YouGroupSettings
-include $(THEOS_MAKE_PATH)/aggregate.mk
-endif
-include $(THEOS_MAKE_PATH)/tweak.mk
-
-REMOVE_EXTENSIONS = 1
-CODESIGN_IPA = 0
+before-package::
+	@echo -e "==> \033[1mMoving tweak's bundle to Resources/...\033[0m"
+	@mkdir -p Resources/Frameworks/Alderis.framework && find .theos/obj/install/Library/Frameworks/Alderis.framework -maxdepth 1 -type f -exec cp {} Resources/Frameworks/Alderis.framework/ \;
+	@cp -R Tweaks/YTLite/var/jb/Library/Application\ Support/YTLite.bundle Resources/
+	@cp -R Tweaks/YTUHD/layout/Library/Application\ Support/YTUHD.bundle Resources/
+	@cp -R Tweaks/YouPiP/layout/Library/Application\ Support/YouPiP.bundle Resources/
+	@cp -R Tweaks/Return-YouTube-Dislikes/layout/Library/Application\ Support/RYD.bundle Resources/
+	@cp -R Tweaks/YTABConfig/layout/Library/Application\ Support/YTABC.bundle Resources/
+	@cp -R Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle Resources/
+	@cp -R Tweaks/DontEatMyContent/layout/Library/Application\ Support/DontEatMyContent.bundle Resources/
+	@cp -R Tweaks/YTHoldForSpeed/layout/Library/Application\ Support/YTHoldForSpeed.bundle Resources/
+	@cp -R Tweaks/iSponsorBlock/layout/Library/Application\ Support/iSponsorBlock.bundle Resources/
+	@cp -R Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle Resources/
+	@cp -R Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle Resources/
+	@cp -R lang/YTLitePlus.bundle Resources/
+	@echo -e "==> \033[1mChanging the installation path of dylibs...\033[0m"
+	@ldid -r .theos/obj/iSponsorBlock.dylib && install_name_tool -change /usr/lib/libcolorpicker.dylib @rpath/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib
+	@codesign --remove-signature .theos/obj/libcolorpicker.dylib && install_name_tool -change /Library/Frameworks/Alderis.framework/Alderis @rpath/Alderis.framework/Alderis .theos/obj/libcolorpicker.dylib
 
 internal-clean::
 	@rm -rf $(YTLITE_PATH)/*
 
-ifneq ($(JAILBROKEN),1)
 before-all::
 	@if [[ ! -f $(YTLITE_DEB) ]]; then \
 		rm -rf $(YTLITE_PATH)/*; \
@@ -69,4 +64,3 @@ before-all::
 			$(PRINT_FORMAT_ERROR) "Failed to extract YTLite"; exit 1; \
 		fi; \
 	fi
-endif
