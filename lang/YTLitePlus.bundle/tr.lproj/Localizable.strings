@@ -1,140 +1,140 @@
 // Settings
 "VERSION" = "YTLitePlus'ın sürümü: %@";
-"VERSION_CHECK" = "Güncellemeyi kontrol etmek için dokunun!";
+"VERSION_CHECK" = "Güncelleme için dokunun!";
 
 // Video controls overlay options
-"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Controls Overlay Options";
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Kontrol Seç.";
 
-"ENABLE_SHARE_BUTTON" = "Enable Share Button";
-"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
+"ENABLE_SHARE_BUTTON" = "Paylaş Butonunu Aç";
+"ENABLE_SHARE_BUTTON_DESC" = "Video kontrolünde Paylaş Butonunu aç.";
 
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "'Listeye Kaydet' Butonunu Aç";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Video kontrolünde 'Listeye Kaydet' Butonunu aç.";
 
-"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
-"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Gölge Düğmelerini Gizle";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Oynat/Duraklat, Önceki, Sonraki, İleri/Geri Düğmelerindeki gölgeyi gizle.";
 
-"HIDE_RIGHT_PANEL" = "Hide the right panel in fullscreen mode";
-"HIDE_RIGHT_PANEL_DESC" = "App restart is required.";
+"HIDE_RIGHT_PANEL" = "Tam ekranda sağ paneli gizle";
+"HIDE_RIGHT_PANEL_DESC" = "Uyg. yeniden başlatılmalı.";
 
-"HIDE_HEATWAVES" = "Hide Heatwaves";
-"HIDE_HEATWAVES_DESC" = "Hides the Heatwaves in the video player. App restart is required.";
+"HIDE_HEATWAVES" = "Sıcak Dalgaları Gizle";
+"HIDE_HEATWAVES_DESC" = "Sıcak Dalgaları gizler. Uyg. yeniden başlatılmalı.";
 
-"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
-"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+"DISABLE_AMBIENT_PORTRAIT" = "Ortam Modunu Kapat (Dikey)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Video başlığı çevresindeki aydınlatmayı kapat";
 
-"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN" = "Ortam Modunu Kapat (Tam Ekran)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Video oynatıcının çevresindeki aydınlatmayı kapat";
 
-"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
-"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+"FULLSCREEN_TO_THE_RIGHT" = "Tam Ekran Sağda";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Tam ekrana sağda ev düğmesi ile gir.";
 
-"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
-"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+"SEEK_ANYWHERE" = "Her Yerde Ara";
+"SEEK_ANYWHERE_DESC" = "Video oynatıcıda basılı tutarak sürükleyin. YTLite - Hızlandırmak için basılı tutmayı kapatmanız gerek.";
 
-"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
-"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+"ENABLE_TAP_TO_SEEK" = "Dokunarak Ara";
+"ENABLE_TAP_TO_SEEK_DESC" = "Arama çubuğuna tek dokunarak videonun herhangi bir yerine git";
 
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Tam ekran çekme hareketini kapat";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Dikey tam ekrana geçmek için çekme hareketini kapat. Sadece yatay videolar için geçerli.";
 
-"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
-"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+"ALWAYS_USE_REMAINING_TIME" = "Her zaman kalan süreyi göster";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Oynatıcı çubuğunda kalan süreyi gösterir.";
 
-"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
-"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+"DISABLE_TOGGLE_TIME_REMAINING" = "Kalan zamanı değiştirmeyi kapat";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Geçen zamanı kalan zamanla değiştirmeyi kapatır.";
 
-"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
-"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+"DISABLE_ENGAGEMENT_OVERLAY" = "Tam ekranda kaplamayı kapat";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tam ekranda yukarı kaydırma hareketini ve önerilen videoları kapat";
 
 // App settings overlay options
-"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
 
-"HIDE_ACCOUNT_SECTION" = "Hide \"Account\" Section";
-"HIDE_AUTOPLAY_SECTION" = "Hide \"Autoplay\" Section";
-"HIDE_TRYNEWFEATURES_SECTION" = "Hide \"Try New Features\" Section";
-"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide \"Video quality preferences\" Section";
-"HIDE_NOTIFICATIONS_SECTION" = "Hide \"Notifications\" Section";
-"HIDE_MANAGEALLHISTORY_SECTION" = "Hide \"Manage all history\" Section";
-"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide \"Your data in YouTube\" Section";
-"HIDE_PRIVACY_SECTION" = "Hide \"Privacy\" Section";
-"HIDE_LIVECHAT_SECTION" = "Hide \"Live Chat\" Section";
+"HIDE_ACCOUNT_SECTION" = "\"Hesap\" Bölümünü Gizle";
+"HIDE_AUTOPLAY_SECTION" = "\"Otomatik Oynatma\" Bölümünü Gizle";
+"HIDE_TRYNEWFEATURES_SECTION" = "\"Yeni Özellikler\" Bölümünü Gizle";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "\"Video Kalite\" Bölümünü Gizle";
+"HIDE_NOTIFICATIONS_SECTION" = "\"Bildirimler\" Bölümünü Gizle";
+"HIDE_MANAGEALLHISTORY_SECTION" = "\"Tüm Geçmişi Yönet\" Bölümünü Gizle";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "\"YouTube Verileriniz\" Bölümünü Gizle";
+"HIDE_PRIVACY_SECTION" = "\"Gizlilik\" Bölümünü Gizle";
+"HIDE_LIVECHAT_SECTION" = "\"Canlı Sohbet\" Bölümünü Gizle";
 
 // Theme
-"THEME_OPTIONS" = "Theme Options";
+"THEME_OPTIONS" = "Tema Seç.";
 
-"OLED_DARK_THEME" = "OLED dark theme";
-"OLED_DARK_THEME_2" = "OLED dark theme";
-"OLED_DARK_THEME_DESC" = "True dark theme. Might not work correctly in some cases. App restart is required after you enable/disable this option.";
+"OLED_DARK_THEME" = "OLED koyu tema";
+"OLED_DARK_THEME_2" = "OLED koyu tema";
+"OLED_DARK_THEME_DESC" = "Gerçek koyu tema. Bazı durumlarda düzgün çalışmayabilir. Yeniden başlatılmalı.";
 
-"OLD_DARK_THEME" = "Old dark theme";
-"OLD_DARK_THEME_DESC" = "Old YouTube's dark theme (grey theme). App restart is required.";
+"OLD_DARK_THEME" = "Eski koyu tema";
+"OLD_DARK_THEME_DESC" = "Eski YouTube koyu teması. Yeniden başlatılmalı.";
 
-"DEFAULT_THEME" = "Default";
-"DEFAULT_THEME_DESC" = "Default dark(er) theme of YouTube. App restart is required.";
+"DEFAULT_THEME" = "Varsayılan";
+"DEFAULT_THEME_DESC" = "YouTube'un varsayılan koyu teması. Yeniden başlatılmalı.";
 
 "OLED_KEYBOARD" = "OLED Klavye (Deneysel)";
-"OLED_KEYBOARD_DESC" = "Bazı durumlarda düzgün çalışmayabilir. Uygulamanın yeniden başlatılması gerekir.";
+"OLED_KEYBOARD_DESC" = "Bazı durumlarda düzgün çalışmayabilir. Yeniden başlatılmalı.";
 
-"LOW_CONTRAST_MODE" = "Low Contrast Mode";
-"LOW_CONTRAST_MODE_DESC" = "This option will Low Contrast of the texts and buttons just like how the old YouTube Interface was. App restart is required.";
-"LCM_SELECTOR" = "Low contrast mode selection";
-"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
-"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
+"LOW_CONTRAST_MODE" = "Düşük Kontrast Modu";
+"LOW_CONTRAST_MODE_DESC" = "Metinlerin ve düğmelerin kontrastını düşürür. Yeniden başlatılmalı.";
+"LCM_SELECTOR" = "Düşük kontrast modu seçimi";
+"DEFAULT_LOWCONTRASTMODE" = "(Varsayılan) DüşükKontrastModu";
+"CUSTOM_LOWCONTRASTMODE" = "(Özel Renk) DüşükKontrastModu";
 
 // Miscellaneous
-"MISCELLANEOUS" = "Miscellaneous";
+"MISCELLANEOUS" = "Çeşitli";
 
-"PLAYBACK_IN_FEEDS" = "Playback in feeds";
-"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
-"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
-"PLAYBACK_IN_FEEDS_OFF" = "Off";
+"PLAYBACK_IN_FEEDS" = "Akışlarda Oynatma";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Her zaman açık";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Yalnızca Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Kapalı";
 
-"NEW_SETTINGS_UI" = "New Settings UI";
-"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+"NEW_SETTINGS_UI" = "Yeni Ayarlar Arayüzü";
+"NEW_SETTINGS_UI_DESC" = "Yeni gruplandırılmış ayarlar arayüzünü kullan. Bazı ayarları gizleyebilir.";
 
-"ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
+"ENABLE_YT_STARTUP_ANIMATION" = "YouTube açılış animasyonunu aç";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
-"HIDE_MODERN_INTERFACE" = "Hide Modern Interface (YTNoModernUI)";
-"HIDE_MODERN_INTERFACE_DESC" = "Toggle this on to hide any Modern Element added by YouTube. Removes Ambient Mode, Rounded Design & More. App restart is required.";
+"HIDE_MODERN_INTERFACE" = "Modern Arayüzü Gizle (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "YouTube'un eklediği Modern Öğeleri gizlemek için aç. Yeniden başlatılmalı.";
 
-"IPAD_LAYOUT" = "iPad Layout";
-"IPAD_LAYOUT_DESC" = "only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
+"IPAD_LAYOUT" = "iPad Düzeni";
+"IPAD_LAYOUT_DESC" = "Mevcut iPhone/iPod'unuzda iPad Düzenini kullanmak için aç. Yeniden başlatılmalı.";
 
-"IPHONE_LAYOUT" = "iPhone Layout";
-"IPHONE_LAYOUT_DESC" = "only use this if you want to have the iPhone Layout on your current iPad. App restart is required.";
+"IPHONE_LAYOUT" = "iPhone Düzeni";
+"IPHONE_LAYOUT_DESC" = "Mevcut iPad'inizde iPhone Düzenini kullanmak için aç. Yeniden başlatılmalı.";
 
-"CAST_CONFIRM" = "Confirm alert before casting (YTCastConfirm)";
-"CAST_CONFIRM_DESC" = "Show a confirm alert before casting to prevent accidentally hijacking TV.";
-"CASTING" = "Castings";
-"MSG_ARE_YOU_SURE" = "Are you sure you want to start casting?";
-"MSG_YES" = "Yes";
-"MSG_CANCEL" = "Cancel";
+"CAST_CONFIRM" = "Yayın öncesi onay (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "TV'yi yanlışlıkla kontrol etmeyi önlemek için yayın öncesi onay göster.";
+"CASTING" = "Yayınlar";
+"MSG_ARE_YOU_SURE" = "Yayın başlatmak istediğinizden emin misiniz?";
+"MSG_YES" = "Evet";
+"MSG_CANCEL" = "İptal";
 
-"NEW_MINIPLAYER_STYLE" = "Yeni mini oynatıcı çubuğu stili (BigYTMiniPlayer)";
-"NEW_MINIPLAYER_STYLE_DESC" = "Uygulamanın yeniden başlatılması gerekir.";
+"NEW_MINIPLAYER_STYLE" = "Yeni mini oynatıcı çubuğu (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Yeniden başlatılmalı.";
 
 "HIDE_CAST_BUTTON" = "Yayınla düğmesini gizle";
-"HIDE_CAST_BUTTON_DESC" = "Uygulamanın yeniden başlatılması gerekir.";
+"HIDE_CAST_BUTTON_DESC" = "Yeniden başlatılmalı.";
 
-"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON" = "Gezinme çubuğunda iSponsorBlock düğmesini gizle";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_HOME_TAB" = "Hide Home Tab";
-"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+"HIDE_HOME_TAB" = "Ana Sekmeyi Gizle";
+"HIDE_HOME_TAB_DESC" = "Tüm sekmeleri gizlerken dikkatli olun";
 
-"FIX_CASTING" = "Fix Casting";
-"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+"FIX_CASTING" = "Yayınlamayı Düzelt";
+"FIX_CASTING_DESC" = "Yayınlamayı düzeltmek için bazı ayarları değiştirir";
 
-"ENABLE_FLEX" = "Enable FLEX";
-"ENABLE_FLEX_DESC" = "Enable FLEX for debugging (not recommended). Leave this off unless you know what you are doing.";
+"ENABLE_FLEX" = "FLEX'i Aç";
+"ENABLE_FLEX_DESC" = "Hata ayıklama için FLEX'i aç (tavsiye edilmez). Ne yaptığınızı bilmiyorsanız kapalı tutun.";
 
 // Version Spoofer
-"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
-"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+"APP_VERSION_SPOOFER_LITE" = "Uyg. Sürüm Spoofer'ını Aç (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Sürüm Spoofer (Lite) kullanmak için açın ve sürümü seçin. Yeniden başlatılmalı.";
+"VERSION_SPOOFER_TITLE" = "Sürüm Seçici";
 
 // Other Localization
-"APP_RESTART_DESC" = "App restart is required.";
-"CHANGE_APP_ICON" = "Change App Icon";
+"APP_RESTART_DESC" = "Uyg. yeniden başlatılmalı.";
+"CHANGE_APP_ICON" = "Uyg. Simgesini Değiştir";
