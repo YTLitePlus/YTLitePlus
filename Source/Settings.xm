@@ -51,6 +51,17 @@ static int appVersionSpoofer() {
 
 extern NSBundle *YTLitePlusBundle();
 
+// Keys for "Copy Settings" button (for: YTLitePlus)
+NSArray *copyKeys = @[
+/* MAIN    Controls Keys 1/2 */ @"enableShareButton_enabled", @"enableSaveToButton_enabled", @"hideVideoPlayerShadowOverlayButtons_enabled", @"hideRightPanel_enabled", @"hideHeatwaves_enabled", @"disableAmbientModePortrait_enabled",
+/* MAIN    Controls Keys 2/2 */ @"disableAmbientModeFullscreen_enabled", @"fullscreenToTheRight_enabled", @"seekAnywhere_enabled", @"YTTapToSeek_enabled", @"disablePullToFull_enabled", @"alwaysShowRemainingTime_enabled", @"disableRemainingTime_enabled", @"disableEngagementOverlay_enabled",
+/* MAIN App Overlay Keys 1/2 */ @"disableAccountSection_enabled", @"disableAutoplaySection_enabled", @"disableTryNewFeaturesSection_enabled", @"disableVideoQualityPreferencesSection_enabled", @"disableNotificationsSection_enabled",
+/* MAIN App Overlay Keys 2/2 */ @"disableManageAllHistorySection_enabled", @"disableYourDataInYouTubeSection_enabled", @"disablePrivacySection_enabled", @"disableLiveChatSection_enabled",
+/* MAIN        Playback Keys */ @"inline_muted_playback_enabled",
+/* MAIN            Misc Keys */ @"newSettingsUI_enabled", @"ytStartupAnimation_enabled", @"ytNoModernUI_enabled", @"iPadLayout_enabled", @"iPhoneLayout_enabled", @"castConfirm_enabled", @"bigYTMiniPlayer_enabled", @"hideCastButton_enabled", @"hideSponsorBlockButton_enabled", @"hideHomeTab_enabled", @"fixCasting_enabled", @"flex_enabled", @"enableVersionSpoofer_enabled",
+/* TWEAK          YTUHD Keys */ @"EnableVP9", @"AllVP9"
+];
+
 // Add both YTLite and YTLitePlus to YouGroupSettings
 static const NSInteger YTLitePlusSection = 788;
 static const NSInteger YTLiteSection = 789;
@@ -106,6 +117,87 @@ static const NSInteger YTLiteSection = 789;
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Balackburn/YTLitePlus/releases/latest"]];
     }];
     [sectionItems addObject:main];
+
+    YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
+        itemWithTitle:LOC(@"COPY_SETTINGS")
+        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"COPY_SETTINGS_DESC_2") : LOC(@"COPY_SETTINGS_DESC")
+        accessibilityIdentifier:nil
+        detailTextBlock:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            if (IS_ENABLED(@"switchCopyandPasteFunctionality_enabled")) {
+                // Export Settings functionality
+                NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"exported_settings.txt"]];
+                NSMutableString *settingsString = [NSMutableString string];
+                for (NSString *key in copyKeys) {
+                    id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+                    if (value) {
+                        [settingsString appendFormat:@"%@: %@\n", key, value];
+                    }
+                }
+                [settingsString writeToURL:tempFileURL atomically:YES encoding:NSUTF8StringEncoding error:nil];
+                UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithURL:tempFileURL inMode:UIDocumentPickerModeExportToService];
+                documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
+                documentPicker.allowsMultipleSelection = NO;
+                [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
+            } else {
+                // Copy Settings functionality (DEFAULT - Copies to Clipboard)
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                NSMutableString *settingsString = [NSMutableString string];
+                for (NSString *key in copyKeys) {
+                    if ([userDefaults objectForKey:key]) {
+                        NSString *value = [userDefaults objectForKey:key];
+                        [settingsString appendFormat:@"%@: %@\n", key, value];
+                    }
+                }       
+                [[UIPasteboard generalPasteboard] setString:settingsString];
+                // Show a confirmation message or perform some other action here
+            }
+            return YES;
+        }
+    ];
+    [sectionItems addObject:copySettings];
+
+    YTSettingsSectionItem *pasteSettings = [%c(YTSettingsSectionItem)
+        itemWithTitle:LOC(@"PASTE_SETTINGS")
+        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"PASTE_SETTINGS_DESC_2") : LOC(@"PASTE_SETTINGS_DESC")
+        accessibilityIdentifier:nil
+        detailTextBlock:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            if (IS_ENABLED(@"switchCopyandPasteFunctionality_enabled")) {
+                // Paste Settings functionality (ALTERNATE - Pastes from ".txt")
+                UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.text"] inMode:UIDocumentPickerModeImport];
+                documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
+                documentPicker.allowsMultipleSelection = NO;
+                [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
+                return YES;
+            } else {
+                // Paste Settings functionality (DEFAULT - Pastes from Clipboard)
+                UIAlertController *confirmPasteAlert = [UIAlertController alertControllerWithTitle:LOC(@"PASTE_SETTINGS_ALERT") message:nil preferredStyle:UIAlertControllerStyleAlert];
+                [confirmPasteAlert addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
+                [confirmPasteAlert addAction:[UIAlertAction actionWithTitle:LOC(@"Confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSString *settingsString = [[UIPasteboard generalPasteboard] string];
+                    if (settingsString.length > 0) {
+                        NSArray *lines = [settingsString componentsSeparatedByString:@"\n"];
+                        for (NSString *line in lines) {
+                            NSArray *components = [line componentsSeparatedByString:@": "];
+                            if (components.count == 2) {
+                                NSString *key = components[0];
+                                NSString *value = components[1];
+                                [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+                            }
+                        }                 
+                        [settingsViewController reloadData];
+                        SHOW_RELAUNCH_YT_SNACKBAR;
+                    }
+                }]];
+                [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
+            }
+            return YES;
+        }
+    ];
+    [sectionItems addObject:pasteSettings];
+
+    SWITCH_ITEM(LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS"), LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS_DESC"), @"switchCopyandPasteFunctionality_enabled");
 
 /*
     YTSettingsSectionItem *appIcon = [%c(YTSettingsSectionItem)
