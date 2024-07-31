@@ -187,7 +187,7 @@ static const NSInteger YTLiteSection = 789;
                             }
                         }                 
                         [settingsViewController reloadData];
-                        SHOW_RELAUNCH_YT_SNACKBAR;
+                        // Show a confirmation message or perform some other action here
                     }
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
@@ -197,7 +197,7 @@ static const NSInteger YTLiteSection = 789;
     ];
     [sectionItems addObject:pasteSettings];
 
-    SWITCH_ITEM(LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS"), LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS_DESC"), @"switchCopyandPasteFunctionality_enabled");
+    BASIC_SWITCH(LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS"), LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS_DESC"), @"switchCopyandPasteFunctionality_enabled");
 
 /*
     YTSettingsSectionItem *appIcon = [%c(YTSettingsSectionItem)
