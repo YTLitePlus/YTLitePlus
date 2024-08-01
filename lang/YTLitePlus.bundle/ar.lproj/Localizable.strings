@@ -138,3 +138,6 @@
 // Other Localization
 "APP_RESTART_DESC" = "App restart is required.";
 "CHANGE_APP_ICON" = "Change App Icon";
+
+// Newly added strings
+"HIDE_CAST_BUTTON" = "HIDE_CAST_BUTTON";

@@ -144,3 +144,6 @@
 // Other Localization
 "APP_RESTART_DESC" = "Un redémarrage de l'application est requis.";
 “CHANGE_APP_ICON" = “Changer l'icône de l'application";
+
+// Newly added strings
+"CHANGE_APP_ICON" = "CHANGE_APP_ICON";
