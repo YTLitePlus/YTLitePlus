@@ -151,6 +151,8 @@ jobs:
           filepath = 'main/tmp/Payload/YouTube.app/Info.plist'
           remove_uisupporteddevices(filepath)
           EOF
+          # Manually install the Open in YouTube extension
+          cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
         env:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
