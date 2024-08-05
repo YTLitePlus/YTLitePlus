@@ -42,7 +42,6 @@ on:
           - success
       dry_run:
         description: 'Logs simulated changes, no deletions are performed'
-        type: boolean
         required: false
 
 jobs:
