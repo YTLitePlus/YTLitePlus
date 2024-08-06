@@ -43,6 +43,9 @@
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
 	url = https://github.com/PoomSmart/YouMute
+[submodule "Tweaks/YTlite"]
+	path = Tweaks/YTLite
+	url = https://github.com/dayanch96/YTLite
 [submodule "Tweaks/YouQuality"]
 	path = Tweaks/YouQuality
 	url = https://github.com/PoomSmart/YouQuality
