@@ -184,7 +184,7 @@
 
 20. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
 
-21. **LowContrastMode**: Makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
+21. **LowContrastMode**: Makes the UI interface look dimmer to make it easier on the eyes. (App Compatibility: v17.33.2-v17.38.10)
 
 # AltStore
   
