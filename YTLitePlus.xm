@@ -544,7 +544,12 @@ BOOL isTabSelected = NO;
 
 @interface YTPlayerViewController (YTLitePlus)
 // the long press gesture that will be created and added to the player view
-@property (nonatomic, retain) UILongPressGestureRecognizer *YTLitePlusLongPressGesture;
+@property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
+@end
+@interface YTWatchFullscreenViewController : YTMultiSizeViewController
+@end
+@interface MPVolumeController : NSObject
+@property (nonatomic, assign, readwrite) float volumeValue;
 @end
 
 // Gestures - @bhackel
@@ -553,14 +558,11 @@ BOOL isTabSelected = NO;
 // invoked when the player view controller is either created or destroyed
 - (void)watchController:(YTWatchController *)watchController didSetPlayerViewController:(YTPlayerViewController *)playerViewController {
     if (playerViewController) {
-        // check to see if the long press gesture is already created
-        if (!playerViewController.YTLitePlusLongPressGesture) {
-            playerViewController.YTLitePlusLongPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:playerViewController
-                                                                                                        action:@selector(YTLitePlusHandleLongPressGesture:)];
-            playerViewController.YTLitePlusLongPressGesture.numberOfTouchesRequired = 1;
-            playerViewController.YTLitePlusLongPressGesture.allowableMovement = 50;
-            playerViewController.YTLitePlusLongPressGesture.minimumPressDuration = 0.5;
-            [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusLongPressGesture];
+        // check to see if the pan gesture is already created
+        if (!playerViewController.YTLitePlusPanGesture) {
+            playerViewController.YTLitePlusPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:playerViewController
+                                                                                               action:@selector(YTLitePlusHandlePanGesture:)];
+            [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusPanGesture];
         }        
     }
     %orig;
@@ -568,25 +570,73 @@ BOOL isTabSelected = NO;
 %end
 
 %hook YTPlayerViewController
-// the long press gesture that will be created and added to the player view
-%property (nonatomic, retain) UILongPressGestureRecognizer *YTLitePlusLongPressGesture;
+// the pan gesture that will be created and added to the player view
+%property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 %new
-- (void)YTLitePlusHandleLongPressGesture:(UILongPressGestureRecognizer *)longPressGestureRecognizer
-{
-    if (longPressGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+- (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
+    static float initialVolume;
+    
+    if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        // Store the initial volume at the beginning of the pan gesture
+        initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+    }
+    
+    if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        // Calculate the horizontal translation
+        CGPoint translation = [panGestureRecognizer translationInView:self.view];
+        float newVolume = initialVolume + (translation.x / 1000.0); // Adjust the divisor to control the sensitivity
+        
+        // Clamp the volume between 0 and 1
+        newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+        
+        /*
+        // Navigate to existing volume slider view
+        YTWatchViewController *watchViewController = (YTWatchViewController *)[self valueForKey:@"_parentViewController"];
+        YTWatchLayerViewController *watchLayerViewController = (YTWatchLayerViewController *)[watchViewController valueForKey:@"_watchLayerViewController"];
+        YTWatchFullscreenViewController *watchFullscreenViewController = (YTWatchFullscreenViewController *)[watchLayerViewController valueForKey:@"_fullscreenViewController"];
+        MPVolumeView *volumeView = (MPVolumeView *)[watchFullscreenViewController valueForKey:@"_hiddenVolumeView"];
+        
+        // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4/50740074#50740074
+        UISlider *volumeViewSlider = nil;
+        for (UIView *view in volumeView.subviews) {
+            if ([view isKindOfClass:[UISlider class]]) {
+            volumeViewSlider = (UISlider *)view;
+            break;
+            }
+        }
+        // Get the controller from this view
+        MPVolumeController *volumeController = [volumeViewSlider valueForKey:@"volumeController"];
+        // Set the volume
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            volumeController.volumeValue = newVolume;
+        });
+        */
+
+        MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+        UISlider *volumeViewSlider = nil;
+
+        for (UIView *view in volumeView.subviews) {
+            if ([view isKindOfClass:[UISlider class]]) {
+            volumeViewSlider = (UISlider *)view;
+            break;
+            }
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            volumeViewSlider.value = newVolume;
+        });
+    }
+    
+    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        // Haptic feedback
         UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
         [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
         feedbackGenerator = nil;
     }
-    // create a popup for debugging
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Long Press Gesture" message:@"Long Press Gesture Detected" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:nil];
-
 }
 %end
 %end
+
 
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main

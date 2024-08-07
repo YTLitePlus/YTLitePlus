@@ -6,6 +6,8 @@
 #import <sys/utsname.h>
 #import <substrate.h>
 #import <rootless.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "Tweaks/FLEX/FLEX.h"
 #import "Tweaks/YouTubeHeader/YTAppDelegate.h"
@@ -39,6 +41,8 @@
 #import "Tweaks/YouTubeHeader/YTWatchPullToFullController.h"
 #import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
 #import "Tweaks/YouTubeHeader/YTResponder.h"
+#import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
+#import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
