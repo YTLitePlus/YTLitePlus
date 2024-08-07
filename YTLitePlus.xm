@@ -542,6 +542,52 @@ BOOL isTabSelected = NO;
 }
 %end
 
+@interface YTPlayerViewController (YTLitePlus)
+// the long press gesture that will be created and added to the player view
+@property (nonatomic, retain) UILongPressGestureRecognizer *YTLitePlusLongPressGesture;
+@end
+
+// Gestures - @bhackel
+%group uYouGestures
+%hook YTWatchLayerViewController
+// invoked when the player view controller is either created or destroyed
+- (void)watchController:(YTWatchController *)watchController didSetPlayerViewController:(YTPlayerViewController *)playerViewController {
+    if (playerViewController) {
+        // check to see if the long press gesture is already created
+        if (!playerViewController.YTLitePlusLongPressGesture) {
+            playerViewController.YTLitePlusLongPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:playerViewController
+                                                                                                        action:@selector(YTLitePlusHandleLongPressGesture:)];
+            playerViewController.YTLitePlusLongPressGesture.numberOfTouchesRequired = 1;
+            playerViewController.YTLitePlusLongPressGesture.allowableMovement = 50;
+            playerViewController.YTLitePlusLongPressGesture.minimumPressDuration = 0.5;
+            [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusLongPressGesture];
+        }        
+    }
+    %orig;
+}
+%end
+
+%hook YTPlayerViewController
+// the long press gesture that will be created and added to the player view
+%property (nonatomic, retain) UILongPressGestureRecognizer *YTLitePlusLongPressGesture;
+%new
+- (void)YTLitePlusHandleLongPressGesture:(UILongPressGestureRecognizer *)longPressGestureRecognizer
+{
+    if (longPressGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
+        [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
+        feedbackGenerator = nil;
+    }
+    // create a popup for debugging
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Long Press Gesture" message:@"Long Press Gesture Detected" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+%end
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -755,6 +801,9 @@ BOOL isTabSelected = NO;
     }
     if (IsEnabled(@"disableEngagementOverlay_enabled")) {
         %init(gDisableEngagementOverlay);
+    }
+    if (IsEnabled(@"uYouGestures_enabled")) {
+        %init(uYouGestures);
     }
 
     // Change the default value of some options
