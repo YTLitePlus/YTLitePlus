@@ -542,9 +542,10 @@ BOOL isTabSelected = NO;
 }
 %end
 
-@interface YTPlayerViewController (YTLitePlus)
+@interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
 // the long press gesture that will be created and added to the player view
 @property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
 @end
 @interface YTWatchFullscreenViewController : YTMultiSizeViewController
 @end
@@ -562,78 +563,80 @@ BOOL isTabSelected = NO;
         if (!playerViewController.YTLitePlusPanGesture) {
             playerViewController.YTLitePlusPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:playerViewController
                                                                                                action:@selector(YTLitePlusHandlePanGesture:)];
+            playerViewController.YTLitePlusPanGesture.delegate = playerViewController;
             [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusPanGesture];
         }        
     }
     %orig;
 }
 %end
-
 %hook YTPlayerViewController
 // the pan gesture that will be created and added to the player view
 %property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 %new
 - (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     static float initialVolume;
+    static BOOL isHorizontalPan = NO;
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // Store the initial volume at the beginning of the pan gesture
         initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+        // Reset the horizontal pan flag
+        isHorizontalPan = NO;
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        // Calculate the horizontal translation
+        // Calculate the translation
         CGPoint translation = [panGestureRecognizer translationInView:self.view];
-        float newVolume = initialVolume + (translation.x / 1000.0); // Adjust the divisor to control the sensitivity
         
-        // Clamp the volume between 0 and 1
-        newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
-        
-        /*
-        // Navigate to existing volume slider view
-        YTWatchViewController *watchViewController = (YTWatchViewController *)[self valueForKey:@"_parentViewController"];
-        YTWatchLayerViewController *watchLayerViewController = (YTWatchLayerViewController *)[watchViewController valueForKey:@"_watchLayerViewController"];
-        YTWatchFullscreenViewController *watchFullscreenViewController = (YTWatchFullscreenViewController *)[watchLayerViewController valueForKey:@"_fullscreenViewController"];
-        MPVolumeView *volumeView = (MPVolumeView *)[watchFullscreenViewController valueForKey:@"_hiddenVolumeView"];
-        
-        // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4/50740074#50740074
-        UISlider *volumeViewSlider = nil;
-        for (UIView *view in volumeView.subviews) {
-            if ([view isKindOfClass:[UISlider class]]) {
-            volumeViewSlider = (UISlider *)view;
-            break;
+        // Determine if the gesture is predominantly horizontal
+        if (!isHorizontalPan) {
+            if (fabs(translation.x) > fabs(translation.y)) {
+                isHorizontalPan = YES;
+            } else {
+                // If vertical movement is greater, cancel the gesture recognizer
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
             }
         }
-        // Get the controller from this view
-        MPVolumeController *volumeController = [volumeViewSlider valueForKey:@"volumeController"];
-        // Set the volume
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            volumeController.volumeValue = newVolume;
-        });
-        */
-
-        MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-        UISlider *volumeViewSlider = nil;
-
-        for (UIView *view in volumeView.subviews) {
-            if ([view isKindOfClass:[UISlider class]]) {
-            volumeViewSlider = (UISlider *)view;
-            break;
+        
+        if (isHorizontalPan) {
+            float newVolume = initialVolume + (translation.x / 1000.0); // Adjust the divisor to control the sensitivity
+            
+            // Clamp the volume between 0 and 1
+            newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+            
+            // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4/50740074#50740074
+            MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+            UISlider *volumeViewSlider = nil;
+            for (UIView *view in volumeView.subviews) {
+                if ([view isKindOfClass:[UISlider class]]) {
+                    volumeViewSlider = (UISlider *)view;
+                    break;
+                }
             }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                volumeViewSlider.value = newVolume;
+            });
         }
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            volumeViewSlider.value = newVolume;
-        });
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        // Haptic feedback
-        UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
-        [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
-        feedbackGenerator = nil;
+        if (isHorizontalPan) {
+            // Haptic feedback
+            UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
+            [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
+            feedbackGenerator = nil;
+        }
     }
 }
+
+// allow the pan gesture to be recognized simultaneously with other gestures
+%new
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
 %end
 %end
 
