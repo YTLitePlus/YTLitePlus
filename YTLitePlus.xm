@@ -576,17 +576,32 @@ BOOL isTabSelected = NO;
 %new
 - (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     static float initialVolume;
+    static float initialBrightness;
     static BOOL isHorizontalPan = NO;
+    static NSInteger gestureSection = 0; // 1 for brightness, 2 for volume, 3 for seeking
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        // Store the initial volume at the beginning of the pan gesture
-        initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+        // Get the gesture's start position
+        CGPoint startLocation = [panGestureRecognizer locationInView:self.view];
+        CGFloat viewHeight = self.view.bounds.size.height;
+        
+        // Determine the section based on the start position
+        if (startLocation.y <= viewHeight / 3.0) {
+            gestureSection = 1; // Top third: Brightness
+            initialBrightness = [UIScreen mainScreen].brightness;
+        } else if (startLocation.y <= 2 * viewHeight / 3.0) {
+            gestureSection = 2; // Middle third: Volume
+            initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+        } else {
+            gestureSection = 3; // Bottom third: Seeking
+        }
+        
         // Reset the horizontal pan flag
         isHorizontalPan = NO;
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        // Calculate the translation
+        // Calculate the translation of the gesture
         CGPoint translation = [panGestureRecognizer translationInView:self.view];
         
         // Determine if the gesture is predominantly horizontal
@@ -600,30 +615,42 @@ BOOL isTabSelected = NO;
             }
         }
         
+        // Handle the gesture based on the identified section
         if (isHorizontalPan) {
-            float newVolume = initialVolume + (translation.x / 1000.0); // Adjust the divisor to control the sensitivity
-            
-            // Clamp the volume between 0 and 1
-            newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
-            
-            // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4/50740074#50740074
-            MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-            UISlider *volumeViewSlider = nil;
-            for (UIView *view in volumeView.subviews) {
-                if ([view isKindOfClass:[UISlider class]]) {
-                    volumeViewSlider = (UISlider *)view;
-                    break;
+            if (gestureSection == 1) {
+                // Top third: Adjust brightness
+                float newBrightness = initialBrightness + (translation.x / 1000.0);
+                newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
+                [[UIScreen mainScreen] setBrightness:newBrightness];
+                
+            } else if (gestureSection == 2) {
+                // Middle third: Adjust volume
+                float newVolume = initialVolume + (translation.x / 1000.0);
+                newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+                
+                MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+                UISlider *volumeViewSlider = nil;
+                for (UIView *view in volumeView.subviews) {
+                    if ([view isKindOfClass:[UISlider class]]) {
+                        volumeViewSlider = (UISlider *)view;
+                        break;
+                    }
                 }
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    volumeViewSlider.value = newVolume;
+                });
+                
+            } else if (gestureSection == 3) {
+                // Bottom third: Seek functionality (implement your seeking logic here)
+                // Example: Adjust playback position based on horizontal swipe
+                // (Add your media player's seeking logic here)
             }
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                volumeViewSlider.value = newVolume;
-            });
         }
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (isHorizontalPan) {
-            // Haptic feedback
+            // Provide haptic feedback upon successful gesture recognition
             UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
             [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
             feedbackGenerator = nil;
