@@ -62,6 +62,9 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 

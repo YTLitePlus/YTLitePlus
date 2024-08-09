@@ -47,6 +47,9 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Desactivar la superposición de compromiso a pantalla completa";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desactivar el gesto de deslizar hacia arriba y la lista de vídeos sugeridos en pantalla completa";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opciones de superposición de los ajustes de la aplicación";
 

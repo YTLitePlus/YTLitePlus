@@ -47,6 +47,9 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Tam ekranda kaplamayı kapat";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tam ekranda yukarı kaydırma hareketini ve önerilen videoları kapat";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Oynatıcının Altındaki Yorum Önizlemelerini Gizle";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Video oynatıcının altındaki yorum önizlemelerini gizler.";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
 

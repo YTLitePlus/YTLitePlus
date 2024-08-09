@@ -47,6 +47,9 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Desativar sobreposição de engajamento em tela cheia";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desativa o gesto de deslizar para cima e a lista de vídeos sugeridos em tela cheia";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
 

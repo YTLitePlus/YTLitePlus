@@ -47,6 +47,9 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "プレーヤー下のコメントプレビューを隠す";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "プレーヤーの下にあるコメントのプレビューを非表示にします。";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
 
