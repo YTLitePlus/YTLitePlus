@@ -568,10 +568,17 @@ BOOL isTabSelected = NO;
 
 // Hide Autoplay Mini Preview - @bhackel
 %hook YTAutonavPreviewView
-- (void)didMoveToWindow {
+- (void)layoutSubviews {
     %orig;
     if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
         self.hidden = YES;
+    }
+}
+- (void)setHidden:(BOOL)arg1 {
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(arg1);
     }
 }
 %end
