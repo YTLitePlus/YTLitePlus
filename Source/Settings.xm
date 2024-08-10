@@ -365,8 +365,6 @@ static const NSInteger YTLiteSection = 789;
         detailTextBlock:^NSString *() {
             switch (GetSelection(@"appTheme")) {
                 case 1:
-                    return LOC(@"OLED_DARK_THEME_2");
-                case 2:
                     return LOC(@"OLD_DARK_THEME");
                 case 0:
                 default:
@@ -380,13 +378,8 @@ static const NSInteger YTLiteSection = 789;
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"OLED_DARK_THEME") titleDescription:LOC(@"OLED_DARK_THEME_DESC") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"appTheme"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"OLD_DARK_THEME") titleDescription:LOC(@"OLD_DARK_THEME_DESC") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"appTheme"];
+                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"appTheme"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
