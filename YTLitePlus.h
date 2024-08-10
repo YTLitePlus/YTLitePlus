@@ -39,6 +39,7 @@
 #import "Tweaks/YouTubeHeader/YTWatchPullToFullController.h"
 #import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
 #import "Tweaks/YouTubeHeader/YTResponder.h"
+#import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -121,6 +122,10 @@
 @property id <YTResponder> parentResponder;
 @end
 
+// Hide Collapse Button - @arichornlover
+@interface YTMainAppControlsOverlayView (YTLitePlus)
+@property (nonatomic, assign, readwrite) YTQTMButton *watchCollapseButton;
+@end
 
 // SponsorBlock button in Nav bar
 @interface MDCButton : UIButton

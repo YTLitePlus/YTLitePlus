@@ -64,6 +64,12 @@
 "HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
 "HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
 
+"HIDE_HUD_MESSAGES" = "Ascundere Mesaje HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Exemplu: Subtitrările sunt activate/dezactivate, Redarea în buclă este activată,...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
 

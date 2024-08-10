@@ -583,6 +583,38 @@ BOOL isTabSelected = NO;
 }
 %end
 
+// Hide HUD Messages - @qnblackcat
+%hook YTHUDMessageView
+- (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 {
+    return IsEnabled(@"hideHUD_enabled") ? nil : %orig;
+}
+%end
+
+// Hide Video Player Collapse Button - @arichornlover
+%hook YTMainAppControlsOverlayView
+- (void)layoutSubviews {
+    %orig; 
+    if (IsEnabled(@"disableCollapseButton_enabled")) {  
+        if (self.watchCollapseButton) {
+            [self.watchCollapseButton removeFromSuperview];
+        }
+    }
+}
+- (BOOL)watchCollapseButtonHidden {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+        return YES;
+    } else {
+        return %orig;
+    }
+}
+- (void)setWatchCollapseButtonAvailable:(BOOL)available {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+    } else {
+        %orig(available);
+    }
+}
+%end
+
 /*
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main

@@ -64,6 +64,12 @@
 "HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
 "HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
 
+"HIDE_HUD_MESSAGES" = "HUD-Nachrichten ausblenden";
+"HIDE_HUD_MESSAGES_DESC" = "z.B.: Untertitel sind aktiviert/deaktiviert, Videoschleife ist an, ...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";
 

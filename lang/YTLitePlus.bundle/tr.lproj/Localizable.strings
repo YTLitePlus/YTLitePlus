@@ -64,6 +64,12 @@
 "HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
 "HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
 
+"HIDE_HUD_MESSAGES" = "HUD mesajlarını gizle";
+"HIDE_HUD_MESSAGES_DESC" = "Belirli işlemler için görüntülenen bildirim çubuklarını gizler (ör. CC açıldı/kapandı)";
+
+"HIDE_COLLAPSE_BUTTON" = "Daraltma Düğmesini Gizle";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Video oynatıcıda sol üstte görünen ok ile daraltma düğmesini gizler.";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
 

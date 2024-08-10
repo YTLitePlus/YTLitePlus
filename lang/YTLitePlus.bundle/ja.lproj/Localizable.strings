@@ -64,6 +64,12 @@
 "HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
 "HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
 
+"HIDE_HUD_MESSAGES" = "HUDメッセージを非表示";
+"HIDE_HUD_MESSAGES_DESC" = "特定のアクション後に表示されるスナックバーを非表示にします。(例: 字幕がオン/オフになりました など)";
+
+"HIDE_COLLAPSE_BUTTON" = "折りたたみボタンを隠す";
+"HIDE_COLLAPSE_BUTTON_DESC" = "プレーヤー左上の折りたたみボタンを非表示にします。";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
 
