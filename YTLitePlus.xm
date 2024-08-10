@@ -558,7 +558,7 @@ BOOL isTabSelected = NO;
         [self removeFromSuperview];
     }
     // Live chat OLED dark mode - @bhackel
-    if (([[YTLUserDefaults standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
+    if (([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
             || [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 1 // YTLitePlus OLED Theme
             ) && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) {
         self.backgroundColor = [UIColor blackColor];
