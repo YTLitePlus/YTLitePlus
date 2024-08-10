@@ -96,6 +96,14 @@
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 
+// Hide Autoplay Mini Preview - @bhackel
+@interface YTAutonavPreviewView : UIView
+@end
+
+// OLED Live Chat - @bhackel
+@interface YTLUserDefaults : NSUserDefaults
+@end
+
 // Hide Home Tab - @bhackel
 @interface YTPivotBarViewController : UIViewController
 @property NSString *selectedPivotIdentifier;
