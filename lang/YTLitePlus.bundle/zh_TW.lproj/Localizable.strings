@@ -62,6 +62,9 @@
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
 
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "應用程式設定隱藏項目";
 

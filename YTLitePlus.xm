@@ -561,6 +561,16 @@ BOOL isTabSelected = NO;
 }
 %end
 
+// Hide Autoplay Mini Preview - @bhackel
+%hook YTAutonavPreviewView
+- (void)didMoveToWindow {
+    %orig;
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        self.hidden = YES;
+    }
+}
+%end
+
 /*
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main

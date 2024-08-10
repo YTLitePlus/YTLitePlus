@@ -61,6 +61,9 @@
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "プレーヤー下のコメントプレビューを隠す";
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "プレーヤーの下にあるコメントのプレビューを非表示にします。";
 
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
 

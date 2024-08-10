@@ -70,6 +70,9 @@
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
 
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
 // Shorts controls overlay options
 "SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Tùy chọn lớp phủ điều khiển quần short";
 
