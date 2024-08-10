@@ -73,6 +73,12 @@
 "HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
 "HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
 
+"HIDE_HUD_MESSAGES" = "Ẩn thông báo HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Ví dụ: Đã bật/tắt phụ đề, Tính năng phát video lặp lại đang bật,...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
 // Shorts controls overlay options
 "SHORTS_CONTROLS_OVERLAY_OPTIONS" = "Tùy chọn lớp phủ điều khiển quần short";
 
