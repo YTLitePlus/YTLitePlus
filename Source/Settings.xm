@@ -114,7 +114,7 @@ static const NSInteger YTLiteSection = 789;
     accessibilityIdentifier:nil
     detailTextBlock:nil
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Balackburn/YTLitePlus/releases/latest"]];
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/YTLitePlus/YTLitePlus/releases/latest"]];
     }];
     [sectionItems addObject:main];
 
@@ -197,8 +197,6 @@ static const NSInteger YTLiteSection = 789;
     ];
     [sectionItems addObject:pasteSettings];
 
-    BASIC_SWITCH(LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS"), LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS_DESC"), @"switchCopyandPasteFunctionality_enabled");
-
 /*
     YTSettingsSectionItem *appIcon = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"CHANGE_APP_ICON")
@@ -231,6 +229,11 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"ALWAYS_USE_REMAINING_TIME"), LOC(@"ALWAYS_USE_REMAINING_TIME_DESC"), @"alwaysShowRemainingTime_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_TOGGLE_TIME_REMAINING"), LOC(@"DISABLE_TOGGLE_TIME_REMAINING_DESC"), @"disableRemainingTime_enabled"),
             BASIC_SWITCH(LOC(@"DISABLE_ENGAGEMENT_OVERLAY"), LOC(@"DISABLE_ENGAGEMENT_OVERLAY_DESC"), @"disableEngagementOverlay_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER"), LOC(@"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC"), @"hidePreviewCommentSection_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_AUTOPLAY_MINI_PREVIEW"), LOC(@"HIDE_AUTOPLAY_MINI_PREVIEW_DESC"), @"hideAutoplayMiniPreview_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_HUD_MESSAGES"), LOC(@"HIDE_HUD_MESSAGES_DESC"), @"hideHUD_enabled"),
+            BASIC_SWITCH(LOC(@"HIDE_COLLAPSE_BUTTON"), LOC(@"HIDE_COLLAPSE_BUTTON_DESC"), @"disableCollapseButton_enabled"),
+            
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -251,14 +254,14 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"HIDE_PRIVACY_SECTION"), LOC(@"APP_RESTART_DESC"), @"disablePrivacySection_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_LIVECHAT_SECTION"), LOC(@"APP_RESTART_DESC"), @"disableLiveChatSection_enabled")
         ];        
-        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"App Settings Overlay Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"APP_SETTINGS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
         return YES;
     }];
     [sectionItems addObject:appSettingsOverlayGroup];
 
 # pragma mark - LowContrastMode
-    YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Low Contrast Mode")
+    YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"LOW_CONTRAST_MODE")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
             switch (contrastMode()) {
@@ -282,7 +285,7 @@ static const NSInteger YTLiteSection = 789;
                     return YES;
                 }]
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Low Contrast Mode") pickerSectionTitle:nil rows:rows selectedItemIndex:contrastMode() parentResponder:[self parentResponder]];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"LOW_CONTRAST_MODE") pickerSectionTitle:nil rows:rows selectedItemIndex:contrastMode() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
@@ -354,7 +357,7 @@ static const NSInteger YTLiteSection = 789;
                     return YES;
                 }]
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:@"Version Spoofer Picker" pickerSectionTitle:nil rows:rows selectedItemIndex:appVersionSpoofer() parentResponder:[self parentResponder]];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:@"VERSION_SPOOFER_TITLE" pickerSectionTitle:nil rows:rows selectedItemIndex:appVersionSpoofer() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
@@ -365,8 +368,6 @@ static const NSInteger YTLiteSection = 789;
         detailTextBlock:^NSString *() {
             switch (GetSelection(@"appTheme")) {
                 case 1:
-                    return LOC(@"OLED_DARK_THEME_2");
-                case 2:
                     return LOC(@"OLD_DARK_THEME");
                 case 0:
                 default:
@@ -380,13 +381,8 @@ static const NSInteger YTLiteSection = 789;
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"OLED_DARK_THEME") titleDescription:LOC(@"OLED_DARK_THEME_DESC") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"appTheme"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"OLD_DARK_THEME") titleDescription:LOC(@"OLD_DARK_THEME_DESC") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"appTheme"];
+                    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"appTheme"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
@@ -460,6 +456,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"HIDE_SPONSORBLOCK_BUTTON"), LOC(@"HIDE_SPONSORBLOCK_BUTTON_DESC"), @"hideSponsorBlockButton_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_HOME_TAB"), LOC(@"HIDE_HOME_TAB_DESC"), @"hideHomeTab_enabled"),
             BASIC_SWITCH(LOC(@"FIX_CASTING"), LOC(@"FIX_CASTING_DESC"), @"fixCasting_enabled"),
+            BASIC_SWITCH(LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS"), LOC(@"REPLACE_COPY_AND_PASTE_BUTTONS_DESC"), @"switchCopyandPasteFunctionality_enabled"),
             BASIC_SWITCH(LOC(@"ENABLE_FLEX"), LOC(@"ENABLE_FLEX_DESC"), @"flex_enabled"),
             BASIC_SWITCH(LOC(@"APP_VERSION_SPOOFER_LITE"), LOC(@"APP_VERSION_SPOOFER_LITE_DESC"), @"enableVersionSpoofer_enabled"),    
             versionSpooferSection

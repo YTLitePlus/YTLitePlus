@@ -542,6 +542,80 @@ BOOL isTabSelected = NO;
 }
 %end
 
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // Hide the Comment Section Previews under the Video Player - @arichornlover
+    if ((IsEnabled(@"hidePreviewCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"])) {
+        self.hidden = YES;
+        self.opaque = YES;
+        self.userInteractionEnabled = NO;
+        CGRect bounds = self.frame;
+        bounds.size.height = 0;
+        self.frame = bounds;
+        [self.superview layoutIfNeeded];
+        [self setNeedsLayout];
+        [self removeFromSuperview];
+    }
+    // Live chat OLED dark mode - @bhackel
+    if (([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
+            || [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 1 // YTLitePlus OLED Theme
+            ) && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) {
+        self.backgroundColor = [UIColor blackColor];
+    }
+}
+%end
+
+// Hide Autoplay Mini Preview - @bhackel
+%hook YTAutonavPreviewView
+- (void)layoutSubviews {
+    %orig;
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        self.hidden = YES;
+    }
+}
+- (void)setHidden:(BOOL)arg1 {
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(arg1);
+    }
+}
+%end
+
+// Hide HUD Messages - @qnblackcat
+%hook YTHUDMessageView
+- (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 {
+    return IsEnabled(@"hideHUD_enabled") ? nil : %orig;
+}
+%end
+
+// Hide Video Player Collapse Button - @arichornlover
+%hook YTMainAppControlsOverlayView
+- (void)layoutSubviews {
+    %orig; 
+    if (IsEnabled(@"disableCollapseButton_enabled")) {  
+        if (self.watchCollapseButton) {
+            [self.watchCollapseButton removeFromSuperview];
+        }
+    }
+}
+- (BOOL)watchCollapseButtonHidden {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+        return YES;
+    } else {
+        return %orig;
+    }
+}
+- (void)setWatchCollapseButtonAvailable:(BOOL)available {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+    } else {
+        %orig(available);
+    }
+}
+%end
+
+/*
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -565,6 +639,20 @@ BOOL isTabSelected = NO;
     return %orig;
 }
 %end
+%end
+*/
+// New Big YT Mini Player - @bhackel
+%hook YTColdConfig
+- (BOOL)enableIosFloatingMiniplayer { 
+    // Modify if not on iPad
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
+- (BOOL)enableIosFloatingMiniplayerRepositioning { 
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
+- (BOOL)enableIosFloatingMiniplayerResizing { 
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
 %end
 
 // App Settings Overlay Options
@@ -699,9 +787,9 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"iPhoneLayout_enabled")) {
         %init(giPhoneLayout);
     }
-    if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
-        %init(Main);
-    }
+    // if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
+    //     %init(Main);
+    // }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
     }

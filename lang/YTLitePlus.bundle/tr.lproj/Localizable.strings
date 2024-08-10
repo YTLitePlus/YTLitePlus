@@ -2,6 +2,17 @@
 "VERSION" = "YTLitePlus'ın sürümü: %@";
 "VERSION_CHECK" = "Güncelleme için dokunun!";
 
+"COPY_SETTINGS" = "Ayarları Kopyala";
+"COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
+"PASTE_SETTINGS" = "Ayarları Yapıştır";
+"PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
+"EXPORT_SETTINGS" = "Ayarları Dışa Aktar";
+"EXPORT_SETTINGS_DESC" = "Tüm mevcut ayarları bir .txt dosyasına dışa aktarır";
+"IMPORT_SETTINGS" = "Ayarları İçe Aktar";
+"IMPORT_SETTINGS_DESC" = "Ayarları içe aktarmak için basın (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "'Ayarları Kopyala' ve 'Ayarları Yapıştır' Düğmelerini Değiştir";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Düğmeleri 'Ayarları Dışa Aktar' ve 'Ayarları İçe Aktar' ile değiştirir";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Kontrol Seç.";
 
@@ -46,6 +57,18 @@
 
 "DISABLE_ENGAGEMENT_OVERLAY" = "Tam ekranda kaplamayı kapat";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tam ekranda yukarı kaydırma hareketini ve önerilen videoları kapat";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Oynatıcının Altındaki Yorum Önizlemelerini Gizle";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Video oynatıcının altındaki yorum önizlemelerini gizler.";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
+"HIDE_HUD_MESSAGES" = "HUD mesajlarını gizle";
+"HIDE_HUD_MESSAGES_DESC" = "Belirli işlemler için görüntülenen bildirim çubuklarını gizler (ör. CC açıldı/kapandı)";
+
+"HIDE_COLLAPSE_BUTTON" = "Daraltma Düğmesini Gizle";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Video oynatıcıda sol üstte görünen ok ile daraltma düğmesini gizler.";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
