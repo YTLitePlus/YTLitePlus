@@ -233,7 +233,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"HIDE_AUTOPLAY_MINI_PREVIEW"), LOC(@"HIDE_AUTOPLAY_MINI_PREVIEW_DESC"), @"hideAutoplayMiniPreview_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_HUD_MESSAGES"), LOC(@"HIDE_HUD_MESSAGES_DESC"), @"hideHUD_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_COLLAPSE_BUTTON"), LOC(@"HIDE_COLLAPSE_BUTTON_DESC"), @"disableCollapseButton_enabled"),
-            
+            BASIC_SWITCH(LOC(@"HIDE_SPEED_TOAST"), LOC(@"HIDE_SPEED_TOAST_DESC"), @"hideSpeedToast_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

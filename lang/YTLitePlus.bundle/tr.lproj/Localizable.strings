@@ -70,6 +70,9 @@
 "HIDE_COLLAPSE_BUTTON" = "Daraltma Düğmesini Gizle";
 "HIDE_COLLAPSE_BUTTON_DESC" = "Video oynatıcıda sol üstte görünen ok ile daraltma düğmesini gizler.";
 
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
 

@@ -70,6 +70,9 @@
 "HIDE_COLLAPSE_BUTTON" = "折りたたみボタンを隠す";
 "HIDE_COLLAPSE_BUTTON_DESC" = "プレーヤー左上の折りたたみボタンを非表示にします。";
 
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
 

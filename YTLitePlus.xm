@@ -179,6 +179,7 @@ BOOL isSelf() {
 %end
 %end
 
+
 // A/B flags
 %hook YTColdConfig 
 - (BOOL)respectDeviceCaptionSetting { return NO; } // YouRememberCaption: https://poomsmart.github.io/repo/depictions/youremembercaption.html
@@ -192,6 +193,30 @@ BOOL isSelf() {
 - (BOOL)shouldForceUpgrade { return NO;}
 - (BOOL)shouldShowUpgrade { return NO;}
 - (BOOL)shouldShowUpgradeDialog { return NO;}
+%end
+
+// Hide Speed Toast - @bhackel
+// YTLite Speed Toast
+%hook PlayerToast
+- (void)showPlayerToastWithText:(id)text 
+                          value:(CGFloat)value 
+                          style:(NSInteger)style 
+                         onView:(id)view 
+{
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
+%end
+// Default YouTube Speed Toast
+%hook YTInlinePlayerScrubUserEducationView
+- (void)setVisible:(BOOL)visible {
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
 %end
 
 // Hide Home Tab - @bhackel
