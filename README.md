@@ -26,122 +26,49 @@
 
 # Credits
 
-<table id='ytliteplus credit'>
-<tr>
-<td align="center">
-<a href='https://github.com/dayanch96'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/293f1a61-00b8-424a-9e00-f520f5a88064' width='120px;'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/arichorn'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/2753042f-9efa-404d-a719-4761ad48d323' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/balackburn'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/d08ccf99-d3e5-4388-833f-22632dc66fd2' width='120px'>
-</td>
-</a>
-<td id='ssuesskind'>
-<a href='https://github.com/ssuesskind'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/ed6bc6a0-ef55-4548-8d60-32d86f2aa9f3' width='120px;'>
-</a>
-<td align="center">
-<a href='https://github.com/Deci8BelioS'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/8cca7bf9-4c52-4c25-99dd-2b26434b7deb' width='120px'>
-</a>
-<br>
-</tr>
-<br>
-<tr>
-<td align="center">
-<a href='https://github.com/MiRO92'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/ca462139-3a55-4ce1-a774-ffd13c459c80' width='120px'>
-
-</a>
-<br>
-</td>
-<td align="center">
-<a href='https://github.com/qnblackcat'>
-
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/20b0d6d9-d892-4af4-9762-6617d49743b8' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/PoomSmart'>
-
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/668fe74e-9da1-4115-8fd0-ed7c308976b3' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/level3tjg'>
-
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/b11fe92d-aceb-4aa1-88bf-7699c5f4ac5f' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/BandarHL'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/dc4f0597-017b-44c1-8b52-33ec168a56f3' width='120px'>
-</a>
-</td>
-</tr>
-  
-<tr>
-<td align="center">
-<a href='https://github.com/Galactic-Dev'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/f489e91e-3b04-45d3-b094-68b83c43da25' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/julioverne'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/0f7336ea-7f54-4155-995f-dea58d39f022' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/hbang'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/2eec50db-e2df-4217-a230-5c5cc7223934' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/Lyvendia'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/36902aa9-1f81-403c-b9b5-ebbd9e8b9ef9' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/therealFoxster'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/60427fc8-e019-43d6-86ae-01ad8b4a1e77' width='120px'>
-</a>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<a href='https://github.com/ichitaso'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/6a1cb4b7-5eec-4cda-8bed-f5dea2408323' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/AhmedBafkir'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/55b270be-1d43-4e2c-81da-ee04d993d447' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/CokePokes'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/5a40346b-b652-4eca-955f-272baf45c6dd' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/ISnackable'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/5b5355b1-0a7d-4202-affe-725406e9af72' width='120px'>
-</a>
-</td>
-<td align="center">
-<a href='https://github.com/theos/theos'>
-<img src='https://github.com/Balackburn/YTLitePlus/assets/93828569/e5c37588-95f4-4773-b3fe-40ba02499160' width='120px'>
-</a>
-</td>
-</tr>
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/dayanch96"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/dayanch96.png" width="100px;" alt="dayanch96"/></a></td>
+    <td align="center"><a href="https://github.com/Balackburn"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Balackburn.png" width="100px;" alt="Balackburn"/></a></td>
+    <td align="center"><a href="https://github.com/arichornloverALT"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/arichornloverALT.png" width="100px;" alt="arichornloverALT"/></a></td>
+    <td align="center"><a href="https://github.com/PoomSmart"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/PoomSmart.png" width="100px;" alt="PoomSmart"/></a></td>
+    <td align="center"><a href="https://github.com/qnblackcat"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/qnblackcat.png" width="100px;" alt="qnblackcat"/></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/SKEIDs"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/SKEIDs.png" width="100px;" alt="SKEIDs"/></a></td>
+    <td align="center"><a href="https://github.com/asdfzxcvbn"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/asdfzxcvbn.png" width="100px;" alt="asdfzxcvbn"/></a></td>
+    <td align="center"><a href="https://github.com/matt911"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/matt911.png" width="100px;" alt="matt911"/></a></td>
+    <td align="center"><a href="https://github.com/bhackel"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/bhackel.png" width="100px;" alt="bhackel"/></a></td>
+    <td align="center"><a href="https://github.com/AlexInABox"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/AlexInABox.png" width="100px;" alt="AlexInABox"/></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Glenta"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Glenta.png" width="100px;" alt="Glenta"/></a></td>
+    <td align="center"><a href="https://github.com/gototheskinny"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/gototheskinny.png" width="100px;" alt="gototheskinny"/></a></td>
+    <td align="center"><a href="https://github.com/MrAlucardDante"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/MrAlucardDante.png" width="100px;" alt="MrAlucardDante"/></a></td>
+    <td align="center"><a href="https://github.com/Galactic-Dev"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Galactic-Dev.png" width="100px;" alt="Galactic-Dev"/></a></td>
+    <td align="center"><a href="https://github.com/AhmedBafkir"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/AhmedBafkir.png" width="100px;" alt="AhmedBafkir"/></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/MiRO92"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/MiRO92.png" width="100px;" alt="MiRO92"/></a></td>
+    <td align="center"><a href="https://github.com/ichitaso"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/ichitaso.png" width="100px;" alt="ichitaso"/></a></td>
+    <td align="center"><a href="https://github.com/Deci8BelioS"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Deci8BelioS.png" width="100px;" alt="Deci8BelioS"/></a></td>
+    <td align="center"><a href="https://github.com/julioverne"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/julioverne.png" width="100px;" alt="julioverne"/></a></td>
+    <td align="center"><a href="https://github.com/therealFoxster"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/therealFoxster.png" width="100px;" alt="therealFoxster"/></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Lyvendia"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Lyvendia.png" width="100px;" alt="Lyvendia"/></a></td>
+    <td align="center"><a href="https://github.com/ssuesskind"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/ssuesskind.png" width="100px;" alt="ssuesskind"/></a></td>
+    <td align="center"><a href="https://github.com/hbang"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/hbang.png" width="100px;" alt="hbang"/></a></td>
+    <td align="center"><a href="https://github.com/level3tjg"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/level3tjg.png" width="100px;" alt="level3tjg"/></a></td>
+    <td align="center"><a href="https://github.com/zSaaiq"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/zSaaiq.png" width="100px;" alt="zSaaiq"/></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ISnackable"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/ISnackable.png" width="100px;" alt="ISnackable"/></a></td>
+    <td align="center"><a href="https://github.com/VictorxD70"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/VictorxD70.png" width="100px;" alt="VictorxD70"/></a></td>
+    <td align="center"><a href="https://github.com/Macleykun"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/Macleykun.png" width="100px;" alt="Macleykun"/></a></td>
+    <td align="center"><a href="https://github.com/BandarHL"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/BandarHL.png" width="100px;" alt="BandarHL"/></a></td>
+    <td align="center"><a href="https://github.com/CokePokes"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Credits/CokePokes.png" width="100px;" alt="CokePokes"/></a></td>
+  </tr>
 </table>
 
 # Features
