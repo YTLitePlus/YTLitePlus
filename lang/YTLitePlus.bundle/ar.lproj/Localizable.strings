@@ -70,6 +70,9 @@
 "HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
 "HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
 
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
 

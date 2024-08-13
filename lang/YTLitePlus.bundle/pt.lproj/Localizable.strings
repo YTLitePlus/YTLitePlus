@@ -70,6 +70,10 @@
 "HIDE_COLLAPSE_BUTTON" = "Ocultar Botão de Recolhimento";
 "HIDE_COLLAPSE_BUTTON_DESC" = "Oculta o botão de seta para recolher que era exibido no canto superior esquerdo do player de vídeo.";
 
+"HIDE_SPEED_TOAST" = "Ocultar Toast de Velocidade";
+"HIDE_SPEED_TOAST_DESC" = "Ocultar o popup de Velocidade 2X ao segurar o player";
+
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
 
