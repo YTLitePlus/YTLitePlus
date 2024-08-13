@@ -570,6 +570,7 @@ BOOL isTabSelected = NO;
 %hook _ASDisplayView
 - (void)didMoveToWindow {
     %orig;
+
     // Hide the Comment Section Previews under the Video Player - @arichornlover
     if ((IsEnabled(@"hidePreviewCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"])) {
         self.hidden = YES;
@@ -582,10 +583,14 @@ BOOL isTabSelected = NO;
         [self setNeedsLayout];
         [self removeFromSuperview];
     }
+
     // Live chat OLED dark mode - @bhackel
-    if (([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
-            || [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 1 // YTLitePlus OLED Theme
-            ) && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) {
+    CGFloat alpha;
+    if ([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
+            && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"] // Live chat text message
+            && [self.backgroundColor getWhite:nil alpha:&alpha] // Check if color is grayscale and get alpha
+            && alpha != 0.0) // Ignore shorts live chat
+    {
         self.backgroundColor = [UIColor blackColor];
     }
 }
