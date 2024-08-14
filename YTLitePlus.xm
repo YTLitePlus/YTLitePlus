@@ -579,6 +579,7 @@ BOOL isTabSelected = NO;
     static float initialBrightness;
     static BOOL isHorizontalPan = NO;
     static NSInteger gestureSection = 0; // 1 for brightness, 2 for volume, 3 for seeking
+    static CGFloat currentTime;
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // Get the gesture's start position
@@ -594,6 +595,7 @@ BOOL isTabSelected = NO;
             initialVolume = [[AVAudioSession sharedInstance] outputVolume];
         } else {
             gestureSection = 3; // Bottom third: Seeking
+            currentTime = self.currentVideoMediaTime;
         }
         
         // Reset the horizontal pan flag
@@ -641,9 +643,16 @@ BOOL isTabSelected = NO;
                 });
                 
             } else if (gestureSection == 3) {
-                // Bottom third: Seek functionality (implement your seeking logic here)
-                // Example: Adjust playback position based on horizontal swipe
-                // (Add your media player's seeking logic here)
+                // Bottom third: Seek functionality
+                // Calculate a seek fraction based on the horizontal translation
+                CGFloat totalDuration = self.currentVideoTotalMediaTime;
+                CGFloat viewWidth = self.view.bounds.size.width;
+                CGFloat seekFraction = (translation.x / viewWidth);
+                // Seek to the new time based on the calculated offset
+                CGFloat sensitivityFactor = 1; // Adjust this value to make seeking less sensitive
+                seekFraction = sensitivityFactor * seekFraction;
+                CGFloat seekTime = currentTime + totalDuration * seekFraction;
+                [self seekToTime:seekTime];
             }
         }
     }
