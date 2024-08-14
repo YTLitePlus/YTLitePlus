@@ -41,6 +41,7 @@
 #import "Tweaks/YouTubeHeader/YTWatchPullToFullController.h"
 #import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
 #import "Tweaks/YouTubeHeader/YTResponder.h"
+#import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
 #import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
 
@@ -100,6 +101,14 @@
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 
+// Hide Autoplay Mini Preview - @bhackel
+@interface YTAutonavPreviewView : UIView
+@end
+
+// OLED Live Chat - @bhackel
+@interface YTLUserDefaults : NSUserDefaults
+@end
+
 // Hide Home Tab - @bhackel
 @interface YTPivotBarViewController : UIViewController
 @property NSString *selectedPivotIdentifier;
@@ -117,6 +126,10 @@
 @property id <YTResponder> parentResponder;
 @end
 
+// Hide Collapse Button - @arichornlover
+@interface YTMainAppControlsOverlayView (YTLitePlus)
+@property (nonatomic, assign, readwrite) YTQTMButton *watchCollapseButton;
+@end
 
 // SponsorBlock button in Nav bar
 @interface MDCButton : UIButton

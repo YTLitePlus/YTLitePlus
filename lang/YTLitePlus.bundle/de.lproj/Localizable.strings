@@ -2,6 +2,17 @@
 "VERSION" = "YTLitePlus's version: %@";
 "VERSION_CHECK" = "Tippe hier, um nach Updates zu suchen!";
 
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"EXPORT_SETTINGS" = "Export Settings";
+"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
+"IMPORT_SETTINGS" = "Import Settings";
+"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Overlay-Optionen für Videosteuerungen";
 
@@ -46,6 +57,21 @@
 
 "DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
+"HIDE_HUD_MESSAGES" = "HUD-Nachrichten ausblenden";
+"HIDE_HUD_MESSAGES_DESC" = "z.B.: Untertitel sind aktiviert/deaktiviert, Videoschleife ist an, ...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";

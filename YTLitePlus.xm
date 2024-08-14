@@ -179,6 +179,7 @@ BOOL isSelf() {
 %end
 %end
 
+
 // A/B flags
 %hook YTColdConfig 
 - (BOOL)respectDeviceCaptionSetting { return NO; } // YouRememberCaption: https://poomsmart.github.io/repo/depictions/youremembercaption.html
@@ -192,6 +193,30 @@ BOOL isSelf() {
 - (BOOL)shouldForceUpgrade { return NO;}
 - (BOOL)shouldShowUpgrade { return NO;}
 - (BOOL)shouldShowUpgradeDialog { return NO;}
+%end
+
+// Hide Speed Toast - @bhackel
+// YTLite Speed Toast
+%hook PlayerToast
+- (void)showPlayerToastWithText:(id)text 
+                          value:(CGFloat)value 
+                          style:(NSInteger)style 
+                         onView:(id)view 
+{
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
+%end
+// Default YouTube Speed Toast
+%hook YTInlinePlayerScrubUserEducationView
+- (void)setVisible:(BOOL)visible {
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
 %end
 
 // Hide Home Tab - @bhackel
@@ -542,6 +567,84 @@ BOOL isTabSelected = NO;
 }
 %end
 
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+
+    // Hide the Comment Section Previews under the Video Player - @arichornlover
+    if ((IsEnabled(@"hidePreviewCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"])) {
+        self.hidden = YES;
+        self.opaque = YES;
+        self.userInteractionEnabled = NO;
+        CGRect bounds = self.frame;
+        bounds.size.height = 0;
+        self.frame = bounds;
+        [self.superview layoutIfNeeded];
+        [self setNeedsLayout];
+        [self removeFromSuperview];
+    }
+
+    // Live chat OLED dark mode - @bhackel
+    CGFloat alpha;
+    if ([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
+            && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"] // Live chat text message
+            && [self.backgroundColor getWhite:nil alpha:&alpha] // Check if color is grayscale and get alpha
+            && alpha != 0.0) // Ignore shorts live chat
+    {
+        self.backgroundColor = [UIColor blackColor];
+    }
+}
+%end
+
+// Hide Autoplay Mini Preview - @bhackel
+%hook YTAutonavPreviewView
+- (void)layoutSubviews {
+    %orig;
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        self.hidden = YES;
+    }
+}
+- (void)setHidden:(BOOL)arg1 {
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(arg1);
+    }
+}
+%end
+
+// Hide HUD Messages - @qnblackcat
+%hook YTHUDMessageView
+- (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 {
+    return IsEnabled(@"hideHUD_enabled") ? nil : %orig;
+}
+%end
+
+// Hide Video Player Collapse Button - @arichornlover
+%hook YTMainAppControlsOverlayView
+- (void)layoutSubviews {
+    %orig; 
+    if (IsEnabled(@"disableCollapseButton_enabled")) {  
+        if (self.watchCollapseButton) {
+            [self.watchCollapseButton removeFromSuperview];
+        }
+    }
+}
+- (BOOL)watchCollapseButtonHidden {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+        return YES;
+    } else {
+        return %orig;
+    }
+}
+- (void)setWatchCollapseButtonAvailable:(BOOL)available {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+    } else {
+        %orig(available);
+    }
+}
+%end
+
 @interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
 // the long press gesture that will be created and added to the player view
 @property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
@@ -676,7 +779,7 @@ BOOL isTabSelected = NO;
 %end
 %end
 
-
+/*
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -700,6 +803,20 @@ BOOL isTabSelected = NO;
     return %orig;
 }
 %end
+%end
+*/
+// New Big YT Mini Player - @bhackel
+%hook YTColdConfig
+- (BOOL)enableIosFloatingMiniplayer { 
+    // Modify if not on iPad
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
+- (BOOL)enableIosFloatingMiniplayerRepositioning { 
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
+- (BOOL)enableIosFloatingMiniplayerResizing { 
+    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
+}
 %end
 
 // App Settings Overlay Options
@@ -834,9 +951,9 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"iPhoneLayout_enabled")) {
         %init(giPhoneLayout);
     }
-    if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
-        %init(Main);
-    }
+    // if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
+    //     %init(Main);
+    // }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
     }
