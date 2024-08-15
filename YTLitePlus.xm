@@ -673,6 +673,14 @@ BOOL isTabSelected = NO;
     %orig;
 }
 %end
+// Gesture Section Enum
+typedef NS_ENUM(NSInteger, GestureSection) {
+    GestureSectionTop,
+    GestureSectionMiddle,
+    GestureSectionBottom,
+    GestureSectionInvalid
+};
+
 %hook YTPlayerViewController
 // the pan gesture that will be created and added to the player view
 %property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
@@ -680,39 +688,74 @@ BOOL isTabSelected = NO;
 - (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     static float initialVolume;
     static float initialBrightness;
-    static BOOL isHorizontalPan = NO;
-    static NSInteger gestureSection = 0; // 1 for brightness, 2 for volume, 3 for seeking
+    static BOOL isValidHorizontalPan = NO;
+    static GestureSection gestureSection = GestureSectionInvalid;
     static CGFloat currentTime;
+    // Helper function to adjust brightness
+    void (^adjustBrightness)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialBrightness) {
+        float newBrightness = initialBrightness + (translationX / 1000.0);
+        newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
+        [[UIScreen mainScreen] setBrightness:newBrightness];
+    };
+    // Helper function to adjust volume
+    void (^adjustVolume)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialVolume) {
+        float newVolume = initialVolume + (translationX / 1000.0);
+        newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+        // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
+        MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+        UISlider *volumeViewSlider = nil;
+        for (UIView *view in volumeView.subviews) {
+            if ([view isKindOfClass:[UISlider class]]) {
+                volumeViewSlider = (UISlider *)view;
+                break;
+            }
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            volumeViewSlider.value = newVolume;
+        });
+    };
+    // Helper function to adjust seek time
+    void (^adjustSeek)(CGFloat) = ^(CGFloat translationX) {
+        // Calculate a seek fraction based on the horizontal translation
+        CGFloat totalDuration = self.currentVideoTotalMediaTime;
+        CGFloat viewWidth = self.view.bounds.size.width;
+        CGFloat seekFraction = (translationX / viewWidth);
+        // Seek to the new time based on the calculated offset
+        CGFloat sensitivityFactor = 1; // Adjust this value to make seeking less sensitive
+        seekFraction = sensitivityFactor * seekFraction;
+        CGFloat seekTime = currentTime + totalDuration * seekFraction;
+        [self seekToTime:seekTime];
+    };
     
+    // Handle gesture based on current gesture state
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // Get the gesture's start position
         CGPoint startLocation = [panGestureRecognizer locationInView:self.view];
         CGFloat viewHeight = self.view.bounds.size.height;
         
         // Determine the section based on the start position
+        // by dividing the view into thirds
         if (startLocation.y <= viewHeight / 3.0) {
-            gestureSection = 1; // Top third: Brightness
-            initialBrightness = [UIScreen mainScreen].brightness;
+            gestureSection = GestureSectionTop;
         } else if (startLocation.y <= 2 * viewHeight / 3.0) {
-            gestureSection = 2; // Middle third: Volume
-            initialVolume = [[AVAudioSession sharedInstance] outputVolume];
-        } else {
-            gestureSection = 3; // Bottom third: Seeking
-            currentTime = self.currentVideoMediaTime;
+            gestureSection = GestureSectionMiddle;
+        } else if (startLocation.y <= viewHeight) {
+            gestureSection = GestureSectionBottom;
         }
         
-        // Reset the horizontal pan flag
-        isHorizontalPan = NO;
+        // Reset all starting values
+        isValidHorizontalPan = NO;
+        initialBrightness = [UIScreen mainScreen].brightness;
+        initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+        currentTime = self.currentVideoMediaTime;
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        // Calculate the translation of the gesture
-        CGPoint translation = [panGestureRecognizer translationInView:self.view];
-        
         // Determine if the gesture is predominantly horizontal
-        if (!isHorizontalPan) {
+        CGPoint translation = [panGestureRecognizer translationInView:self.view];
+        if (!isValidHorizontalPan) {
             if (fabs(translation.x) > fabs(translation.y)) {
-                isHorizontalPan = YES;
+                isValidHorizontalPan = YES;
             } else {
                 // If vertical movement is greater, cancel the gesture recognizer
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
@@ -721,47 +764,19 @@ BOOL isTabSelected = NO;
         }
         
         // Handle the gesture based on the identified section
-        if (isHorizontalPan) {
-            if (gestureSection == 1) {
-                // Top third: Adjust brightness
-                float newBrightness = initialBrightness + (translation.x / 1000.0);
-                newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
-                [[UIScreen mainScreen] setBrightness:newBrightness];
-                
-            } else if (gestureSection == 2) {
-                // Middle third: Adjust volume
-                float newVolume = initialVolume + (translation.x / 1000.0);
-                newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
-                
-                MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-                UISlider *volumeViewSlider = nil;
-                for (UIView *view in volumeView.subviews) {
-                    if ([view isKindOfClass:[UISlider class]]) {
-                        volumeViewSlider = (UISlider *)view;
-                        break;
-                    }
-                }
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    volumeViewSlider.value = newVolume;
-                });
-                
-            } else if (gestureSection == 3) {
-                // Bottom third: Seek functionality
-                // Calculate a seek fraction based on the horizontal translation
-                CGFloat totalDuration = self.currentVideoTotalMediaTime;
-                CGFloat viewWidth = self.view.bounds.size.width;
-                CGFloat seekFraction = (translation.x / viewWidth);
-                // Seek to the new time based on the calculated offset
-                CGFloat sensitivityFactor = 1; // Adjust this value to make seeking less sensitive
-                seekFraction = sensitivityFactor * seekFraction;
-                CGFloat seekTime = currentTime + totalDuration * seekFraction;
-                [self seekToTime:seekTime];
+        if (isValidHorizontalPan) {
+            if (gestureSection == GestureSectionTop) {
+                adjustBrightness(translation.x, initialBrightness);
+            } else if (gestureSection == GestureSectionMiddle) {
+                adjustVolume(translation.x, initialVolume);
+            } else if (gestureSection == GestureSectionBottom) {
+                adjustSeek(translation.x);
             }
         }
     }
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        if (isHorizontalPan) {
+        if (isValidHorizontalPan) {
             // Provide haptic feedback upon successful gesture recognition
             UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
             [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
