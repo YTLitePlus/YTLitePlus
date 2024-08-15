@@ -7,7 +7,7 @@
 #import <substrate.h>
 #import <rootless.h>
 #import <AVKit/AVKit.h>         // For AVPlayer and AVPlayerViewController
-#import <MobileCoreServices/MobileCoreServices.h> // For kUTTypeMovie and kUTTypeVideo
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h> // Required for UTType
 
 
 #import "Tweaks/FLEX/FLEX.h"
