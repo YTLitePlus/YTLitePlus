@@ -52,12 +52,27 @@
 #define IS_ENABLED(k) [[NSUserDefaults standardUserDefaults] boolForKey:k]
 #define APP_THEME_IDX [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"]
 
-// Enum for Player Gesture selected modes
+// Avoid issues with multiple includes of this file
+#pragma once
+
+// Helper methods for key retrieval
+#define IsEnabled(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
+#define GetSelection(key) [[NSUserDefaults standardUserDefaults] integerForKey:key]
+
+
+// Player Gesture selected mode enum
 typedef NS_ENUM(NSUInteger, GestureMode) {
     GestureModeVolume,
     GestureModeBrightness,
     GestureModeSeek,
     GestureModeInvalid
+};
+// Gesture Section Enum
+typedef NS_ENUM(NSUInteger, GestureSection) {
+    GestureSectionTop,
+    GestureSectionMiddle,
+    GestureSectionBottom,
+    GestureSectionInvalid
 };
 
 // YTSpeed

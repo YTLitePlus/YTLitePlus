@@ -1,9 +1,6 @@
 #import "../YTLitePlus.h"
 
-//
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
+// Low Contrast Mode
 static int contrastMode() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }

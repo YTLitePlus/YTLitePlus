@@ -32,12 +32,6 @@
         settingItemId:0]
 */
 
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
-static int GetSelection(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:key];
-}
 static int contrastMode() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }
@@ -214,7 +208,7 @@ static const NSInteger YTLiteSection = 789;
 
 # pragma mark - Player Gestures - @bhackel
     // Helper to get the selected gesture mode
-    static NSString* (^sectionGestureSelectedMode)(GestureMode) = ^(GestureMode sectionIndex) {
+    static NSString* (^sectionGestureSelectedModeToString)(GestureMode) = ^(GestureMode sectionIndex) {
         switch (sectionIndex) {
             case GestureModeVolume:
                 return LOC(@"Volume (Beta)");
@@ -231,7 +225,7 @@ static const NSInteger YTLiteSection = 789;
     // Helper to generate checkmark setting items for selecting gesture modes
     static YTSettingsSectionItem* (^gestureCheckmarkSettingItem)(NSInteger, NSString *) = ^(NSInteger idx, NSString *key) {
         return [YTSettingsSectionItemClass 
-            checkmarkItemWithTitle:sectionGestureSelectedMode(idx)
+            checkmarkItemWithTitle:sectionGestureSelectedModeToString(idx)
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 [[NSUserDefaults standardUserDefaults] setInteger:idx forKey:key];
                 [settingsViewController reloadData];
@@ -245,7 +239,7 @@ static const NSInteger YTLiteSection = 789;
         return [YTSettingsSectionItemClass itemWithTitle:LOC(sectionLabel)
             accessibilityIdentifier:nil
             detailTextBlock:^NSString *() {
-                return sectionGestureSelectedMode(GetSelection(sectionKey));
+                return sectionGestureSelectedModeToString(GetSelection(sectionKey));
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
@@ -269,7 +263,7 @@ static const NSInteger YTLiteSection = 789;
     // High level gestures menu
     YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            createSectionGestureSelector(@"Top Section (Beta)", @"playerGestureTopSelection"),
+            createSectionGestureSelector(@"Top Section (Beta)",    @"playerGestureTopSelection"),
             createSectionGestureSelector(@"Middle Section (Beta)", @"playerGestureMiddleSelection"),
             createSectionGestureSelector(@"Bottom Section (Beta)", @"playerGestureBottomSelection")
         ];        

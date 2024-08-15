@@ -33,11 +33,6 @@ static NSString *accessGroupID() {
     return accessGroup;
 }
 
-//
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
-
 # pragma mark - Tweaks
 
 // Activate FLEX
@@ -673,13 +668,7 @@ BOOL isTabSelected = NO;
     %orig;
 }
 %end
-// Gesture Section Enum
-typedef NS_ENUM(NSInteger, GestureSection) {
-    GestureSectionTop,
-    GestureSectionMiddle,
-    GestureSectionBottom,
-    GestureSectionInvalid
-};
+
 
 %hook YTPlayerViewController
 // the pan gesture that will be created and added to the player view
@@ -715,7 +704,7 @@ typedef NS_ENUM(NSInteger, GestureSection) {
         });
     };
     // Helper function to adjust seek time
-    void (^adjustSeek)(CGFloat) = ^(CGFloat translationX) {
+    void (^adjustSeek)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat currentTime) {
         // Calculate a seek fraction based on the horizontal translation
         CGFloat totalDuration = self.currentVideoTotalMediaTime;
         CGFloat viewWidth = self.view.bounds.size.width;
@@ -726,6 +715,32 @@ typedef NS_ENUM(NSInteger, GestureSection) {
         CGFloat seekTime = currentTime + totalDuration * seekFraction;
         [self seekToTime:seekTime];
     };
+    // Helper function to run the selected gesture action
+    void (^runSelectedGesture)(NSString*, CGFloat, CGFloat, CGFloat, CGFloat) = 
+            ^(NSString *sectionKey, CGFloat translationX, CGFloat initialBrightness, CGFloat initialVolume, CGFloat currentTime) {
+        
+        // Determine the selected gesture mode using the section key
+        GestureMode selectedGestureMode = (GestureMode)GetSelection(sectionKey);
+        // Handle the gesture action based on the selected mode
+        switch (selectedGestureMode) {
+            case GestureModeVolume:
+                adjustVolume(translationX, initialVolume);
+                break;
+            case GestureModeBrightness:
+                adjustBrightness(translationX, initialBrightness);
+                break;
+            case GestureModeSeek:
+                adjustSeek(translationX, currentTime);
+                break;
+            default:
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:okAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+                break;
+        }
+    };
+
     
     // Handle gesture based on current gesture state
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
@@ -766,11 +781,11 @@ typedef NS_ENUM(NSInteger, GestureSection) {
         // Handle the gesture based on the identified section
         if (isValidHorizontalPan) {
             if (gestureSection == GestureSectionTop) {
-                adjustBrightness(translation.x, initialBrightness);
+                runSelectedGesture(@"playerGestureTopSelection",    translation.x, initialBrightness, initialVolume, currentTime);
             } else if (gestureSection == GestureSectionMiddle) {
-                adjustVolume(translation.x, initialVolume);
+                runSelectedGesture(@"playerGestureMiddleSelection", translation.x, initialBrightness, initialVolume, currentTime);
             } else if (gestureSection == GestureSectionBottom) {
-                adjustSeek(translation.x);
+                runSelectedGesture(@"playerGestureBottomSelection", translation.x, initialBrightness, initialVolume, currentTime);
             }
         }
     }
@@ -1040,5 +1055,15 @@ typedef NS_ENUM(NSInteger, GestureSection) {
     }
     if (![allKeys containsObject:@"fixCasting_enabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
+    }
+    // Default gestures as volume, brightness, seek
+    if (![allKeys containsObject:@"playerGestureTopSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeVolume forKey:@"playerGestureTopSelection"]; 
+    }
+    if (![allKeys containsObject:@"playerGestureMiddleSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeBrightness forKey:@"playerGestureMiddleSelection"]; 
+    }
+    if (![allKeys containsObject:@"playerGestureBottomSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeSeek forKey:@"playerGestureBottomSelection"]; 
     }
 }
