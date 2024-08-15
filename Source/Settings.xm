@@ -212,6 +212,73 @@ static const NSInteger YTLiteSection = 789;
     [sectionItems addObject:appIcon];
 */
 
+# pragma mark - Player Gestures - @bhackel
+    // Helper to get the selected gesture mode
+    static NSString* (^sectionGestureSelectedMode)(GestureMode) = ^(GestureMode sectionIndex) {
+        switch (sectionIndex) {
+            case GestureModeVolume:
+                return LOC(@"Volume (Beta)");
+            case GestureModeBrightness:
+                return LOC(@"Brightness (Beta)");
+            case GestureModeSeek:
+                return LOC(@"Seek (Beta)");
+            default:
+                return @"Invalid index - Report bug";
+        }
+    };
+
+
+    // Helper to generate checkmark setting items for selecting gesture modes
+    static YTSettingsSectionItem* (^gestureCheckmarkSettingItem)(NSInteger, NSString *) = ^(NSInteger idx, NSString *key) {
+        return [YTSettingsSectionItemClass 
+            checkmarkItemWithTitle:sectionGestureSelectedMode(idx)
+            selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [[NSUserDefaults standardUserDefaults] setInteger:idx forKey:key];
+                [settingsViewController reloadData];
+                return YES;
+            }
+        ];
+    };
+
+    // Helper to generate a section item for selecting a gesture mode
+    YTSettingsSectionItem *(^createSectionGestureSelector)(NSString *, NSString *) = ^YTSettingsSectionItem *(NSString *sectionLabel, NSString *sectionKey) {
+        return [YTSettingsSectionItemClass itemWithTitle:LOC(sectionLabel)
+            accessibilityIdentifier:nil
+            detailTextBlock:^NSString *() {
+                return sectionGestureSelectedMode(GetSelection(sectionKey));
+            }
+            selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                NSArray <YTSettingsSectionItem *> *rows = @[
+                    gestureCheckmarkSettingItem(0, sectionKey),                                       
+                    gestureCheckmarkSettingItem(1, sectionKey),
+                    gestureCheckmarkSettingItem(2, sectionKey)
+                ];
+                
+                YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
+                    initWithNavTitle:LOC(sectionLabel) 
+                    pickerSectionTitle:nil 
+                    rows:rows 
+                    selectedItemIndex:GetSelection(sectionKey) 
+                    parentResponder:[self parentResponder]
+                ];
+                [settingsViewController pushViewController:picker];
+                return YES;
+            }
+        ];
+    };
+    // High level gestures menu
+    YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        NSArray <YTSettingsSectionItem *> *rows = @[
+            createSectionGestureSelector(@"Top Section (Beta)", @"playerGestureTopSelection"),
+            createSectionGestureSelector(@"Middle Section (Beta)", @"playerGestureMiddleSelection"),
+            createSectionGestureSelector(@"Bottom Section (Beta)", @"playerGestureBottomSelection")
+        ];        
+        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Player Gestures (Beta)") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+        [settingsViewController pushViewController:picker];
+        return YES;
+    }];
+    [sectionItems addObject:playerGesturesGroup];
+
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
@@ -234,7 +301,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"HIDE_HUD_MESSAGES"), LOC(@"HIDE_HUD_MESSAGES_DESC"), @"hideHUD_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_COLLAPSE_BUTTON"), LOC(@"HIDE_COLLAPSE_BUTTON_DESC"), @"disableCollapseButton_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_SPEED_TOAST"), LOC(@"HIDE_SPEED_TOAST_DESC"), @"hideSpeedToast_enabled"),
-            BASIC_SWITCH(LOC(@"ENABLE_UYOU_GESTURES"), LOC(@"ENABLE_UYOU_GESTURES_DESC"), @"uYouGestures_enabled"),
+            BASIC_SWITCH(LOC(@"ENABLE_UYOU_GESTURES"), LOC(@"ENABLE_UYOU_GESTURES_DESC"), @"playerGestures_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

@@ -657,7 +657,7 @@ BOOL isTabSelected = NO;
 @end
 
 // Gestures - @bhackel
-%group uYouGestures
+%group playerGestures
 %hook YTWatchLayerViewController
 // invoked when the player view controller is either created or destroyed
 - (void)watchController:(YTWatchController *)watchController didSetPlayerViewController:(YTPlayerViewController *)playerViewController {
@@ -1008,8 +1008,8 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"disableEngagementOverlay_enabled")) {
         %init(gDisableEngagementOverlay);
     }
-    if (IsEnabled(@"uYouGestures_enabled")) {
-        %init(uYouGestures);
+    if (IsEnabled(@"playerGestures_enabled")) {
+        %init(playerGestures);
     }
 
     // Change the default value of some options

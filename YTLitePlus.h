@@ -52,6 +52,14 @@
 #define IS_ENABLED(k) [[NSUserDefaults standardUserDefaults] boolForKey:k]
 #define APP_THEME_IDX [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"]
 
+// Enum for Player Gesture selected modes
+typedef NS_ENUM(NSUInteger, GestureMode) {
+    GestureModeVolume,
+    GestureModeBrightness,
+    GestureModeSeek,
+    GestureModeInvalid
+};
+
 // YTSpeed
 @interface YTVarispeedSwitchControllerOption : NSObject
 - (id)initWithTitle:(id)title rate:(float)rate;
