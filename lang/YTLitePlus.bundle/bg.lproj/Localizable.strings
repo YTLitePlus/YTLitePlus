@@ -13,6 +13,9 @@
 "REPLACE_COPY_AND_PASTE_BUTTONS" = "Заменете бутоните 'Копиране на настройки' и 'Поставяне на настройки'";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Заменете бутоните с 'Експортиране на настройки' и 'Импортиране на настройки'";
 
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Опции за контрол на видеото";
 

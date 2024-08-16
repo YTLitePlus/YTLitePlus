@@ -681,7 +681,7 @@ BOOL isTabSelected = NO;
     // Constant for the deadzone radius that can be changed in the settings
     static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
     // Constant for the sensitivity factor that can be changed in the settings
-    static CGFloat sensitivityFactor = (CGFloat)GetFloat(@"playerGestureSensitivity");
+    static CGFloat sensitivityFactor = (CGFloat)GetFloat(@"playerGesturesSensitivity");
 
 /***** Helper functions *****/
     // Helper function to adjust brightness
@@ -1084,7 +1084,7 @@ BOOL isTabSelected = NO;
     if (![allKeys containsObject:@"playerGesturesDeadzone"]) { 
        [[NSUserDefaults standardUserDefaults] setFloat:20.0 forKey:@"playerGesturesDeadzone"]; 
     }
-    if (![allKeys containsObject:@"playerGestureSensitivity"]) { 
-       [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGestureSensitivity"]; 
+    if (![allKeys containsObject:@"playerGesturesSensitivity"]) { 
+       [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGesturesSensitivity"]; 
     }
 }
