@@ -292,7 +292,7 @@ static const NSInteger YTLiteSection = 789;
         }
     ];
     // Configuration picker for sensitivity to pick from 0.5 to 2.0 with interval of 0.1
-    YTSettingsSectionItem *sensitivtyPicker = [YTSettingsSectionItemClass 
+    YTSettingsSectionItem *sensitivityPicker = [YTSettingsSectionItemClass 
         itemWithTitle:LOC(@"Sensitivity (Beta)") 
         accessibilityIdentifier:nil 
         detailTextBlock:^NSString *() {
@@ -322,8 +322,7 @@ static const NSInteger YTLiteSection = 789;
             [settingsViewController pushViewController:picker];
             return YES;
         }
-    ]
-
+    ];
 
     // High level gestures menu
     YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
@@ -332,7 +331,9 @@ static const NSInteger YTLiteSection = 789;
             [YTSettingsSectionItemClass 
                 itemWithTitle:nil 
                 accessibilityIdentifier:nil 
-                detailTextBlock:LOC(@"Configure horizontal pan gestures for the player.") 
+                detailTextBlock:^NSString *() { 
+                    return LOC(@"Configure horizontal pan gestures for the player.");
+                }
                 selectBlock:nil
             ],
             // Pickers for each gesture section
