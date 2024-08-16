@@ -735,7 +735,11 @@ BOOL isTabSelected = NO;
             case GestureModeSeek:
                 adjustSeek(translationX, currentTime);
                 break;
+            case GestureModeDisabled:
+                // Do nothing if the gesture is disabled
+                break;
             default:
+                // Show an alert if the gesture mode is invalid
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:okAction];
@@ -755,10 +759,27 @@ BOOL isTabSelected = NO;
         // by dividing the view into thirds
         if (startLocation.y <= viewHeight / 3.0) {
             gestureSection = GestureSectionTop;
+            // Cancel the gesture if the mode is disabled
+            if (GetSelection(@"playerGestureTopSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
         } else if (startLocation.y <= 2 * viewHeight / 3.0) {
             gestureSection = GestureSectionMiddle;
+            // Cancel the gesture if the mode is disabled
+            if (GetSelection(@"playerGestureMiddleSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
         } else if (startLocation.y <= viewHeight) {
             gestureSection = GestureSectionBottom;
+            // Cancel the gesture if the mode is disabled
+            if (GetSelection(@"playerGestureBottomSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
+        } else {
+            gestureSection = GestureSectionInvalid;
         }
         // Deactive the activity flag
         isValidHorizontalPan = NO;
@@ -803,6 +824,9 @@ BOOL isTabSelected = NO;
                 runSelectedGesture(@"playerGestureMiddleSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
             } else if (gestureSection == GestureSectionBottom) {
                 runSelectedGesture(@"playerGestureBottomSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
+            } else {
+                // If the section is invalid, cancel the gesture
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
             }
         }
     }

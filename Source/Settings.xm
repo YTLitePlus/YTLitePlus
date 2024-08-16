@@ -216,6 +216,8 @@ static const NSInteger YTLiteSection = 789;
                 return LOC(@"Brightness");
             case GestureModeSeek:
                 return LOC(@"Seek");
+            case GestureModeDisabled:
+                return LOC(@"Disabled");
             default:
                 return @"Invalid index - Report bug";
         }
@@ -242,9 +244,10 @@ static const NSInteger YTLiteSection = 789;
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
-                    gestureCheckmarkSettingItem(0, sectionKey),                                       
-                    gestureCheckmarkSettingItem(1, sectionKey),
-                    gestureCheckmarkSettingItem(2, sectionKey)
+                    gestureCheckmarkSettingItem(0, sectionKey), // Volume                             
+                    gestureCheckmarkSettingItem(1, sectionKey), // Brightness
+                    gestureCheckmarkSettingItem(2, sectionKey), // Seek
+                    gestureCheckmarkSettingItem(3, sectionKey)  // Disabled
                 ];
                 // Present picker when selecting this settings item
                 YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
@@ -303,7 +306,6 @@ static const NSInteger YTLiteSection = 789;
             return YES;
         }
     ];
-    [sectionItems addObject:deadzonePicker];
 
     // Configuration picker for sensitivity to pick from 0.5 to 2.0 with interval of 0.1
     NSMutableArray<NSNumber *> *sensitivityValues = [NSMutableArray array];
@@ -349,7 +351,6 @@ static const NSInteger YTLiteSection = 789;
             return YES;
         }
     ];
-    [sectionItems addObject:sensitivityPicker];
 
     // High level gestures menu
     YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {

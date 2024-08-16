@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, GestureMode) {
     GestureModeVolume,
     GestureModeBrightness,
     GestureModeSeek,
-    GestureModeInvalid
+    GestureModeDisabled
 };
 // Gesture Section Enum
 typedef NS_ENUM(NSUInteger, GestureSection) {
