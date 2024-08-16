@@ -13,6 +13,9 @@
 "REPLACE_COPY_AND_PASTE_BUTTONS" = "Заменете бутоните 'Копиране на настройки' и 'Поставяне на настройки'";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Заменете бутоните с 'Експортиране на настройки' и 'Импортиране на настройки'";
 
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Опции за контрол на видеото";
 

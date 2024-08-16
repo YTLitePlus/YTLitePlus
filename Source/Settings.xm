@@ -200,8 +200,8 @@ static const NSInteger YTLiteSection = 789;
     [sectionItems addObject:pasteSettings];
 
     YTSettingsSectionItem *videoPlayer = [%c(YTSettingsSectionItem)
-        itemWithTitle:LOC(@"VIDEO_PICKER")
-        titleDescription:LOC(@"VIDEO_PICKER_DESC")
+        itemWithTitle:LOC(@"VIDEO_PLAYER")
+        titleDescription:LOC(@"VIDEO_PLAYER_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
