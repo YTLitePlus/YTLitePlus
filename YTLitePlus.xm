@@ -675,11 +675,24 @@ BOOL isTabSelected = NO;
 %property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 %new
 - (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
+    // Haptic feedback generator
+    static UIImpactFeedbackGenerator *feedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    // Variables for storing initial values to be adjusted
     static float initialVolume;
     static float initialBrightness;
-    static BOOL isValidHorizontalPan = NO;
-    static GestureSection gestureSection = GestureSectionInvalid;
     static CGFloat currentTime;
+    // Flag to determine if the pan gesture is valid
+    static BOOL isValidHorizontalPan = NO;
+    // Variable to store the section of the screen the gesture is in
+    static GestureSection gestureSection = GestureSectionInvalid;
+    // Variable to track the start location of the whole pan gesture
+    static CGPoint startLocation;
+    // Variable to track the X translation when exiting the deadzone
+    static CGFloat deadzoneStartingXTranslation;
+    // Constants for the deadzone radius that can be changed in the settings
+    static CGFloat deadzoneRadius = 20.0;
+
+/***** Helper functions *****/
     // Helper function to adjust brightness
     void (^adjustBrightness)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialBrightness) {
         float newBrightness = initialBrightness + (translationX / 1000.0);
@@ -716,9 +729,8 @@ BOOL isTabSelected = NO;
         [self seekToTime:seekTime];
     };
     // Helper function to run the selected gesture action
-    void (^runSelectedGesture)(NSString*, CGFloat, CGFloat, CGFloat, CGFloat) = 
-            ^(NSString *sectionKey, CGFloat translationX, CGFloat initialBrightness, CGFloat initialVolume, CGFloat currentTime) {
-        
+    void (^runSelectedGesture)(NSString*, CGFloat, CGFloat, CGFloat, CGFloat) 
+            = ^(NSString *sectionKey, CGFloat translationX, CGFloat initialBrightness, CGFloat initialVolume, CGFloat currentTime) {
         // Determine the selected gesture mode using the section key
         GestureMode selectedGestureMode = (GestureMode)GetSelection(sectionKey);
         // Handle the gesture action based on the selected mode
@@ -740,12 +752,12 @@ BOOL isTabSelected = NO;
                 break;
         }
     };
+/***** End of Helper functions *****/
 
-    
     // Handle gesture based on current gesture state
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // Get the gesture's start position
-        CGPoint startLocation = [panGestureRecognizer locationInView:self.view];
+        startLocation = [panGestureRecognizer locationInView:self.view];
         CGFloat viewHeight = self.view.bounds.size.height;
         
         // Determine the section based on the start position
@@ -758,21 +770,29 @@ BOOL isTabSelected = NO;
             gestureSection = GestureSectionBottom;
         }
         
-        // Reset all starting values
+        // Deactive the flag
         isValidHorizontalPan = NO;
-        initialBrightness = [UIScreen mainScreen].brightness;
-        initialVolume = [[AVAudioSession sharedInstance] outputVolume];
-        currentTime = self.currentVideoMediaTime;
     }
-    
+
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         // Determine if the gesture is predominantly horizontal
         CGPoint translation = [panGestureRecognizer translationInView:self.view];
         if (!isValidHorizontalPan) {
             if (fabs(translation.x) > fabs(translation.y)) {
+                // Check if the touch has moved outside the deadzone
+                CGFloat distanceFromStart = hypot(translation.x, translation.y);
+                if (distanceFromStart < deadzoneRadius) {
+                    // If within the deadzone, don't activate the pan gesture
+                    return;
+                }
+                // If outside the deadzone, activate the pan gesture and store the initial values
                 isValidHorizontalPan = YES;
+                deadzoneStartingXTranslation = translation.x;
+                initialBrightness = [UIScreen mainScreen].brightness;
+                initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+                currentTime = self.currentVideoMediaTime;
             } else {
-                // If vertical movement is greater, cancel the gesture recognizer
+                // Cancel the gesture if the translation is not horizontal
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
                 return;
             }
@@ -780,24 +800,28 @@ BOOL isTabSelected = NO;
         
         // Handle the gesture based on the identified section
         if (isValidHorizontalPan) {
+            // Adjust the X translation based on the value hit after
+            // exiting the deadzone
+            CGFloat adjustedTranslationX = translation.x - deadzoneStartingXTranslation;
+            // Pass the adjusted translation to the selected gesture
             if (gestureSection == GestureSectionTop) {
-                runSelectedGesture(@"playerGestureTopSelection",    translation.x, initialBrightness, initialVolume, currentTime);
+                runSelectedGesture(@"playerGestureTopSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
             } else if (gestureSection == GestureSectionMiddle) {
-                runSelectedGesture(@"playerGestureMiddleSelection", translation.x, initialBrightness, initialVolume, currentTime);
+                runSelectedGesture(@"playerGestureMiddleSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
             } else if (gestureSection == GestureSectionBottom) {
-                runSelectedGesture(@"playerGestureBottomSelection", translation.x, initialBrightness, initialVolume, currentTime);
+                runSelectedGesture(@"playerGestureBottomSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
             }
         }
     }
-    
+
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (isValidHorizontalPan) {
             // Provide haptic feedback upon successful gesture recognition
-            UINotificationFeedbackGenerator *feedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
-            [feedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
-            feedbackGenerator = nil;
+            [feedbackGenerator prepare];
+            [feedbackGenerator impactOccurred];
         }
     }
+
 }
 
 // allow the pan gesture to be recognized simultaneously with other gestures
