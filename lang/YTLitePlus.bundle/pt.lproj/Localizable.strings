@@ -13,6 +13,9 @@
 "REPLACE_COPY_AND_PASTE_BUTTONS" = "Substituir os Botões 'Copiar Configurações' e 'Colar Configurações'";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Substitui os Botões 'Exportar Configurações' e 'Importar Configurações'";
 
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opções de Sobreposição de Controles de Vídeo";
 

@@ -6,6 +6,9 @@
 #import <sys/utsname.h>
 #import <substrate.h>
 #import <rootless.h>
+#import <AVKit/AVKit.h>         // For AVPlayer and AVPlayerViewController
+#import <MobileCoreServices/MobileCoreServices.h> // For kUTTypeMovie and kUTTypeVideo
+
 
 #import "Tweaks/FLEX/FLEX.h"
 #import "Tweaks/YouTubeHeader/YTAppDelegate.h"
