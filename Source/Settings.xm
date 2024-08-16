@@ -200,24 +200,18 @@ static const NSInteger YTLiteSection = 789;
     [sectionItems addObject:pasteSettings];
 
     YTSettingsSectionItem *videoPlayer = [%c(YTSettingsSectionItem)
-        itemWithTitle:LOC(@"VIDEO_PLAYER")
-        titleDescription:LOC(@"VIDEO_PLAYER_DESC")
+        itemWithTitle:LOC(@"VIDEO_PICKER")
+        titleDescription:LOC(@"VIDEO_PICKER_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             // Access the current view controller
             UIViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
             if (settingsViewController) {
-                // Define the content types for movies and videos using UTType
-                NSArray<UTType *> *contentTypes = @[[UTType typeWithIdentifier:@"public.movie"], 
-                                                    [UTType typeWithIdentifier:@"public.video"]];
-                
-                // Initialize the document picker for opening content types
-                UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:contentTypes];
+                // Present the video picker
+                UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeMovie, (NSString *)kUTTypeVideo] inMode:UIDocumentPickerModeImport];
                 documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
                 documentPicker.allowsMultipleSelection = NO;
-                
-                // Present the document picker
                 [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
             } else {
                 NSLog(@"settingsViewController is nil");
