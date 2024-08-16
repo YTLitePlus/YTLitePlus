@@ -58,6 +58,7 @@
 // Helper methods for key retrieval
 #define IsEnabled(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
 #define GetSelection(key) [[NSUserDefaults standardUserDefaults] integerForKey:key]
+#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key]
 
 
 // Player Gesture selected mode enum
@@ -147,6 +148,17 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 
 @interface YTWatchCinematicContainerController : NSObject
 @property id <YTResponder> parentResponder;
+@end
+
+// Player Gestures - @bhackel
+@interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
+@property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
+@end
+@interface YTWatchFullscreenViewController : YTMultiSizeViewController
+@end
+@interface MPVolumeController : NSObject
+@property (nonatomic, assign, readwrite) float volumeValue;
 @end
 
 // Hide Collapse Button - @arichornlover

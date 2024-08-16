@@ -221,7 +221,6 @@ static const NSInteger YTLiteSection = 789;
         }
     };
 
-
     // Helper to generate checkmark setting items for selecting gesture modes
     static YTSettingsSectionItem* (^gestureCheckmarkSettingItem)(NSInteger, NSString *) = ^(NSInteger idx, NSString *key) {
         return [YTSettingsSectionItemClass 
@@ -247,7 +246,7 @@ static const NSInteger YTLiteSection = 789;
                     gestureCheckmarkSettingItem(1, sectionKey),
                     gestureCheckmarkSettingItem(2, sectionKey)
                 ];
-                
+                // Present picker when selecting this settings item
                 YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
                     initWithNavTitle:LOC(sectionLabel) 
                     pickerSectionTitle:nil 
@@ -260,12 +259,89 @@ static const NSInteger YTLiteSection = 789;
             }
         ];
     };
+    // Configuration picker for deadzone to pick from 0 to 100 pixels with interval of 10
+    YTSettingsSectionItem *deadzonePicker = [YTSettingsSectionItemClass 
+        itemWithTitle:LOC(@"Deadzone (Beta)") 
+        accessibilityIdentifier:nil 
+        detailTextBlock:^NSString *() {
+            return [NSString stringWithFormat:@"%ld px", (long)GetFloat(@"playerGestureDeadzone") * 10];
+        }
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            // Generate rows for deadzone picker
+            NSMutableArray <YTSettingsSectionItem *> *deadzoneRows = [NSMutableArray array];
+            for (int i = 0; i <= 10; i++) {
+                [deadzoneRows addObject:[YTSettingsSectionItemClass 
+                    checkmarkItemWithTitle:[NSString stringWithFormat:@"%ld px", (long)i * 10] 
+                    selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                        [[NSUserDefaults standardUserDefaults] setInteger:i forKey:@"playerGestureDeadzone"];
+                        [settingsViewController reloadData];
+                        return YES;
+                    }
+                ]];
+            }
+            // Present deadzone picker when selecting this settings item
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
+                initWithNavTitle:LOC(@"Deadzone (Beta)") 
+                pickerSectionTitle:nil 
+                rows:deadzoneRows 
+                selectedItemIndex:GetFloat(@"playerGestureDeadzone") 
+                parentResponder:[self parentResponder]
+            ];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }
+    ];
+    // Configuration picker for sensitivity to pick from 0.5 to 2.0 with interval of 0.1
+    YTSettingsSectionItem *sensitivtyPicker = [YTSettingsSectionItemClass 
+        itemWithTitle:LOC(@"Sensitivity (Beta)") 
+        accessibilityIdentifier:nil 
+        detailTextBlock:^NSString *() {
+            return [NSString stringWithFormat:@"%.1f", GetFloat(@"playerGestureSensitivity") * 0.1 + 0.5];
+        }
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            // Generate rows for sensitivity picker
+            NSMutableArray <YTSettingsSectionItem *> *sensitivityRows = [NSMutableArray array];
+            for (int i = 5; i <= 20; i++) {
+                [sensitivityRows addObject:[YTSettingsSectionItemClass 
+                    checkmarkItemWithTitle:[NSString stringWithFormat:@"%.1f", i * 0.1] 
+                    selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                        [[NSUserDefaults standardUserDefaults] setInteger:i forKey:@"playerGestureSensitivity"];
+                        [settingsViewController reloadData];
+                        return YES;
+                    }
+                ]];
+            }
+            // Present sensitivity picker
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
+                initWithNavTitle:LOC(@"Sensitivity (Beta)") 
+                pickerSectionTitle:nil 
+                rows:sensitivityRows 
+                selectedItemIndex:GetFloat(@"playerGestureSensitivity") 
+                parentResponder:[self parentResponder]
+            ];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }
+    ]
+
+
     // High level gestures menu
     YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            // Description header item
+            [YTSettingsSectionItemClass 
+                itemWithTitle:nil 
+                accessibilityIdentifier:nil 
+                detailTextBlock:LOC(@"Configure horizontal pan gestures for the player.") 
+                selectBlock:nil
+            ],
+            // Pickers for each gesture section
             createSectionGestureSelector(@"Top Section (Beta)",    @"playerGestureTopSelection"),
             createSectionGestureSelector(@"Middle Section (Beta)", @"playerGestureMiddleSelection"),
-            createSectionGestureSelector(@"Bottom Section (Beta)", @"playerGestureBottomSelection")
+            createSectionGestureSelector(@"Bottom Section (Beta)", @"playerGestureBottomSelection"),
+            // Pickers for configuration settings
+            deadzonePicker,
+            sensitivityPicker
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Player Gestures (Beta)") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

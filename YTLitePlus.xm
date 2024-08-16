@@ -640,17 +640,6 @@ BOOL isTabSelected = NO;
 }
 %end
 
-@interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
-// the long press gesture that will be created and added to the player view
-@property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
-@end
-@interface YTWatchFullscreenViewController : YTMultiSizeViewController
-@end
-@interface MPVolumeController : NSObject
-@property (nonatomic, assign, readwrite) float volumeValue;
-@end
-
 // Gestures - @bhackel
 %group playerGestures
 %hook YTWatchLayerViewController
@@ -689,19 +678,21 @@ BOOL isTabSelected = NO;
     static CGPoint startLocation;
     // Variable to track the X translation when exiting the deadzone
     static CGFloat deadzoneStartingXTranslation;
-    // Constants for the deadzone radius that can be changed in the settings
-    static CGFloat deadzoneRadius = 20.0;
+    // Constant for the deadzone radius that can be changed in the settings
+    static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
+    // Constant for the sensitivity factor that can be changed in the settings
+    static CGFloat sensitivityFactor = (CGFloat)GetFloat(@"playerGestureSensitivity");
 
 /***** Helper functions *****/
     // Helper function to adjust brightness
     void (^adjustBrightness)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialBrightness) {
-        float newBrightness = initialBrightness + (translationX / 1000.0);
+        float newBrightness = initialBrightness + ((translationX / 1000.0) * sensitivityFactor);
         newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
         [[UIScreen mainScreen] setBrightness:newBrightness];
     };
     // Helper function to adjust volume
     void (^adjustVolume)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialVolume) {
-        float newVolume = initialVolume + (translationX / 1000.0);
+        float newVolume = initialVolume + ((translationX / 1000.0) * sensitivityFactor);
         newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
         // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
         MPVolumeView *volumeView = [[MPVolumeView alloc] init];
@@ -769,8 +760,7 @@ BOOL isTabSelected = NO;
         } else if (startLocation.y <= viewHeight) {
             gestureSection = GestureSectionBottom;
         }
-        
-        // Deactive the flag
+        // Deactive the activity flag
         isValidHorizontalPan = NO;
     }
 
@@ -791,6 +781,9 @@ BOOL isTabSelected = NO;
                 initialBrightness = [UIScreen mainScreen].brightness;
                 initialVolume = [[AVAudioSession sharedInstance] outputVolume];
                 currentTime = self.currentVideoMediaTime;
+                // Provide haptic feedback to indicate a gesture start
+                [feedbackGenerator prepare];
+                [feedbackGenerator impactOccurred];
             } else {
                 // Cancel the gesture if the translation is not horizontal
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
@@ -813,7 +806,6 @@ BOOL isTabSelected = NO;
             }
         }
     }
-
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (isValidHorizontalPan) {
             // Provide haptic feedback upon successful gesture recognition
@@ -823,13 +815,11 @@ BOOL isTabSelected = NO;
     }
 
 }
-
 // allow the pan gesture to be recognized simultaneously with other gestures
 %new
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
-
 %end
 %end
 
@@ -1089,5 +1079,12 @@ BOOL isTabSelected = NO;
     }
     if (![allKeys containsObject:@"playerGestureBottomSelection"]) { 
        [[NSUserDefaults standardUserDefaults] setInteger:GestureModeSeek forKey:@"playerGestureBottomSelection"]; 
+    }
+    // Default configuration options for gestures
+    if (![allKeys containsObject:@"playerGesturesDeadzone"]) { 
+       [[NSUserDefaults standardUserDefaults] setFloat:20.0 forKey:@"playerGesturesDeadzone"]; 
+    }
+    if (![allKeys containsObject:@"playerGestureSensitivity"]) { 
+       [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGestureSensitivity"]; 
     }
 }
