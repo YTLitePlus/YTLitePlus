@@ -55,3 +55,6 @@
 [submodule "Tweaks/YouTimeStamp"]
 	path = Tweaks/YouTimeStamp
 	url = https://github.com/arichornloverALT/YouTimeStamp.git
+[submodule "Tweaks/YouLoop"]
+	path = Tweaks/YouLoop
+	url = https://github.com/bhackel/YouLoop
