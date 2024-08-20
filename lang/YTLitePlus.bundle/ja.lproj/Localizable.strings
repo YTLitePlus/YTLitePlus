@@ -16,6 +16,22 @@
 "VIDEO_PLAYER" = "Video Player (Beta)";
 "VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
 
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brightness";
+"SEEK" = "Seek";
+"DISABLED" = "Disabled";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
+"SENSITIVITY" = "Sensitivity";
+"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
+"PLAYER_GESTURES_TITLE" = "Player Gestures";
+"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
+"TOP_SECTION" = "Top Section";
+"MIDDLE_SECTION" = "Middle Section";
+"BOTTOM_SECTION" = "Bottom Section";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールオーバーレイの設定";
 

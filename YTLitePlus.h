@@ -6,9 +6,10 @@
 #import <sys/utsname.h>
 #import <substrate.h>
 #import <rootless.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>         // For AVPlayer and AVPlayerViewController
 #import <MobileCoreServices/MobileCoreServices.h> // For kUTTypeMovie and kUTTypeVideo
-
 
 #import "Tweaks/FLEX/FLEX.h"
 #import "Tweaks/YouTubeHeader/YTAppDelegate.h"
@@ -43,6 +44,8 @@
 #import "Tweaks/YouTubeHeader/YTPlayerBarController.h"
 #import "Tweaks/YouTubeHeader/YTResponder.h"
 #import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
+#import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
+#import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -50,6 +53,30 @@
 #define LOWCONTRASTMODE_CUTOFF_VERSION @"17.38.10"
 #define IS_ENABLED(k) [[NSUserDefaults standardUserDefaults] boolForKey:k]
 #define APP_THEME_IDX [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"]
+
+// Avoid issues with multiple includes of this file
+#pragma once
+
+// Helper methods for key retrieval
+#define IsEnabled(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
+#define GetSelection(key) [[NSUserDefaults standardUserDefaults] integerForKey:key]
+#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key]
+
+
+// Player Gesture selected mode enum
+typedef NS_ENUM(NSUInteger, GestureMode) {
+    GestureModeVolume,
+    GestureModeBrightness,
+    GestureModeSeek,
+    GestureModeDisabled
+};
+// Gesture Section Enum
+typedef NS_ENUM(NSUInteger, GestureSection) {
+    GestureSectionTop,
+    GestureSectionMiddle,
+    GestureSectionBottom,
+    GestureSectionInvalid
+};
 
 // YTSpeed
 @interface YTVarispeedSwitchControllerOption : NSObject
@@ -123,6 +150,17 @@
 
 @interface YTWatchCinematicContainerController : NSObject
 @property id <YTResponder> parentResponder;
+@end
+
+// Player Gestures - @bhackel
+@interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
+@property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
+@end
+@interface YTWatchFullscreenViewController : YTMultiSizeViewController
+@end
+@interface MPVolumeController : NSObject
+@property (nonatomic, assign, readwrite) float volumeValue;
 @end
 
 // Hide Collapse Button - @arichornlover
