@@ -74,7 +74,7 @@ static const NSInteger YTLiteSection = 789;
 %end
 
 
-// Settings
+// Add YTLitePlus to the settings list
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
     NSArray *order = %orig;
@@ -102,14 +102,15 @@ static const NSInteger YTLiteSection = 789;
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
     YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
 
+    // Add item for going to the YTLitePlus GitHub page
     YTSettingsSectionItem *main = [%c(YTSettingsSectionItem)
-    itemWithTitle:[NSString stringWithFormat:LOC(@"VERSION"), @(OS_STRINGIFY(TWEAK_VERSION))]
-    titleDescription:LOC(@"VERSION_CHECK")
-    accessibilityIdentifier:nil
-    detailTextBlock:nil
-    selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/YTLitePlus/YTLitePlus/releases/latest"]];
-    }];
+        itemWithTitle:[NSString stringWithFormat:LOC(@"VERSION"), @(OS_STRINGIFY(TWEAK_VERSION))]
+        titleDescription:LOC(@"VERSION_CHECK")
+        accessibilityIdentifier:nil
+        detailTextBlock:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/YTLitePlus/YTLitePlus/releases/latest"]];
+        }];
     [sectionItems addObject:main];
 
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
@@ -211,13 +212,13 @@ static const NSInteger YTLiteSection = 789;
     static NSString* (^sectionGestureSelectedModeToString)(GestureMode) = ^(GestureMode sectionIndex) {
         switch (sectionIndex) {
             case GestureModeVolume:
-                return LOC(@"Volume");
+                return LOC(@"VOLUME");
             case GestureModeBrightness:
-                return LOC(@"Brightness");
+                return LOC(@"BRIGHTNESS");
             case GestureModeSeek:
-                return LOC(@"Seek");
+                return LOC(@"SEEK");
             case GestureModeDisabled:
-                return LOC(@"Disabled");
+                return LOC(@"DISABLED");
             default:
                 return @"Invalid index - Report bug";
         }
@@ -268,8 +269,8 @@ static const NSInteger YTLiteSection = 789;
         [deadzoneValues addObject:@(value)];
     }
     YTSettingsSectionItem *deadzonePicker = [YTSettingsSectionItemClass 
-        itemWithTitle:LOC(@"Deadzone") 
-        titleDescription:LOC(@"Minimum distance to move before a gesture is recognized")
+        itemWithTitle:LOC(@"DEADZONE") 
+        titleDescription:LOC(@"DEADZONE_DESC")
         accessibilityIdentifier:nil 
         detailTextBlock:^NSString *() {
             return [NSString stringWithFormat:@"%ld px", (long)GetFloat(@"playerGesturesDeadzone")];
@@ -296,7 +297,7 @@ static const NSInteger YTLiteSection = 789;
             }
             // Present deadzone picker when selecting this settings item
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
-                initWithNavTitle:LOC(@"Deadzone") 
+                initWithNavTitle:LOC(@"DEADZONE") 
                 pickerSectionTitle:nil 
                 rows:deadzoneRows 
                 selectedItemIndex:selectedIndex 
@@ -313,8 +314,8 @@ static const NSInteger YTLiteSection = 789;
         [sensitivityValues addObject:@(value)];
     }
     YTSettingsSectionItem *sensitivityPicker = [YTSettingsSectionItemClass 
-        itemWithTitle:LOC(@"Sensitivity") 
-        titleDescription:LOC(@"Multiplier on volume and brightness gestures")
+        itemWithTitle:LOC(@"SENSITIVITY") 
+        titleDescription:LOC(@"SENSITIVITY_DESC")
         accessibilityIdentifier:nil 
         detailTextBlock:^NSString *() {
             return [NSString stringWithFormat:@"%.1f", GetFloat(@"playerGesturesSensitivity")];
@@ -341,7 +342,7 @@ static const NSInteger YTLiteSection = 789;
             }
             // Present sensitivity picker
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] 
-                initWithNavTitle:LOC(@"Sensitivity") 
+                initWithNavTitle:LOC(@"SENSITIVITY") 
                 pickerSectionTitle:nil 
                 rows:sensitivityRows 
                 selectedItemIndex:selectedIndex 
@@ -352,13 +353,13 @@ static const NSInteger YTLiteSection = 789;
         }
     ];
 
-    // High level gestures menu
-    YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player Gestures (Beta)") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+    // Create and add items to the high level gestures menu
+    YTSettingsSectionItem *playerGesturesGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"PLAYER_GESTURES_TITLE") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
             // Description header item
             [YTSettingsSectionItemClass 
                 itemWithTitle:nil
-                titleDescription:LOC(@"Configure horizontal pan gestures for the player.")
+                titleDescription:LOC(@"PLAYER_GESTURES_DESC")
                 accessibilityIdentifier:nil
                 detailTextBlock:nil
                 selectBlock:nil
@@ -366,9 +367,9 @@ static const NSInteger YTLiteSection = 789;
             // Toggle for enabling gestures
             BASIC_SWITCH(LOC(@"PLAYER_GESTURES_TOGGLE"), nil, @"playerGestures_enabled"),
             // Pickers for each gesture section
-            createSectionGestureSelector(@"Top Section",    @"playerGestureTopSelection"),
-            createSectionGestureSelector(@"Middle Section", @"playerGestureMiddleSelection"),
-            createSectionGestureSelector(@"Bottom Section", @"playerGestureBottomSelection"),
+            createSectionGestureSelector(@"TOP_SECTION",    @"playerGestureTopSelection"),
+            createSectionGestureSelector(@"MIDDLE_SECTION", @"playerGestureMiddleSelection"),
+            createSectionGestureSelector(@"BOTTOM_SECTION", @"playerGestureBottomSelection"),
             // Pickers for configuration settings
             deadzonePicker,
             sensitivityPicker
