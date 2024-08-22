@@ -40,3 +40,15 @@ NSArray *NSUserDefaultsCopyKeys = @[
     // Useful YouTube Keys
     @"inline_muted_playback_enabled",
 ];
+
+
+// Some default values to ignore when exporting settings
+NSDictionary *NSUserDefaultsCopyKeysDefaults = @{
+    @"fixCasting_enabled": @1,
+    @"inline_muted_playback_enabled": @5,
+    @"newSettingsUI_enabled": @1,
+    @"DEMC_safeAreaConstant": @21.5,
+    @"RYD-ENABLED": @1,
+    @"RYD-VOTE-SUBMISSION": @1,
+    // Duplicate keys are not allowed in NSDictionary. If present, only the last one will be kept.
+};

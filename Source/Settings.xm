@@ -132,13 +132,18 @@ static const NSInteger YTLiteSection = 789;
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 NSMutableString *settingsString = [NSMutableString string];
                 for (NSString *key in NSUserDefaultsCopyKeys) {
-                    if ([userDefaults objectForKey:key]) {
-                        NSString *value = [userDefaults objectForKey:key];
+                    id value = [userDefaults objectForKey:key];
+                    id defaultValue = NSUserDefaultsCopyKeysDefaults[key];
+                    
+                    // Only include the setting if it is different from the default value
+                    // If no default value is found, include it by default
+                    if (value && (!defaultValue || ![value isEqual:defaultValue])) {
                         [settingsString appendFormat:@"%@: %@\n", key, value];
                     }
                 }       
                 [[UIPasteboard generalPasteboard] setString:settingsString];
                 // Show a confirmation message or perform some other action here
+                [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings copied"]];
             }
             return YES;
         }
@@ -176,6 +181,7 @@ static const NSInteger YTLiteSection = 789;
                         }                 
                         [settingsViewController reloadData];
                         // Show a confirmation message or perform some other action here
+                        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings applied"]];
                     }
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
