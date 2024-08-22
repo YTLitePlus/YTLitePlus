@@ -5,6 +5,7 @@
 #import "../Tweaks/YouTubeHeader/YTSettingsSectionItemManager.h"
 #import "../Tweaks/YouTubeHeader/YTUIUtils.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsPickerViewController.h"
+#import "SettingsKeys.h"
 // #import "AppIconOptionsController.h"
 
 // Basic switch item
@@ -46,17 +47,6 @@ static int appVersionSpoofer() {
 @end
 
 extern NSBundle *YTLitePlusBundle();
-
-// Keys for "Copy Settings" button (for: YTLitePlus)
-NSArray *copyKeys = @[
-/* MAIN    Controls Keys 1/2 */ @"enableShareButton_enabled", @"enableSaveToButton_enabled", @"hideVideoPlayerShadowOverlayButtons_enabled", @"hideRightPanel_enabled", @"hideHeatwaves_enabled", @"disableAmbientModePortrait_enabled",
-/* MAIN    Controls Keys 2/2 */ @"disableAmbientModeFullscreen_enabled", @"fullscreenToTheRight_enabled", @"seekAnywhere_enabled", @"YTTapToSeek_enabled", @"disablePullToFull_enabled", @"alwaysShowRemainingTime_enabled", @"disableRemainingTime_enabled", @"disableEngagementOverlay_enabled",
-/* MAIN App Overlay Keys 1/2 */ @"disableAccountSection_enabled", @"disableAutoplaySection_enabled", @"disableTryNewFeaturesSection_enabled", @"disableVideoQualityPreferencesSection_enabled", @"disableNotificationsSection_enabled",
-/* MAIN App Overlay Keys 2/2 */ @"disableManageAllHistorySection_enabled", @"disableYourDataInYouTubeSection_enabled", @"disablePrivacySection_enabled", @"disableLiveChatSection_enabled",
-/* MAIN        Playback Keys */ @"inline_muted_playback_enabled",
-/* MAIN            Misc Keys */ @"newSettingsUI_enabled", @"ytStartupAnimation_enabled", @"ytNoModernUI_enabled", @"iPadLayout_enabled", @"iPhoneLayout_enabled", @"castConfirm_enabled", @"bigYTMiniPlayer_enabled", @"hideCastButton_enabled", @"hideSponsorBlockButton_enabled", @"hideHomeTab_enabled", @"fixCasting_enabled", @"flex_enabled", @"enableVersionSpoofer_enabled",
-/* TWEAK          YTUHD Keys */ @"EnableVP9", @"AllVP9"
-];
 
 // Add both YTLite and YTLitePlus to YouGroupSettings
 static const NSInteger YTLitePlusSection = 788;
@@ -115,6 +105,7 @@ static const NSInteger YTLiteSection = 789;
         }];
     [sectionItems addObject:main];
 
+# pragma mark - Copy and Paste Settings
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"COPY_SETTINGS")
         titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"COPY_SETTINGS_DESC_2") : LOC(@"COPY_SETTINGS_DESC")
@@ -125,7 +116,7 @@ static const NSInteger YTLiteSection = 789;
                 // Export Settings functionality
                 NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"exported_settings.txt"]];
                 NSMutableString *settingsString = [NSMutableString string];
-                for (NSString *key in copyKeys) {
+                for (NSString *key in NSUserDefaultsCopyKeys) {
                     id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
                     if (value) {
                         [settingsString appendFormat:@"%@: %@\n", key, value];
@@ -140,7 +131,7 @@ static const NSInteger YTLiteSection = 789;
                 // Copy Settings functionality (DEFAULT - Copies to Clipboard)
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 NSMutableString *settingsString = [NSMutableString string];
-                for (NSString *key in copyKeys) {
+                for (NSString *key in NSUserDefaultsCopyKeys) {
                     if ([userDefaults objectForKey:key]) {
                         NSString *value = [userDefaults objectForKey:key];
                         [settingsString appendFormat:@"%@: %@\n", key, value];
@@ -194,6 +185,7 @@ static const NSInteger YTLiteSection = 789;
     ];
     [sectionItems addObject:pasteSettings];
 
+# pragma mark - Video Player
     YTSettingsSectionItem *videoPlayer = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"VIDEO_PLAYER")
         titleDescription:LOC(@"VIDEO_PLAYER_DESC")
