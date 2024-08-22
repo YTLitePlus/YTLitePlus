@@ -847,7 +847,6 @@ BOOL isTabSelected = NO;
 %end
 %end
 
-/*
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -871,20 +870,6 @@ BOOL isTabSelected = NO;
     return %orig;
 }
 %end
-%end
-*/
-// New Big YT Mini Player - @bhackel
-%hook YTColdConfig
-- (BOOL)enableIosFloatingMiniplayer { 
-    // Modify if not on iPad
-    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
-}
-- (BOOL)enableIosFloatingMiniplayerRepositioning { 
-    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
-}
-- (BOOL)enableIosFloatingMiniplayerResizing { 
-    return (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad) ? IsEnabled(@"bigYTMiniPlayer_enabled") : %orig;
-}
 %end
 
 // App Settings Overlay Options
@@ -1019,9 +1004,9 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"iPhoneLayout_enabled")) {
         %init(giPhoneLayout);
     }
-    // if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
-    //     %init(Main);
-    // }
+    if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
+        %init(Main);
+    }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
     }
