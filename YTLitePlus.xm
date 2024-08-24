@@ -723,7 +723,7 @@ BOOL isTabSelected = NO;
     void (^runSelectedGesture)(NSString*, CGFloat, CGFloat, CGFloat, CGFloat) 
             = ^(NSString *sectionKey, CGFloat translationX, CGFloat initialBrightness, CGFloat initialVolume, CGFloat currentTime) {
         // Determine the selected gesture mode using the section key
-        GestureMode selectedGestureMode = (GestureMode)GetSelection(sectionKey);
+        GestureMode selectedGestureMode = (GestureMode)GetInteger(sectionKey);
         // Handle the gesture action based on the selected mode
         switch (selectedGestureMode) {
             case GestureModeVolume:
@@ -760,21 +760,21 @@ BOOL isTabSelected = NO;
         if (startLocation.y <= viewHeight / 3.0) {
             gestureSection = GestureSectionTop;
             // Cancel the gesture if the mode is disabled
-            if (GetSelection(@"playerGestureTopSelection") == GestureModeDisabled) {
+            if (GetInteger(@"playerGestureTopSelection") == GestureModeDisabled) {
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
                 return;
             }
         } else if (startLocation.y <= 2 * viewHeight / 3.0) {
             gestureSection = GestureSectionMiddle;
             // Cancel the gesture if the mode is disabled
-            if (GetSelection(@"playerGestureMiddleSelection") == GestureModeDisabled) {
+            if (GetInteger(@"playerGestureMiddleSelection") == GestureModeDisabled) {
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
                 return;
             }
         } else if (startLocation.y <= viewHeight) {
             gestureSection = GestureSectionBottom;
             // Cancel the gesture if the mode is disabled
-            if (GetSelection(@"playerGestureBottomSelection") == GestureModeDisabled) {
+            if (GetInteger(@"playerGestureBottomSelection") == GestureModeDisabled) {
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
                 return;
             }

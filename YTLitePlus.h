@@ -59,8 +59,8 @@
 
 // Helper methods for key retrieval
 #define IsEnabled(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
-#define GetSelection(key) [[NSUserDefaults standardUserDefaults] integerForKey:key]
-#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key]
+#define GetInteger(key) [[NSUserDefaults standardUserDefaults] integerForKey:key] // NSInteger type
+#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key] // float type
 
 
 // Player Gesture selected mode enum

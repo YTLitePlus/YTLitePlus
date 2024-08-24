@@ -266,7 +266,7 @@ static const NSInteger YTLiteSection = 789;
         return [YTSettingsSectionItemClass itemWithTitle:LOC(sectionLabel)
             accessibilityIdentifier:nil
             detailTextBlock:^NSString *() {
-                return sectionGestureSelectedModeToString(GetSelection(sectionKey));
+                return sectionGestureSelectedModeToString(GetInteger(sectionKey));
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
@@ -280,7 +280,7 @@ static const NSInteger YTLiteSection = 789;
                     initWithNavTitle:LOC(sectionLabel) 
                     pickerSectionTitle:nil 
                     rows:rows 
-                    selectedItemIndex:GetSelection(sectionKey) 
+                    selectedItemIndex:GetInteger(sectionKey) 
                     parentResponder:[self parentResponder]
                 ];
                 [settingsViewController pushViewController:picker];
@@ -559,7 +559,7 @@ static const NSInteger YTLiteSection = 789;
     YTSettingsSectionItem *themeGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"THEME_OPTIONS")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
-            switch (GetSelection(@"appTheme")) {
+            switch (GetInteger(@"appTheme")) {
                 case 1:
                     return LOC(@"OLD_DARK_THEME");
                 case 0:
@@ -583,7 +583,7 @@ static const NSInteger YTLiteSection = 789;
                 BASIC_SWITCH(LOC(@"LOW_CONTRAST_MODE"), LOC(@"LOW_CONTRAST_MODE_DESC"), @"lowContrastMode_enabled"),
                 lowContrastModeSection
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetSelection(@"appTheme") parentResponder:[self parentResponder]];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetInteger(@"appTheme") parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
@@ -595,7 +595,8 @@ static const NSInteger YTLiteSection = 789;
     YTSettingsSectionItem *playbackInFeedsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"PLAYBACK_IN_FEEDS")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
-            switch (GetSelection(@"inline_muted_playback_enabled")) {
+            // The specific values were gathered by checking the value for each setting
+            switch (GetInteger(@"inline_muted_playback_enabled")) {
                 case 3:
                     return LOC(@"PLAYBACK_IN_FEEDS_WIFI_ONLY");
                 case 1:
@@ -624,9 +625,14 @@ static const NSInteger YTLiteSection = 789;
                 }],
             ];
             // It seems values greater than 3 act the same as Always On (Index 1)
-            int (^getInlineSelection)() = ^int() {
-                int selection = GetSelection(@"inline_muted_playback_enabled") - 1;
-                return selection > 3 ? 1 : selection;
+            // Convert the stored value to an index for a picker (0 to 2)
+            NSInteger (^getInlineSelection)(void) = ^NSInteger(void) {
+                NSInteger selection = GetInteger(@"inline_muted_playback_enabled") - 1;
+                // Check if selection is within the valid bounds [0, 1, 2]
+                if (selection < 0 || selection > 2) {
+                    return 1;
+                }
+                return selection;
             };
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"PLAYBACK_IN_FEEDS") pickerSectionTitle:nil rows:rows selectedItemIndex:getInlineSelection() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
