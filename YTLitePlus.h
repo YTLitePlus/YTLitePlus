@@ -133,6 +133,7 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 
 // OLED Live Chat - @bhackel
 @interface YTLUserDefaults : NSUserDefaults
++ (void)exportYtlSettings;
 @end
 
 // Hide Home Tab - @bhackel

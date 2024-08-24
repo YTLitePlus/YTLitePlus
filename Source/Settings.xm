@@ -145,6 +145,14 @@ static const NSInteger YTLiteSection = 789;
                 // Show a confirmation message or perform some other action here
                 [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings copied"]];
             }
+            // Prompt to export YouTube Plus settings
+            UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings" message:@"Note: This cannot save iSponsorBlock and most YouTube settings.\nWould you like to also export your YouTube Plus Settings?" preferredStyle:UIAlertControllerStyleAlert];
+            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Export" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // Export YouTube Plus Settings functionality
+                [%c(YTLUserDefaults) exportYtlSettings];
+            }]];
+            [settingsViewController presentViewController:exportAlert animated:YES completion:nil];
             return YES;
         }
     ];
@@ -186,6 +194,13 @@ static const NSInteger YTLiteSection = 789;
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
             }
+            // Reminder to import YouTube Plus settings
+            UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder" 
+                                                                                message:@"Remember to import your YouTube Plus settings as well." 
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+            [reminderAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [settingsViewController presentViewController:reminderAlert animated:YES completion:nil];
+
             return YES;
         }
     ];
