@@ -6,6 +6,7 @@
 "COPY_SETTINGS_DESC" = "Copia todas as configurações atuais para a área de transferência";
 "PASTE_SETTINGS" = "Colar Configurações";
 "PASTE_SETTINGS_DESC" = "Cola as configurações da área de transferência e aplica";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
 "EXPORT_SETTINGS" = "Exportar Configurações";
 "EXPORT_SETTINGS_DESC" = "Exporta todas as configurações atuais para um arquivo .txt";
 "IMPORT_SETTINGS" = "Importar Configurações";

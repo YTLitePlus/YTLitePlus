@@ -6,6 +6,7 @@
 "COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
 "PASTE_SETTINGS" = "Ayarları Yapıştır";
 "PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
 "EXPORT_SETTINGS" = "Ayarları Dışa Aktar";
 "EXPORT_SETTINGS_DESC" = "Tüm mevcut ayarları bir .txt dosyasına dışa aktarır";
 "IMPORT_SETTINGS" = "Ayarları İçe Aktar";

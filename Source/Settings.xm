@@ -108,13 +108,13 @@ static const NSInteger YTLiteSection = 789;
 # pragma mark - Copy and Paste Settings
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"COPY_SETTINGS")
-        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"COPY_SETTINGS_DESC_2") : LOC(@"COPY_SETTINGS_DESC")
+        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"EXPORT_SETTINGS_DESC") : LOC(@"COPY_SETTINGS_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             if (IS_ENABLED(@"switchCopyandPasteFunctionality_enabled")) {
                 // Export Settings functionality
-                NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"exported_settings.txt"]];
+                NSURL *tempFileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"YTLitePlusSettings.txt"]];
                 NSMutableString *settingsString = [NSMutableString string];
                 for (NSString *key in NSUserDefaultsCopyKeys) {
                     id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -146,7 +146,7 @@ static const NSInteger YTLiteSection = 789;
                 [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings copied"]];
             }
             // Prompt to export YouTube Plus settings
-            UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings" message:@"Note: This cannot save iSponsorBlock and most YouTube settings.\nWould you like to also export your YouTube Plus Settings?" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings" message:@"Note: This feature cannot save iSponsorBlock and most YouTube settings.\n\nWould you like to also export your YouTube Plus Settings?" preferredStyle:UIAlertControllerStyleAlert];
             [exportAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
             [exportAlert addAction:[UIAlertAction actionWithTitle:@"Export" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 // Export YouTube Plus Settings functionality
@@ -160,7 +160,7 @@ static const NSInteger YTLiteSection = 789;
 
     YTSettingsSectionItem *pasteSettings = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"PASTE_SETTINGS")
-        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"PASTE_SETTINGS_DESC_2") : LOC(@"PASTE_SETTINGS_DESC")
+        titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"IMPORT_SETTINGS_DESC") : LOC(@"PASTE_SETTINGS_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
@@ -170,7 +170,6 @@ static const NSInteger YTLiteSection = 789;
                 documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
                 documentPicker.allowsMultipleSelection = NO;
                 [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
-                return YES;
             } else {
                 // Paste Settings functionality (DEFAULT - Pastes from Clipboard)
                 UIAlertController *confirmPasteAlert = [UIAlertController alertControllerWithTitle:LOC(@"PASTE_SETTINGS_ALERT") message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -194,6 +193,8 @@ static const NSInteger YTLiteSection = 789;
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
             }
+            // Show a toast message to confirm the action
+            [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings pasted"]];
             // Reminder to import YouTube Plus settings
             UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder" 
                                                                                 message:@"Remember to import your YouTube Plus settings as well." 
@@ -689,22 +690,44 @@ static const NSInteger YTLiteSection = 789;
 // Implement the delegate method for document picker
 %new
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
-    NSURL *pickedURL = [urls firstObject];
-    
-    if (pickedURL) {
-        // Use AVPlayerViewController to play the video
-        AVPlayer *player = [AVPlayer playerWithURL:pickedURL];
-        AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
-        playerViewController.player = player;
-        
+    if (urls.count > 0) {
+        NSURL *pickedURL = [urls firstObject];
+        NSError *error;
+        NSString *fileType = [pickedURL resourceValuesForKeys:@[NSURLTypeIdentifierKey] error:&error][NSURLTypeIdentifierKey];
+
         UIViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
-        if (settingsViewController) {
-            [settingsViewController presentViewController:playerViewController animated:YES completion:^{
-                [player play];
-            }];
+
+        if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypePlainText)) {
+            // This block handles the import of settings from a text file.
+            NSString *fileContents = [NSString stringWithContentsOfURL:pickedURL encoding:NSUTF8StringEncoding error:nil];
+            NSArray *lines = [fileContents componentsSeparatedByString:@"\n"];
+            for (NSString *line in lines) {
+                NSArray *components = [line componentsSeparatedByString:@": "];
+                if (components.count == 2) {
+                    NSString *key = components[0];
+                    NSString *value = components[1];
+                    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+                }
+            }
+            if ([settingsViewController respondsToSelector:@selector(reloadData)]) {
+                // Call a custom reloadData method if it exists
+                [settingsViewController performSelector:@selector(reloadData)];
+            }
+        } else if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypeMovie)) {
+            // This block handles video playback using AVPlayer and AVPlayerViewController.
+            AVPlayer *player = [AVPlayer playerWithURL:pickedURL];
+            AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+            playerViewController.player = player;
+
+            if (settingsViewController) {
+                [settingsViewController presentViewController:playerViewController animated:YES completion:^{
+                    [player play];
+                }];
+            }
         }
     }
 }
+
 
 %new
 - (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {
