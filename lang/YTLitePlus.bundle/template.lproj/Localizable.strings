@@ -17,16 +17,16 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "VERSION" = "YTLitePlus's version: %@";
 "VERSION_CHECK" = "Tap to check for update!";
 
-"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS" = "Copy settings";
 "COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
-"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS" = "Paste settings";
 "PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
-"EXPORT_SETTINGS" = "Export Settings";
+"EXPORT_SETTINGS" = "Export settings";
 "EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
-"IMPORT_SETTINGS" = "Import Settings";
+"IMPORT_SETTINGS" = "Import settings";
 "IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
-"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
-"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy settings' & 'Paste settings' Buttons";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export settings' and 'Import settings'";
 
 "VIDEO_PLAYER" = "Video Player (Beta)";
 "VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
@@ -156,8 +156,8 @@ https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Ap
 "ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
-"HIDE_MODERN_INTERFACE" = "Hide Modern Interface (YTNoModernUI)";
-"HIDE_MODERN_INTERFACE_DESC" = "Toggle this on to hide any Modern Element added by YouTube. Removes Ambient Mode, Rounded Design & More. App restart is required.";
+"HIDE_MODERN_INTERFACE" = "Disable Modern YouTube Interface (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "This reverts the YouTube app to go back to a more traditional design from v17.38.10. This also removes some rounded elements, ambient mode, and other modern features. App restart is required.";
 
 "IPAD_LAYOUT" = "iPad Layout";
 "IPAD_LAYOUT_DESC" = "only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
