@@ -1,18 +1,3 @@
-/* Read me:
-- How to translate YTLitePlus (if your language already exists then feel free to check it and/or improve it):
-1. Fork YTLitePlus repo
-2. Duplicate the template.lproj folder, and edit the duplicated folder's name to your <lang_code>.lproj id.
-For example: <ru.lproj> for Russia. For more details, visit: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-3. Translate each line below after each =
-4. Open a Pull Request
-
-- You can also add your localization to YTABConfig, YouPiP, YTUHD, Return YouTube Dislike. The process is the same:
-https://github.com/PoomSmart/YTABConfig/tree/main/layout/Library/Application%20Support/YTABC.bundle
-https://github.com/PoomSmart/YouPiP/tree/main/layout/Library/Application%20Support/YouPiP.bundle
-https://github.com/PoomSmart/YTUHD/tree/master/layout/Library/Application%20Support/YTUHD.bundle
-https://github.com/PoomSmart/Return-YouTube-Dislikes/tree/main/layout/Library/Application%20Support/RYD.bundle
-*/
-
 // Settings
 "VERSION" = "YTLitePlus's version: %@";
 "VERSION_CHECK" = "Tap to check for update!";
