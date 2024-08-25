@@ -163,6 +163,9 @@
 "HIDE_CAST_BUTTON" = "Cast button verstecken";
 "HIDE_CAST_BUTTON_DESC" = "Google-Cast Button verstecken. Ein Neustart der App ist erforderlich.";
 
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
 "HIDE_SPONSORBLOCK_BUTTON" = "iSponsorBlock ausblenden";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "Blende die iSponsorBlock-Schaltfläche in der Navigationsleiste aus";
 

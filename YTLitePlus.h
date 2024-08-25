@@ -46,6 +46,8 @@
 #import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
 #import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
+#import "Tweaks/YouTubeHeader/YTPageStyleController.h"
+#import "Tweaks/YouTubeHeader/YTRightNavigationButtons.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -172,9 +174,10 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @interface MDCButton : UIButton
 @end
 
-@interface YTRightNavigationButtons : UIView
+@interface YTRightNavigationButtons (YTLitePlus)
 @property YTQTMButton *notificationButton;
 @property YTQTMButton *sponsorBlockButton;
+@property YTQTMButton *videoPlayerButton;
 @end
 
 // BigYTMiniPlayer

@@ -163,6 +163,9 @@
 "HIDE_CAST_BUTTON" = "Ascundere buton Proiectare";
 "HIDE_CAST_BUTTON_DESC" = "Este necesară repornirea aplicației.";
 
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
 "HIDE_SPONSORBLOCK_BUTTON" = "Ascundere buton iSponsorBlock în bara de navigație";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
