@@ -162,6 +162,16 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @interface MPVolumeController : NSObject
 @property (nonatomic, assign, readwrite) float volumeValue;
 @end
+@interface YTPlayerBarController (YTLitePlus)
+- (void)inlinePlayerBarContainerViewDidStartFineScrub:(YTInlinePlayerBarContainerView *)playerBar;
+- (void)inlinePlayerBarContainerView:(YTInlinePlayerBarContainerView *)playerBar didFineScrubToTime:(CGFloat)time;
+- (void)inlinePlayerBarContainerViewDidEndFineScrub:(YTInlinePlayerBarContainerView *)playerBar seekSource:(int)source;
+- (void)didScrub:(UIPanGestureRecognizer *)gestureRecognizer;
+- (void)seekAnywhereDidScrubWithRecognizer:(UIPanGestureRecognizer *)recognizer;
+@end
+@interface YTMainAppVideoPlayerOverlayViewController (YTLitePlus)
+@property (nonatomic, strong, readwrite) YTPlayerBarController *playerBarController;
+@end
 
 // Hide Collapse Button - @arichornlover
 @interface YTMainAppControlsOverlayView (YTLitePlus)
