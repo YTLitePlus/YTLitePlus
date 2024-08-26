@@ -105,7 +105,7 @@ static const NSInteger YTLiteSection = 789;
 
 # pragma mark - Copy and Paste Settings
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
-        itemWithTitle:LOC(@"COPY_SETTINGS")
+        itemWithTitle:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"EXPORT_SETTINGS") : LOC(@"COPY_SETTINGS")
         titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"EXPORT_SETTINGS_DESC") : LOC(@"COPY_SETTINGS_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
@@ -116,7 +116,11 @@ static const NSInteger YTLiteSection = 789;
                 NSMutableString *settingsString = [NSMutableString string];
                 for (NSString *key in NSUserDefaultsCopyKeys) {
                     id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-                    if (value) {
+                    id defaultValue = NSUserDefaultsCopyKeysDefaults[key];
+                    
+                    // Only include the setting if it is different from the default value
+                    // If no default value is found, include it by default
+                    if (value && (!defaultValue || ![value isEqual:defaultValue])) {
                         [settingsString appendFormat:@"%@: %@\n", key, value];
                     }
                 }
@@ -142,22 +146,31 @@ static const NSInteger YTLiteSection = 789;
                 [[UIPasteboard generalPasteboard] setString:settingsString];
                 // Show a confirmation message or perform some other action here
                 [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings copied"]];
+                
+                // Show an option to export YouTube Plus settings
+                UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings"
+                                                    message:@"Note: This feature cannot save iSponsorBlock and most YouTube settings.\n\nWould you like to also export your YouTube Plus Settings?"
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+                [exportAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                [exportAlert addAction:[UIAlertAction actionWithTitle:@"Export" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    // Export YouTube Plus Settings functionality
+                    [%c(YTLUserDefaults) exportYtlSettings];
+                }]];
+
+                // Get the root view controller
+                UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+
+                // Present the alert from the root view controller
+                [rootViewController presentViewController:exportAlert animated:YES completion:nil];
             }
-            // Prompt to export YouTube Plus settings
-            UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings" message:@"Note: This feature cannot save iSponsorBlock and most YouTube settings.\n\nWould you like to also export your YouTube Plus Settings?" preferredStyle:UIAlertControllerStyleAlert];
-            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Export" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                // Export YouTube Plus Settings functionality
-                [%c(YTLUserDefaults) exportYtlSettings];
-            }]];
-            [settingsViewController presentViewController:exportAlert animated:YES completion:nil];
+
             return YES;
         }
     ];
     [sectionItems addObject:copySettings];
 
     YTSettingsSectionItem *pasteSettings = [%c(YTSettingsSectionItem)
-        itemWithTitle:LOC(@"PASTE_SETTINGS")
+        itemWithTitle:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"IMPORT_SETTINGS") : LOC(@"PASTE_SETTINGS")
         titleDescription:IS_ENABLED(@"switchCopyandPasteFunctionality_enabled") ? LOC(@"IMPORT_SETTINGS_DESC") : LOC(@"PASTE_SETTINGS_DESC")
         accessibilityIdentifier:nil
         detailTextBlock:nil
@@ -183,20 +196,20 @@ static const NSInteger YTLiteSection = 789;
                                 NSString *value = components[1];
                                 [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
                             }
-                        }                 
+                        }
                         [settingsViewController reloadData];
-                        // Show a confirmation message or perform some other action here
+                        // Show a confirmation toast
                         [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings applied"]];
+                        // Show a reminder to import YouTube Plus settings as well
+                        UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder"
+                                                            message:@"Remember to import your YouTube Plus settings as well"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+                        [reminderAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+                        [settingsViewController presentViewController:reminderAlert animated:YES completion:nil];
                     }
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
             }
-            // Reminder to import YouTube Plus settings
-            UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder" 
-                                                                                message:@"Remember to import your YouTube Plus settings as well" 
-                                                                            preferredStyle:UIAlertControllerStyleAlert];
-            [reminderAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [settingsViewController presentViewController:reminderAlert animated:YES completion:nil];
 
             return YES;
         }
@@ -674,25 +687,49 @@ static const NSInteger YTLiteSection = 789;
     if (urls.count > 0) {
         NSURL *pickedURL = [urls firstObject];
         NSError *error;
-        NSString *fileType = [pickedURL resourceValuesForKeys:@[NSURLTypeIdentifierKey] error:&error][NSURLTypeIdentifierKey];
+        // Check which mode the document picker is in
+        if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+            // Import mode: Handle the import of settings from a text file
+            NSString *fileType = [pickedURL resourceValuesForKeys:@[NSURLTypeIdentifierKey] error:&error][NSURLTypeIdentifierKey];
 
-        YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
-
-        if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypePlainText)) {
-            // This block handles the import of settings from a text file.
-            NSString *fileContents = [NSString stringWithContentsOfURL:pickedURL encoding:NSUTF8StringEncoding error:nil];
-            NSArray *lines = [fileContents componentsSeparatedByString:@"\n"];
-            for (NSString *line in lines) {
-                NSArray *components = [line componentsSeparatedByString:@": "];
-                if (components.count == 2) {
-                    NSString *key = components[0];
-                    NSString *value = components[1];
-                    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+            if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypePlainText)) {
+                NSString *fileContents = [NSString stringWithContentsOfURL:pickedURL encoding:NSUTF8StringEncoding error:nil];
+                NSArray *lines = [fileContents componentsSeparatedByString:@"\n"];
+                for (NSString *line in lines) {
+                    NSArray *components = [line componentsSeparatedByString:@": "];
+                    if (components.count == 2) {
+                        NSString *key = components[0];
+                        NSString *value = components[1];
+                        [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+                    }
                 }
+                // Reload settings view after importing
+                YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+                [settingsViewController reloadData];
+                // Show a confirmation message or perform some other action here
+                [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings applied"]];
+                // Show a reminder to import YouTube Plus settings as well
+                UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder"
+                                                    message:@"Remember to import your YouTube Plus settings as well"
+                                                    preferredStyle:UIAlertControllerStyleAlert];
+                [reminderAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+                [settingsViewController presentViewController:reminderAlert animated:YES completion:nil];
             }
-            [settingsViewController reloadData];
-            // Show a toast message to confirm the action
-            [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings applied"]];
+
+        } else if (controller.documentPickerMode == UIDocumentPickerModeExportToService || controller.documentPickerMode == UIDocumentPickerModeMoveToService) {
+            [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings saved"]];
+            // Export mode: Display a reminder to save YouTube Plus settings
+            UIAlertController *exportAlert = [UIAlertController alertControllerWithTitle:@"Export Settings"
+                                                message:@"Note: This feature cannot save iSponsorBlock and most YouTube settings.\n\nWould you like to also export your YouTube Plus Settings?"
+                                                preferredStyle:UIAlertControllerStyleAlert];
+            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+            [exportAlert addAction:[UIAlertAction actionWithTitle:@"Export" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // Export YouTube Plus Settings functionality
+                [%c(YTLUserDefaults) exportYtlSettings];
+            }]];
+            YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+            // Present the alert from the root view controller
+            [settingsViewController presentViewController:exportAlert animated:YES completion:nil];
         }
     }
 }
