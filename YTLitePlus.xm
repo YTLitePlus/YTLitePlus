@@ -730,6 +730,11 @@ BOOL isTabSelected = NO;
         float volumeSensitivityFactor = 3.0;
         float newVolume = initialVolume + ((translationX / 1000.0) * sensitivityFactor * volumeSensitivityFactor);
         newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+        // Improve smoothness - ignore if the volume is within 0.01 of the current volume
+        CGFloat currentVolume = [[AVAudioSession sharedInstance] outputVolume];
+        if (fabs(newVolume - currentVolume) < 0.01 && currentVolume > 0.01 && currentVolume < 0.99) {
+            return;
+        }
         // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
