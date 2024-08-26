@@ -909,8 +909,10 @@ BOOL isTabSelected = NO;
                         break;
                 }
                 // Provide haptic feedback to indicate a gesture start
-                [feedbackGenerator prepare];
-                [feedbackGenerator impactOccurred];
+                if (IS_ENABLED(@"playerGesturesHapticFeedback_enabled")) {
+                    [feedbackGenerator prepare];
+                    [feedbackGenerator impactOccurred];
+                }
             } else {
                 // Cancel the gesture if the translation is not horizontal
                 panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
@@ -1229,5 +1231,8 @@ BOOL isTabSelected = NO;
     }
     if (![allKeys containsObject:@"playerGesturesSensitivity"]) { 
        [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGesturesSensitivity"]; 
+    }
+    if (![allKeys containsObject:@"playerGesturesHapticFeedback_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"playerGesturesHapticFeedback_enabled"]; 
     }
 }

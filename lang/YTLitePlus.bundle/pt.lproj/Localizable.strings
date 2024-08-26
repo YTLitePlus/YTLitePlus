@@ -31,6 +31,7 @@
 "TOP_SECTION" = "Top Section";
 "MIDDLE_SECTION" = "Middle Section";
 "BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opções de Sobreposição de Controles de Vídeo";
