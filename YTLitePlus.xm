@@ -1034,10 +1034,10 @@ NSInteger pageStyle = 0;
         self.videoPlayerButton.frame = CGRectMake(0, 0, 40, 40);
         
         if ([%c(YTPageStyleController) pageStyle]) { //dark mode
-            [self.videoPlayerButton setImage:[UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-1024" ofType:@"png"]] forState:UIControlStateNormal];
+            [self.videoPlayerButton setImage:[UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]] forState:UIControlStateNormal];
         }
         else { // light mode
-            UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-1024" ofType:@"png"]];
+            UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]];
             image = [image imageWithTintColor:UIColor.blackColor renderingMode:UIImageRenderingModeAlwaysTemplate];
             [self.videoPlayerButton setImage:image forState:UIControlStateNormal];
             [self.videoPlayerButton setTintColor:UIColor.blackColor];
@@ -1321,9 +1321,6 @@ NSInteger pageStyle = 0;
     }
     if (![allKeys containsObject:@"fixCasting_enabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
-    }
-    if (![allKeys containsObject:@"videoPlayerButton_enabled"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"videoPlayerButton_enabled"]; 
     }
     // Default gestures as volume, brightness, seek
     if (![allKeys containsObject:@"playerGestureTopSelection"]) { 
