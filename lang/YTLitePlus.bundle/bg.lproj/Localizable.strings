@@ -32,6 +32,7 @@
 "TOP_SECTION" = "Top Section";
 "MIDDLE_SECTION" = "Middle Section";
 "BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Опции за контрол на видеото";
@@ -163,6 +164,9 @@
 
 "HIDE_CAST_BUTTON" = "Скрийте бутона за стрийминг";
 "HIDE_CAST_BUTTON_DESC" = "Необходим е рестарт на приложението.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Скрийте бутона за iSponsorBlock в навигационната лента";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";

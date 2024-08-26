@@ -42,8 +42,6 @@ static int appVersionSpoofer() {
 
 @interface YTSettingsSectionItemManager (YTLitePlus)
 - (void)updateYTLitePlusSectionWithEntry:(id)entry;
-- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller;
 @end
 
 extern NSBundle *YTLitePlusBundle();
@@ -207,30 +205,6 @@ static const NSInteger YTLiteSection = 789;
     ];
     [sectionItems addObject:pasteSettings];
 
-# pragma mark - Video Player
-    YTSettingsSectionItem *videoPlayer = [%c(YTSettingsSectionItem)
-        itemWithTitle:LOC(@"VIDEO_PLAYER")
-        titleDescription:LOC(@"VIDEO_PLAYER_DESC")
-        accessibilityIdentifier:nil
-        detailTextBlock:nil
-        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-            // Access the current view controller
-            UIViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
-            if (settingsViewController) {
-                // Present the video picker
-                UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeMovie, (NSString *)kUTTypeVideo] inMode:UIDocumentPickerModeImport];
-                documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
-                documentPicker.allowsMultipleSelection = NO;
-                [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
-            } else {
-                NSLog(@"settingsViewController is nil");
-            }
-            
-            return YES; // Return YES to indicate that the action was handled
-        }
-    ];
-    [sectionItems addObject:videoPlayer];
-
 /*
     YTSettingsSectionItem *appIcon = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"CHANGE_APP_ICON")
@@ -280,7 +254,7 @@ static const NSInteger YTLiteSection = 789;
         return [YTSettingsSectionItemClass itemWithTitle:LOC(sectionLabel)
             accessibilityIdentifier:nil
             detailTextBlock:^NSString *() {
-                return sectionGestureSelectedModeToString(GetSelection(sectionKey));
+                return sectionGestureSelectedModeToString(GetInteger(sectionKey));
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
@@ -294,7 +268,7 @@ static const NSInteger YTLiteSection = 789;
                     initWithNavTitle:LOC(sectionLabel) 
                     pickerSectionTitle:nil 
                     rows:rows 
-                    selectedItemIndex:GetSelection(sectionKey) 
+                    selectedItemIndex:GetInteger(sectionKey) 
                     parentResponder:[self parentResponder]
                 ];
                 [settingsViewController pushViewController:picker];
@@ -411,7 +385,9 @@ static const NSInteger YTLiteSection = 789;
             createSectionGestureSelector(@"BOTTOM_SECTION", @"playerGestureBottomSelection"),
             // Pickers for configuration settings
             deadzonePicker,
-            sensitivityPicker
+            sensitivityPicker,
+            // Toggle for haptic feedback
+            BASIC_SWITCH(LOC(@"PLAYER_GESTURES_HAPTIC_FEEDBACK"), nil, @"playerGesturesHapticFeedback_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Player Gestures (Beta)") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -573,7 +549,7 @@ static const NSInteger YTLiteSection = 789;
     YTSettingsSectionItem *themeGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"THEME_OPTIONS")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
-            switch (GetSelection(@"appTheme")) {
+            switch (GetInteger(@"appTheme")) {
                 case 1:
                     return LOC(@"OLD_DARK_THEME");
                 case 0:
@@ -597,7 +573,7 @@ static const NSInteger YTLiteSection = 789;
                 BASIC_SWITCH(LOC(@"LOW_CONTRAST_MODE"), LOC(@"LOW_CONTRAST_MODE_DESC"), @"lowContrastMode_enabled"),
                 lowContrastModeSection
             ];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetSelection(@"appTheme") parentResponder:[self parentResponder]];
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetInteger(@"appTheme") parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
@@ -609,7 +585,8 @@ static const NSInteger YTLiteSection = 789;
     YTSettingsSectionItem *playbackInFeedsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"PLAYBACK_IN_FEEDS")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
-            switch (GetSelection(@"inline_muted_playback_enabled")) {
+            // The specific values were gathered by checking the value for each setting
+            switch (GetInteger(@"inline_muted_playback_enabled")) {
                 case 3:
                     return LOC(@"PLAYBACK_IN_FEEDS_WIFI_ONLY");
                 case 1:
@@ -638,9 +615,14 @@ static const NSInteger YTLiteSection = 789;
                 }],
             ];
             // It seems values greater than 3 act the same as Always On (Index 1)
-            int (^getInlineSelection)() = ^int() {
-                int selection = GetSelection(@"inline_muted_playback_enabled") - 1;
-                return selection > 3 ? 1 : selection;
+            // Convert the stored value to an index for a picker (0 to 2)
+            NSInteger (^getInlineSelection)(void) = ^NSInteger(void) {
+                NSInteger selection = GetInteger(@"inline_muted_playback_enabled") - 1;
+                // Check if selection is within the valid bounds [0, 1, 2]
+                if (selection < 0 || selection > 2) {
+                    return 1;
+                }
+                return selection;
             };
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"PLAYBACK_IN_FEEDS") pickerSectionTitle:nil rows:rows selectedItemIndex:getInlineSelection() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
@@ -660,6 +642,7 @@ static const NSInteger YTLiteSection = 789;
             BASIC_SWITCH(LOC(@"CAST_CONFIRM"), LOC(@"CAST_CONFIRM_DESC"), @"castConfirm_enabled"),
             BASIC_SWITCH(LOC(@"NEW_MINIPLAYER_STYLE"), LOC(@"NEW_MINIPLAYER_STYLE_DESC"), @"bigYTMiniPlayer_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_CAST_BUTTON"), LOC(@"HIDE_CAST_BUTTON_DESC"), @"hideCastButton_enabled"),
+            BASIC_SWITCH(LOC(@"VIDEO_PLAYER_BUTTON"), LOC(@"VIDEO_PLAYER_BUTTON_DESC"), @"videoPlayerButton_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_SPONSORBLOCK_BUTTON"), LOC(@"HIDE_SPONSORBLOCK_BUTTON_DESC"), @"hideSponsorBlockButton_enabled"),
             BASIC_SWITCH(LOC(@"HIDE_HOME_TAB"), LOC(@"HIDE_HOME_TAB_DESC"), @"hideHomeTab_enabled"),
             BASIC_SWITCH(LOC(@"FIX_CASTING"), LOC(@"FIX_CASTING_DESC"), @"fixCasting_enabled"),
@@ -713,26 +696,9 @@ static const NSInteger YTLiteSection = 789;
                 // Call a custom reloadData method if it exists
                 [settingsViewController performSelector:@selector(reloadData)];
             }
-        } else if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypeMovie)) {
-            // This block handles video playback using AVPlayer and AVPlayerViewController.
-            AVPlayer *player = [AVPlayer playerWithURL:pickedURL];
-            AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
-            playerViewController.player = player;
-
-            if (settingsViewController) {
-                [settingsViewController presentViewController:playerViewController animated:YES completion:^{
-                    [player play];
-                }];
-            }
         }
     }
 }
 
-
-%new
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {
-    // Handle cancellation if needed
-    NSLog(@"Document picker was cancelled");
-}
-
 %end
+

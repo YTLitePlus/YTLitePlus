@@ -46,6 +46,9 @@
 #import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
 #import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
+#import "Tweaks/YouTubeHeader/YTPageStyleController.h"
+#import "Tweaks/YouTubeHeader/YTRightNavigationButtons.h"
+#import "Tweaks/YouTubeHeader/YTInlinePlayerBarView.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -59,8 +62,8 @@
 
 // Helper methods for key retrieval
 #define IsEnabled(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
-#define GetSelection(key) [[NSUserDefaults standardUserDefaults] integerForKey:key]
-#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key]
+#define GetInteger(key) [[NSUserDefaults standardUserDefaults] integerForKey:key] // NSInteger type
+#define GetFloat(key) [[NSUserDefaults standardUserDefaults] floatForKey:key] // float type
 
 
 // Player Gesture selected mode enum
@@ -154,6 +157,10 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @end
 
 // Player Gestures - @bhackel
+@interface YTFineScrubberFilmstripView : UIView
+@end
+@interface YTFineScrubberFilmstripCollectionView : UICollectionView
+@end
 @interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
@@ -162,6 +169,20 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @end
 @interface MPVolumeController : NSObject
 @property (nonatomic, assign, readwrite) float volumeValue;
+@end
+@interface YTPlayerBarController (YTLitePlus)
+- (void)didScrub:(UIPanGestureRecognizer *)gestureRecognizer;
+- (void)startScrubbing;
+- (void)didScrubToPoint:(CGPoint)point;
+- (void)endScrubbingForSeekSource:(int)seekSource;
+@end
+@interface YTMainAppVideoPlayerOverlayViewController (YTLitePlus)
+@property (nonatomic, strong, readwrite) YTPlayerBarController *playerBarController;
+@end
+@interface YTInlinePlayerBarContainerView (YTLitePlus)
+@property UIPanGestureRecognizer *scrubGestureRecognizer;
+@property (nonatomic, strong, readwrite) YTFineScrubberFilmstripView *fineScrubberFilmstrip;
+- (CGFloat)scrubXForScrubRange:(CGFloat)scrubRange;
 @end
 
 // Hide Collapse Button - @arichornlover
@@ -173,9 +194,10 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @interface MDCButton : UIButton
 @end
 
-@interface YTRightNavigationButtons : UIView
+@interface YTRightNavigationButtons (YTLitePlus)
 @property YTQTMButton *notificationButton;
 @property YTQTMButton *sponsorBlockButton;
+@property YTQTMButton *videoPlayerButton;
 @end
 
 // BigYTMiniPlayer

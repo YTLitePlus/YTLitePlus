@@ -32,6 +32,7 @@
 "TOP_SECTION" = "Top Section";
 "MIDDLE_SECTION" = "Middle Section";
 "BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
 
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Tùy chọn trình phát video";
@@ -229,6 +230,9 @@
 
 "HIDE_CAST_BUTTON" = "Ẩn nút Truyền";
 "HIDE_CAST_BUTTON_DESC" = "Khởi động lại ứng dụng là bắt buộc.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
 
 "HIDE_HOVER_CARD" = "Ẩn thẻ di chuột trên Màn hình kết thúc (YTNoHoverCards)";
 "HIDE_HOVER_CARD_DESC" = "Ẩn màn hình kết thúc (hình thu nhỏ) của người tạo ở cuối video.";
