@@ -714,7 +714,7 @@ BOOL isTabSelected = NO;
     // Get objects used to seek nicely in the video player
     static YTMainAppVideoPlayerOverlayViewController *mainVideoPlayerController = (YTMainAppVideoPlayerOverlayViewController *)self.childViewControllers.firstObject;
     static YTPlayerBarController *playerBarController = mainVideoPlayerController.playerBarController;
-    // static YTInlinePlayerBarContainerView *playerBar = playerBarController.playerBar;
+    static YTInlinePlayerBarContainerView *playerBar = playerBarController.playerBar;
 
 /***** Helper functions for adjusting player state *****/
     // Helper function to adjust brightness
@@ -742,14 +742,14 @@ BOOL isTabSelected = NO;
         // Get the location in view for the current video time
         CGFloat totalTime = self.currentVideoTotalMediaTime;
         CGFloat videoFraction = initialTime / totalTime;
-        CGFloat initialTimeXPosition = scrubXForScrubRange(videoFraction);
+        CGFloat initialTimeXPosition = [playerBar scrubXForScrubRange:videoFraction];
         // Calculate the new seek X position
         CGFloat sensitivityFactor = 1; // Adjust this value to make seeking more/less sensitive
         CGFloat newSeekXPosition = initialTimeXPosition + translationX * sensitivityFactor;
         // Create a CGPoint using this new X position
         CGPoint newSeekPoint = CGPointMake(newSeekXPosition, 0);
         // Send this to a seek method in the player bar controller
-        [playerBarController didScrbToPoint:newSeekPoint];
+        [playerBarController didScrubToPoint:newSeekPoint];
     };
 
     // Helper function to smooth out the X translation
@@ -885,6 +885,8 @@ BOOL isTabSelected = NO;
                 // If outside the deadzone, activate the pan gesture and store the initial values
                 isValidHorizontalPan = YES;
                 deadzoneStartingXTranslation = translation.x;
+                adjustedTranslationX = 0;
+                smoothedTranslationX = 0;
                 // Run the setup for the selected gesture mode
                 switch (gestureSection) {
                     case GestureSectionTop:
@@ -960,6 +962,15 @@ BOOL isTabSelected = NO;
 // allow the pan gesture to be recognized simultaneously with other gestures
 %new
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        // Do not allow this gesture to activate with the normal seek bar gesture
+        YTMainAppVideoPlayerOverlayViewController *mainVideoPlayerController = (YTMainAppVideoPlayerOverlayViewController *)self.childViewControllers.firstObject;
+        YTPlayerBarController *playerBarController = mainVideoPlayerController.playerBarController;
+        YTInlinePlayerBarContainerView *playerBar = playerBarController.playerBar;
+        if (otherGestureRecognizer == playerBar.scrubGestureRecognizer) {
+            return NO;
+        }
+    }
     return YES;
 }
 %end

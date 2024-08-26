@@ -46,6 +46,7 @@
 #import "Tweaks/YouTubeHeader/YTMainAppControlsOverlayView.h"
 #import "Tweaks/YouTubeHeader/YTMultiSizeViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchLayerViewController.h"
+#import "Tweaks/YouTubeHeader/YTInlinePlayerBarView.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -163,15 +164,19 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @property (nonatomic, assign, readwrite) float volumeValue;
 @end
 @interface YTPlayerBarController (YTLitePlus)
-- (void)inlinePlayerBarContainerViewDidStartFineScrub:(YTInlinePlayerBarContainerView *)playerBar;
-- (void)inlinePlayerBarContainerView:(YTInlinePlayerBarContainerView *)playerBar didFineScrubToTime:(CGFloat)time;
-- (void)inlinePlayerBarContainerViewDidEndFineScrub:(YTInlinePlayerBarContainerView *)playerBar seekSource:(int)source;
 - (void)didScrub:(UIPanGestureRecognizer *)gestureRecognizer;
-- (void)seekAnywhereDidScrubWithRecognizer:(UIPanGestureRecognizer *)recognizer;
+- (void)startScrubbing;
+- (void)didScrubToPoint:(CGPoint)point;
+- (void)endScrubbingForSeekSource:(int)seekSource;
 @end
 @interface YTMainAppVideoPlayerOverlayViewController (YTLitePlus)
 @property (nonatomic, strong, readwrite) YTPlayerBarController *playerBarController;
 @end
+@interface YTInlinePlayerBarContainerView (YTLitePlus)
+@property UIPanGestureRecognizer *scrubGestureRecognizer;
+- (CGFloat)scrubXForScrubRange:(CGFloat)scrubRange;
+@end
+
 
 // Hide Collapse Button - @arichornlover
 @interface YTMainAppControlsOverlayView (YTLitePlus)
