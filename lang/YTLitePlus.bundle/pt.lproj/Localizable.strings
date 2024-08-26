@@ -165,6 +165,9 @@
 "HIDE_CAST_BUTTON" = "Ocultar o botão Transmitir";
 "HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
 
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar o botão iSponsorBlock na barra de navegação";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 

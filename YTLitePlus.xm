@@ -1018,6 +1018,100 @@ BOOL isTabSelected = NO;
 %end
 %end
 
+// Video player button in the navigation bar - @bhackel
+// This code is based on the iSponsorBlock button code
+%group gVideoPlayerButton
+NSInteger pageStyle = 0;
+%hook YTRightNavigationButtons
+%property (retain, nonatomic) YTQTMButton *videoPlayerButton;
+- (NSMutableArray *)buttons {
+    NSMutableArray *retVal = %orig.mutableCopy;
+    [self.videoPlayerButton removeFromSuperview];
+    [self addSubview:self.videoPlayerButton];
+    if (!self.videoPlayerButton || pageStyle != [%c(YTPageStyleController) pageStyle]) {
+        self.videoPlayerButton = [%c(YTQTMButton) iconButton];
+	    [self.videoPlayerButton enableNewTouchFeedback];
+        self.videoPlayerButton.frame = CGRectMake(0, 0, 40, 40);
+        
+        if ([%c(YTPageStyleController) pageStyle]) { //dark mode
+            [self.videoPlayerButton setImage:[UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-1024" ofType:@"png"]] forState:UIControlStateNormal];
+        }
+        else { // light mode
+            UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-1024" ofType:@"png"]];
+            image = [image imageWithTintColor:UIColor.blackColor renderingMode:UIImageRenderingModeAlwaysTemplate];
+            [self.videoPlayerButton setImage:image forState:UIControlStateNormal];
+            [self.videoPlayerButton setTintColor:UIColor.blackColor];
+        }
+        pageStyle = [%c(YTPageStyleController) pageStyle];
+        
+        [self.videoPlayerButton addTarget:self action:@selector(videoPlayerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [retVal insertObject:self.videoPlayerButton atIndex:0];
+    }
+    return retVal;
+}
+- (NSMutableArray *)visibleButtons {
+    NSMutableArray *retVal = %orig.mutableCopy;
+    
+    // fixes button overlapping yt logo on smaller devices
+    [self setLeadingPadding:-10];
+    if (self.videoPlayerButton) {
+        [self.videoPlayerButton removeFromSuperview];
+        [self addSubview:self.videoPlayerButton];
+        [retVal insertObject:self.videoPlayerButton atIndex:0];
+    }
+    return retVal;
+}
+// Method to handle the video player button press by showing a document picker
+%new
+- (void)videoPlayerButtonPressed:(UIButton *)sender {
+    // Traversing the responder chain to find the nearest UIViewController
+    UIResponder *responder = sender;
+    UIViewController *settingsViewController = nil;
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            settingsViewController = (UIViewController *)responder;
+            break;
+        }
+        responder = responder.nextResponder;
+    }
+
+    if (settingsViewController) {
+        // Present the video picker
+        UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeMovie, (NSString *)kUTTypeVideo] inMode:UIDocumentPickerModeImport];
+        documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
+        documentPicker.allowsMultipleSelection = NO;
+        [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
+    } else {
+        NSLog(@"No view controller found for the sender button.");
+    }
+}
+// Delegate method to handle the picked video by showing the apple player
+%new
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
+    NSURL *pickedURL = [urls firstObject];
+    
+    if (pickedURL) {
+        // Use AVPlayerViewController to play the video
+        AVPlayer *player = [AVPlayer playerWithURL:pickedURL];
+        AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+        playerViewController.player = player;
+        
+        // Get the root view controller
+        UIViewController *presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        // Present the Video Player
+        if (presentingViewController) {
+            [presentingViewController presentViewController:playerViewController animated:YES completion:^{
+                [player play];
+            }];
+        } else {
+            // Handle case where no view controller was found
+            NSLog(@"Error: No view controller found to present AVPlayerViewController.");
+        }
+    }
+}
+%end
+%end
+
 // App Settings Overlay Options
 %group gDisableAccountSection
 %hook YTSettingsSectionItemManager
@@ -1210,6 +1304,9 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"playerGestures_enabled")) {
         %init(gPlayerGestures);
     }
+    if (IsEnabled(@"videoPlayerButton_enabled")) {
+        %init(gVideoPlayerButton);
+    }
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
@@ -1224,6 +1321,9 @@ BOOL isTabSelected = NO;
     }
     if (![allKeys containsObject:@"fixCasting_enabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
+    }
+    if (![allKeys containsObject:@"videoPlayerButton_enabled"]) { 
+       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"videoPlayerButton_enabled"]; 
     }
     // Default gestures as volume, brightness, seek
     if (![allKeys containsObject:@"playerGestureTopSelection"]) { 

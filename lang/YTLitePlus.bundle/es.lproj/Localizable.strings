@@ -164,6 +164,9 @@
 "HIDE_CAST_BUTTON" = "Ocultar botón Emitir";
 "HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
 
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 

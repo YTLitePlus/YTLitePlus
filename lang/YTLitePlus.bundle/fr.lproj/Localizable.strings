@@ -167,6 +167,9 @@
 "HIDE_CAST_BUTTON" = "Masquer le bouton Cast";
 "HIDE_CAST_BUTTON_DESC" = "Un redémarrage de l'application est requis.";
 
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
 "HIDE_SPONSORBLOCK_BUTTON" = "Masquer le bouton iSponsorBlock dans la barre de navigation";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
