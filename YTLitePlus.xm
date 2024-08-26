@@ -668,6 +668,7 @@ BOOL isTabSelected = NO;
   * for each zone. The zones are horizontal sections that divide the player into
   * 3 equal parts. The choices are volume, brightness, seek, and disabled.
   * There is also a deadzone that can be configured in the settings.
+  * There are 4 logical states: initial, changed in deadzone, changed, end.
   */
 %new
 - (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
@@ -676,7 +677,7 @@ BOOL isTabSelected = NO;
     // Variables for storing initial values to be adjusted
     static float initialVolume;
     static float initialBrightness;
-    static CGFloat currentTime;
+    static CGFloat initialTime;
     // Flag to determine if the pan gesture is valid
     static BOOL isValidHorizontalPan = NO;
     // Variable to store the section of the screen the gesture is in
@@ -687,6 +688,10 @@ BOOL isTabSelected = NO;
     static CGFloat deadzoneStartingXTranslation;
     // Variable to track the X translation of the pan gesture after exiting the deadzone
     static CGFloat adjustedTranslationX;
+    // Variable used to smooth out the X translation
+    static CGFloat smoothedTranslationX = 0;
+    // Constant for the filter constant to change responsiveness
+    static const CGFloat filterConstant = 0.1;
     // Constant for the deadzone radius that can be changed in the settings
     static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
     // Constant for the sensitivity factor that can be changed in the settings
@@ -714,7 +719,7 @@ BOOL isTabSelected = NO;
 /***** Helper functions for adjusting player state *****/
     // Helper function to adjust brightness
     void (^adjustBrightness)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialBrightness) {
-        float brightnessSensitivityFactor = 2.0;
+        float brightnessSensitivityFactor = 3;
         float newBrightness = initialBrightness + ((translationX / 1000.0) * sensitivityFactor * brightnessSensitivityFactor);
         newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
         [[UIScreen mainScreen] setBrightness:newBrightness];
@@ -722,7 +727,7 @@ BOOL isTabSelected = NO;
 
     // Helper function to adjust volume
     void (^adjustVolume)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialVolume) {
-        float volumeSensitivityFactor = 2.0;
+        float volumeSensitivityFactor = 3.0;
         float newVolume = initialVolume + ((translationX / 1000.0) * sensitivityFactor * volumeSensitivityFactor);
         newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
         // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
@@ -733,18 +738,25 @@ BOOL isTabSelected = NO;
     };
 
     // Helper function to adjust seek time
-    // void (^adjustSeek)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat currentTime) {
-    //     // Calculate a seek fraction based on the horizontal translation
-    //     CGFloat totalDuration = self.currentVideoTotalMediaTime;
-    //     CGFloat viewWidth = self.view.bounds.size.width;
-    //     CGFloat seekFraction = (translationX / viewWidth);
-    //     // Calculate the new seek time based on the calculated offset
-    //     CGFloat sensitivityFactor = 1; // Adjust this value to make seeking more/less sensitive
-    //     seekFraction = sensitivityFactor * seekFraction;
-    //     CGFloat seekTime = currentTime + totalDuration * seekFraction;
-    //     // Seek to the new time
-    //     [playerBarController inlinePlayerBarContainerView:playerBar didFineScrubToTime:seekTime];
-    // };
+    void (^adjustSeek)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialTime) {
+        // Get the location in view for the current video time
+        CGFloat totalTime = self.currentVideoTotalMediaTime;
+        CGFloat videoFraction = initialTime / totalTime;
+        CGFloat initialTimeXPosition = scrubXForScrubRange(videoFraction);
+        // Calculate the new seek X position
+        CGFloat sensitivityFactor = 1; // Adjust this value to make seeking more/less sensitive
+        CGFloat newSeekXPosition = initialTimeXPosition + translationX * sensitivityFactor;
+        // Create a CGPoint using this new X position
+        CGPoint newSeekPoint = CGPointMake(newSeekXPosition, 0);
+        // Send this to a seek method in the player bar controller
+        [playerBarController didScrbToPoint:newSeekPoint];
+    };
+
+    // Helper function to smooth out the X translation
+    CGFloat (^applyLowPassFilter)(CGFloat) = ^(CGFloat newTranslation) {
+        smoothedTranslationX = filterConstant * newTranslation + (1 - filterConstant) * smoothedTranslationX;
+        return smoothedTranslationX;
+    };
 
 /***** Helper functions for running the selected gesture *****/
     // Helper function to run any setup for the selected gesture mode
@@ -754,18 +766,15 @@ BOOL isTabSelected = NO;
         // Handle the setup based on the selected mode
         switch (selectedGestureMode) {
             case GestureModeVolume:
-                // Store initial volume value
                 initialVolume = [[AVAudioSession sharedInstance] outputVolume];
                 break;
             case GestureModeBrightness:
-                // Store the initial brightness value
                 initialBrightness = [UIScreen mainScreen].brightness;
                 break;
             case GestureModeSeek:
-                // Store the current time value
-                currentTime = self.currentVideoMediaTime;
+                initialTime = self.currentVideoMediaTime;
                 // Start a seek action
-                [playerBarController seekAnywhereDidScrubWithRecognizer:panGestureRecognizer];
+                [playerBarController startScrubbing];
                 break;
             case GestureModeDisabled:
                 // Do nothing if the gesture is disabled
@@ -793,8 +802,7 @@ BOOL isTabSelected = NO;
                 adjustBrightness(adjustedTranslationX, initialBrightness);
                 break;
             case GestureModeSeek:
-                // adjustSeek(adjustedTranslationX, currentTime);
-                [playerBarController seekAnywhereDidScrubWithRecognizer:panGestureRecognizer];
+                adjustSeek(adjustedTranslationX, initialTime);
                 break;
             case GestureModeDisabled:
                 // Do nothing if the gesture is disabled
@@ -820,7 +828,7 @@ BOOL isTabSelected = NO;
             case GestureModeBrightness:
                 break;
             case GestureModeSeek:
-                [playerBarController seekAnywhereDidScrubWithRecognizer:panGestureRecognizer];
+                [playerBarController endScrubbingForSeekSource:0];
                 break;
             case GestureModeDisabled:
                 break;
@@ -907,6 +915,8 @@ BOOL isTabSelected = NO;
         if (isValidHorizontalPan) {
             // Adjust the X translation based on the value hit after exiting the deadzone
             adjustedTranslationX = translation.x - deadzoneStartingXTranslation;
+            // Smooth the translation value
+            adjustedTranslationX = applyLowPassFilter(adjustedTranslationX);
             // Pass the adjusted translation to the selected gesture
             switch (gestureSection) {
                 case GestureSectionTop:
@@ -925,26 +935,25 @@ BOOL isTabSelected = NO;
             }
         }
     }
-    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        if (isValidHorizontalPan) {
-            // Handle the gesture based on the identified section
-            switch (gestureSection) {
-                case GestureSectionTop:
-                    runSelectedGestureEnded(@"playerGestureTopSelection");
-                    break;
-                case GestureSectionMiddle:
-                    runSelectedGestureEnded(@"playerGestureMiddleSelection");
-                    break;
-                case GestureSectionBottom:
-                    runSelectedGestureEnded(@"playerGestureBottomSelection");
-                    break;
-                default:
-                    break;
-            }
-            // Provide haptic feedback upon successful gesture recognition
-            // [feedbackGenerator prepare];
-            // [feedbackGenerator impactOccurred];
+
+    // Handle the gesture end state by running the selected gesture mode's end action
+    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded && isValidHorizontalPan) {
+        switch (gestureSection) {
+            case GestureSectionTop:
+                runSelectedGestureEnded(@"playerGestureTopSelection");
+                break;
+            case GestureSectionMiddle:
+                runSelectedGestureEnded(@"playerGestureMiddleSelection");
+                break;
+            case GestureSectionBottom:
+                runSelectedGestureEnded(@"playerGestureBottomSelection");
+                break;
+            default:
+                break;
         }
+        // Provide haptic feedback upon successful gesture recognition
+        // [feedbackGenerator prepare];
+        // [feedbackGenerator impactOccurred];
     }
 
 }
