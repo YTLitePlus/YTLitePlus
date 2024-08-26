@@ -977,6 +977,16 @@ BOOL isTabSelected = NO;
         if (otherGestureRecognizer == playerBar.scrubGestureRecognizer) {
             return NO;
         }
+        // Do not allow this gesture to activate with the fine scrubber gesture
+        YTFineScrubberFilmstripView *fineScrubberFilmstrip = playerBar.fineScrubberFilmstrip;
+        if (!fineScrubberFilmstrip) {
+            return YES;
+        }
+        YTFineScrubberFilmstripCollectionView *filmstripCollectionView = [fineScrubberFilmstrip valueForKey:@"_filmstripCollectionView"];
+        if (filmstripCollectionView && otherGestureRecognizer == filmstripCollectionView.panGestureRecognizer) {
+            return NO;
+        }
+
     }
     return YES;
 }

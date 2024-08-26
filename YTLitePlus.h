@@ -154,6 +154,10 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @end
 
 // Player Gestures - @bhackel
+@interface YTFineScrubberFilmstripView : UIView
+@end
+@interface YTFineScrubberFilmstripCollectionView : UICollectionView
+@end
 @interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
@@ -174,9 +178,9 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @end
 @interface YTInlinePlayerBarContainerView (YTLitePlus)
 @property UIPanGestureRecognizer *scrubGestureRecognizer;
+@property (nonatomic, strong, readwrite) YTFineScrubberFilmstripView *fineScrubberFilmstrip;
 - (CGFloat)scrubXForScrubRange:(CGFloat)scrubRange;
 @end
-
 
 // Hide Collapse Button - @arichornlover
 @interface YTMainAppControlsOverlayView (YTLitePlus)
