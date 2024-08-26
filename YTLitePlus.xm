@@ -1037,10 +1037,11 @@ NSInteger pageStyle = 0;
             [self.videoPlayerButton setImage:[UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]] forState:UIControlStateNormal];
         }
         else { // light mode
-            UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]];
-            image = [image imageWithTintColor:UIColor.blackColor renderingMode:UIImageRenderingModeAlwaysTemplate];
-            [self.videoPlayerButton setImage:image forState:UIControlStateNormal];
-            [self.videoPlayerButton setTintColor:UIColor.blackColor];
+            [self.videoPlayerButton setImage:[UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]] forState:UIControlStateNormal];
+            // UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"YTLitePlusColored-128" ofType:@"png"]];
+            // image = [image imageWithTintColor:UIColor.blackColor renderingMode:UIImageRenderingModeAlwaysTemplate];
+            // [self.videoPlayerButton setImage:image forState:UIControlStateNormal];
+            // [self.videoPlayerButton setTintColor:UIColor.blackColor];
         }
         pageStyle = [%c(YTPageStyleController) pageStyle];
         
