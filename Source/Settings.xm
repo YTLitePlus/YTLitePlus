@@ -372,7 +372,9 @@ static const NSInteger YTLiteSection = 789;
             createSectionGestureSelector(@"BOTTOM_SECTION", @"playerGestureBottomSelection"),
             // Pickers for configuration settings
             deadzonePicker,
-            sensitivityPicker
+            sensitivityPicker,
+            // Toggle for haptic feedback
+            BASIC_SWITCH(LOC(@"PLAYER_GESTURES_HAPTIC_FEEDBACK"), nil, @"playerGesturesHapticFeedback_enabled"),
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Player Gestures (Beta)") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
