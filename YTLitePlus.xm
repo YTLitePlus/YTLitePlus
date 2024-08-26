@@ -33,11 +33,6 @@ static NSString *accessGroupID() {
     return accessGroup;
 }
 
-//
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
-
 # pragma mark - Tweaks
 
 // Activate FLEX
@@ -179,6 +174,7 @@ BOOL isSelf() {
 %end
 %end
 
+
 // A/B flags
 %hook YTColdConfig 
 - (BOOL)respectDeviceCaptionSetting { return NO; } // YouRememberCaption: https://poomsmart.github.io/repo/depictions/youremembercaption.html
@@ -192,6 +188,30 @@ BOOL isSelf() {
 - (BOOL)shouldForceUpgrade { return NO;}
 - (BOOL)shouldShowUpgrade { return NO;}
 - (BOOL)shouldShowUpgradeDialog { return NO;}
+%end
+
+// Hide Speed Toast - @bhackel
+// YTLite Speed Toast
+%hook PlayerToast
+- (void)showPlayerToastWithText:(id)text 
+                          value:(CGFloat)value 
+                          style:(NSInteger)style 
+                         onView:(id)view 
+{
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
+%end
+// Default YouTube Speed Toast
+%hook YTInlinePlayerScrubUserEducationView
+- (void)setVisible:(BOOL)visible {
+    if (IsEnabled(@"hideSpeedToast_enabled")) {
+        return;
+    }
+    %orig;
+}
 %end
 
 // Hide Home Tab - @bhackel
@@ -542,6 +562,291 @@ BOOL isTabSelected = NO;
 }
 %end
 
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+
+    // Hide the Comment Section Previews under the Video Player - @arichornlover
+    if ((IsEnabled(@"hidePreviewCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"])) {
+        self.hidden = YES;
+        self.opaque = YES;
+        self.userInteractionEnabled = NO;
+        CGRect bounds = self.frame;
+        bounds.size.height = 0;
+        self.frame = bounds;
+        [self.superview layoutIfNeeded];
+        [self setNeedsLayout];
+        [self removeFromSuperview];
+    }
+
+    // Live chat OLED dark mode - @bhackel
+    CGFloat alpha;
+    if ([[%c(YTLUserDefaults) standardUserDefaults] boolForKey:@"oledTheme"] // YTLite OLED Theme
+            && [self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"] // Live chat text message
+            && [self.backgroundColor getWhite:nil alpha:&alpha] // Check if color is grayscale and get alpha
+            && alpha != 0.0) // Ignore shorts live chat
+    {
+        self.backgroundColor = [UIColor blackColor];
+    }
+}
+%end
+
+// Hide Autoplay Mini Preview - @bhackel
+%hook YTAutonavPreviewView
+- (void)layoutSubviews {
+    %orig;
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        self.hidden = YES;
+    }
+}
+- (void)setHidden:(BOOL)arg1 {
+    if (IsEnabled(@"hideAutoplayMiniPreview_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(arg1);
+    }
+}
+%end
+
+// Hide HUD Messages - @qnblackcat
+%hook YTHUDMessageView
+- (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 {
+    return IsEnabled(@"hideHUD_enabled") ? nil : %orig;
+}
+%end
+
+// Hide Video Player Collapse Button - @arichornlover
+%hook YTMainAppControlsOverlayView
+- (void)layoutSubviews {
+    %orig; 
+    if (IsEnabled(@"disableCollapseButton_enabled")) {  
+        if (self.watchCollapseButton) {
+            [self.watchCollapseButton removeFromSuperview];
+        }
+    }
+}
+- (BOOL)watchCollapseButtonHidden {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+        return YES;
+    } else {
+        return %orig;
+    }
+}
+- (void)setWatchCollapseButtonAvailable:(BOOL)available {
+    if (IsEnabled(@"disableCollapseButton_enabled")) {
+    } else {
+        %orig(available);
+    }
+}
+%end
+
+// Gestures - @bhackel
+%group playerGestures
+%hook YTWatchLayerViewController
+// invoked when the player view controller is either created or destroyed
+- (void)watchController:(YTWatchController *)watchController didSetPlayerViewController:(YTPlayerViewController *)playerViewController {
+    if (playerViewController) {
+        // check to see if the pan gesture is already created
+        if (!playerViewController.YTLitePlusPanGesture) {
+            playerViewController.YTLitePlusPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:playerViewController
+                                                                                               action:@selector(YTLitePlusHandlePanGesture:)];
+            playerViewController.YTLitePlusPanGesture.delegate = playerViewController;
+            [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusPanGesture];
+        }        
+    }
+    %orig;
+}
+%end
+
+
+%hook YTPlayerViewController
+// the pan gesture that will be created and added to the player view
+%property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
+%new
+- (void)YTLitePlusHandlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
+    // Haptic feedback generator
+    static UIImpactFeedbackGenerator *feedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    // Variables for storing initial values to be adjusted
+    static float initialVolume;
+    static float initialBrightness;
+    static CGFloat currentTime;
+    // Flag to determine if the pan gesture is valid
+    static BOOL isValidHorizontalPan = NO;
+    // Variable to store the section of the screen the gesture is in
+    static GestureSection gestureSection = GestureSectionInvalid;
+    // Variable to track the start location of the whole pan gesture
+    static CGPoint startLocation;
+    // Variable to track the X translation when exiting the deadzone
+    static CGFloat deadzoneStartingXTranslation;
+    // Constant for the deadzone radius that can be changed in the settings
+    static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
+    // Constant for the sensitivity factor that can be changed in the settings
+    static CGFloat sensitivityFactor = (CGFloat)GetFloat(@"playerGesturesSensitivity");
+
+/***** Helper functions *****/
+    // Helper function to adjust brightness
+    void (^adjustBrightness)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialBrightness) {
+        float newBrightness = initialBrightness + ((translationX / 1000.0) * sensitivityFactor);
+        newBrightness = fmaxf(fminf(newBrightness, 1.0), 0.0);
+        [[UIScreen mainScreen] setBrightness:newBrightness];
+    };
+    // Helper function to adjust volume
+    void (^adjustVolume)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat initialVolume) {
+        float newVolume = initialVolume + ((translationX / 1000.0) * sensitivityFactor);
+        newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
+        // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
+        MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+        UISlider *volumeViewSlider = nil;
+        for (UIView *view in volumeView.subviews) {
+            if ([view isKindOfClass:[UISlider class]]) {
+                volumeViewSlider = (UISlider *)view;
+                break;
+            }
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            volumeViewSlider.value = newVolume;
+        });
+    };
+    // Helper function to adjust seek time
+    void (^adjustSeek)(CGFloat, CGFloat) = ^(CGFloat translationX, CGFloat currentTime) {
+        // Calculate a seek fraction based on the horizontal translation
+        CGFloat totalDuration = self.currentVideoTotalMediaTime;
+        CGFloat viewWidth = self.view.bounds.size.width;
+        CGFloat seekFraction = (translationX / viewWidth);
+        // Seek to the new time based on the calculated offset
+        CGFloat sensitivityFactor = 1; // Adjust this value to make seeking less sensitive
+        seekFraction = sensitivityFactor * seekFraction;
+        CGFloat seekTime = currentTime + totalDuration * seekFraction;
+        [self seekToTime:seekTime];
+    };
+    // Helper function to run the selected gesture action
+    void (^runSelectedGesture)(NSString*, CGFloat, CGFloat, CGFloat, CGFloat) 
+            = ^(NSString *sectionKey, CGFloat translationX, CGFloat initialBrightness, CGFloat initialVolume, CGFloat currentTime) {
+        // Determine the selected gesture mode using the section key
+        GestureMode selectedGestureMode = (GestureMode)GetInteger(sectionKey);
+        // Handle the gesture action based on the selected mode
+        switch (selectedGestureMode) {
+            case GestureModeVolume:
+                adjustVolume(translationX, initialVolume);
+                break;
+            case GestureModeBrightness:
+                adjustBrightness(translationX, initialBrightness);
+                break;
+            case GestureModeSeek:
+                adjustSeek(translationX, currentTime);
+                break;
+            case GestureModeDisabled:
+                // Do nothing if the gesture is disabled
+                break;
+            default:
+                // Show an alert if the gesture mode is invalid
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:okAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+                break;
+        }
+    };
+/***** End of Helper functions *****/
+
+    // Handle gesture based on current gesture state
+    if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        // Get the gesture's start position
+        startLocation = [panGestureRecognizer locationInView:self.view];
+        CGFloat viewHeight = self.view.bounds.size.height;
+        
+        // Determine the section based on the start position
+        // by dividing the view into thirds
+        if (startLocation.y <= viewHeight / 3.0) {
+            gestureSection = GestureSectionTop;
+            // Cancel the gesture if the mode is disabled
+            if (GetInteger(@"playerGestureTopSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
+        } else if (startLocation.y <= 2 * viewHeight / 3.0) {
+            gestureSection = GestureSectionMiddle;
+            // Cancel the gesture if the mode is disabled
+            if (GetInteger(@"playerGestureMiddleSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
+        } else if (startLocation.y <= viewHeight) {
+            gestureSection = GestureSectionBottom;
+            // Cancel the gesture if the mode is disabled
+            if (GetInteger(@"playerGestureBottomSelection") == GestureModeDisabled) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
+        } else {
+            gestureSection = GestureSectionInvalid;
+        }
+        // Deactive the activity flag
+        isValidHorizontalPan = NO;
+    }
+
+    if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        // Determine if the gesture is predominantly horizontal
+        CGPoint translation = [panGestureRecognizer translationInView:self.view];
+        if (!isValidHorizontalPan) {
+            if (fabs(translation.x) > fabs(translation.y)) {
+                // Check if the touch has moved outside the deadzone
+                CGFloat distanceFromStart = hypot(translation.x, translation.y);
+                if (distanceFromStart < deadzoneRadius) {
+                    // If within the deadzone, don't activate the pan gesture
+                    return;
+                }
+                // If outside the deadzone, activate the pan gesture and store the initial values
+                isValidHorizontalPan = YES;
+                deadzoneStartingXTranslation = translation.x;
+                initialBrightness = [UIScreen mainScreen].brightness;
+                initialVolume = [[AVAudioSession sharedInstance] outputVolume];
+                currentTime = self.currentVideoMediaTime;
+                // Provide haptic feedback to indicate a gesture start
+                [feedbackGenerator prepare];
+                [feedbackGenerator impactOccurred];
+            } else {
+                // Cancel the gesture if the translation is not horizontal
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+                return;
+            }
+        }
+        
+        // Handle the gesture based on the identified section
+        if (isValidHorizontalPan) {
+            // Adjust the X translation based on the value hit after
+            // exiting the deadzone
+            CGFloat adjustedTranslationX = translation.x - deadzoneStartingXTranslation;
+            // Pass the adjusted translation to the selected gesture
+            if (gestureSection == GestureSectionTop) {
+                runSelectedGesture(@"playerGestureTopSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
+            } else if (gestureSection == GestureSectionMiddle) {
+                runSelectedGesture(@"playerGestureMiddleSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
+            } else if (gestureSection == GestureSectionBottom) {
+                runSelectedGesture(@"playerGestureBottomSelection", adjustedTranslationX, initialBrightness, initialVolume, currentTime);
+            } else {
+                // If the section is invalid, cancel the gesture
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+            }
+        }
+    }
+    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        if (isValidHorizontalPan) {
+            // Provide haptic feedback upon successful gesture recognition
+            [feedbackGenerator prepare];
+            [feedbackGenerator impactOccurred];
+        }
+    }
+
+}
+// allow the pan gesture to be recognized simultaneously with other gestures
+%new
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+%end
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -756,6 +1061,9 @@ BOOL isTabSelected = NO;
     if (IsEnabled(@"disableEngagementOverlay_enabled")) {
         %init(gDisableEngagementOverlay);
     }
+    if (IsEnabled(@"playerGestures_enabled")) {
+        %init(playerGestures);
+    }
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
@@ -770,5 +1078,22 @@ BOOL isTabSelected = NO;
     }
     if (![allKeys containsObject:@"fixCasting_enabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
+    }
+    // Default gestures as volume, brightness, seek
+    if (![allKeys containsObject:@"playerGestureTopSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeVolume forKey:@"playerGestureTopSelection"]; 
+    }
+    if (![allKeys containsObject:@"playerGestureMiddleSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeBrightness forKey:@"playerGestureMiddleSelection"]; 
+    }
+    if (![allKeys containsObject:@"playerGestureBottomSelection"]) { 
+       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeSeek forKey:@"playerGestureBottomSelection"]; 
+    }
+    // Default configuration options for gestures
+    if (![allKeys containsObject:@"playerGesturesDeadzone"]) { 
+       [[NSUserDefaults standardUserDefaults] setFloat:20.0 forKey:@"playerGesturesDeadzone"]; 
+    }
+    if (![allKeys containsObject:@"playerGesturesSensitivity"]) { 
+       [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGesturesSensitivity"]; 
     }
 }
