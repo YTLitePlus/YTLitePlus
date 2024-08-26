@@ -17,8 +17,9 @@ NSArray *NSUserDefaultsCopyKeys = @[
     @"hideHomeTab_enabled", @"hidePreviewCommentSection_enabled", @"hideRightPanel_enabled",
     @"hideSpeedToast_enabled", @"hideSponsorBlockButton_enabled", @"hideVideoPlayerShadowOverlayButtons_enabled",
     @"iPadLayout_enabled", @"iPhoneLayout_enabled", @"inline_muted_playback_enabled", @"lowContrastMode_enabled",
-    @"newSettingsUI_enabled", @"oledKeyBoard_enabled", @"playerGestures_enabled", @"seekAnywhere_enabled",
-    @"switchCopyandPasteFunctionality_enabled", @"ytNoModernUI_enabled", @"ytStartupAnimation_enabled",
+    @"newSettingsUI_enabled", @"oledKeyBoard_enabled", @"playerGesturesHapticFeedback_enabled",
+    @"playerGestures_enabled", @"seekAnywhere_enabled", @"switchCopyandPasteFunctionality_enabled",
+    @"videoPlayerButton_enabled", @"ytNoModernUI_enabled", @"ytStartupAnimation_enabled",
     // DEMC - https://github.com/therealFoxster/DontEatMyContent/blob/master/Tweak.h
     @"DEMC_enabled", @"DEMC_colorViewsEnabled", @"DEMC_safeAreaConstant", @"DEMC_disableAmbientMode", 
     @"DEMC_limitZoomToFill", @"DEMC_enableForAllVideos",

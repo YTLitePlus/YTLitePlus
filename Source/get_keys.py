@@ -61,6 +61,7 @@ def find_and_extract_keys():
     Recursively searches for .xm and .h files in the parent directory and extracts keys
     that match the pattern @\"<some_text>_enabled\". The matching keys are then printed
     with indentation and line breaks if the line exceeds 120 characters.
+    Ignores SettingsKeys.h
 
     Usage:
         1. Place this script in the desired directory.
@@ -82,6 +83,9 @@ def find_and_extract_keys():
     for root, dirs, files in os.walk(parent_directory):
         for file in files:
             if file.endswith(('.xm', '.h')):
+                # Skip SettingsKeys.h
+                if file == "SettingsKeys.h":
+                    continue
                 file_path = os.path.join(root, file)
                 found_keys.update(extract_values_from_file(file_path))
     

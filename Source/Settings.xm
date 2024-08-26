@@ -191,11 +191,9 @@ static const NSInteger YTLiteSection = 789;
                 }]];
                 [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
             }
-            // Show a toast message to confirm the action
-            [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings pasted"]];
             // Reminder to import YouTube Plus settings
             UIAlertController *reminderAlert = [UIAlertController alertControllerWithTitle:@"Reminder" 
-                                                                                message:@"Remember to import your YouTube Plus settings as well." 
+                                                                                message:@"Remember to import your YouTube Plus settings as well" 
                                                                             preferredStyle:UIAlertControllerStyleAlert];
             [reminderAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             [settingsViewController presentViewController:reminderAlert animated:YES completion:nil];
@@ -678,7 +676,7 @@ static const NSInteger YTLiteSection = 789;
         NSError *error;
         NSString *fileType = [pickedURL resourceValuesForKeys:@[NSURLTypeIdentifierKey] error:&error][NSURLTypeIdentifierKey];
 
-        UIViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+        YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
 
         if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypePlainText)) {
             // This block handles the import of settings from a text file.
@@ -692,10 +690,9 @@ static const NSInteger YTLiteSection = 789;
                     [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
                 }
             }
-            if ([settingsViewController respondsToSelector:@selector(reloadData)]) {
-                // Call a custom reloadData method if it exists
-                [settingsViewController performSelector:@selector(reloadData)];
-            }
+            [settingsViewController reloadData];
+            // Show a toast message to confirm the action
+            [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Settings applied"]];
         }
     }
 }
