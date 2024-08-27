@@ -156,12 +156,8 @@ static const NSInteger YTLiteSection = 789;
                     // Export YouTube Plus Settings functionality
                     [%c(YTLUserDefaults) exportYtlSettings];
                 }]];
-
-                // Get the root view controller
-                UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-
                 // Present the alert from the root view controller
-                [rootViewController presentViewController:exportAlert animated:YES completion:nil];
+                [settingsViewController presentViewController:exportAlert animated:YES completion:nil];
             }
 
             return YES;
