@@ -6,6 +6,7 @@
 "COPY_SETTINGS_DESC" = "Копиране на всички текущи настройки в клипборда";
 "PASTE_SETTINGS" = "Поставяне на настройки";
 "PASTE_SETTINGS_DESC" = "Поставяне на настройки от клипборда и прилагане";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
 "EXPORT_SETTINGS" = "Експортиране на настройки";
 "EXPORT_SETTINGS_DESC" = "Експортиране на всички текущи настройки в .txt файл";
 "IMPORT_SETTINGS" = "Импортиране на настройки";
