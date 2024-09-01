@@ -1319,36 +1319,28 @@ NSInteger pageStyle = 0;
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
-    if (![allKeys containsObject:@"RYD-ENABLED"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"RYD-ENABLED"]; 
-    }
-    if (![allKeys containsObject:@"YouPiPEnabled"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 
-	}
-    if (![allKeys containsObject:@"newSettingsUI_enabled"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"newSettingsUI_enabled"]; 
-    }
-    if (![allKeys containsObject:@"fixCasting_enabled"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
-    }
-    // Default gestures as volume, brightness, seek
-    if (![allKeys containsObject:@"playerGestureTopSelection"]) { 
-       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeVolume forKey:@"playerGestureTopSelection"]; 
-    }
-    if (![allKeys containsObject:@"playerGestureMiddleSelection"]) { 
-       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeBrightness forKey:@"playerGestureMiddleSelection"]; 
-    }
-    if (![allKeys containsObject:@"playerGestureBottomSelection"]) { 
-       [[NSUserDefaults standardUserDefaults] setInteger:GestureModeSeek forKey:@"playerGestureBottomSelection"]; 
-    }
-    // Default configuration options for gestures
-    if (![allKeys containsObject:@"playerGesturesDeadzone"]) { 
-       [[NSUserDefaults standardUserDefaults] setFloat:20.0 forKey:@"playerGesturesDeadzone"]; 
-    }
-    if (![allKeys containsObject:@"playerGesturesSensitivity"]) { 
-       [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGesturesSensitivity"]; 
-    }
-    if (![allKeys containsObject:@"playerGesturesHapticFeedback_enabled"]) { 
-       [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"playerGesturesHapticFeedback_enabled"]; 
+    if (![allKeys containsObject:@"YTLPDidPerformFirstRunSetup"]) { 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YTLPDidPerformFirstRunSetup"];
+        // Set iSponsorBlock to default disabled
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        NSString *settingsPath = [documentsDirectory stringByAppendingPathComponent:@"iSponsorBlock.plist"];
+        NSMutableDictionary *settings = [NSMutableDictionary dictionary];
+        NSDictionary *existingSettings = [NSDictionary dictionaryWithContentsOfFile:settingsPath];
+        [settings addEntriesFromDictionary:existingSettings];
+        [settings setObject:@(NO) forKey:@"enabled"];
+        [settings writeToFile:settingsPath atomically:YES];
+        // Set miscellaneous YTLitePlus features to enabled
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"RYD-ENABLED"]; 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"newSettingsUI_enabled"]; 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fixCasting_enabled"]; 
+            // Default gestures as volume, brightness, seek
+        [[NSUserDefaults standardUserDefaults] setInteger:GestureModeVolume forKey:@"playerGestureTopSelection"]; 
+        [[NSUserDefaults standardUserDefaults] setInteger:GestureModeBrightness forKey:@"playerGestureMiddleSelection"]; 
+        [[NSUserDefaults standardUserDefaults] setInteger:GestureModeSeek forKey:@"playerGestureBottomSelection"]; 
+        // Default gestures options
+        [[NSUserDefaults standardUserDefaults] setFloat:20.0 forKey:@"playerGesturesDeadzone"]; 
+        [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"playerGesturesSensitivity"]; 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"playerGesturesHapticFeedback_enabled"]; 
     }
 }
