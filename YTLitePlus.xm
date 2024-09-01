@@ -870,6 +870,13 @@ BOOL isTabSelected = NO;
         }
         // Deactive the activity flag
         isValidHorizontalPan = NO;
+        // Cancel this gesture if it has not activated after 1 second
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (!isValidHorizontalPan && panGestureRecognizer.state != UIGestureRecognizerStateEnded) {
+                // Cancel the gesture by setting its state to UIGestureRecognizerStateCancelled
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+            }
+        });
     }
 
     // Handle changed gesture state by activating the gesture once it has exited the deadzone,
