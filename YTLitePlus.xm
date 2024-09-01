@@ -689,7 +689,7 @@ BOOL isTabSelected = NO;
     // Variable used to smooth out the X translation
     static CGFloat smoothedTranslationX = 0;
     // Constant for the filter constant to change responsiveness
-    static const CGFloat filterConstant = 0.1;
+    // static const CGFloat filterConstant = 0.1;
     // Constant for the deadzone radius that can be changed in the settings
     static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
     // Constant for the sensitivity factor that can be changed in the settings
@@ -756,10 +756,10 @@ BOOL isTabSelected = NO;
     };
 
     // Helper function to smooth out the X translation
-    CGFloat (^applyLowPassFilter)(CGFloat) = ^(CGFloat newTranslation) {
-        smoothedTranslationX = filterConstant * newTranslation + (1 - filterConstant) * smoothedTranslationX;
-        return smoothedTranslationX;
-    };
+    // CGFloat (^applyLowPassFilter)(CGFloat) = ^(CGFloat newTranslation) {
+    //     smoothedTranslationX = filterConstant * newTranslation + (1 - filterConstant) * smoothedTranslationX;
+    //     return smoothedTranslationX;
+    // };
 
 /***** Helper functions for running the selected gesture *****/
     // Helper function to run any setup for the selected gesture mode
@@ -923,7 +923,7 @@ BOOL isTabSelected = NO;
             // Adjust the X translation based on the value hit after exiting the deadzone
             adjustedTranslationX = translation.x - deadzoneStartingXTranslation;
             // Smooth the translation value
-            adjustedTranslationX = applyLowPassFilter(adjustedTranslationX);
+            // adjustedTranslationX = applyLowPassFilter(adjustedTranslationX);
             // Pass the adjusted translation to the selected gesture
             switch (gestureSection) {
                 case GestureSectionTop:
