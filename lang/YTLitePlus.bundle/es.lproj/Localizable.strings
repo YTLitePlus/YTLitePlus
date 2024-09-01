@@ -2,37 +2,37 @@
 "VERSION" = "Versión de YTLitePlus: %@";
 "VERSION_CHECK" = "Pulse para comprobar si hay actualizaciones.";
 
-"COPY_SETTINGS" = "Copy Settings";
-"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
-"PASTE_SETTINGS" = "Paste Settings";
-"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
-"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
-"EXPORT_SETTINGS" = "Export Settings";
-"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
-"IMPORT_SETTINGS" = "Import Settings";
-"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
-"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
-"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+"COPY_SETTINGS" = "Copiar Configuraciones";
+"COPY_SETTINGS_DESC" = "Copiar todas las configuraciones actuales al portapapeles";
+"PASTE_SETTINGS" = "Pegar Configuraciones";
+"PASTE_SETTINGS_DESC" = "Pegar configuraciones desde el portapapeles y aplicar";
+"PASTE_SETTINGS_ALERT" = "¿Aplicar configuraciones desde el portapapeles?";
+"EXPORT_SETTINGS" = "Exportar Configuraciones";
+"EXPORT_SETTINGS_DESC" = "Exportar todas las configuraciones actuales a un archivo .txt";
+"IMPORT_SETTINGS" = "Importar Configuraciones";
+"IMPORT_SETTINGS_DESC" = "Presiona para importar configuraciones (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Reemplazar Botones de 'Copiar Configuraciones' y 'Pegar Configuraciones'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Reemplaza los botones con 'Exportar Configuraciones' e 'Importar Configuraciones'";
 
-"VIDEO_PLAYER" = "Video Player (Beta)";
-"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+"VIDEO_PLAYER" = "Reproductor de vídeo (Beta)";
+"VIDEO_PLAYER_DESC" = "Abrir un vídeo descargado en el reproductor de Apple";
 
 // Player Gestures
-"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
-"VOLUME" = "Volume";
-"BRIGHTNESS" = "Brightness";
-"SEEK" = "Seek";
-"DISABLED" = "Disabled";
-"DEADZONE" = "Deadzone";
-"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
-"SENSITIVITY" = "Sensitivity";
-"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
-"PLAYER_GESTURES_TITLE" = "Player Gestures";
-"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
-"TOP_SECTION" = "Top Section";
-"MIDDLE_SECTION" = "Middle Section";
-"BOTTOM_SECTION" = "Bottom Section";
-"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+"PLAYER_GESTURES_TOGGLE" = "Habilitar Gestos del Reproductor";
+"VOLUME" = "Volumen";
+"BRIGHTNESS" = "Brillo";
+"SEEK" = "Buscar";
+"DISABLED" = "Deshabilitado";
+"DEADZONE" = "Zona Muerta";
+"DEADZONE_DESC" = "Distancia mínima a mover antes de que se reconozca un gesto";
+"SENSITIVITY" = "Sensibilidad";
+"SENSITIVITY_DESC" = "Multiplicador en gestos de volumen y brillo";
+"PLAYER_GESTURES_TITLE" = "Gestos del Reproductor";
+"PLAYER_GESTURES_DESC" = "Configura los gestos de desplazamiento horizontal para el reproductor";
+"TOP_SECTION" = "Sección Superior";
+"MIDDLE_SECTION" = "Sección Media";
+"BOTTOM_SECTION" = "Sección Inferior";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Habilitar Retroalimentación Háptica";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opciones de superposición de controles de vídeo";
@@ -79,20 +79,20 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Desactivar la superposición de compromiso a pantalla completa";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desactivar el gesto de deslizar hacia arriba y la lista de vídeos sugeridos en pantalla completa";
 
-"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
-"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ocultar vistas previas de comentarios debajo del reproductor";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Ocultar spoilers de comentarios en el botón de comentarios";
 
-"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
-"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ocultar mini vista previa de reproducción automática";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Ocultar la pequeña caja de vídeo sugerido cerca del título en pantalla completa";
 
 "HIDE_HUD_MESSAGES" = "Ocultar mensajes HUD";
-"HIDE_HUD_MESSAGES_DESC" = "Ejemplo: CC está activado/desactivado, Vídeo en bucle está activado,...";
+"HIDE_HUD_MESSAGES_DESC" = "Ejemplo: CC está activado/desactivado, vídeo en bucle está activado,...";
 
-"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
-"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+"HIDE_COLLAPSE_BUTTON" = "Ocultar botón de colapso";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Oculta el botón de colapso en forma de flecha que se mostraba en la parte superior izquierda del reproductor de vídeo.";
 
-"HIDE_SPEED_TOAST" = "Hide Speed Toast";
-"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+"HIDE_SPEED_TOAST" = "Ocultar notificación de velocidad";
+"HIDE_SPEED_TOAST_DESC" = "Oculta la notificación de velocidad 2X cuando se mantiene presionado el reproductor";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opciones de superposición de los ajustes de la aplicación";
@@ -165,8 +165,8 @@
 "HIDE_CAST_BUTTON" = "Ocultar botón Emitir";
 "HIDE_CAST_BUTTON_DESC" = "Es necesario reiniciar la aplicación";
 
-"VIDEO_PLAYER_BUTTON" = "Video Player Button";
-"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+"VIDEO_PLAYER_BUTTON" = "Botón del reproductor de vídeo";
+"VIDEO_PLAYER_BUTTON_DESC" = "Mostrar un botón en la barra de navegación para abrir vídeo descargados en el reproductor de Apple";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar el botón iSponsorBlock en la barra de navegación";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
