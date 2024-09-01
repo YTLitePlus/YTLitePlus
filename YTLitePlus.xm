@@ -110,12 +110,8 @@ BOOL isSelf() {
 }
 %end
 
-# pragma mark - Hide SponsorBlock Button
+// Hide SponsorBlock Button in navigation bar
 %hook YTRightNavigationButtons
-- (void)didMoveToWindow {
-    %orig;
-}
-
 - (void)layoutSubviews {
     %orig;
     if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
@@ -172,6 +168,18 @@ BOOL isSelf() {
     MSHookIvar<YTPlaybackButton *>(self, "_playPauseButton").backgroundColor = nil;
 }
 %end
+%end
+
+// Disable YouTube Plus incompatibility warning popup - @bhackel
+%hook HelperVC
+- (void)viewDidLoad {
+    %orig;
+    // Check if it responds to the selector riskButtonTapped
+    if ([self respondsToSelector:@selector(riskButtonTapped)]) {
+        // Call the selector riskButtonTapped
+        [self performSelector:@selector(riskButtonTapped)];
+    }
+}
 %end
 
 
