@@ -172,14 +172,17 @@ BOOL isSelf() {
 
 // Disable YouTube Plus incompatibility warning popup - @bhackel
 %hook HelperVC
-- (void)viewDidLoad {
-    %orig;
-    // Check if it responds to the selector riskButtonTapped
-    if ([self respondsToSelector:@selector(riskButtonTapped)]) {
-        // Call the selector riskButtonTapped
-        [self performSelector:@selector(riskButtonTapped)];
-    }
+
+- (void)viewWillAppear:(BOOL)animated {
+    %orig;  // Call the original implementation
+
+    // // Hide the view before it appears
+    // self.view.hidden = YES;
+
+    // // Optionally, you can remove the view from the superview to ensure it's gone
+    // [self.view removeFromSuperview];
 }
+
 %end
 
 
@@ -1240,6 +1243,8 @@ NSInteger pageStyle = 0;
     %init;
     // Access YouGroupSettings methods
     dlopen([[NSString stringWithFormat:@"%@/Frameworks/YouGroupSettings.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
+    // Access YouTube Plus methods
+    dlopen([[NSString stringWithFormat:@"%@/Frameworks/YTLite.dylib",           [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
 
     if (IsEnabled(@"hideCastButton_enabled")) {
         %init(gHideCastButton);
@@ -1322,8 +1327,6 @@ NSInteger pageStyle = 0;
         NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
         NSString *settingsPath = [documentsDirectory stringByAppendingPathComponent:@"iSponsorBlock.plist"];
         NSMutableDictionary *settings = [NSMutableDictionary dictionary];
-        NSDictionary *existingSettings = [NSDictionary dictionaryWithContentsOfFile:settingsPath];
-        [settings addEntriesFromDictionary:existingSettings];
         [settings setObject:@(NO) forKey:@"enabled"];
         [settings writeToFile:settingsPath atomically:YES];
         // Set miscellaneous YTLitePlus features to enabled
