@@ -171,19 +171,51 @@ BOOL isSelf() {
 %end
 
 // Disable YouTube Plus incompatibility warning popup - @bhackel
-%hook HelperVC
+%hook UIView
 
-- (void)viewWillAppear:(BOOL)animated {
-    %orig;  // Call the original implementation
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    UIResponder *responder = self;
+    while (responder) {
+        responder = [responder nextResponder];
+        if ([responder isKindOfClass:NSClassFromString(@"HelperVC")]) {
+            // View belongs to HelperVC, now proceed with getting the UIButton
 
-    // // Hide the view before it appears
-    // self.view.hidden = YES;
+            if ([self.subviews count] > 4 && [[self.subviews objectAtIndex:4] isKindOfClass:[UIButton class]]) {
+                UIButton *button = [self.subviews objectAtIndex:4];
 
-    // // Optionally, you can remove the view from the superview to ensure it's gone
-    // [self.view removeFromSuperview];
+                // Access the _targetActions ivar using KVC (Key-Value Coding)
+                NSArray *targetActions = [button valueForKey:@"_targetActions"];
+
+                if ([targetActions count] > 0) {
+                    id controlTargetAction = [targetActions objectAtIndex:0];
+
+                    // Use KVC to get the _actionHandler (which is of type UIAction)
+                    UIAction *actionHandler = [controlTargetAction valueForKey:@"_actionHandler"];
+
+                    if (actionHandler && [actionHandler isKindOfClass:[UIAction class]]) {
+                        // Access the handler property of UIAction
+                        void (^handlerBlock)(void) = [actionHandler valueForKey:@"handler"];
+
+                        // Invoke the handler block
+                        if (handlerBlock) {
+                            handlerBlock();  // Call the block
+                        }
+                    }
+                }
+            }
+            
+            // Prevent the view from being added to the window
+            [self removeFromSuperview];
+            return;  // Exit early to prevent further processing
+        }
+    }
+
+    %orig(newWindow);  // Call the original method if the view doesn't belong to HelperVC
 }
 
 %end
+
+
 
 
 // A/B flags
