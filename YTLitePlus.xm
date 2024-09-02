@@ -171,123 +171,79 @@ BOOL isSelf() {
 %end
 
 // Disable YouTube Plus incompatibility warning popup - @bhackel
-%hook HelperVC
-- (void)viewDidAppear:(BOOL)animated {
-    %orig;
-    // Start from the current view and traverse up to find the UITransitionView
-    UIView *currentView = self.view;
-    while (currentView != nil && ![NSStringFromClass([currentView class]) isEqualToString:@"UITransitionView"]) {
-        currentView = currentView.superview;
-    }
-    // If UITransitionView is found, hide it
-    if (currentView) {
-        NSLog(@"bhackel Found and hiding UITransitionView: %@", currentView);
-        currentView.hidden = YES;
-        currentView.userInteractionEnabled = NO;
-        // Print the subview structure for debugging
-        NSLog(@"bhackel Subviews of UITransitionView: %@", currentView.subviews);
-        NSLog(@"bhackel Superview of UITransitionView: %@", currentView.superview);
-        [currentView removeFromSuperview];
-    }
-}
-%end
-
-%hook UIWindow
-
-- (void)addSubview:(UIView *)view {
-    // Check if the view's view controller is HelperVC using the responder chain
-    UIResponder *responder = view.nextResponder;
-    while (responder) {
-        if ([responder isKindOfClass:[UIViewController class]] &&
-            [NSStringFromClass([responder class]) isEqualToString:@"HelperVC"]) {
-            // Block the view from being added to the window
-            NSLog(@"bhackel Blocked HelperVC's view from being added to UIWindow");
-            return;
-        }
-        responder = [responder nextResponder];
-    }
-
-    // Call the original method for other views
-    %orig(view);
-}
-
-- (void)setRootViewController:(UIViewController *)rootViewController {
-    // Check if the rootViewController is HelperVC
-    if ([NSStringFromClass([rootViewController class]) isEqualToString:@"HelperVC"]) {
-        // Block setting HelperVC as the root view controller
-        NSLog(@"bhackel Blocked HelperVC from being set as UIWindow's root view controller");
-        return;
-    }
-
-    // Call the original method for other view controllers
-    %orig(rootViewController);
-}
-
-%end
-
-
 %hook UIViewController
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    // Check if the view controller being presented is HelperVC using string comparison
     if ([NSStringFromClass([viewControllerToPresent class]) isEqualToString:@"HelperVC"]) {
-        // Block the presentation by not calling the original method
-        NSLog(@"bhackel Blocked presentation of HelperVC");
-        return;
+        // show a toast
+        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Bypassing Popup"] animated:YES];
+        // look for UIWindows of the sus type and hide them
+        NSArray<UIWindow *> *windows = [UIApplication sharedApplication].windows;
+        for (UIWindow *window in windows) {
+            // Check the class name of the window
+            if ([NSStringFromClass([window class]) isEqualToString:@"YTMainWindow"]) {
+                NSLog(@"bhackel Skipping UIWindow with class YTMainWindow: %@", window);
+                window.userInteractionEnabled = YES;
+                continue;
+            }
+            NSLog(@"bhackel Yeeting UIWindow %@", window);
+            window.hidden = YES;
+            window.userInteractionEnabled = NO;
+        }
     }
 
-    // Call the original method for other view controllers
     %orig(viewControllerToPresent, flag, completion);
 }
 
 %end
 
 
-
 %hook UIView
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    // yeet yeet
+    UIResponder *responder = self;
+    while (responder) {
+        responder = [responder nextResponder];
+        if ([responder isKindOfClass:NSClassFromString(@"HelperVC")]) {
+            // View belongs to HelperVC, now proceed with getting the UIButton
+            NSLog(@"bhackel Found HelperVC (1/5): %@", responder);
 
-// - (void)layoutSubviews {
-//     // Check if the view's view controller is HelperVC
-//     UIResponder *responder = self;
-//     while (responder) {
-//         responder = [responder nextResponder];
-//         if ([responder isKindOfClass:[UIViewController class]]) {
-//             if ([NSStringFromClass([responder class]) isEqualToString:@"HelperVC"]
-//                     && self.hidden == NO) {
-//                 // If it's HelperVC, neutralize the view
-//                 NSLog(@"bhackel Neutralizing HelperVC");
-//                 self.bounds = CGRectZero;
-//                 self.hidden = YES;
-//                 self.userInteractionEnabled = NO;
-//                 // [self removeFromSuperview];
-//                 // Go ahead and set its superview to also be hidden
-//                 UIView *superview = self.superview;
-//                 if (superview) {
-//                     superview.hidden = YES;
-//                     superview.userInteractionEnabled = NO;
-//                 }
-//                 break;
-//             }
-//         }
-//     }
+            if ([self.subviews count] > 4 && [[self.subviews objectAtIndex:4] isKindOfClass:[UIButton class]]) {
+                NSLog(@"bhackel Found UIButton (2/5): %@", [self.subviews objectAtIndex:4]);
+                UIButton *button = [self.subviews objectAtIndex:4];
 
-//     %orig; // Call the original method
-// }
+                // Access the _targetActions ivar using KVC (Key-Value Coding)
+                NSArray *targetActions = [button valueForKey:@"_targetActions"];
 
-- (void)didMoveToSuperview {
-    %orig;
+                if ([targetActions count] > 0) {
+                    NSLog(@"bhackel Found targetActions (3/5): %@", targetActions);
+                    id controlTargetAction = [targetActions objectAtIndex:0];
 
-    // Consolidate the log statements into one
-    NSLog(@"bhackel UIView added to hierarchy: %@ | View class: %@ | Frame: %@ | Background Color: %@ | Alpha: %f",
-          self,
-          NSStringFromClass([self class]),
-          NSStringFromCGRect(self.frame),
-          self.backgroundColor,
-          self.alpha);
+                    // Use KVC to get the _actionHandler (which is of type UIAction)
+                    UIAction *actionHandler = [controlTargetAction valueForKey:@"_actionHandler"];
+
+                    if (actionHandler && [actionHandler isKindOfClass:[UIAction class]]) {
+                        NSLog(@"bhackel Found actionHandler (4/5): %@", actionHandler);
+                        // Access the handler property of UIAction
+                        void (^handlerBlock)(void) = [actionHandler valueForKey:@"handler"];
+
+                        // Invoke the handler block
+                        if (handlerBlock) {
+                            NSLog(@"bhackel Found handlerBlock (5/5): %@", handlerBlock);
+                            handlerBlock();  // Call the block
+                        }
+                    }
+                }
+            }
+            
+            // Prevent the view from being added to the window
+            [self removeFromSuperview];
+            return;  // Exit early to prevent further processing
+        }
+    }
+
+    %orig(newWindow);  // Call the original method if the view doesn't belong to HelperVC
 }
-
-
-
 %end
 
 // A/B flags
