@@ -1,9 +1,6 @@
 #import "../YTLitePlus.h"
 
-//
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
+
 static int appVersionSpoofer() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"versionSpoofer"];
 }

@@ -2,6 +2,38 @@
 "VERSION" = "Versão do YTLitePlus: %@";
 "VERSION_CHECK" = "Toque para verificar se há atualização!";
 
+"COPY_SETTINGS" = "Copiar Configurações";
+"COPY_SETTINGS_DESC" = "Copia todas as configurações atuais para a área de transferência";
+"PASTE_SETTINGS" = "Colar Configurações";
+"PASTE_SETTINGS_DESC" = "Cola as configurações da área de transferência e aplica";
+"PASTE_SETTINGS_ALERT" = "Aplicar configurações da área de transferência?";
+"EXPORT_SETTINGS" = "Exportar Configurações";
+"EXPORT_SETTINGS_DESC" = "Exporta todas as configurações atuais para um arquivo .txt";
+"IMPORT_SETTINGS" = "Importar Configurações";
+"IMPORT_SETTINGS_DESC" = "Pressione para importar as configurações (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Substituir os Botões 'Copiar Configurações' e 'Colar Configurações'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Substitui os Botões 'Exportar Configurações' e 'Importar Configurações'";
+
+"VIDEO_PLAYER" = "Reprodutor de Vídeo (Beta)";
+"VIDEO_PLAYER_DESC" = "Abra um vídeo baixado no Reprodutor de video da Apple";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Habilitar Gestos no Reprodutor de video";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brilho";
+"SEEK" = "Busca";
+"DISABLED" = "Desabilitado";
+"DEADZONE" = "Zona morta";
+"DEADZONE_DESC" = "Distância mínima a percorrer antes de um gesto ser reconhecido";
+"SENSITIVITY" = "Sensibilidade";
+"SENSITIVITY_DESC" = "Multiplicador em gestos de volume e brilho";
+"PLAYER_GESTURES_TITLE" = "Gestos do Reprodutor de video";
+"PLAYER_GESTURES_DESC" = "Configurar gestos panorâmicos horizontal para o player";
+"TOP_SECTION" = "Seção Superior";
+"MIDDLE_SECTION" = "Seção do Meio";
+"BOTTOM_SECTION" = "Seção Inferior";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Habilitar Feedback Tátil";
+
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opções de Sobreposição de Controles de Vídeo";
 
@@ -26,8 +58,8 @@
 "DISABLE_AMBIENT_FULLSCREEN" = "Desativar Iluminação cinematográfica (Tela cheia)";
 "DISABLE_AMBIENT_FULLSCREEN_DESC" = "Desativa a iluminação ao redor do player de vídeo";
 
-"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
-"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+"FULLSCREEN_TO_THE_RIGHT" = "Tela cheia para a direita";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Sempre entre em tela cheia com o botão home no lado direito.";
 
 "SEEK_ANYWHERE" = "Gesto de Busca em qualquer lugar";
 "SEEK_ANYWHERE_DESC" = "Segure e arraste o player de vídeo para buscar. Você deve desativar o YTLite - Segurar para velocidade (Hold for speed)";
@@ -46,6 +78,22 @@
 
 "DISABLE_ENGAGEMENT_OVERLAY" = "Desativar sobreposição de engajamento em tela cheia";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desativa o gesto de deslizar para cima e a lista de vídeos sugeridos em tela cheia";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ocultar Visualizações de comentários sob o player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Oculta a Prévia de comentário no botão de comentários";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ocultar mini visualização de reprodução automática";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Oculta a pequena caixa de vídeo sugerida perto do título em tela cheia";
+
+"HIDE_HUD_MESSAGES" = "Ocultar Mensagens do HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Exemplo: Legendas/CC ativadas/desativadas, A repetição do vídeo está ativada,...";
+
+"HIDE_COLLAPSE_BUTTON" = "Ocultar Botão de Recolhimento";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Oculta o botão de seta para recolher que era exibido no canto superior esquerdo do player de vídeo.";
+
+"HIDE_SPEED_TOAST" = "Ocultar Toast de Velocidade";
+"HIDE_SPEED_TOAST_DESC" = "Ocultar o popup de Velocidade 2X ao segurar o player";
+
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
@@ -117,6 +165,9 @@
 
 "HIDE_CAST_BUTTON" = "Ocultar o botão Transmitir";
 "HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
+
+"VIDEO_PLAYER_BUTTON" = "Botão do Reprodutor de Vídeo";
+"VIDEO_PLAYER_BUTTON_DESC" = "Mostra um botão na barra de navegação para abrir vídeos baixados no Reprodutor de video da Apple";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ocultar o botão iSponsorBlock na barra de navegação";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
