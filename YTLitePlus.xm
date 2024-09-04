@@ -712,7 +712,12 @@ BOOL isTabSelected = NO;
             playerViewController.YTLitePlusPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:playerViewController
                                                                                                action:@selector(YTLitePlusHandlePanGesture:)];
             playerViewController.YTLitePlusPanGesture.delegate = playerViewController;
-            [playerViewController.playerView addGestureRecognizer:playerViewController.YTLitePlusPanGesture];
+            // Place the gesture on the Main App Controls Overlay View, which scales with the video player
+            // when, for instance, opening the Live Chat side panel in fullscreen
+            YTMainAppVideoPlayerOverlayViewController *mainVideoPlayerController = (YTMainAppVideoPlayerOverlayViewController *)playerViewController.childViewControllers.firstObject;
+            YTMainAppVideoPlayerOverlayView *mainVideoPlayerView = mainVideoPlayerController.videoPlayerOverlayView;
+            YTMainAppControlsOverlayView *controlsOverlayView = mainVideoPlayerView.controlsOverlayView;
+            [controlsOverlayView addGestureRecognizer:playerViewController.YTLitePlusPanGesture];
         }        
     }
     %orig;

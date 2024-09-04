@@ -49,6 +49,7 @@
 #import "Tweaks/YouTubeHeader/YTPageStyleController.h"
 #import "Tweaks/YouTubeHeader/YTRightNavigationButtons.h"
 #import "Tweaks/YouTubeHeader/YTInlinePlayerBarView.h"
+#import "Tweaks/YouTubeHeader/YTMainAppVideoPlayerOverlayView.h"
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
@@ -165,7 +166,7 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @end
 @interface YTFineScrubberFilmstripCollectionView : UICollectionView
 @end
-@interface YTPlayerViewController (YTLitePlus) <UIGestureRecognizerDelegate>
+@interface YTPlayerViewController (YTLitePlusGestures) <UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UIPanGestureRecognizer *YTLitePlusPanGesture;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
 @end
@@ -174,16 +175,20 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @interface MPVolumeController : NSObject
 @property (nonatomic, assign, readwrite) float volumeValue;
 @end
-@interface YTPlayerBarController (YTLitePlus)
+@interface YTPlayerBarController (YTLitePlusGestures)
 - (void)didScrub:(UIPanGestureRecognizer *)gestureRecognizer;
 - (void)startScrubbing;
 - (void)didScrubToPoint:(CGPoint)point;
 - (void)endScrubbingForSeekSource:(int)seekSource;
 @end
-@interface YTMainAppVideoPlayerOverlayViewController (YTLitePlus)
+@interface YTMainAppVideoPlayerOverlayViewController (YTLitePlusGestures)
 @property (nonatomic, strong, readwrite) YTPlayerBarController *playerBarController;
+@property YTMainAppVideoPlayerOverlayView *videoPlayerOverlayView;
 @end
-@interface YTInlinePlayerBarContainerView (YTLitePlus)
+@interface YTMainAppVideoPlayerOverlayView (YTLitePlusGestures)
+@property YTMainAppControlsOverlayView *controlsOverlayView;
+@end
+@interface YTInlinePlayerBarContainerView (YTLitePlusGestures)
 @property UIPanGestureRecognizer *scrubGestureRecognizer;
 @property (nonatomic, strong, readwrite) YTFineScrubberFilmstripView *fineScrubberFilmstrip;
 - (CGFloat)scrubXForScrubRange:(CGFloat)scrubRange;
