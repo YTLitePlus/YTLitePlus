@@ -187,6 +187,7 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @property UIPanGestureRecognizer *scrubGestureRecognizer;
 @property (nonatomic, strong, readwrite) YTFineScrubberFilmstripView *fineScrubberFilmstrip;
 - (CGFloat)scrubXForScrubRange:(CGFloat)scrubRange;
+- (CGFloat)scrubRangeForScrubX:(CGFloat)scrubX;
 @end
 
 // Hide Collapse Button - @arichornlover

@@ -749,10 +749,6 @@ BOOL isTabSelected = NO;
     static CGFloat deadzoneStartingXTranslation;
     // Variable to track the X translation of the pan gesture after exiting the deadzone
     static CGFloat adjustedTranslationX;
-    // Variable used to smooth out the X translation
-    static CGFloat smoothedTranslationX = 0;
-    // Constant for the filter constant to change responsiveness
-    // static const CGFloat filterConstant = 0.1;
     // Constant for the deadzone radius that can be changed in the settings
     static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
     // Constant for the sensitivity factor that can be changed in the settings
@@ -791,9 +787,11 @@ BOOL isTabSelected = NO;
         float volumeSensitivityFactor = 3.0;
         float newVolume = initialVolume + ((translationX / 1000.0) * sensitivityFactor * volumeSensitivityFactor);
         newVolume = fmaxf(fminf(newVolume, 1.0), 0.0);
-        // Improve smoothness - ignore if the volume is within 0.01 of the current volume
+        // Improve smoothness - ignore if the volume is within a certain distance of the current volume,
+        // but also allow it to change to 100% or to 0% when close to the edges
         CGFloat currentVolume = [[AVAudioSession sharedInstance] outputVolume];
-        if (fabs(newVolume - currentVolume) < 0.01 && currentVolume > 0.01 && currentVolume < 0.99) {
+        CGFloat changeThresh = 0.02;
+        if ((fabs(newVolume - currentVolume) < changeThresh) && (currentVolume > changeThresh) && (currentVolume < (1-changeThresh))) {
             return;
         }
         // https://stackoverflow.com/questions/50737943/how-to-change-volume-programmatically-on-ios-11-4
@@ -812,17 +810,22 @@ BOOL isTabSelected = NO;
         // Calculate the new seek X position
         CGFloat sensitivityFactor = 1; // Adjust this value to make seeking more/less sensitive
         CGFloat newSeekXPosition = initialTimeXPosition + translationX * sensitivityFactor;
-        // Create a CGPoint using this new X position
-        CGPoint newSeekPoint = CGPointMake(newSeekXPosition, 0);
-        // Send this to a seek method in the player bar controller
-        [playerBarController didScrubToPoint:newSeekPoint];
+        // Decide between seek methods
+        if (IS_ENABLED(@"gestureSeekAlternate_enabled")) {
+            // Alternate seek method used by uYou
+            // Convert the new X position back to a fraction of the total time
+            CGFloat newVideoFraction = [playerBar scrubRangeForScrubX:newSeekXPosition];
+            // Calculate the new video time based on this fraction
+            CGFloat newVideoTime = newVideoFraction * totalTime;
+            [self seekToTime:newVideoTime];
+        } else {
+            // Vanilla YouTube seek method used when dragging the seek bar
+            // Create a CGPoint using this new X position
+            CGPoint newSeekPoint = CGPointMake(newSeekXPosition, 0);
+            // Send this to a seek method in the player bar controller
+            [playerBarController didScrubToPoint:newSeekPoint];
+        }
     };
-
-    // Helper function to smooth out the X translation
-    // CGFloat (^applyLowPassFilter)(CGFloat) = ^(CGFloat newTranslation) {
-    //     smoothedTranslationX = filterConstant * newTranslation + (1 - filterConstant) * smoothedTranslationX;
-    //     return smoothedTranslationX;
-    // };
 
 /***** Helper functions for running the selected gesture *****/
     // Helper function to run any setup for the selected gesture mode
@@ -959,7 +962,6 @@ BOOL isTabSelected = NO;
                 isValidHorizontalPan = YES;
                 deadzoneStartingXTranslation = translation.x;
                 adjustedTranslationX = 0;
-                smoothedTranslationX = 0;
                 // Run the setup for the selected gesture mode
                 switch (gestureSection) {
                     case GestureSectionTop:

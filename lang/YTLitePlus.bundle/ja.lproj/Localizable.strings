@@ -33,6 +33,8 @@
 "MIDDLE_SECTION" = "Middle Section";
 "BOTTOM_SECTION" = "Bottom Section";
 "PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+"PLAYER_GESTURES_SEEK_ALTERNATE" = "Alternate seek method";
+"PLAYER_GESTURES_SEEK_ALTERNATE_DESC" = "Use a different method that increases content visibility";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールオーバーレイの設定";
