@@ -749,6 +749,8 @@ BOOL isTabSelected = NO;
     static CGFloat deadzoneStartingXTranslation;
     // Variable to track the X translation of the pan gesture after exiting the deadzone
     static CGFloat adjustedTranslationX;
+    // Variable to cancel gesture if deadzone is not exited after a certain time
+    static NSDate *gestureStartTime;
     // Constant for the deadzone radius that can be changed in the settings
     static CGFloat deadzoneRadius = (CGFloat)GetFloat(@"playerGesturesDeadzone");
     // Constant for the sensitivity factor that can be changed in the settings
@@ -759,6 +761,7 @@ BOOL isTabSelected = NO;
     // Get objects that should only be initialized once
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        // Get objects for adjusting Volume
         volumeView = [[MPVolumeView alloc] init];
         for (UIView *view in volumeView.subviews) {
             if ([view isKindOfClass:[UISlider class]]) {
@@ -766,6 +769,7 @@ BOOL isTabSelected = NO;
                 break;
             }
         }
+        // Initialize the haptic feedback generator
         feedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
     });
     // Get objects used to seek nicely in the video player
@@ -846,14 +850,9 @@ BOOL isTabSelected = NO;
                 [playerBarController startScrubbing];
                 break;
             case GestureModeDisabled:
-                // Do nothing if the gesture is disabled
-                break;
+                // Fall through
             default:
-                // Show an alert if the gesture mode is invalid
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:okAction];
-                [self presentViewController:alertController animated:YES completion:nil];
+                // Do nothing
                 break;
         }
     };
@@ -874,14 +873,10 @@ BOOL isTabSelected = NO;
                 adjustSeek(adjustedTranslationX, initialTime);
                 break;
             case GestureModeDisabled:
-                // Do nothing if the gesture is disabled
+                // Fall through
                 break;
             default:
-                // Show an alert if the gesture mode is invalid
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:okAction];
-                [self presentViewController:alertController animated:YES completion:nil];
+                // Do nothing
                 break;
         }
     };
@@ -900,13 +895,9 @@ BOOL isTabSelected = NO;
                 [playerBarController endScrubbingForSeekSource:0];
                 break;
             case GestureModeDisabled:
-                break;
+                // Fall through
             default:
-                // Show an alert if the gesture mode is invalid
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Gesture Mode" message:@"Please report this bug." preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:okAction];
-                [self presentViewController:alertController animated:YES completion:nil];
+                // Do nothing
                 break;
         }
     };
@@ -936,13 +927,8 @@ BOOL isTabSelected = NO;
         }
         // Deactive the activity flag
         isValidHorizontalPan = NO;
-        // Cancel this gesture if it has not activated after 1 second
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (!isValidHorizontalPan && panGestureRecognizer.state != UIGestureRecognizerStateEnded) {
-                // Cancel the gesture by setting its state to UIGestureRecognizerStateCancelled
-                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
-            }
-        });
+        // Store current time for gesture timeout
+        gestureStartTime = [NSDate date];
     }
 
     // Handle changed gesture state by activating the gesture once it has exited the deadzone,
@@ -951,6 +937,15 @@ BOOL isTabSelected = NO;
         // Determine if the gesture is predominantly horizontal
         CGPoint translation = [panGestureRecognizer translationInView:self.view];
         if (!isValidHorizontalPan) {
+            // Timeout
+            // Check how much time has passed since the gesture started
+            NSTimeInterval timeElapsed = [[NSDate date] timeIntervalSinceDate:gestureStartTime];
+            // If more than 1 second has passed and the gesture hasn't activated, cancel the gesture
+            if (timeElapsed >= 1.0 && !isValidHorizontalPan) {
+                panGestureRecognizer.state = UIGestureRecognizerStateCancelled;
+            }
+
+            // Horizontal and deadzone check
             if (fabs(translation.x) > fabs(translation.y)) {
                 // Check if the touch has moved outside the deadzone
                 CGFloat distanceFromStart = hypot(translation.x, translation.y);
