@@ -910,6 +910,7 @@ BOOL isTabSelected = NO;
 
     // Handle gesture based on current gesture state
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"bhackel - Gesture began");
         // Get the gesture's start position
         startLocation = [panGestureRecognizer locationInView:self.view];
         CGFloat viewHeight = self.view.bounds.size.height;
@@ -939,9 +940,11 @@ BOOL isTabSelected = NO;
     // Handle changed gesture state by activating the gesture once it has exited the deadzone,
     // and then adjusting the player based on the selected gesture mode
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        NSLog(@"bhackel - Gesture changed");
         // Determine if the gesture is predominantly horizontal
         CGPoint translation = [panGestureRecognizer translationInView:self.view];
         if (!isValidHorizontalPan) {
+            NSLog(@"bhackel - Gesture not yet valid");
             // Timeout
             // Check how much time has passed since the gesture started
             NSTimeInterval timeElapsed = [[NSDate date] timeIntervalSinceDate:gestureStartTime];
@@ -955,6 +958,7 @@ BOOL isTabSelected = NO;
                 // Check if the touch has moved outside the deadzone
                 CGFloat distanceFromStart = hypot(translation.x, translation.y);
                 if (distanceFromStart < deadzoneRadius) {
+                    NSLog(@"bhackel - Gesture within deadzone");
                     // If within the deadzone, don't activate the pan gesture
                     return;
                 }
@@ -992,6 +996,7 @@ BOOL isTabSelected = NO;
         
         // Handle the gesture based on the identified section
         if (isValidHorizontalPan) {
+            NSLog(@"bhackel - Gesture valid");
             // Adjust the X translation based on the value hit after exiting the deadzone
             adjustedTranslationX = translation.x - deadzoneStartingXTranslation;
             // Smooth the translation value
@@ -1039,25 +1044,6 @@ BOOL isTabSelected = NO;
 // allow the pan gesture to be recognized simultaneously with other gestures
 %new
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-        // Do not allow this gesture to activate with the normal seek bar gesture
-        YTMainAppVideoPlayerOverlayViewController *mainVideoPlayerController = (YTMainAppVideoPlayerOverlayViewController *)self.childViewControllers.firstObject;
-        YTPlayerBarController *playerBarController = mainVideoPlayerController.playerBarController;
-        YTInlinePlayerBarContainerView *playerBar = playerBarController.playerBar;
-        if (otherGestureRecognizer == playerBar.scrubGestureRecognizer) {
-            return NO;
-        }
-        // Do not allow this gesture to activate with the fine scrubber gesture
-        YTFineScrubberFilmstripView *fineScrubberFilmstrip = playerBar.fineScrubberFilmstrip;
-        if (!fineScrubberFilmstrip) {
-            return YES;
-        }
-        YTFineScrubberFilmstripCollectionView *filmstripCollectionView = [fineScrubberFilmstrip valueForKey:@"_filmstripCollectionView"];
-        if (filmstripCollectionView && otherGestureRecognizer == filmstripCollectionView.panGestureRecognizer) {
-            return NO;
-        }
-
-    }
     return YES;
 }
 %end
