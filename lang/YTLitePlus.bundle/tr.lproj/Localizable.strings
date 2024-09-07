@@ -6,7 +6,7 @@
 "COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
 "PASTE_SETTINGS" = "Ayarları Yapıştır";
 "PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
-"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
+"PASTE_SETTINGS_ALERT" = "Panodan ayarları uygulamak istiyor musun?";
 "EXPORT_SETTINGS" = "Ayarları Dışa Aktar";
 "EXPORT_SETTINGS_DESC" = "Tüm mevcut ayarları bir .txt dosyasına dışa aktarır";
 "IMPORT_SETTINGS" = "Ayarları İçe Aktar";
@@ -14,25 +14,25 @@
 "REPLACE_COPY_AND_PASTE_BUTTONS" = "'Ayarları Kopyala' ve 'Ayarları Yapıştır' Düğmelerini Değiştir";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Düğmeleri 'Ayarları Dışa Aktar' ve 'Ayarları İçe Aktar' ile değiştirir";
 
-"VIDEO_PLAYER" = "Video Player (Beta)";
-"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+"VIDEO_PLAYER" = "Video Oynatıcı (Beta)";
+"VIDEO_PLAYER_DESC" = "İndirilen bir videoyu Apple oynatıcısında aç";
 
 // Player Gestures
-"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
-"VOLUME" = "Volume";
-"BRIGHTNESS" = "Brightness";
-"SEEK" = "Seek";
-"DISABLED" = "Disabled";
-"DEADZONE" = "Deadzone";
-"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
-"SENSITIVITY" = "Sensitivity";
-"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
-"PLAYER_GESTURES_TITLE" = "Player Gestures";
-"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
-"TOP_SECTION" = "Top Section";
-"MIDDLE_SECTION" = "Middle Section";
-"BOTTOM_SECTION" = "Bottom Section";
-"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+"PLAYER_GESTURES_TOGGLE" = "Oynatıcı Hareketlerini Etkinleştir";
+"VOLUME" = "Ses";
+"BRIGHTNESS" = "Parlaklık";
+"SEEK" = "Arama";
+"DISABLED" = "Devre Dışı";
+"DEADZONE" = "Ölü Bölge";
+"DEADZONE_DESC" = "Bir hareketin tanınması için minimum mesafe";
+"SENSITIVITY" = "Hassasiyet";
+"SENSITIVITY_DESC" = "Ses ve parlaklık hareketleri için çarpan";
+"PLAYER_GESTURES_TITLE" = "Oynatıcı Hareketleri";
+"PLAYER_GESTURES_DESC" = "Oynatıcı için yatay kaydırma hareketlerini yapılandır";
+"TOP_SECTION" = "Üst Bölüm";
+"MIDDLE_SECTION" = "Orta Bölüm";
+"BOTTOM_SECTION" = "Alt Bölüm";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Haptik(titreşim) Geri Bildirimi Etkinleştir";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Kontrol Seç.";
@@ -165,8 +165,8 @@
 "HIDE_CAST_BUTTON" = "Yayınla düğmesini gizle";
 "HIDE_CAST_BUTTON_DESC" = "Yeniden başlatılmalı.";
 
-"VIDEO_PLAYER_BUTTON" = "Video Player Button";
-"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+"VIDEO_PLAYER_BUTTON" = "Video Oynatıcı Butonu";
+"VIDEO_PLAYER_BUTTON_DESC" = "İndirilen videoları Apple oynatıcısında açmak için gezinme çubuğunda bir buton göster";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Gezinme çubuğunda iSponsorBlock düğmesini gizle";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
