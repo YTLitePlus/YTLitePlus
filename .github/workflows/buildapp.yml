@@ -8,7 +8,7 @@ on:
     inputs:
       sdk_version:
         description: "iOS SDK Version"
-        default: "16.5"
+        default: "17"
         required: true
         type: string
       decrypted_youtube_url:
