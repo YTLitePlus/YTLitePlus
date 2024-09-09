@@ -7,6 +7,7 @@
 "COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
 "PASTE_SETTINGS" = "Paste Settings";
 "PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
 "EXPORT_SETTINGS" = "Export Settings";
 "EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
 "IMPORT_SETTINGS" = "Import Settings";
@@ -32,6 +33,7 @@
 "TOP_SECTION" = "Top Section";
 "MIDDLE_SECTION" = "Middle Section";
 "BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "影片區覆蓋按鈕設定";
@@ -163,6 +165,9 @@
 
 "HIDE_CAST_BUTTON" = "隱藏投放按鈕";
 "HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "隱藏 iSponsorBlock 按鈕";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
