@@ -8,14 +8,14 @@
 "PASTE_SETTINGS_DESC" = "从剪贴板粘贴设置并应用";
 "PASTE_SETTINGS_ALERT" = "应用剪贴板中的设置？";
 "EXPORT_SETTINGS" = "导出设置";
-"EXPORT_SETTINGS_DESC" = "将当前所有设置导出为.txt文件";
+"EXPORT_SETTINGS_DESC" = "将当前所有设置导出为txt文件";
 "IMPORT_SETTINGS" = "导入设置";
-"IMPORT_SETTINGS_DESC" = "按下以导入设置(.txt)";
+"IMPORT_SETTINGS_DESC" = "从txt文件导入设置";
 "REPLACE_COPY_AND_PASTE_BUTTONS" = "替换「复制设置」和「粘贴设置」按钮";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "将按钮替换为「导出设置」和「导入设置」";
 
 "VIDEO_PLAYER" = "视频播放器(测试版)";
-"VIDEO_PLAYER_DESC" = "在Apple播放器中打开下载的视频";
+"VIDEO_PLAYER_DESC" = "使用系统自带播放器打开下载的视频";
 
 // Player Gestures
 "PLAYER_GESTURES_TOGGLE" = "启用播放器手势";
@@ -26,7 +26,7 @@
 "DEADZONE" = "盲区";
 "DEADZONE_DESC" = "识别手势前需要移动的最小距离";
 "SENSITIVITY" = "灵敏度";
-"SENSITIVITY_DESC" = "对音量和亮度手势的乘数";
+"SENSITIVITY_DESC" = "对音量和亮度手势的倍数";
 "PLAYER_GESTURES_TITLE" = "播放器手势";
 "PLAYER_GESTURES_DESC" = "配置播放器的水平滑动手势";
 "TOP_SECTION" = "顶部区域";
@@ -38,13 +38,13 @@
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "视频控件覆盖选项";
 
 "ENABLE_SHARE_BUTTON" = "启用分享按钮";
-"ENABLE_SHARE_BUTTON_DESC" = "在视频控件覆盖中启用分享按钮";
+"ENABLE_SHARE_BUTTON_DESC" = "在播放器覆盖按钮区域中启用分享按钮";
 
 "ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "启用「保存到播放列表」按钮";
-"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在视频控件覆盖中启用「保存到播放列表」按钮";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在播放器覆盖按钮区域中启用「保存到播放列表」按钮";
 
-"HIDE_SHADOW_OVERLAY_BUTTONS" = "隐藏阴影覆盖按钮";
-"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "隐藏播放/暂停、上一个、下一个、前进和后退按钮上的阴影覆盖";
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "隐藏按钮阴影效果";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "隐藏播放/暂停、上一个、下一个、前进和后退按钮上的阴影效果";
 
 "HIDE_RIGHT_PANEL" = "隐藏全屏模式中的右侧面板";
 "HIDE_RIGHT_PANEL_DESC" = "需要重启应用";
@@ -166,7 +166,7 @@
 "HIDE_CAST_BUTTON_DESC" = "需要重新启动应用程序";
 
 "VIDEO_PLAYER_BUTTON" = "视频播放器按钮";
-"VIDEO_PLAYER_BUTTON_DESC" = "在导航栏中显示按钮，以便在 Apple 播放器中打开已下载的视频";
+"VIDEO_PLAYER_BUTTON_DESC" = "在导航栏中显示按钮，以便在系统自带播放器中打开已下载的视频";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "隐藏导航栏中的 iSponsorBlock 按钮";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
@@ -181,9 +181,9 @@
 "ENABLE_FLEX_DESC" = "启用 FLEX 进行调试（不推荐），除非您了解操作，否则请保持关闭状态";
 
 // Version Spoofer
-"APP_VERSION_SPOOFER_LITE" = "启用应用程序版本欺骗器 (精简版)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "启用此功能以使用版本欺骗器 (精简版)，并在下方选择您偏好的版本，需要重新启动应用程序";
-"VERSION_SPOOFER_TITLE" = "版本欺骗器选择器";
+"APP_VERSION_SPOOFER_LITE" = "修改应用程序版本";
+"APP_VERSION_SPOOFER_LITE_DESC" = "要修改YouTube版本，请在下方选择您偏好的版本号，重新启动应用程序生效";
+"VERSION_SPOOFER_TITLE" = "版本选择器";
 
 // Other Localization
 "APP_RESTART_DESC" = "需要重新启动应用程序";
