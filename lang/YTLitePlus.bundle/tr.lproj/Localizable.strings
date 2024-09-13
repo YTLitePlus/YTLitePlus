@@ -1,6 +1,38 @@
 // Settings
 "VERSION" = "YTLitePlus'ın sürümü: %@";
-"VERSION_CHECK" = "Güncelleme için dokunun!";
+"VERSION_CHECK" = "Güncelleme kontrolü için dokun!";
+
+"COPY_SETTINGS" = "Ayarları Kopyala";
+"COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
+"PASTE_SETTINGS" = "Ayarları Yapıştır";
+"PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
+"PASTE_SETTINGS_ALERT" = "Panodan ayarları uygulamak istiyor musun?";
+"EXPORT_SETTINGS" = "Ayarları Dışa Aktar";
+"EXPORT_SETTINGS_DESC" = "Tüm mevcut ayarları bir .txt dosyasına dışa aktarır";
+"IMPORT_SETTINGS" = "Ayarları İçe Aktar";
+"IMPORT_SETTINGS_DESC" = "Ayarları içe aktarmak için basın (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "'Ayarları Kopyala' ve 'Ayarları Yapıştır' Düğmelerini Değiştir";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Düğmeleri 'Ayarları Dışa Aktar' ve 'Ayarları İçe Aktar' ile değiştirir";
+
+"VIDEO_PLAYER" = "Video Oynatıcı (Beta)";
+"VIDEO_PLAYER_DESC" = "İndirilen bir videoyu Apple oynatıcısında aç";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Oynatıcı Hareketlerini Etkinleştir";
+"VOLUME" = "Ses";
+"BRIGHTNESS" = "Parlaklık";
+"SEEK" = "Arama";
+"DISABLED" = "Devre Dışı";
+"DEADZONE" = "Ölü Bölge";
+"DEADZONE_DESC" = "Bir hareketin tanınması için minimum mesafe";
+"SENSITIVITY" = "Hassasiyet";
+"SENSITIVITY_DESC" = "Ses ve parlaklık hareketleri için çarpan";
+"PLAYER_GESTURES_TITLE" = "Oynatıcı Hareketleri";
+"PLAYER_GESTURES_DESC" = "Oynatıcı için yatay kaydırma hareketlerini yapılandır";
+"TOP_SECTION" = "Üst Bölüm";
+"MIDDLE_SECTION" = "Orta Bölüm";
+"BOTTOM_SECTION" = "Alt Bölüm";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Haptik(titreşim) Geri Bildirimi Etkinleştir";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Kontrol Seç.";
@@ -47,6 +79,21 @@
 "DISABLE_ENGAGEMENT_OVERLAY" = "Tam ekranda kaplamayı kapat";
 "DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tam ekranda yukarı kaydırma hareketini ve önerilen videoları kapat";
 
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Oynatıcının Altındaki Yorum Önizlemelerini Gizle";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Video oynatıcının altındaki yorum önizlemelerini gizler.";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Otomatik Oynatma Mini Önizlemesini Gizle";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Tam ekranda başlık yakınındaki küçük önerilen video kutusunu gizle";
+
+"HIDE_HUD_MESSAGES" = "HUD mesajlarını gizle";
+"HIDE_HUD_MESSAGES_DESC" = "Belirli işlemler için görüntülenen bildirim çubuklarını gizler (ör. CC açıldı/kapandı)";
+
+"HIDE_COLLAPSE_BUTTON" = "Daraltma Düğmesini Gizle";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Video oynatıcıda sol üstte görünen ok ile daraltma düğmesini gizler.";
+
+"HIDE_SPEED_TOAST" = "Hız Bildirimini Gizle";
+"HIDE_SPEED_TOAST_DESC" = "Oynatıcıya basılı tutarken 2X Hız bildirimini gizle";
+
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
 
@@ -61,7 +108,7 @@
 "HIDE_LIVECHAT_SECTION" = "\"Canlı Sohbet\" Bölümünü Gizle";
 
 // Theme
-"THEME_OPTIONS" = "Tema Seç.";
+"THEME_OPTIONS" = "Tema Seç";
 
 "OLED_DARK_THEME" = "OLED koyu tema";
 "OLED_DARK_THEME_2" = "OLED koyu tema";
@@ -83,9 +130,9 @@
 "CUSTOM_LOWCONTRASTMODE" = "(Özel Renk) DüşükKontrastModu";
 
 // Miscellaneous
-"MISCELLANEOUS" = "Çeşitli";
+"MISCELLANEOUS" = "Diğer";
 
-"PLAYBACK_IN_FEEDS" = "Akışlarda Oynatma";
+"PLAYBACK_IN_FEEDS" = "Akışlarda Oto Oynatma";
 "PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Her zaman açık";
 "PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Yalnızca Wi-Fi";
 "PLAYBACK_IN_FEEDS_OFF" = "Kapalı";
@@ -117,6 +164,9 @@
 
 "HIDE_CAST_BUTTON" = "Yayınla düğmesini gizle";
 "HIDE_CAST_BUTTON_DESC" = "Yeniden başlatılmalı.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Oynatıcı Butonu";
+"VIDEO_PLAYER_BUTTON_DESC" = "İndirilen videoları Apple oynatıcısında açmak için gezinme çubuğunda bir buton göster";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Gezinme çubuğunda iSponsorBlock düğmesini gizle";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
