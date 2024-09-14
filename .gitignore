@@ -2,6 +2,6 @@
 .theos/
 packages/
 tmp/
-Tweaks/Cercube/*
-!Tweaks/Cercube/.gitkeep
+Tweaks/YTLite/*
+!Tweaks/YTLite/.gitkeep
 Resources/
