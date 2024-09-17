@@ -11,7 +11,7 @@
 "EXPORT_SETTINGS_DESC" = "현재 설정을 .txt 파일로 내보냅니다";
 "IMPORT_SETTINGS" = "설정 가져오기";
 "IMPORT_SETTINGS_DESC" = "설정(.txt)을 가져오려면 누르세요";
-"REPLACE_COPY_AND_PASTE_BUTTONS" = "'설정 복사' & '설정 붙여넣기' 버튼 교체'";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "'설정 복사' & '설정 붙여넣기' 버튼 교체";
 "REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "버튼을 '설정 내보내기'와 '설정 가져오기'로 교체합니다";
 
 "VIDEO_PLAYER" = "동영상 플레이어 (베타)";
@@ -28,14 +28,14 @@
 "SENSITIVITY" = "민감도";
 "SENSITIVITY_DESC" = "음량 및 밝기 제스처의 민감도 조정";
 "PLAYER_GESTURES_TITLE" = "플레이어 제스처";
-"PLAYER_GESTURES_DESC" = "플레이어 세로 밀기 제스처 설정";
-"TOP_SECTION" = "상단 구역";
-"MIDDLE_SECTION" = "중간 구역";
-"BOTTOM_SECTION" = "하단 구역";
+"PLAYER_GESTURES_DESC" = "플레이어 좌우 스와이프 제스처 설정";
+"TOP_SECTION" = "상단";
+"MIDDLE_SECTION" = "중앙";
+"BOTTOM_SECTION" = "하단";
 "PLAYER_GESTURES_HAPTIC_FEEDBACK" = "햅틱 피드백 활성화";
 
 // Video controls overlay options
-"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "동영상 컨트롤 오버레이 옵션";
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "동영상 컨트롤 오버레이";
 
 "ENABLE_SHARE_BUTTON" = "공유 버튼 활성화";
 "ENABLE_SHARE_BUTTON_DESC" = "동영상 컨트롤 오버레이에 공유 버튼 활성화";
@@ -95,7 +95,7 @@
 "HIDE_SPEED_TOAST_DESC" = "플레이어를 홀드할 때 나타나는 2배속 팝업을 숨깁니다.";
 
 // App settings overlay options
-"APP_SETTINGS_OVERLAY_OPTIONS" = "앱 설정 오버레이";
+"APP_SETTINGS_OVERLAY_OPTIONS" = "설정 오버레이";
 
 "HIDE_ACCOUNT_SECTION" = "\"계정 전환\" 숨기기";
 "HIDE_AUTOPLAY_SECTION" = "\"자동 재생\" 숨기기";
@@ -108,13 +108,13 @@
 "HIDE_LIVECHAT_SECTION" = "\"실시간 채팅\" 숨기기";
 
 // Theme
-"THEME_OPTIONS" = "테마 설정";
+"THEME_OPTIONS" = "어두운 테마 설정";
 
 "OLED_DARK_THEME" = "OLED 다크 테마";
 "OLED_DARK_THEME_2" = "OLED 다크 테마";
 "OLED_DARK_THEME_DESC" = "진정한 다크 테마입니다. 일부 상황에서는 올바르게 작동하지 않을 수 있습니다. 이 옵션을 켜거나 끈 후에는 앱을 재시작해야 합니다.";
 
-"OLD_DARK_THEME" = "구형 다크 테마";
+"OLD_DARK_THEME" = "구형 어두운 테마";
 "OLD_DARK_THEME_DESC" = "예전 유튜브의 어두운 테마(회색 테마). 앱 재시작이 필요합니다.";
 
 "DEFAULT_THEME" = "기본";
@@ -143,8 +143,8 @@
 "ENABLE_YT_STARTUP_ANIMATION" = "유튜브 시작 애니메이션 활성화";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
 
-"HIDE_MODERN_INTERFACE" = "새로운 유튜브 인터페이스 비활성화 (YTNoModernUI)";
-"HIDE_MODERN_INTERFACE_DESC" = "유튜브 앱을 버전 17.38.10 이전의 전통적인 디자인으로 되돌립니다. 일부 둥근 요소, 앰비언트 모드 및 새로운 기능도 제거됩니다. 앱 재시작이 필요합니다.";
+"HIDE_MODERN_INTERFACE" = "새로운 인터페이스 비활성화 (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "17.38.10 이전의 전통적인 디자인으로 되돌립니다. 일부 둥근 요소, 앰비언트 모드 및 새로운 기능도 제거됩니다. 앱 재시작이 필요합니다.";
 
 "IPAD_LAYOUT" = "iPad 레이아웃";
 "IPAD_LAYOUT_DESC" = "iPhone/iPod에서 iPad 레이아웃을 사용하려면 이 옵션을 켜세요. 앱 재시작이 필요합니다.";
@@ -172,7 +172,7 @@
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
 "HIDE_HOME_TAB" = "홈 탭 숨기기";
-"HIDE_HOME_TAB_DESC" = "모든 탭을 숨길 때는 주의하세요";;
+"HIDE_HOME_TAB_DESC" = "모든 탭을 숨길 때는 주의하세요";
 
 "FIX_CASTING" = "TV로 시청하기 수정";
 "FIX_CASTING_DESC" = "일부 AB 플래그를 변경하여 TV로 시청하기 문제를 해결합니다.";
