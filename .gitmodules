@@ -10,12 +10,6 @@
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
-[submodule "Tweaks/YTHoldForSpeed"]
-	path = Tweaks/YTHoldForSpeed
-	url = https://github.com/arichornloverALT/YTHoldForSpeed.git
-[submodule "Tweaks/DontEatMyContent"]
-	path = Tweaks/DontEatMyContent
-	url = https://github.com/therealFoxster/DontEatMyContent.git
 [submodule "Extensions"]
 	path = Extensions
 	url = https://github.com/CokePokes/YoutubeExtensions.git
@@ -31,9 +25,6 @@
 [submodule "Tweaks/YouPiP"]
 	path = Tweaks/YouPiP
 	url = https://github.com/PoomSmart/YouPiP
-[submodule "Tweaks/YTABConfig"]
-	path = Tweaks/YTABConfig
-	url = https://github.com/PoomSmart/YTABConfig
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
 	url = https://github.com/PoomSmart/YTUHD
