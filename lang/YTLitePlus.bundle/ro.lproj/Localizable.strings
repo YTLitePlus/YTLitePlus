@@ -2,37 +2,37 @@
 "VERSION" = "Versiune YTLitePlus: %@";
 "VERSION_CHECK" = "Căutați actualizări";
 
-"COPY_SETTINGS" = "Copy Settings";
-"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
-"PASTE_SETTINGS" = "Paste Settings";
-"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
-"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
-"EXPORT_SETTINGS" = "Export Settings";
-"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
-"IMPORT_SETTINGS" = "Import Settings";
-"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
-"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
-"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+"COPY_SETTINGS" = "Copiere setări";
+"COPY_SETTINGS_DESC" = "Copie toate setările curente în clipboard";
+"PASTE_SETTINGS" = "Lipire setări";
+"PASTE_SETTINGS_DESC" = "Lipire și aplicare setări din clipboard";
+"PASTE_SETTINGS_ALERT" = "Aplicați setările din clipboard?";
+"EXPORT_SETTINGS" = "Exportă setări";
+"EXPORT_SETTINGS_DESC" = "Exportă toate setările curente într-un fișier .txt";
+"IMPORT_SETTINGS" = "Importă setări";
+"IMPORT_SETTINGS_DESC" = "Apasă pentru a importa setările (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Înlocuire butoane 'Copiere setări' & 'Lipire setări'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Înlocuiește butoanele cu 'Exportă setări' și 'Importă setări'";
 
-"VIDEO_PLAYER" = "Video Player (Beta)";
-"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+"VIDEO_PLAYER" = "Player Video (Beta)";
+"VIDEO_PLAYER_DESC" = "Deschide un video descărcat în player-ul Apple";
 
 // Player Gestures
-"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
-"VOLUME" = "Volume";
-"BRIGHTNESS" = "Brightness";
-"SEEK" = "Seek";
-"DISABLED" = "Disabled";
+"PLAYER_GESTURES_TOGGLE" = "Activare gesturi Player";
+"VOLUME" = "Volum";
+"BRIGHTNESS" = "Luminozitate";
+"SEEK" = "Derulare";
+"DISABLED" = "Dezactivat";
 "DEADZONE" = "Deadzone";
-"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
-"SENSITIVITY" = "Sensitivity";
-"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
-"PLAYER_GESTURES_TITLE" = "Player Gestures";
-"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
-"TOP_SECTION" = "Top Section";
-"MIDDLE_SECTION" = "Middle Section";
-"BOTTOM_SECTION" = "Bottom Section";
-"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+"DEADZONE_DESC" = "Distanță minimă mișcare pentru recunoașterea gesturilor";
+"SENSITIVITY" = "Sensibilitate";
+"SENSITIVITY_DESC" = "Multiplicator gesturi volum și luminozitate";
+"PLAYER_GESTURES_TITLE" = "Gesturi Player";
+"PLAYER_GESTURES_DESC" = "Configurare gesturi orizontale pentru player";
+"TOP_SECTION" = "Secțiune Sus";
+"MIDDLE_SECTION" = "Secțiune Mijloc";
+"BOTTOM_SECTION" = "Secțiune Jos";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Activare Feedback Haptic";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opțiuni Overlay Controale Video";
@@ -52,47 +52,47 @@
 "HIDE_HEATWAVES" = "Ascunde Heatwaves";
 "HIDE_HEATWAVES_DESC" = "Ascundere Heatwaves în player-ul video. Este necesară repornirea aplicației.";
 
-"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
-"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+"DISABLE_AMBIENT_PORTRAIT" = "Dezactivare Mod Ambiental (Portret)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Dezactivare iluminare în jurul titlului";
 
-"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN" = "Dezactivare Mod Ambiental (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Dezactivare iluminare în jurul player-ului";
 
-"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
-"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+"FULLSCREEN_TO_THE_RIGHT" = "Ecran complet la dreapta";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Ecran complet mereu cu butonul home în partea dreaptă";
 
-"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
-"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+"SEEK_ANYWHERE" = "Gest Derulare Oriunde";
+"SEEK_ANYWHERE_DESC" = "Ține apăsat și glisează pe player pentru derulare. Trebuie dezactivată opțiunea YTLite - Hold to speed";
 
-"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
-"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+"ENABLE_TAP_TO_SEEK" = "Activare Apasă Pentru Derulare";
+"ENABLE_TAP_TO_SEEK_DESC" = "Sari oriunde în video prin apăsarea bării de derulare";
 
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Dezactivare gest intrare fullscreen";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Dezactivează gestul de tragere în jos pentru a intra în fullscreen. Se aplică doar videoclipurilor în mod landscape";
 
-"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
-"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+"ALWAYS_USE_REMAINING_TIME" = "Utilizează mereu timp rămas";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Modifică setarea implicită pentru a arăta timpul rămas în bara player-ului";
 
-"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
-"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+"DISABLE_TOGGLE_TIME_REMAINING" = "Dezactivare comutator timp rămas";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Dezactivează schimbarea afișării timpului scurs la timp rămas. Utilizați cu setarea 'Utilizează mereu timp rămas' pentru a arăta mereu timpul rămas";
 
-"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
-"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+"DISABLE_ENGAGEMENT_OVERLAY" = "Dezactivare secțiune 'Mai multe videoclipuri'";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Dezactivare gestul de glisare în sus și clipurile sugerate în fullscreen";
 
-"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
-"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ascundere comentarii sub player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Ascunde comentariile ce apar în butonul pentru secțiunea de comentarii";
 
-"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
-"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ascundere mini preview redare automată";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Ascunde secțiunea 'Urmează' din apropierea titlului în fullscreen";
 
 "HIDE_HUD_MESSAGES" = "Ascundere Mesaje HUD";
 "HIDE_HUD_MESSAGES_DESC" = "Exemplu: Subtitrările sunt activate/dezactivate, Redarea în buclă este activată,...";
 
-"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
-"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+"HIDE_COLLAPSE_BUTTON" = "Ascundere Buton Collapse";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Ascunde butonul de minimizare Player Video din colțul dreapta sus";
 
-"HIDE_SPEED_TOAST" = "Hide Speed Toast";
-"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+"HIDE_SPEED_TOAST" = "Ascundere Notificare Viteză";
+"HIDE_SPEED_TOAST_DESC" = "Ascunde notificarea de viteză 2X la menținerea ecranului apăsat în timpul redării";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
@@ -132,13 +132,13 @@
 // Miscellaneous
 "MISCELLANEOUS" = "Diverse";
 
-"PLAYBACK_IN_FEEDS" = "Playback in feeds";
-"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
-"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
-"PLAYBACK_IN_FEEDS_OFF" = "Off";
+"PLAYBACK_IN_FEEDS" = "Redare în feeduri";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Activat mereu";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Numai prin Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Dezactivat";
 
-"NEW_SETTINGS_UI" = "New Settings UI";
-"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+"NEW_SETTINGS_UI" = "Interfață Nouă Setări";
+"NEW_SETTINGS_UI_DESC" = "Utilizează noua interfață pentru setări. Este posibil ca unele setări să fie ascunse";
 
 "ENABLE_YT_STARTUP_ANIMATION" = "Activare animație de pornire YouTube";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
@@ -165,17 +165,17 @@
 "HIDE_CAST_BUTTON" = "Ascundere buton Proiectare";
 "HIDE_CAST_BUTTON_DESC" = "Este necesară repornirea aplicației.";
 
-"VIDEO_PLAYER_BUTTON" = "Video Player Button";
-"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+"VIDEO_PLAYER_BUTTON" = "Buton Player Video";
+"VIDEO_PLAYER_BUTTON_DESC" = "Arată un buton în bara de navigație pentru a deschide videoul descărcat în player-ul Apple";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "Ascundere buton iSponsorBlock în bara de navigație";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_HOME_TAB" = "Hide Home Tab";
-"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+"HIDE_HOME_TAB" = "Ascunde Tabul Acasă";
+"HIDE_HOME_TAB_DESC" = "Ai grijă să nu ascunzi toate taburile";
 
-"FIX_CASTING" = "Fix Casting";
-"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+"FIX_CASTING" = "Repară Casting";
+"FIX_CASTING_DESC" = "Modifică unii parametri A/B pentru a repara castingul";
 
 "ENABLE_FLEX" = "Activare FLEX";
 "ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
