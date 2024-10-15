@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: theos/theos
-          ref: 5bfdc3cb7133ec1cab43182115d902e2b57c9eac
+          ref: master
           path: theos
           submodules: recursive
 
