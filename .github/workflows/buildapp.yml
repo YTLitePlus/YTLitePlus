@@ -120,10 +120,16 @@ jobs:
           (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
           source ~/.bash_profile
 
+      - name: Hash YT ipa url
+        run: |
+          URL_YT="$(jq -r '.inputs.decrypted_youtube_url' $GITHUB_EVENT_PATH)"
+          echo ::add-mask::$URL_YT
+          echo URL_YT=$URL_YT >> $GITHUB_ENV
+
       - name: Prepare YouTube iPA
         run: |
           # Download and unzip iPA
-          wget "$YOUTUBE_URL" --no-verbose -O main/YouTube.ipa
+          wget "$YOUTUBE_URL" --quiet --no-verbose -O main/YouTube.ipa
           unzip -q main/YouTube.ipa -d main/tmp
           # Get the version number of the YouTube app and store it
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
@@ -155,7 +161,7 @@ jobs:
           cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
         env:
           THEOS: ${{ github.workspace }}/theos
-          YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
+          YOUTUBE_URL: ${{ env.URL_YT }}
 
       - name: Build Package
         id: build_package
