@@ -30,49 +30,49 @@ static BOOL version7() {
 }
 
 %group gVersion0
-%hook YTVersionUtils // Last v18 App Version
+%hook YTVersionUtils // Last v18 App Version (Memory Leak errors are gone in v18.35.4+)
 + (NSString *)appVersion { return @"18.49.3"; }
 %end
 %end
 
 %group gVersion1
-%hook YTVersionUtils // Brings back Library Tab
+%hook YTVersionUtils // Brings back Library Tab - Deprecated
 + (NSString *)appVersion { return @"18.34.5"; }
 %end
 %end
 
 %group gVersion2
-%hook YTVersionUtils // Removes Playables in Explore
+%hook YTVersionUtils // Removes Playables in Explore - Deprecated
 + (NSString *)appVersion { return @"18.33.3"; }
 %end
 %end
 
 %group gVersion3
-%hook YTVersionUtils // Fixes YTClassicVideoQuality + YTSpeed
+%hook YTVersionUtils // Fixes YTClassicVideoQuality + YTSpeed - Deprecated
 + (NSString *)appVersion { return @"18.18.2"; }
 %end
 %end
 
 %group gVersion4
-%hook YTVersionUtils // First v18 App Version
+%hook YTVersionUtils // First v18 App Version - Deprecated
 + (NSString *)appVersion { return @"18.01.2"; }
 %end
 %end
 
 %group gVersion5
-%hook YTVersionUtils // Last v17 App Version
+%hook YTVersionUtils // Last v17 App Version - Deprecated
 + (NSString *)appVersion { return @"17.49.6"; }
 %end
 %end
 
 %group gVersion6
-%hook YTVersionUtils // v17.38.10 Fixes LowContrastMode + No Rounded Thumbnails
+%hook YTVersionUtils // v17.38.10 Fixes LowContrastMode + No Rounded Thumbnails - Deprecated
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 %end
 
 %group gVersion7
-%hook YTVersionUtils // Oldest Supported App Version (v17)
+%hook YTVersionUtils // Oldest Supported App Version (v17) - Deprecated
 + (NSString *)appVersion { return @"17.33.2"; }
 %end
 %end
