@@ -6,6 +6,8 @@
 &nbsp;
 <a href="https://balackburn.github.io/YTLitePlus"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Website.png" height="70"></a>
 &nbsp;
+<a href="https://ytliteplus.github.io#download"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/Download.png" height="70"></a>
+&nbsp;
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-black?labelColor=black&style=flat)](https://developer.apple.com/iphone/index.action)
