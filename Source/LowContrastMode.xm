@@ -1,6 +1,6 @@
 #import "../YTLitePlus.h"
 
-// Low Contrast Mode
+// Low Contrast Mode - @arichornlover
 static int contrastMode() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }
