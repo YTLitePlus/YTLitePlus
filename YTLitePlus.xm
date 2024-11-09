@@ -1070,7 +1070,7 @@ NSInteger pageStyle = 0;
 
     if (settingsViewController) {
         // Present the video picker
-        UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeMovie, (NSString *)kUTTypeVideo] inMode:UIDocumentPickerModeImport];
+        UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)UTTypeMovie.identifier, (NSString *)UTTypeVideo.identifier] inMode:UIDocumentPickerModeImport];
         documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
         documentPicker.allowsMultipleSelection = NO;
         [settingsViewController presentViewController:documentPicker animated:YES completion:nil];
