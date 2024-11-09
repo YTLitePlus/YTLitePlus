@@ -688,7 +688,7 @@ static const NSInteger YTLiteSection = 789;
             // Import mode: Handle the import of settings from a text file
             NSString *fileType = [pickedURL resourceValuesForKeys:@[NSURLTypeIdentifierKey] error:&error][NSURLTypeIdentifierKey];
 
-            if (UTTypeConformsTo((__bridge CFStringRef)fileType, kUTTypePlainText)) {
+            if (UTTypeConformsTo((__bridge CFStringRef)fileType, UTTypePlainText.identifier)) {
                 NSString *fileContents = [NSString stringWithContentsOfURL:pickedURL encoding:NSUTF8StringEncoding error:nil];
                 NSArray *lines = [fileContents componentsSeparatedByString:@"\n"];
                 for (NSString *line in lines) {
