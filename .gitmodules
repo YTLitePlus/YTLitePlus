@@ -58,3 +58,7 @@
 [submodule "Tweaks/YouLoop"]
 	path = Tweaks/YouLoop
 	url = https://github.com/bhackel/YouLoop
+[submodule "Tweaks/FLEXing"]
+	path = Tweaks/FLEXing
+	url = https://github.com/PoomSmart/FLEXing.git
+	branch = rootless
