@@ -18,6 +18,13 @@ jobs:
             git config --global user.email "actions@github.com"
             git config --global user.name "GitHub Actions"
 
+      - name: Rename FLEX to FLEXing
+        run: |
+          mv Tweaks/FLEX Tweaks/FLEXing
+          git add .
+          git commit -m "Renamed FLEX to FLEXing"
+          git push origin
+
       - name: Update submodules
         run: |
           git submodule update --init --recursive --remote
