@@ -40,17 +40,15 @@ static NSString *accessGroupID() {
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
     BOOL didFinishLaunching = %orig;
-
-    if (IsEnabled(@"flex_enabled")) {
-        [[FLEXManager sharedManager] showExplorer];
+	if (IsEnabled(@"flex_enabled")) {
+        [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
-
     return didFinishLaunching;
 }
 - (void)appWillResignActive:(id)arg1 {
     %orig;
-        if (IsEnabled(@"flex_enabled")) {
-        [[FLEXManager sharedManager] showExplorer];
+	if (IsEnabled(@"flex_enabled")) {
+        [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 }
 %end
