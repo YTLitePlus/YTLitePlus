@@ -18,29 +18,6 @@ jobs:
             git config --global user.email "actions@github.com"
             git config --global user.name "GitHub Actions"
 
-      - name: Create Bundles folder
-        run: mkdir -p Bundles
-
-      - name: Make .bundle files
-        run: |
-          cd Bundles 
-          ln -s ../Tweaks/YTLite/var/jb/Library/Application\ Support/YTLite.bundle YTLite.bundle
-          ln -s ../Tweaks/YTUHD/layout/Library/Application\ Support/YTUHD.bundle YTUHD.bundle
-          ln -s ../Tweaks/YouPiP/layout/Library/Application\ Support/YouPiP.bundle YouPiP.bundle
-          ln -s ../Tweaks/Return-YouTube-Dislikes/layout/Library/Application\ Support/RYD.bundle RYD.bundle
-          ln -s ../Tweaks/YTABConfig/layout/Library/Application\ Support/YTABC.bundle YTABC.bundle
-          ln -s ../Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle YouMute.bundle
-          ln -s ../Tweaks/DontEatMyContent/layout/Library/Application\ Support/DontEatMyContent.bundle DontEatMyContent.bundle
-          ln -s ../Tweaks/YTHoldForSpeed/layout/Library/Application\ Support/YTHoldForSpeed.bundle YTHoldForSpeed.bundle
-          ln -s ../Tweaks/iSponsorBlock/layout/Library/Application\ Support/iSponsorBlock.bundle iSponsorBlock.bundle
-          ln -s ../Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle YTVideoOverlay.bundle 
-          ln -s ../Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle YouQuality.bundle
-          ln -s ../Tweaks/YouTimeStamp/layout/Library/Application\ Support/YouTimeStamp.bundle YouTimeStamp.bundle
-          ln -s ../Tweaks/YouLoop/layout/Library/Application\ Support/YouLoop.bundle YouLoop.bundle
-          git add .
-          git commit -m "Added bundles"
-          git push origin
-
       - name: Update submodules
         run: |
           git submodule update --init --recursive --remote
