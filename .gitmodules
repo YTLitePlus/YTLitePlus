@@ -6,7 +6,7 @@
 	url = https://github.com/PoomSmart/PSHeader.git
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
-	url = https://github.com/qnblackcat/FLEX-Classes.git
+	url = https://github.com/PoomSmart/FLEXing.git
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
