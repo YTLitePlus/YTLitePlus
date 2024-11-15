@@ -12,7 +12,6 @@
 ![GitHub issues](https://img.shields.io/github/issues-raw/Balackburn/YTLitePlus?style=flat&labelColor=%23000000&color=%23000000)
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-black?labelColor=black&style=flat)](https://developer.apple.com/iphone/index.action)
 <a href="https://github.com/YTLitePlus/YTLitePlus/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/Balackburn/YTLitePlus?style=flat&color=black&labelColor=black&logo=history&logoColor=white&label=Last commit" alt="Badge"></img></a>
-<a href="https://github.com/YTLitePlus/YTLitePlus/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/Balackburn/YTLitePlus?labelColor=black&style=flat&color=black&label=Latest%20release" alt="Badge"></img></a>
 
 # Table of Contents
 <a href="#credits"><img src="https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/Buttons/TableOfContents/Credits.png" width="170"></a>
