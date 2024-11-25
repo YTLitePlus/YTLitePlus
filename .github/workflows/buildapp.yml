@@ -8,7 +8,7 @@ on:
     inputs:
       sdk_version:
         description: "iOS SDK Version"
-        default: "16.5"
+        default: "18.1.1"
         required: true
         type: string
       decrypted_youtube_url:
@@ -33,12 +33,12 @@ on:
         type: string
       upload_artifact:
         description: "Upload iPA as artifact (Public)"
-        default: true
+        default: false
         required: false
         type: boolean
       catbox_upload:
         description: "Upload iPA to Catbox.moe (URL)"
-        default: false
+        default: true
         required: false
         type: boolean
       create_release:
@@ -54,7 +54,7 @@ concurrency:
 jobs:
   build:
     name: Build YTLitePlus
-    runs-on: macos-12
+    runs-on: macos-latest
     permissions:
       contents: write
 
