@@ -1,8 +1,11 @@
-TARGET = iphone:clang:16.5:14.0
+TARGET = iphone:clang:17.5:14.0
+SDK_PATH = $(THEOS)/sdks/iPhoneOS17.5.sdk/
+SYSROOT = $(SDK_PATH)
 ARCHS = arm64
 MODULES = jailed
 FINALPACKAGE = 1
 CODESIGN_IPA = 0
+PACKAGE_NAME = YTLitePlus
 PACKAGE_VERSION = X.X.X-X.X
 
 libFLEX_ARCHS = arm64
