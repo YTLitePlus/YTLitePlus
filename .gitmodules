@@ -62,3 +62,6 @@
 	path = Tweaks/FLEXing
 	url = https://github.com/PoomSmart/FLEXing.git
 	branch = rootless
+[submodule "Tweaks/YouSpeed"]
+	path = Tweaks/YouSpeed
+	url = https://github.com/PoomSmart/YouSpeed
