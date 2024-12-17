@@ -7,3 +7,4 @@ Tweaks/YTLite/*
 Resources/
 *.ipa
 .vscode
+!tweaks/ytlite/
