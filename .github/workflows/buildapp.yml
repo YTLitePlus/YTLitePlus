@@ -136,7 +136,7 @@ jobs:
           # Get the version number of the latest release
           wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
           YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' main/tmp/release_page.html | head -n 1 | sed 's/\/tag\/v//')
-          echo "YTLITE_VERSION=${YTLITE_VERSION}" >> $GITHUB_ENV
+          echo "YTLITE_VERSION=5.0.1" >> $GITHUB_ENV
           echo $YTLITE_VERSION
           # Remove contents in the iPA that interfere with sideloading
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
@@ -170,12 +170,12 @@ jobs:
           # Replace lines in Makefile based on inputs
           sed -i '' "s/^BUNDLE_ID.*$/BUNDLE_ID = ${{ env.BUNDLE_ID }}/" Makefile
           sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
           # Build the package
           make package
           # Rename the package based on the version
-          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")
+          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
           # Pass package name to the upload step
           echo "package=$(ls -t packages | head -n1)" >> $GITHUB_OUTPUT
           # Print out the hash and bundle ID
@@ -209,7 +209,7 @@ jobs:
         if: ${{ inputs.create_release }}
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/5.0.1/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Draft Release
@@ -219,8 +219,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}
-          name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }} - YTLitePlus
+          tag_name: v${{ env.YT_VERSION }}-5.0.1
+          name: v${{ env.YT_VERSION }}-5.0.1 - YTLitePlus
           files: main/packages/*.ipa
           draft: true
           body_path: ${{ github.workspace }}/release_notes.md
