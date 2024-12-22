@@ -1,6 +1,6 @@
 #import "../YTLitePlus.h"
 
-// Low Contrast Mode
+// Low Contrast Mode - @arichornlover
 static int contrastMode() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }
@@ -13,7 +13,7 @@ static BOOL customContrastMode() {
 
 UIColor *lcmHexColor;
 
-%group gLowContrastMode // Low Contrast Mode v1.6.0 (Compatible with only YouTube v16.46.5-v17.38.10)
+%group gLowContrastMode // Low Contrast Mode v1.6.1 (Compatible with only YouTube v17.33.2-v18.34.5)
 %hook UIColor
 + (UIColor *)whiteColor { // Dark Theme Color
          return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
@@ -99,6 +99,38 @@ UIColor *lcmHexColor;
 }
 + (UIColor *)white5 {
     return [UIColor whiteColor];
+}
+%end
+%hook _ASDisplayView
+- (void)layoutSubviews {
+    %orig; 
+    for (UIView *subview in self.subviews) {
+        if ([subview.accessibilityLabel isEqualToString:@"connect account"]) {
+            subview.backgroundColor = [UIColor whiteColor];
+            if ([subview isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)subview;
+                label.textColor = [UIColor blackColor];
+            }
+        } else if ([subview.accessibilityLabel isEqualToString:@"Thanks"]) {
+            subview.backgroundColor = [UIColor whiteColor];
+            if ([subview isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)subview;
+                label.textColor = [UIColor blackColor];
+            }
+        } else if ([subview.accessibilityLabel isEqualToString:@"Save to playlist"]) {
+            subview.backgroundColor = [UIColor whiteColor];
+            if ([subview isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)subview;
+                label.textColor = [UIColor blackColor];
+            }
+        } else if ([subview.accessibilityLabel isEqualToString:@"Report"]) {
+            subview.backgroundColor = [UIColor whiteColor];
+            if ([subview isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)subview;
+                label.textColor = [UIColor blackColor];
+            }
+        }
+    }
 }
 %end
 %hook QTMColorGroup

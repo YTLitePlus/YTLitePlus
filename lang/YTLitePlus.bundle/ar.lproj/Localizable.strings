@@ -162,7 +162,7 @@
 "NEW_MINIPLAYER_STYLE" = "نمط شريط miniplayer جديد (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
-"HIDE_CAST_BUTTON" = "زر "إخفاء الإرسال"                                                                                                                                                                                                              ;
+"HIDE_CAST_BUTTON" = "Hide Cast Button";
 "HIDE_CAST_BUTTON_DESC" = "مطلوب إعادة تشغيل التطبيق";
 
 "VIDEO_PLAYER_BUTTON" = "Video Player Button";

@@ -40,17 +40,15 @@ static NSString *accessGroupID() {
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
     BOOL didFinishLaunching = %orig;
-
-    if (IsEnabled(@"flex_enabled")) {
-        [[FLEXManager sharedManager] showExplorer];
+	if (IsEnabled(@"flex_enabled")) {
+        [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
-
     return didFinishLaunching;
 }
 - (void)appWillResignActive:(id)arg1 {
     %orig;
-        if (IsEnabled(@"flex_enabled")) {
-        [[FLEXManager sharedManager] showExplorer];
+	if (IsEnabled(@"flex_enabled")) {
+        [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 }
 %end
@@ -1070,7 +1068,7 @@ NSInteger pageStyle = 0;
 
     if (settingsViewController) {
         // Present the video picker
-        UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeMovie, (NSString *)kUTTypeVideo] inMode:UIDocumentPickerModeImport];
+        UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)UTTypeMovie.identifier, (NSString *)UTTypeVideo.identifier] inMode:UIDocumentPickerModeImport];
         documentPicker.delegate = (id<UIDocumentPickerDelegate>)self;
         documentPicker.allowsMultipleSelection = NO;
         [settingsViewController presentViewController:documentPicker animated:YES completion:nil];

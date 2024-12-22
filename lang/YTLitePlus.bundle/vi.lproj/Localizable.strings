@@ -159,7 +159,7 @@
 "MSG_YES" = "Có";
 "MSG_CANCEL" = "Không";
 
-"NEW_MINIPLAYER_STYLE" = Trình phát thu nhỏ kiểu mới";
+"NEW_MINIPLAYER_STYLE" = "Trình phát thu nhỏ kiểu mới";
 "NEW_MINIPLAYER_STYLE_DESC" = "Thay thế trình phát thu nhỏ mặc định thành (BigYTMiniPlayer). Cần khởi động lại ứng dụng.";
 
 "HIDE_CAST_BUTTON" = "Ẩn nút truyền";
