@@ -21,7 +21,7 @@
 	url = https://github.com/CokePokes/YoutubeExtensions.git
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
-	url = https://github.com/arichornloverALT/YTVideoOverlay.git
+	url = https://github.com/PoomSmart/YTVideoOverlay.git
 [submodule "Tweaks/protobuf"]
 	path = Tweaks/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
