@@ -93,10 +93,6 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 - (void)internalSetRate;
 @end
 
-@interface MLPlayerEventCenter : NSObject
-- (void)broadcastRateChange:(float)rate;
-@end
-
 @interface HAMPlayerInternal : NSObject
 - (void)setRate:(float)rate;
 @end
