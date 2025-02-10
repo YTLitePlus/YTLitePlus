@@ -6,33 +6,33 @@
 "COPY_SETTINGS_DESC" = "現在のすべての設定をクリップボードにコピーします";
 "PASTE_SETTINGS" = "設定を貼り付け";
 "PASTE_SETTINGS_DESC" = "クリップボードから設定を貼り付けて適用します";
-"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
-"EXPORT_SETTINGS" = "Export Settings";
-"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
-"IMPORT_SETTINGS" = "Import Settings";
-"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
-"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
-"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+"PASTE_SETTINGS_ALERT" = "クリップボードから設定を貼り付けますか？";
+"EXPORT_SETTINGS" = "設定をエクスポート";
+"EXPORT_SETTINGS_DESC" = "現在のすべての設定を.txtファイルにエクスポートします";
+"IMPORT_SETTINGS" = "設定をインポート";
+"IMPORT_SETTINGS_DESC" = "設定(.txt)をインポートするには押してください";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "「設定のコピー」と「設定の貼り付け」ボタンを置き換える";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "「設定のエクスポート」と「設定のインポート」のボタンを置き換えます";
 
-"VIDEO_PLAYER" = "Video Player (Beta)";
-"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+"VIDEO_PLAYER" = "ビデオプレイヤー(ベータ版)";
+"VIDEO_PLAYER_DESC" = "ダウンロードしたビデオをAppleプレーヤーで開く";
 
 // Player Gestures
-"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
-"VOLUME" = "Volume";
-"BRIGHTNESS" = "Brightness";
-"SEEK" = "Seek";
-"DISABLED" = "Disabled";
-"DEADZONE" = "Deadzone";
-"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
-"SENSITIVITY" = "Sensitivity";
-"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
-"PLAYER_GESTURES_TITLE" = "Player Gestures";
-"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
-"TOP_SECTION" = "Top Section";
-"MIDDLE_SECTION" = "Middle Section";
-"BOTTOM_SECTION" = "Bottom Section";
-"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+"PLAYER_GESTURES_TOGGLE" = "プレイヤーのジェスチャーを有効にする";
+"VOLUME" = "音量";
+"BRIGHTNESS" = "明るさ";
+"SEEK" = "シーク";
+"DISABLED" = "無効";
+"DEADZONE" = "デッドゾーン";
+"DEADZONE_DESC" = "ジェスチャーが認識されるまでに移動する最小距離";
+"SENSITIVITY" = "感度";
+"SENSITIVITY_DESC" = "音量と明るさのジェスチャーの乗数";
+"PLAYER_GESTURES_TITLE" = "プレイヤージェスチャー";
+"PLAYER_GESTURES_DESC" = "プレーヤーの水平パンのジェスチャを設定する";
+"TOP_SECTION" = "上部セクション";
+"MIDDLE_SECTION" = "中間セクション";
+"BOTTOM_SECTION" = "株セクション";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Haptic フィードバックを有効";
 
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールオーバーレイの設定";
@@ -52,38 +52,39 @@
 "HIDE_HEATWAVES" = "ヒートウェーブを非表示";
 "HIDE_HEATWAVES_DESC" = "動画プレーヤーのヒートウェーブを非表示にします。アプリの再起動が必要です。";
 
-"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
-"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+"DISABLE_AMBIENT_PORTRAIT" = "アンビエントモードを無効化 (縦向き)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "動画タイトル周囲の照明を無効化";
 
-"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN" = "アンビエントモードを無効化 (全画面)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "動画プレイヤー周囲の照明を無効化";
 
-"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
-"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+"FULLSCREEN_TO_THE_RIGHT" = "全画面を右側に";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "ホームボタンが右側にある状態で全画面表示にする";
 
-"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
-"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+"SEEK_ANYWHERE" = "どこでもシークジェスチャー";
+"SEEK_ANYWHERE_DESC" = "動画プレイヤー上で長押し＆ドラッグでシーク。YTLite - 長押しで速度変更を無効にする必要があります";
 
-"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
-"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+"ENABLE_TAP_TO_SEEK" = "タップでシークを有効化";
+"ENABLE_TAP_TO_SEEK_DESC" = "シークバーをタップして任意の位置に移動";
 
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
-"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "引き下げで全画面化を無効化";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "縦向き全画面にするドラッグジェスチャーを無効化 (横向き動画にのみ適用)";
 
-"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
-"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+"ALWAYS_USE_REMAINING_TIME" = "常に残り時間を表示";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "プレイヤーバーのデフォルト表示を経過時間ではなく残り時間に変更";
 
-"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
-"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+"DISABLE_TOGGLE_TIME_REMAINING" = "残り時間の切り替えを無効化";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "経過時間と残り時間の切り替えを無効化。他の設定と併用して常に残り時間を表示";
 
-"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
-"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+"DISABLE_ENGAGEMENT_OVERLAY" = "全画面のエンゲージメントオーバーレイを無効化";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "スワイプアップジェスチャーや全画面時のおすすめ動画リストを無効化";
 
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "プレーヤー下のコメントプレビューを隠す";
 "HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "プレーヤーの下にあるコメントのプレビューを非表示にします。";
 
-"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
-"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "自動再生ミニプレビューを非表示";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "全画面時にタイトル付近に表示される小さなおすすめ動画ボックスを非表示";
+
 
 "HIDE_HUD_MESSAGES" = "HUDメッセージを非表示";
 "HIDE_HUD_MESSAGES_DESC" = "特定のアクション後に表示されるスナックバーを非表示にします。(例: 字幕がオン/オフになりました など)";
@@ -91,8 +92,8 @@
 "HIDE_COLLAPSE_BUTTON" = "折りたたみボタンを隠す";
 "HIDE_COLLAPSE_BUTTON_DESC" = "プレーヤー左上の折りたたみボタンを非表示にします。";
 
-"HIDE_SPEED_TOAST" = "Hide Speed Toast";
-"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+"HIDE_SPEED_TOAST" = "速度トーストを非表示";
+"HIDE_SPEED_TOAST_DESC" = "プレイヤーを長押しした際に表示される2倍速のポップアップを非表示";
 
 // App settings overlay options
 "APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
@@ -132,13 +133,13 @@
 // Miscellaneous
 "MISCELLANEOUS" = "その他";
 
-"PLAYBACK_IN_FEEDS" = "Playback in feeds";
-"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
-"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
-"PLAYBACK_IN_FEEDS_OFF" = "Off";
+"PLAYBACK_IN_FEEDS" = "フィード内再生";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "常にオン";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi接続時のみ";
+"PLAYBACK_IN_FEEDS_OFF" = "オフ";
 
-"NEW_SETTINGS_UI" = "New Settings UI";
-"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+"NEW_SETTINGS_UI" = "新しい設定UI";
+"NEW_SETTINGS_UI_DESC" = "新しいグループ化された設定UIを使用。一部の設定が非表示になる可能性があります";
 
 "ENABLE_YT_STARTUP_ANIMATION" = "YouTube起動時のアニメーションを有効化";
 "ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
@@ -165,17 +166,17 @@
 "HIDE_CAST_BUTTON" = "キャストボタンを非表示";
 "HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です。";
 
-"VIDEO_PLAYER_BUTTON" = "Video Player Button";
-"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+"VIDEO_PLAYER_BUTTON" = "ビデオプレイヤーボタン";
+"VIDEO_PLAYER_BUTTON_DESC" = "ナビゲーションバーにボタンを表示し、ダウンロードした動画をAppleのプレイヤーで開く";
 
 "HIDE_SPONSORBLOCK_BUTTON" = "ナビゲーションバーのiSponsorBlockボタンを非表示";
 "HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
 
-"HIDE_HOME_TAB" = "Hide Home Tab";
-"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+"HIDE_HOME_TAB" = "ホームタブを非表示";
+"HIDE_HOME_TAB_DESC" = "すべてのタブを非表示にすると問題が発生する可能性がります。注意してください";
 
-"FIX_CASTING" = "Fix Casting";
-"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+"FIX_CASTING" = "キャストの修正";
+"FIX_CASTING_DESC" = "一部のABフラグを変更してキャスト機能を修正";
 
 "ENABLE_FLEX" = "FLEXを有効化";
 "ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
@@ -187,4 +188,4 @@
 
 // Other Localization
 "APP_RESTART_DESC" = "アプリの再起動が必要です。";
-"CHANGE_APP_ICON" = "Change App Icon";
+"CHANGE_APP_ICON" = "アプリアイコンを変更";
