@@ -36,8 +36,7 @@
 	url = https://github.com/PoomSmart/YTABConfig
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
-	url = https://github.com/PoomSmart/YTUHD
-	branch = 0f59b38817d554ab692a0053456319847a6ab1a1
+	url = https://github.com/PoomSmart/YTUHD/tree/0f59b38817d554ab692a0053456319847a6ab1a1
 [submodule "Tweaks/YouGroupSettings"]
 	path = Tweaks/YouGroupSettings
 	url = https://github.com/PoomSmart/YouGroupSettings
