@@ -12,7 +12,7 @@
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
-	url = https://github.com/arichornloverALT/YTHoldForSpeed.git
+	url = https://github.com/aricloverALT/YTHoldForSpeed.git
 [submodule "Tweaks/DontEatMyContent"]
 	path = Tweaks/DontEatMyContent
 	url = https://github.com/therealFoxster/DontEatMyContent.git
@@ -36,7 +36,7 @@
 	url = https://github.com/PoomSmart/YTABConfig
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
-	url = https://github.com/PoomSmart/YTUHD/tree/0f59b38817d554ab692a0053456319847a6ab1a1
+	url = https://github.com/aricloverALT/YTUHD
 [submodule "Tweaks/YouGroupSettings"]
 	path = Tweaks/YouGroupSettings
 	url = https://github.com/PoomSmart/YouGroupSettings
@@ -54,7 +54,7 @@
 	url = https://github.com/therealFoxster/YTHeaders
 [submodule "Tweaks/YouTimeStamp"]
 	path = Tweaks/YouTimeStamp
-	url = https://github.com/arichornloverALT/YouTimeStamp.git
+	url = https://github.com/aricloverALT/YouTimeStamp.git
 [submodule "Tweaks/YouLoop"]
 	path = Tweaks/YouLoop
 	url = https://github.com/bhackel/YouLoop
