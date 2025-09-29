@@ -33,12 +33,12 @@ on:
         type: string
       upload_artifact:
         description: "Upload iPA as artifact (Public)"
-        default: true
+        default: false
         required: false
         type: boolean
       catbox_upload:
         description: "Upload iPA to Catbox.moe (URL)"
-        default: false
+        default: true
         required: false
         type: boolean
       create_release:
@@ -195,7 +195,7 @@ jobs:
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
           
-      - name: Upload Artifact to Catbox
+      - name: Upload Artifact to Catbox and update AltStore repo
         if: ${{ inputs.catbox_upload }}
         run: |
           RESPONSE=$(curl -F "reqtype=fileupload" -F "fileToUpload=@${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}" https://catbox.moe/user/api.php)
@@ -227,13 +227,18 @@ jobs:
           body_path: ${{ github.workspace }}/release_notes.md
 
       - name: Update Altstore Source with latest release
-        if: ${{ inputs.create_release }}
+        if: ${{ inputs.catbox_upload }}
         run: |
-          curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/dispatches' \
+          curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/actions/workflows/update_source.yml/dispatches' \
           --header 'Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
-            "event_type": "update-altstore-source-trigger"
+            "ref": "main",
+            "inputs": {
+              "yt_lite_plus_url": "${{ env.CATBOX_URL }}",
+              "yt_lite_plus_version": "${{ env.YTLITE_VERSION }}",
+              "yt_version": "${{ env.YT_VERSION }}"
+            }
           }'
 
       - name: Job Summary
