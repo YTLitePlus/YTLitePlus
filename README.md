@@ -149,4 +149,4 @@
 <a href="https://www.patreon.com/julioverne"><img src="https://github.com/YTLitePlus/Assets/blob/main/Github/Buttons/Donations/julioverne.png?raw=true" width="200"></a>
 
 # Building
-See [YTLitePlus/Building - Wiki](https://github.com/Balackburn/YTLitePlus/wiki/Building)
+See [YTLitePlus/Building - Wiki](https://github.com/YTLitePlus/YTLitePlus/wiki/Building)
