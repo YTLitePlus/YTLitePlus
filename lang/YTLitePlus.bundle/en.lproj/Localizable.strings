@@ -56,7 +56,7 @@
 "DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
 
 "DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
-"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrounding video player";
 
 "FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
 "FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
@@ -124,7 +124,7 @@
 "OLED_KEYBOARD_DESC" = "Might not work correctly in some cases. App restart is required.";
 
 "LOW_CONTRAST_MODE" = "Low Contrast Mode";
-"LOW_CONTRAST_MODE_DESC" = "This option will Low Contrast of the texts and buttons just like how the old YouTube Interface was. App restart is required.";
+"LOW_CONTRAST_MODE_DESC" = "This option will lower the contrast of the texts and buttons just like how the old YouTube Interface was. App restart is required.";
 "LCM_SELECTOR" = "Low contrast mode selection";
 "DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
 "CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
@@ -147,14 +147,14 @@
 "HIDE_MODERN_INTERFACE_DESC" = "This reverts the YouTube app to go back to a more traditional design from v17.38.10. This also removes some rounded elements, ambient mode, and other modern features. App restart is required.";
 
 "IPAD_LAYOUT" = "iPad Layout";
-"IPAD_LAYOUT_DESC" = "only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
+"IPAD_LAYOUT_DESC" = "Only use this if you want to have the iPad Layout on your current iPhone/iPod. App restart is required.";
 
 "IPHONE_LAYOUT" = "iPhone Layout";
-"IPHONE_LAYOUT_DESC" = "only use this if you want to have the iPhone Layout on your current iPad. App restart is required.";
+"IPHONE_LAYOUT_DESC" = "Only use this if you want to have the iPhone Layout on your current iPad. App restart is required.";
 
 "CAST_CONFIRM" = "Confirm alert before casting (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Show a confirm alert before casting to prevent accidentally hijacking TV.";
-"CASTING" = "Castings";
+"CASTING" = "Casting";
 "MSG_ARE_YOU_SURE" = "Are you sure you want to start casting?";
 "MSG_YES" = "Yes";
 "MSG_CANCEL" = "Cancel";
@@ -182,7 +182,7 @@
 
 // Version Spoofer
 "APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
-"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your preferred version below. App restart is required.";
 "VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
 
 // Other Localization
