@@ -1,5 +1,29 @@
-export TARGET = iphone:clang:17.5:14.0
-export SDK_PATH = $(THEOS)/sdks/iPhoneOS17.5.sdk/
+# ==> Tweak Configuration
+# All tweaks are enabled by default.
+# You can disable them by passing TWEAK_NAME=0 to the make command.
+TWEAK_FLEX ?= 1
+TWEAK_ISPONSORBLOCK ?= 1
+TWEAK_YTUHD ?= 1
+TWEAK_YOUPIP ?= 1
+TWEAK_RETURN_YOUTUBE_DISLIKES ?= 1
+TWEAK_YTABCONFIG ?= 1
+TWEAK_DONTEATMYCONTENT ?= 1
+TWEAK_YTHOLDFORSPEED ?= 1
+TWEAK_YTVIDEOOVERLAY ?= 1
+TWEAK_YOULOOP ?= 1
+TWEAK_YOUMUTE ?= 1
+TWEAK_YOUQUALITY ?= 1
+TWEAK_YOUSPEED ?= 1
+TWEAK_YOUTIMESTAMP ?= 1
+TWEAK_YOUGROUPSETTINGS ?= 1
+
+# ==> Build Configuration
+# Default SDK version. This can be overridden by passing SDK_VERSION to the make command.
+SDK_VERSION ?= 18.0
+MIN_IOS_VERSION ?= 14.0
+
+export TARGET = iphone:clang:$(SDK_VERSION):$(MIN_IOS_VERSION)
+export SDK_PATH = $(THEOS)/sdks/iPhoneOS$(SDK_VERSION).sdk/
 export SYSROOT = $(SDK_PATH)
 export ARCHS = arm64
 
@@ -24,7 +48,71 @@ BUNDLE_ID = com.google.ios.youtube
 
 YTLitePlus_FILES = YTLitePlus.xm $(shell find Source -name '*.xm' -o -name '*.x' -o -name '*.m')
 YTLitePlus_FRAMEWORKS = UIKit Security
-YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib .theos/obj/libFLEX.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/DontEatMyContent.dylib .theos/obj/YTHoldForSpeed.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouLoop.dylib .theos/obj/YouMute.dylib .theos/obj/YouQuality.dylib .theos/obj/YouSpeed.dylib .theos/obj/YouTimeStamp.dylib .theos/obj/YouGroupSettings.dylib
+
+YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib
+SUBPROJECTS = Tweaks/Alderis
+
+ifeq ($(TWEAK_FLEX),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/libFLEX.dylib
+SUBPROJECTS += Tweaks/FLEXing/libflex
+endif
+ifeq ($(TWEAK_ISPONSORBLOCK),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/iSponsorBlock.dylib
+SUBPROJECTS += Tweaks/iSponsorBlock
+endif
+ifeq ($(TWEAK_YTUHD),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YTUHD.dylib
+SUBPROJECTS += Tweaks/YTUHD
+endif
+ifeq ($(TWEAK_YOUPIP),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouPiP.dylib
+SUBPROJECTS += Tweaks/YouPiP
+endif
+ifeq ($(TWEAK_RETURN_YOUTUBE_DISLIKES),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouTubeDislikesReturn.dylib
+SUBPROJECTS += Tweaks/Return-YouTube-Dislikes
+endif
+ifeq ($(TWEAK_YTABCONFIG),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YTABConfig.dylib
+SUBPROJECTS += Tweaks/YTABConfig
+endif
+ifeq ($(TWEAK_DONTEATMYCONTENT),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/DontEatMyContent.dylib
+SUBPROJECTS += Tweaks/DontEatMyContent
+endif
+ifeq ($(TWEAK_YTHOLDFORSPEED),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YTHoldForSpeed.dylib
+SUBPROJECTS += Tweaks/YTHoldForSpeed
+endif
+ifeq ($(TWEAK_YTVIDEOOVERLAY),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YTVideoOverlay.dylib
+SUBPROJECTS += Tweaks/YTVideoOverlay
+endif
+ifeq ($(TWEAK_YOULOOP),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouLoop.dylib
+SUBPROJECTS += Tweaks/YouLoop
+endif
+ifeq ($(TWEAK_YOUMUTE),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouMute.dylib
+SUBPROJECTS += Tweaks/YouMute
+endif
+ifeq ($(TWEAK_YOUQUALITY),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouQuality.dylib
+SUBPROJECTS += Tweaks/YouQuality
+endif
+ifeq ($(TWEAK_YOUSPEED),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouSpeed.dylib
+SUBPROJECTS += Tweaks/YouSpeed
+endif
+ifeq ($(TWEAK_YOUTIMESTAMP),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouTimeStamp.dylib
+SUBPROJECTS += Tweaks/YouTimeStamp
+endif
+ifeq ($(TWEAK_YOUGROUPSETTINGS),1)
+YTLitePlus_INJECT_DYLIBS += .theos/obj/YouGroupSettings.dylib
+SUBPROJECTS += Tweaks/YouGroupSettings
+endif
+
 YTLitePlus_EMBED_LIBRARIES = $(THEOS_OBJ_DIR)/libcolorpicker.dylib
 YTLitePlus_EMBED_FRAMEWORKS = $(_THEOS_LOCAL_DATA_DIR)/$(THEOS_OBJ_DIR_NAME)/install_Alderis.xcarchive/Products/var/jb/Library/Frameworks/Alderis.framework
 YTLitePlus_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-but-set-variable -DTWEAK_VERSION=\"$(PACKAGE_VERSION)\"
@@ -36,7 +124,6 @@ YTLitePlus_USE_FISHHOOK = 0
 
 include $(THEOS)/makefiles/common.mk
 ifneq ($(JAILBROKEN),1)
-SUBPROJECTS += Tweaks/Alderis Tweaks/FLEXing/libflex Tweaks/iSponsorBlock Tweaks/YTUHD Tweaks/YouPiP Tweaks/Return-YouTube-Dislikes Tweaks/YTABConfig Tweaks/DontEatMyContent Tweaks/YTHoldForSpeed Tweaks/YTVideoOverlay Tweaks/YouLoop Tweaks/YouMute Tweaks/YouQuality Tweaks/YouSpeed Tweaks/YouTimeStamp Tweaks/YouGroupSettings
 include $(THEOS_MAKE_PATH)/aggregate.mk
 endif
 include $(THEOS_MAKE_PATH)/tweak.mk

@@ -1,6 +1,3 @@
-# Original idea by @ISnackable. Many thanks to him for handling the most hardest parts!
-# https://github.com/ISnackable/CercubePlus/blob/main/.github/workflows/Build.yml
-
 name: Build and Release YTLitePlus
 
 on:
@@ -8,7 +5,7 @@ on:
     inputs:
       sdk_version:
         description: "iOS SDK Version"
-        default: "17.5"
+        default: "18.0"
         required: true
         type: string
       decrypted_youtube_url:
@@ -46,6 +43,81 @@ on:
         default: false
         required: false
         type: boolean
+      tweak_flex:
+        description: "Inject FLEX"
+        default: true
+        required: false
+        type: boolean
+      tweak_isponsorblock:
+        description: "Inject iSponsorBlock"
+        default: true
+        required: false
+        type: boolean
+      tweak_ytuhd:
+        description: "Inject YTUHD"
+        default: true
+        required: false
+        type: boolean
+      tweak_youpip:
+        description: "Inject YouPiP"
+        default: true
+        required: false
+        type: boolean
+      tweak_return_youtube_dislikes:
+        description: "Inject Return YouTube Dislikes"
+        default: true
+        required: false
+        type: boolean
+      tweak_ytabconfig:
+        description: "Inject YTABConfig"
+        default: true
+        required: false
+        type: boolean
+      tweak_donteatmycontent:
+        description: "Inject DontEatMyContent"
+        default: true
+        required: false
+        type: boolean
+      tweak_ytholdforspeed:
+        description: "Inject YTHoldForSpeed"
+        default: true
+        required: false
+        type: boolean
+      tweak_ytvideooverlay:
+        description: "Inject YTVideoOverlay"
+        default: true
+        required: false
+        type: boolean
+      tweak_youloop:
+        description: "Inject YouLoop"
+        default: true
+        required: false
+        type: boolean
+      tweak_youmute:
+        description: "Inject YouMute"
+        default: true
+        required: false
+        type: boolean
+      tweak_youquality:
+        description: "Inject YouQuality"
+        default: true
+        required: false
+        type: boolean
+      tweak_youspeed:
+        description: "Inject YouSpeed"
+        default: true
+        required: false
+        type: boolean
+      tweak_youtimestamp:
+        description: "Inject YouTimeStamp"
+        default: true
+        required: false
+        type: boolean
+      tweak_yougroupsettings:
+        description: "Inject YouGroupSettings"
+        default: true
+        required: false
+        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -54,7 +126,7 @@ concurrency:
 jobs:
   build:
     name: Build YTLitePlus
-    runs-on: macos-13
+    runs-on: macos-14
     permissions:
       contents: write
 
@@ -91,8 +163,8 @@ jobs:
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
           # Only download the specific SDK version
-          git clone -n --depth=1 --filter=tree:0 https://github.com/aricloverALT/sdks/
-          cd sdks
+          git clone -n --depth=1 --filter=tree:0 https://github.com/xybp888/iOS-SDKs/
+          cd iOS-SDKs
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
           mv *.sdk $THEOS/sdks
@@ -167,14 +239,27 @@ jobs:
         id: build_package
         run: |
           cd ${{ github.workspace }}/main
-          # Replace lines in Makefile based on inputs
-          sed -i '' "s/^BUNDLE_ID.*$/BUNDLE_ID = ${{ env.BUNDLE_ID }}/" Makefile
-          sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
-          sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
-          sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
           # Build the package
-          make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+          make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1 \
+          SDK_VERSION=${{ inputs.sdk_version }} \
+          BUNDLE_ID="${{ inputs.bundle_id }}" \
+          DISPLAY_NAME="${{ inputs.app_name }}" \
+          PACKAGE_VERSION="${{ env.YT_VERSION }}-5.0.1" \
+          TWEAK_FLEX=${{ inputs.tweak_flex && '1' || '0' }} \
+          TWEAK_ISPONSORBLOCK=${{ inputs.tweak_isponsorblock && '1' || '0' }} \
+          TWEAK_YTUHD=${{ inputs.tweak_ytuhd && '1' || '0' }} \
+          TWEAK_YOUPIP=${{ inputs.tweak_youpip && '1' || '0' }} \
+          TWEAK_RETURN_YOUTUBE_DISLIKES=${{ inputs.tweak_return_youtube_dislikes && '1' || '0' }} \
+          TWEAK_YTABCONFIG=${{ inputs.tweak_ytabconfig && '1' || '0' }} \
+          TWEAK_DONTEATMYCONTENT=${{ inputs.tweak_donteatmycontent && '1' || '0' }} \
+          TWEAK_YTHOLDFORSPEED=${{ inputs.tweak_ytholdforspeed && '1' || '0' }} \
+          TWEAK_YTVIDEOOVERLAY=${{ inputs.tweak_ytvideooverlay && '1' || '0' }} \
+          TWEAK_YOULOOP=${{ inputs.tweak_youloop && '1' || '0' }} \
+          TWEAK_YOUMUTE=${{ inputs.tweak_youmute && '1' || '0' }} \
+          TWEAK_YOUQUALITY=${{ inputs.tweak_youquality && '1' || '0' }} \
+          TWEAK_YOUSPEED=${{ inputs.tweak_youspeed && '1' || '0' }} \
+          TWEAK_YOUTIMESTAMP=${{ inputs.tweak_youtimestamp && '1' || '0' }} \
+          TWEAK_YOUGROUPSETTINGS=${{ inputs.tweak_yougroupsettings && '1' || '0' }}
           # Rename the package based on the version
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
           # Pass package name to the upload step
@@ -184,8 +269,6 @@ jobs:
           echo -e "==> \033[1mBundle ID: ${{ env.BUNDLE_ID }}\033[0m"
         env:
           THEOS: ${{ github.workspace }}/theos
-          BUNDLE_ID: ${{ inputs.bundle_id }}
-          APP_NAME: ${{ inputs.app_name }}
 
       - name: Upload Artifact
         if: ${{ inputs.upload_artifact }}
