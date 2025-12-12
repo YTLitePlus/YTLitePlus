@@ -33,12 +33,12 @@ on:
         type: string
       upload_artifact:
         description: "Upload iPA as artifact (Public)"
-        default: false
+        default: true
         required: false
         type: boolean
       catbox_upload:
         description: "Upload iPA to Catbox.moe (URL)"
-        default: true
+        default: false
         required: false
         type: boolean
       create_release:
@@ -172,9 +172,8 @@ jobs:
           sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
           sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
-          sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
           # Build the package
-          make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+          make package THEOS_PACKAGE_SCHEME=rootless
           # Rename the package based on the version
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
           # Pass package name to the upload step
@@ -195,7 +194,7 @@ jobs:
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
           
-      - name: Upload Artifact to Catbox and update AltStore repo
+      - name: Upload Artifact to Catbox
         if: ${{ inputs.catbox_upload }}
         run: |
           RESPONSE=$(curl -F "reqtype=fileupload" -F "fileToUpload=@${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}" https://catbox.moe/user/api.php)
@@ -227,18 +226,13 @@ jobs:
           body_path: ${{ github.workspace }}/release_notes.md
 
       - name: Update Altstore Source with latest release
-        if: ${{ inputs.catbox_upload }}
+        if: ${{ inputs.create_release }}
         run: |
-          curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/actions/workflows/update_source.yml/dispatches' \
+          curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/dispatches' \
           --header 'Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
-            "ref": "main",
-            "inputs": {
-              "yt_lite_plus_url": "${{ env.CATBOX_URL }}",
-              "yt_lite_plus_version": "${{ env.YTLITE_VERSION }}",
-              "yt_version": "${{ env.YT_VERSION }}"
-            }
+            "event_type": "update-altstore-source-trigger"
           }'
 
       - name: Job Summary

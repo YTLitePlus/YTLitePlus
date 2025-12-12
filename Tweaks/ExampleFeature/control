@@ -1,0 +1,11 @@
+Package: ytlite-examplefeature
+Name: ExampleFeature
+Section: tweaks
+Priority: optional
+Architecture: iphoneos-arm
+Version: 1.0-1
+Maintainer: YTLitePlus Contributors <noreply@example.com>
+Depends: mobilesubstrate
+Description: ExampleFeature — minimal Theos tweak for YTLitePlus
+ A trivial example tweak that logs on app launch. Use as a template for
+  building tweaks or bundles.

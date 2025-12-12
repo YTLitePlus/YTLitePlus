@@ -1,0 +1,10 @@
+include $(THEOS)/makefiles/common.mk
+
+BUNDLE_NAME = ExampleFeature
+ExampleFeature_FILES = Tweak.xm
+ExampleFeature_FRAMEWORKS = UIKit
+
+# Optional: if you want the produced bundle to use a different extension
+# BUNDLE_EXTENSION = appex
+
+include $(THEOS_MAKE_PATH)/bundle.mk

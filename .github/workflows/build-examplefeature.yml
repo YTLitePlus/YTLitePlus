@@ -1,0 +1,57 @@
+name: Build ExampleFeature
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build-examplefeature:
+    name: Build ExampleFeature (macOS)
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          brew install ldid dpkg make || true
+
+      - name: Download Theos
+        uses: actions/checkout@v4
+        with:
+          repository: theos/theos
+          path: theos
+          ref: master
+          submodules: recursive
+
+      - name: Download Theos Jailed
+        uses: actions/checkout@v4
+        with:
+          repository: qnblackcat/theos-jailed
+          path: theos-jailed
+          ref: master
+          submodules: recursive
+
+      - name: Install Theos Jailed
+        run: |
+          ./theos-jailed/install
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build ExampleFeature bundle
+        run: |
+          cd Tweaks/ExampleFeature
+          # prefer the bundle makefile; if missing fall back to default Makefile
+          if [ -f Makefile.bundle ]; then
+            make -f Makefile.bundle package THEOS=${{ github.workspace }}/theos || true
+          else
+            make package THEOS=${{ github.workspace }}/theos || true
+          fi
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: examplefeature-packages
+          path: Tweaks/ExampleFeature/packages
+          if-no-files-found: warn
