@@ -1,3 +1,7 @@
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <string.h>
+
 #import "../YTLitePlus.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsViewController.h"
 #import "../Tweaks/YouTubeHeader/YTSearchableSettingsViewController.h"
@@ -7,6 +11,7 @@
 #import "../Tweaks/YouTubeHeader/YTSettingsPickerViewController.h"
 #import "SettingsKeys.h"
 // #import "AppIconOptionsController.h"
+
 
 // Basic switch item
 #define BASIC_SWITCH(title, description, key) \
