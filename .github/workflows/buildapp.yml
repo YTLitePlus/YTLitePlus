@@ -38,12 +38,12 @@ on:
         type: boolean
       catbox_upload:
         description: "Upload iPA to Catbox.moe (URL)"
-        default: true
+        default: false
         required: false
         type: boolean
       create_release:
         description: "Create a draft release (Private)"
-        default: false
+        default: true
         required: false
         type: boolean
 
