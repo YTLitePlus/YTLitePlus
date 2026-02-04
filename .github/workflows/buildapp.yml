@@ -1,5 +1,11 @@
 # Original idea by @ISnackable. Many thanks to him for handling the most hardest parts!
 # https://github.com/ISnackable/CercubePlus/blob/main/.github/workflows/Build.yml
+#
+# iOS 18.5 SDK Update:
+# - Updated to use iOS SDK 18.5 for latest iOS compatibility
+# - Added -fmodules-validate-once-per-build-session flag for module compatibility
+# - Configured explicit SDKROOT to prevent conflicts with system SDKs
+# - Using macos-15-intel runner with proper SDK isolation
 
 name: Build and Release YTLitePlus
 
@@ -8,7 +14,7 @@ on:
     inputs:
       sdk_version:
         description: "iOS SDK Version"
-        default: "17.5"
+        default: "18.5"
         required: true
         type: string
       decrypted_youtube_url:
@@ -90,8 +96,8 @@ jobs:
       - name: Download iOS SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
-          # Only download the specific SDK version
-          git clone -n --depth=1 --filter=tree:0 https://github.com/aricloverALT/sdks/
+          # Download iOS 18.5 SDK from arichornlover/sdks
+          git clone -n --depth=1 --filter=tree:0 https://github.com/arichornlover/sdks/
           cd sdks
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
@@ -112,6 +118,19 @@ jobs:
           ./theos-jailed/install
         env:
           THEOS: ${{ github.workspace }}/theos
+      
+      - name: Configure SDK Environment for iOS 18.5
+        run: |
+          # Set SDKROOT to use the downloaded SDK and prevent system SDK conflicts
+          echo "SDKROOT=${{ github.workspace }}/theos/sdks/iPhoneOS${{ inputs.sdk_version }}.sdk" >> $GITHUB_ENV
+          echo "DEVELOPER_DIR=$(xcode-select -p)" >> $GITHUB_ENV
+          
+          # Add module validation flag for iOS 18+ compatibility
+          echo "EXTRA_CFLAGS=-fmodules-validate-once-per-build-session" >> $GITHUB_ENV
+          
+          # Verify SDK configuration
+          echo "Using SDK: ${{ github.workspace }}/theos/sdks/iPhoneOS${{ inputs.sdk_version }}.sdk"
+          ls -la ${{ github.workspace }}/theos/sdks/
         
       - name: Fix Compiling
         run: |
@@ -172,9 +191,15 @@ jobs:
           sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
           sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
-          sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
-          # Build the package
-          make package SIDELOAD=1 THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+          sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \\$(THEOS)\\/sdks\\/iPhoneOS${{ inputs.sdk_version }}.sdk\\//" Makefile
+          
+          # Verify SDK environment before build
+          echo "SDKROOT is set to: $SDKROOT"
+          echo "EXTRA_CFLAGS is set to: $EXTRA_CFLAGS"
+          echo "Building with iOS SDK ${{ inputs.sdk_version }}"
+          
+          # Build the package with explicit SDK and module flags
+          make package SIDELOAD=1 THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1 SDKROOT="$SDKROOT"
           # Rename the package based on the version
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
           # Pass package name to the upload step
