@@ -60,7 +60,7 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           path: main
           ref: ${{ github.event.inputs.commit_id || github.ref }}
@@ -70,7 +70,7 @@ jobs:
         run: brew install ldid dpkg make
 
       - name: Download Theos
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           repository: theos/theos
           ref: master
@@ -79,7 +79,7 @@ jobs:
 
       - name: iOS SDK Caching
         id: SDK
-        uses: actions/cache@v4
+        uses: actions/cache@v4.2.0
         env:
           cache-name: iOS-${{ inputs.sdk_version }}-SDK
         with:
@@ -100,7 +100,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Download Theos Jailed
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           repository: qnblackcat/theos-jailed
           ref: master
@@ -189,7 +189,7 @@ jobs:
 
       - name: Upload Artifact
         if: ${{ inputs.upload_artifact }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.5.0
         with:
           name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
@@ -216,7 +216,7 @@ jobs:
       - name: Create Draft Release
         if: ${{ inputs.create_release }}
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
