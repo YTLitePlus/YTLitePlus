@@ -12,7 +12,7 @@
 	url = https://github.com/therealFoxster/DontEatMyContent.git
 [submodule "Extensions"]
 	path = Extensions
-	url = https://github.com/CokePokes/YoutubeExtensions.git
+	url = https://github.com/BillyCurtis/OpenYouTubeSafariExtension.git
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
 	url = https://github.com/PoomSmart/YTVideoOverlay.git
