@@ -108,16 +108,6 @@ BOOL isSelf() {
 }
 %end
 
-// Hide SponsorBlock Button in navigation bar
-%hook YTRightNavigationButtons
-- (void)layoutSubviews {
-    %orig;
-    if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
-        self.sponsorBlockButton.hidden = YES;
-    }
-}
-%end
-
 // Hide Video Player Cast Button
 %group gHideCastButton
 %hook MDXPlaybackRouteButtonController
@@ -1305,12 +1295,6 @@ NSInteger pageStyle = 0;
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
     if (![allKeys containsObject:@"YTLPDidPerformFirstRunSetup"]) { 
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YTLPDidPerformFirstRunSetup"];
-        // Set iSponsorBlock to default disabled
-        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-        NSString *settingsPath = [documentsDirectory stringByAppendingPathComponent:@"iSponsorBlock.plist"];
-        NSMutableDictionary *settings = [NSMutableDictionary dictionary];
-        [settings setObject:@(NO) forKey:@"enabled"];
-        [settings writeToFile:settingsPath atomically:YES];
         // Set miscellaneous YTLitePlus features to enabled
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"RYD-ENABLED"]; 
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 

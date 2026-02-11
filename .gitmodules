@@ -7,18 +7,12 @@
 [submodule "Tweaks/FLEX"]
 	path = Tweaks/FLEX
 	url = https://github.com/PoomSmart/FLEXing.git
-[submodule "Tweaks/iSponsorBlock"]
-	path = Tweaks/iSponsorBlock
-	url = https://github.com/Galactic-Dev/iSponsorBlock.git
-[submodule "Tweaks/YTHoldForSpeed"]
-	path = Tweaks/YTHoldForSpeed
-	url = https://github.com/aricloverALT/YTHoldForSpeed.git
 [submodule "Tweaks/DontEatMyContent"]
 	path = Tweaks/DontEatMyContent
 	url = https://github.com/therealFoxster/DontEatMyContent.git
 [submodule "Extensions"]
 	path = Extensions
-	url = https://github.com/CokePokes/YoutubeExtensions.git
+	url = https://github.com/BillyCurtis/OpenYouTubeSafariExtension.git
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
 	url = https://github.com/PoomSmart/YTVideoOverlay.git
@@ -40,12 +34,6 @@
 [submodule "Tweaks/YouGroupSettings"]
 	path = Tweaks/YouGroupSettings
 	url = https://github.com/PoomSmart/YouGroupSettings
-[submodule "Tweaks/YouMute"]
-	path = Tweaks/YouMute
-	url = https://github.com/PoomSmart/YouMute
-[submodule "Tweaks/YouQuality"]
-	path = Tweaks/YouQuality
-	url = https://github.com/PoomSmart/YouQuality
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
 	url = https://github.com/PoomSmart/Return-YouTube-Dislikes.git
@@ -55,13 +43,7 @@
 [submodule "Tweaks/YouTimeStamp"]
 	path = Tweaks/YouTimeStamp
 	url = https://github.com/aricloverALT/YouTimeStamp.git
-[submodule "Tweaks/YouLoop"]
-	path = Tweaks/YouLoop
-	url = https://github.com/bhackel/YouLoop
 [submodule "Tweaks/FLEXing"]
 	path = Tweaks/FLEXing
 	url = https://github.com/PoomSmart/FLEXing.git
 	branch = rootless
-[submodule "Tweaks/YouSpeed"]
-	path = Tweaks/YouSpeed
-	url = https://github.com/PoomSmart/YouSpeed

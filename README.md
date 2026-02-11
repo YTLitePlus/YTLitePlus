@@ -81,37 +81,27 @@
 
 4. **YTABConfig**: Adds a new section named "A/B" in the YouTube app settings where all features can be toggled freely by the user.
 
-5. **YouMute**: Allows users to mute/unmute videos directly in the YouTube Video Player.
+5. **DontEatMyContent**: Prevents the notch/Dynamic Island from covering 2:1 video content in YouTube.
 
-6. **DontEatMyContent**: Prevents the notch/Dynamic Island from covering 2:1 video content in YouTube.
+6. **Return YouTube Dislikes**: Brings back Dislike counts under YouTube videos using ReturnYoutubeDislike's API.
 
-7. **Return YouTube Dislikes**: Brings back Dislike counts under YouTube videos using ReturnYoutubeDislike's API.
+7. **YouRememberCaption**: Makes YouTube remember your video caption setting.
 
-8. **iSponsorBlock**: Skips annoying sponsor ads inside YouTube videos.
+8. **YTNoTracking**: An iOS YouTube Tweak that disables Tracking Parameters in the YouTube App.
 
-9. **YouRememberCaption**: Makes YouTube remember your video caption setting.
+9. **YTNoCheckLocalNetWor**k: Blocks the Local Network permission popup in YouTube.
 
-10. **YTNoTracking**: An iOS YouTube Tweak that disables Tracking Parameters in the YouTube App.
+10. **BigYTMiniPlayer**: Jailbreak tweak that makes the miniplayer in youtube easier to see. 
 
-12. **YTNoCheckLocalNetWor**k: Blocks the Local Network permission popup in YouTube.
+11. **YTVideoOverlay**: A helper tweak that adds buttons on the YouTube video overlay.
 
-13. **BigYTMiniPlayer**: Jailbreak tweak that makes the miniplayer in youtube easier to see. 
+12. **YTNoModernUI**: This tweak changes and removes some newer UI elements from the YouTube app such as some rounded buttons, old progress bar, and old buffer bar.
 
-14. **YTSpeed**: Adds 2.25x to 5x playback speed options in the YouTube video player.
+13. **OLEDDarkmode**: Replace official Youtube darkmode with a true OLED darkmode.
 
-15. **YTHoldForSpeed**: Allows you to quickly toggle between a selected video playback speed by tapping and holding on the video player in the YouTube application.
+14. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
 
-16. **YTVideoOverlay**: A helper tweak that adds buttons on the YouTube video overlay.
-
-17. **YouQuality**: Enables you to view and change video quality in YouTube faster.
-
-18. **YTNoModernUI**: This tweak changes and removes some newer UI elements from the YouTube app such as some rounded buttons, old progress bar, and old buffer bar.
-
-19. **OLEDDarkmode**: Replace official Youtube darkmode with a true OLED darkmode.
-
-20. **OLDDarkmode**: Replace new official Youtube darkmode with old (grey) Youtube darkmode.
-
-21. **LowContrastMode**: Makes the UI interface look dimmer to make it easier on the eyes. (App Compatibility: v17.33.2-v17.38.10)
+15. **LowContrastMode**: Makes the UI interface look dimmer to make it easier on the eyes. (App Compatibility: v17.33.2-v17.38.10)
 
 # AltStore
   
