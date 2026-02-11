@@ -49,22 +49,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     return self.pageStyle == 1 ? customColor : %orig;
 }
 %end
-%hook SponsorBlockSettingsController
-- (void)viewDidLoad {
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        %orig;
-        self.tableView.backgroundColor = customColor;
-    } else { return %orig; }
-}
-%end
-%hook SponsorBlockViewController
-- (void)viewDidLoad {
-    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-        %orig;
-        self.view.backgroundColor = customColor;
-    } else { return %orig; }
-}
-%end
 %hook YTAsyncCollectionView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {

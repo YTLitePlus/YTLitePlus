@@ -67,7 +67,7 @@ jobs:
           submodules: recursive
 
       - name: Install Dependencies
-        run: brew install ldid dpkg make
+        run: brew install ldid dpkg make jq
 
       - name: Download Theos
         uses: actions/checkout@v4.2.2
@@ -133,11 +133,14 @@ jobs:
           unzip -q main/YouTube.ipa -d main/tmp
           # Get the version number of the YouTube app and store it
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
-          # Get the version number of the latest release
-          wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
-          YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' main/tmp/release_page.html | head -n 1 | sed 's/\/tag\/v//')
-          echo "YTLITE_VERSION=5.0.1" >> $GITHUB_ENV
-          echo $YTLITE_VERSION
+          # Fetch the latest YTLite version from GitHub API
+          YTLITE_VERSION=$(curl -s https://api.github.com/repos/dayanch96/YTLite/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          if [ -z "$YTLITE_VERSION" ] || [ "$YTLITE_VERSION" = "null" ]; then
+            echo "::error::Failed to fetch latest YTLite version from GitHub API"
+            exit 1
+          fi
+          echo "YTLITE_VERSION=$YTLITE_VERSION" >> $GITHUB_ENV
+          echo "Fetched YTLite version: $YTLITE_VERSION"
           # Remove contents in the iPA that interfere with sideloading
           rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
           rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
@@ -170,13 +173,13 @@ jobs:
           # Replace lines in Makefile based on inputs
           sed -i '' "s/^BUNDLE_ID.*$/BUNDLE_ID = ${{ env.BUNDLE_ID }}/" Makefile
           sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
-          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}/" Makefile
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
           sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
           # Build the package
           make package SIDELOAD=1 THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
           # Rename the package based on the version
-          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
+          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")
           # Pass package name to the upload step
           echo "package=$(ls -t packages | head -n1)" >> $GITHUB_OUTPUT
           # Print out the hash and bundle ID
@@ -210,7 +213,7 @@ jobs:
         if: ${{ inputs.create_release }}
         run: |
           export TODAY=$(date '+%Y-%m-%d')
-          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/5.0.1/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
+          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/${{ env.YT_VERSION }}/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
           main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
 
       - name: Create Draft Release
@@ -220,8 +223,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.YT_VERSION }}-5.0.1
-          name: v${{ env.YT_VERSION }}-5.0.1 - YTLitePlus
+          tag_name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }}
+          name: v${{ env.YT_VERSION }}-${{ env.YTLITE_VERSION }} - YTLitePlus
           files: main/packages/*.ipa
           draft: true
           body_path: ${{ github.workspace }}/release_notes.md

@@ -15,7 +15,7 @@ NSArray *NSUserDefaultsCopyKeys = @[
     @"enableVersionSpoofer_enabled", @"fixCasting_enabled", @"flex_enabled", @"fullscreenToTheRight_enabled",
     @"hideAutoplayMiniPreview_enabled", @"hideCastButton_enabled", @"hideHUD_enabled", @"hideHeatwaves_enabled",
     @"hideHomeTab_enabled", @"hidePreviewCommentSection_enabled", @"hideRightPanel_enabled",
-    @"hideSpeedToast_enabled", @"hideSponsorBlockButton_enabled", @"hideVideoPlayerShadowOverlayButtons_enabled",
+    @"hideSpeedToast_enabled", @"hideVideoPlayerShadowOverlayButtons_enabled",
     @"iPadLayout_enabled", @"iPhoneLayout_enabled", @"inline_muted_playback_enabled", @"lowContrastMode_enabled",
     @"newSettingsUI_enabled", @"oledKeyBoard_enabled", @"playerGesturesHapticFeedback_enabled",
     @"playerGestures_enabled", @"seekAnywhere_enabled", @"switchCopyandPasteFunctionality_enabled",
@@ -23,18 +23,15 @@ NSArray *NSUserDefaultsCopyKeys = @[
     // DEMC - https://github.com/therealFoxster/DontEatMyContent/blob/master/Tweak.h
     @"DEMC_enabled", @"DEMC_colorViewsEnabled", @"DEMC_safeAreaConstant", @"DEMC_disableAmbientMode", 
     @"DEMC_limitZoomToFill", @"DEMC_enableForAllVideos",
-    // iSponsorBlock cannot be exported using this method - it is also being removed in v5
+    // iSponsorBlock has been removed in v5 - YTLite has built-in SponsorBlock
     // Return-YouTube-Dislike - https://github.com/PoomSmart/Return-YouTube-Dislikes/blob/main/TweakSettings.h
     @"RYD-ENABLED", @"RYD-VOTE-SUBMISSION", @"RYD-EXACT-LIKE-NUMBER", @"RYD-EXACT-NUMBER",
-    // All YTVideoOverlay Tweaks - https://github.com/PoomSmart/YTVideoOverlay/blob/0fc6d29d1aa9e75f8c13d675daec9365f753d45e/Tweak.x#L28C1-L41C84
-    @"YTVideoOverlay-YouLoop-Enabled", @"YTVideoOverlay-YouTimeStamp-Enabled", @"YTVideoOverlay-YouMute-Enabled", 
-    @"YTVideoOverlay-YouQuality-Enabled", @"YTVideoOverlay-YouLoop-Position", @"YTVideoOverlay-YouTimeStamp-Position", 
-    @"YTVideoOverlay-YouMute-Position", @"YTVideoOverlay-YouQuality-Position",
+    // YTVideoOverlay Tweaks - https://github.com/PoomSmart/YTVideoOverlay/blob/0fc6d29d1aa9e75f8c13d675daec9365f753d45e/Tweak.x#L28C1-L41C84
+    @"YTVideoOverlay-YouTimeStamp-Enabled", @"YTVideoOverlay-YouTimeStamp-Position",
     // YouPiP - https://github.com/PoomSmart/YouPiP/blob/main/Header.h
     @"YouPiPPosition", @"CompatibilityModeKey", @"PiPActivationMethodKey", @"PiPActivationMethod2Key", 
     @"NoMiniPlayerPiPKey", @"NonBackgroundableKey",
     // YTABConfig cannot be reasonably exported using this method
-    // YTHoldForSpeed will be removed in v5
     // YouTube Plus / YTLite cannot be exported using this method
     // YTUHD - https://github.com/PoomSmart/YTUHD/blob/master/Header.h
     @"EnableVP9", @"AllVP9",
