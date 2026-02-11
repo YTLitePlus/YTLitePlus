@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus settings keys to diagnose crash on launch
+#if 0
 #import "../YTLitePlus.h"
 
 // Keys for "Copy Settings" button (for: YTLitePlus)
@@ -50,3 +52,4 @@ NSDictionary *NSUserDefaultsCopyKeysDefaults = @{
     @"RYD-VOTE-SUBMISSION": @1,
     // Duplicate keys are not allowed in NSDictionary. If present, only the last one will be kept.
 };
+#endif

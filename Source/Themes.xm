@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus theme code to diagnose crash on launch
+#if 0
 #import "../YTLitePlus.h"
 
 static BOOL isDarkMode() {
@@ -820,3 +822,4 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
         %init(gOldDarkTheme);
     }
 }
+#endif

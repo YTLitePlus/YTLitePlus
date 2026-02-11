@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus code to diagnose crash on launch
+#if 0
 #import "YTLitePlus.h"
 
 NSBundle *YTLitePlusBundle() {
@@ -1310,3 +1312,4 @@ NSInteger pageStyle = 0;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"playerGesturesHapticFeedback_enabled"]; 
     }
 }
+#endif

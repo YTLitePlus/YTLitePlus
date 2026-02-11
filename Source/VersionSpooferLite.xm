@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus version spoofer code to diagnose crash on launch
+#if 0
 #import "../YTLitePlus.h"
 
 typedef struct {
@@ -47,3 +49,4 @@ static NSString* getAppVersionForSpoofedVersion(int spoofedVersion) {
     return appVersion ? appVersion : %orig;
 }
 %end
+#endif

@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus settings code to diagnose crash on launch
+#if 0
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <string.h>
@@ -736,4 +738,5 @@ static const NSInteger YTLiteSection = 789;
 }
 
 %end
+#endif
 

@@ -1,3 +1,5 @@
+// TEMP: Disable all YTLitePlus low contrast mode code to diagnose crash on launch
+#if 0
 #import "../YTLitePlus.h"
 
 // Color Configuration
@@ -509,3 +511,4 @@ static inline BOOL customContrastMode() {
         }
     }
 }
+#endif
