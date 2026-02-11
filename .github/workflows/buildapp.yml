@@ -59,6 +59,12 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.1
+        with:
+          ref: ${{ github.event.inputs.commit_id || github.ref }}
+          submodules: recursive
+
       - name: Install Dependencies
         run: brew install ldid dpkg make jq
 
