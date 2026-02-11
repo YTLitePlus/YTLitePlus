@@ -111,7 +111,7 @@ jobs:
         run: |
           ./theos-jailed/install
         env:
-          THEOS: theos
+          THEOS: ${{ github.workspace }}/theos
         
       - name: Fix Compiling
         run: |
@@ -120,7 +120,7 @@ jobs:
           (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
           source ~/.bash_profile
         env:
-          THEOS: theos
+          THEOS: ${{ github.workspace }}/theos
 
       - name: Hash YT ipa url
         run: |
@@ -165,7 +165,7 @@ jobs:
           # Manually install the Open in YouTube extension
           cp -R Extensions/*.appex tmp/Payload/YouTube.app/PlugIns
         env:
-          THEOS: theos
+          THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ env.URL_YT }}
 
       - name: Build Package
@@ -187,7 +187,7 @@ jobs:
           echo -e "==> \033[1mSHASUM256: $(shasum -a 256 packages/*.ipa | cut -f1 -d' ')\033[0m"
           echo -e "==> \033[1mBundle ID: ${{ env.BUNDLE_ID }}\033[0m"
         env:
-          THEOS: theos
+          THEOS: ${{ github.workspace }}/theos
           BUNDLE_ID: ${{ inputs.bundle_id }}
           APP_NAME: ${{ inputs.app_name }}
 
