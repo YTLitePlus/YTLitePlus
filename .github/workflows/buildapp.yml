@@ -94,9 +94,10 @@ jobs:
           cd sdks
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
+          mkdir -p $THEOS/sdks
           mv *.sdk $THEOS/sdks
         env:
-          THEOS: theos
+          THEOS: ${{ github.workspace }}/theos
 
       - name: Download Theos Jailed
         uses: actions/checkout@v6.0.1
