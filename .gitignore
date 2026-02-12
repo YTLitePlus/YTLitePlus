@@ -1,13 +1,9 @@
-.theos
+# OS
 .DS_Store
-packages/
-tmp/
-Tweaks/YTLite/*
-!Tweaks/YTLite/.gitkeep
-Resources/
-*.ipa
-.vscode
-_codeql_detected_source_root
 
-# v2 build system work directory
+# Editor
+.vscode
+
+# Build artifacts
+*.ipa
 _work/
