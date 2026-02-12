@@ -1,0 +1,104 @@
+# build.yml — GitHub Actions workflow for YTLitePlus v2
+#
+# Shares all core logic with build.sh via lib.sh.
+# config.yml is the single source of truth for tweaks.
+
+name: Build YTLitePlus (v2)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ipa_url:
+        description: "Direct URL to decrypted YouTube IPA (falls back to IPA_URL secret)"
+        required: false
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build patched IPA
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Dependencies ──────────────────────────────────────────
+      - name: Install system dependencies
+        run: |
+          brew install jq
+          pip3 install pyyaml
+
+      - name: Install optool
+        run: |
+          # Build optool from source for dylib injection
+          git clone --depth=1 https://github.com/alexzielenski/optool.git /tmp/optool
+          cd /tmp/optool
+          git submodule update --init --recursive
+          xcodebuild -project optool.xcodeproj -scheme optool \
+            -configuration Release SYMROOT=/tmp/optool/build \
+            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          sudo cp /tmp/optool/build/Release/optool /usr/local/bin/optool
+
+      # ── Resolve IPA URL ───────────────────────────────────────
+      - name: Resolve IPA URL
+        id: ipa
+        run: |
+          URL="${{ inputs.ipa_url }}"
+          if [ -z "$URL" ]; then
+            URL="${{ secrets.IPA_URL }}"
+          fi
+          if [ -z "$URL" ]; then
+            echo "::error::No IPA URL provided. Pass it as a workflow input or set the IPA_URL repository secret."
+            exit 1
+          fi
+          # Mask the URL in logs
+          echo "::add-mask::${URL}"
+          echo "url=${URL}" >> "$GITHUB_OUTPUT"
+
+      # ── Build ─────────────────────────────────────────────────
+      - name: Run build pipeline
+        run: |
+          chmod +x build.sh lib.sh
+          ./build.sh "${{ steps.ipa.outputs.url }}"
+
+      # ── Release ───────────────────────────────────────────────
+      - name: Get version info
+        id: version
+        run: |
+          # Extract YouTube version from the patched IPA for the release tag
+          VERSION_TAG="v2-$(date +'%Y%m%d-%H%M%S')"
+          echo "tag=${VERSION_TAG}" >> "$GITHUB_OUTPUT"
+          SHA256=$(shasum -a 256 YouTube-patched.ipa | cut -d' ' -f1 || sha256sum YouTube-patched.ipa | cut -d' ' -f1)
+          echo "sha256=${SHA256}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: "YTLitePlus ${{ steps.version.outputs.tag }}"
+          body: |
+            ## YTLitePlus — Automated Build
+
+            **SHA256:** `${{ steps.version.outputs.sha256 }}`
+
+            Built from commit ${{ github.sha }}.
+          files: YouTube-patched.ipa
+          draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Summary ───────────────────────────────────────────────
+      - name: Job Summary
+        run: |
+          echo '### 📺 YTLitePlus Build Complete' >> $GITHUB_STEP_SUMMARY
+          echo '' >> $GITHUB_STEP_SUMMARY
+          echo "**SHA256:** \`${{ steps.version.outputs.sha256 }}\`" >> $GITHUB_STEP_SUMMARY
+          echo '' >> $GITHUB_STEP_SUMMARY
+          echo 'A draft release has been created. Review and publish it from the [Releases page](../../releases).' >> $GITHUB_STEP_SUMMARY

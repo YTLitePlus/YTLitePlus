@@ -1,0 +1,89 @@
+# config.yml — Single source of truth for YTLitePlus
+#
+# To add a new tweak:
+#   1. Add a new entry under "tweaks:" with id, repo, fetch method, and enabled flag.
+#   2. For release-based tweaks: set fetch: release
+#   3. For source-build tweaks: set fetch: build, and optionally branch/build_cmd
+#   4. Set always: true if the tweak must always be injected (e.g. the primary tweak)
+#   5. That's it — no other files need to change.
+
+tweaks:
+  - id: ytlite
+    enabled: true
+    repo: dayanch96/YTLite
+    fetch: release
+    always: true
+
+  - id: youpip
+    enabled: true
+    repo: PoomSmart/YouPiP
+    fetch: release
+
+  - id: ytuhd
+    enabled: true
+    repo: splaser/YTUHD
+    fetch: release
+
+  - id: ytabconfig
+    enabled: true
+    repo: PoomSmart/YTABConfig
+    fetch: release
+
+  - id: return_yt_dislikes
+    enabled: true
+    repo: PoomSmart/Return-YouTube-Dislikes
+    fetch: release
+
+  - id: dont_eat_my_content
+    enabled: true
+    repo: therealFoxster/DontEatMyContent
+    fetch: release
+
+  - id: ytvideooverlay
+    enabled: true
+    repo: PoomSmart/YTVideoOverlay
+    fetch: release
+
+  - id: yougroupsettings
+    enabled: true
+    repo: PoomSmart/YouGroupSettings
+    fetch: release
+
+  - id: alderis
+    enabled: true
+    repo: hbang/Alderis
+    fetch: release
+
+  - id: flexing
+    enabled: false
+    repo: PoomSmart/FLEXing
+    fetch: build
+    branch: rootless
+    build_cmd: make package THEOS_PACKAGE_SCHEME=rootless
+
+  - id: youtimestamp
+    enabled: false
+    repo: aricloverALT/YouTimeStamp
+    fetch: build
+    build_cmd: make package
+
+  - id: ytheaders
+    enabled: false
+    repo: therealFoxster/YTHeaders
+    fetch: build
+    build_cmd: make package
+
+  - id: open_youtube_safari
+    enabled: false
+    repo: BillyCurtis/OpenYouTubeSafariExtension
+    fetch: build
+    build_cmd: make package
+
+customization:
+  bundle_id: com.custom.youtube
+  display_name: "YouTube+"
+  icon: assets/icon.png
+  min_ios: "16.0"
+  strip_watch_extension: true
+  strip_plugins: true
+  strip_extensions: true

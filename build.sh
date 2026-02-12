@@ -1,37 +1,46 @@
-#!/bin/bash
-# To build, either place the IPA file in the project's root directory, or get the path to the IPA, then run `./build.sh`
+#!/usr/bin/env bash
+# build.sh — Local build script for YTLitePlus
+#
+# Usage:
+#   ./build.sh /path/to/YouTube.ipa          # explicit IPA path
+#   ./build.sh https://example.com/YT.ipa    # download from URL
+#   ./build.sh                               # auto-detect IPA in current dir
+#
+# Reads config.yml for tweak list and customization settings.
+# Shares all core logic with the CI workflow via lib.sh.
 
-read -p $'\e[34m==> \e[1;39mPath to the decrypted YouTube.ipa or YouTube.app. If nothing is provied, any ipa/app in the project\'s root directory will be used: ' PATHTOYT
+set -euo pipefail
 
-# Check if PATHTOYT is empty
-if [ -z "$PATHTOYT" ]; then
-    # Look for ipa/app files in the current directory
-    IPAS=$(find . -maxdepth 1 -type f \( -name "*.ipa" -o -name "*.app" \))
-    
-    # Check if there are two or more ipa/app files
-    COUNT=$(echo "$IPAS" | wc -l)
-    
-    if [ "$COUNT" -ge 2 ]; then
-        echo "❌ Error: Multiple IPA/app files found in the project's root directory directory. Make sure there is only one ipa."
-        exit 1
-        
-    elif [ -n "$IPAS" ]; then
-        PATHTOYT=$(echo "$IPAS" | head -n 1)
-        
-    else
-        echo "❌ Error: No IPA/app file found in the project's root directory directory."
-        exit 1
-    fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# shellcheck source=lib.sh
+source "${SCRIPT_DIR}/lib.sh"
+
+###############################################################################
+# Resolve the IPA source
+###############################################################################
+IPA_SOURCE="${1:-}"
+
+if [ -z "$IPA_SOURCE" ]; then
+  # Auto-detect: look for a single .ipa in the project root
+  mapfile -t ipa_files < <(find "$SCRIPT_DIR" -maxdepth 1 -name "*.ipa" -type f)
+
+  if [ ${#ipa_files[@]} -eq 0 ]; then
+    die "No IPA file provided and none found in ${SCRIPT_DIR}.\nUsage: ./build.sh /path/to/YouTube.ipa"
+  elif [ ${#ipa_files[@]} -gt 1 ]; then
+    die "Multiple IPA files found in ${SCRIPT_DIR}. Provide the path explicitly.\nUsage: ./build.sh /path/to/YouTube.ipa"
+  fi
+
+  IPA_SOURCE="${ipa_files[0]}"
+  log_info "Auto-detected IPA: ${IPA_SOURCE}"
 fi
 
-make package THEOS_PACKAGE_SCHEME=rootless IPA="$PATHTOYT" FINALPACKAGE=1
+###############################################################################
+# Run the pipeline
+###############################################################################
+OUTPUT_IPA="${SCRIPT_DIR}/YouTube-patched.ipa"
 
-# SHASUM
-if [[ $? -eq 0 ]]; then
-  open packages
-  echo "SHASUM256: $(shasum -a 256 packages/*.ipa)"
+run_full_pipeline "$IPA_SOURCE" "$OUTPUT_IPA"
 
-else
-  echo "Failed building YTLitePlus"
-
-fi
+# Cleanup intermediate work directory
+cleanup_workspace
