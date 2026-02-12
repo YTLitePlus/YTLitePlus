@@ -73,7 +73,7 @@ jobs:
         id: version
         run: |
           # Extract YouTube version from the patched IPA for the release tag
-          VERSION_TAG="v2-$(date +'%Y%m%d-%H%M%S')"
+          VERSION_TAG="v2-$(date -u +'%Y%m%d-%H%M%S')"
           echo "tag=${VERSION_TAG}" >> "$GITHUB_OUTPUT"
           SHA256=$(shasum -a 256 YouTube-patched.ipa | cut -d' ' -f1 || sha256sum YouTube-patched.ipa | cut -d' ' -f1)
           echo "sha256=${SHA256}" >> "$GITHUB_OUTPUT"

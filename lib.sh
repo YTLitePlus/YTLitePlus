@@ -265,10 +265,11 @@ extract_dylib_from_deb() {
   log_info "  → Extracting .deb for ${tweak_id}…"
 
   # ar extracts the deb; data.tar.* contains the payload
-  (cd "$extract_dir" && ar -x "$deb_path" 2>/dev/null) || {
-    # Some debs are just tarballs
-    tar -xf "$deb_path" -C "$extract_dir" 2>/dev/null || die "Cannot extract deb: $deb_path"
-  }
+  local ar_output
+  if ! ar_output=$(cd "$extract_dir" && ar -x "$deb_path" 2>&1); then
+    log_warn "ar extraction failed (${ar_output}), trying tar fallback…"
+    tar -xf "$deb_path" -C "$extract_dir" || die "Cannot extract deb: $deb_path"
+  fi
 
   # Extract data.tar.* (could be .gz, .xz, .lzma, .zst, or uncompressed)
   local data_tar
@@ -298,10 +299,8 @@ extract_dylib_from_deb() {
   local bundle
   bundle=$(find "$extract_dir" -name "*.bundle" -type d | head -n 1)
   if [ -n "$bundle" ]; then
-    cp -R "$bundle" "${WORK_DIR}/bundles_extra/$(basename "$bundle")" 2>/dev/null || {
-      mkdir -p "${WORK_DIR}/bundles_extra"
-      cp -R "$bundle" "${WORK_DIR}/bundles_extra/"
-    }
+    mkdir -p "${WORK_DIR}/bundles_extra"
+    cp -R "$bundle" "${WORK_DIR}/bundles_extra/"
     log_ok "  → Extracted bundle: $(basename "$bundle")"
   fi
 }
@@ -541,7 +540,8 @@ PYEOF
   if [ "$strip_extensions" = "True" ] || [ "$strip_extensions" = "true" ]; then
     # Remove all .appex except ones we explicitly embed
     if [ -d "${APP_DIR}/PlugIns" ]; then
-      find "${APP_DIR}/PlugIns" -name "*.appex" -type d -exec rm -rf {} + 2>/dev/null || true
+      find "${APP_DIR}/PlugIns" -name "*.appex" -type d -exec rm -rf {} + 2>/dev/null \
+        || log_warn "Some extensions could not be stripped"
     fi
     log_ok "Stripped extensions"
   fi
