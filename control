@@ -1,0 +1,9 @@
+Package: com.yourusername.ytliteplus
+Name: YTLitePlus
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Custom YouTube tweak with themes, settings, and UI enhancements
+Maintainer: Your Name <your.email@example.com>
+Author: Your Name <your.email@example.com>
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
