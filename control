@@ -1,9 +1,11 @@
-Package: com.yourusername.ytliteplus
+Package: com.ytliteplus.tweak
 Name: YTLitePlus
-Version: 1.0.0
+Version: 2.0
 Architecture: iphoneos-arm64
-Description: Custom YouTube tweak with themes, settings, and UI enhancements
-Maintainer: Your Name <your.email@example.com>
-Author: Your Name <your.email@example.com>
+Description: YTLitePlus is a comprehensive YouTube tweak that enhances your viewing experience with custom themes, advanced settings, low contrast mode, and extensive customization options. Features include theme support, version spoofing, UI improvements, and localization in 15+ languages.
+Homepage: https://github.com/YTLitePlus/YTLitePlus
+Maintainer: YTLitePlus Team
+Author: Balackburn, dayanch96, arichornloverALT, and contributors
 Section: Tweaks
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
+Icon: https://raw.githubusercontent.com/YTLitePlus/Assets/main/Github/YTLitePlusColored-128.png
