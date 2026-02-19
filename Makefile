@@ -46,7 +46,7 @@ REMOVE_EXTENSIONS = 1
 CODESIGN_IPA = 0
 
 YTLITE_PATH = Tweaks/YTLite
-YTLITE_VERSION := $(shell curl -s https://api.github.com/repos/dayanch96/YTLite/releases/latest | grep '"tag_name"' | sed 's/.*"v\(.*\)".*/\1/')
+YTLITE_VERSION ?= $(shell curl -s https://api.github.com/repos/dayanch96/YTLite/releases/latest | grep '"tag_name"' | sed 's/.*"v\(.*\)".*/\1/')
 ifeq ($(YTLITE_VERSION),)
 $(error Failed to fetch latest YTLite version from GitHub API)
 endif
