@@ -136,7 +136,7 @@ jobs:
           # Get the version number of the YouTube app and store it
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
           # Fetch the latest YTLite version from GitHub API
-          YTLITE_VERSION=$(curl -s https://api.github.com/repos/dayanch96/YTLite/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          YTLITE_VERSION=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/dayanch96/YTLite/releases/latest | jq -r '.tag_name' | sed 's/^v//')
           if [ -z "$YTLITE_VERSION" ] || [ "$YTLITE_VERSION" = "null" ]; then
             echo "::error::Failed to fetch latest YTLite version from GitHub API"
             exit 1
@@ -167,6 +167,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ env.URL_YT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Package
         id: build_package
@@ -178,7 +179,7 @@ jobs:
           sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
           sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
           # Build the package
-          make package SIDELOAD=1 THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+          make package SIDELOAD=1 THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1 YTLITE_VERSION=${{ env.YTLITE_VERSION }}
           # Rename the package based on the version
           (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}.ipa")
           # Pass package name to the upload step
