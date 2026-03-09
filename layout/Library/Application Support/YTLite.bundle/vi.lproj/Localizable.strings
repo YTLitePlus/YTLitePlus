@@ -1,0 +1,635 @@
+/* Main section */
+"Main" = "Cài đặt chính";
+
+/* Downloading options */
+"Downloading" = "Tải nội dung";
+"DownloadManager" = "Trình quản lý tải xuống";
+"DownloadManagerDesc" = "Khi bật, nhấn nút 'Tải xuống' dưới trình phát sẽ mở Trình quản lý tải xuống, cho phép bạn tải video, âm thanh, lưu và sao chép hình thu nhỏ hoặc thông tin video.";
+"PostManager" = "Lưu bài đăng";
+"PostManagerDesc" = "Sao chép nội dung hoặc lưu bài đăng dưới dạng hình ảnh bằng cách nhấn giữ.";
+"SaveProfilePhoto" = "Lưu ảnh hồ sơ";
+"SaveProfilePhotoDesc" = "Lưu ảnh hồ sơ vào ứng dụng Ảnh bằng cách nhấn giữ.";
+"CommentManager" = "Lưu bình luận";
+"CommentManagerDesc" = "Sao chép nội dung hoặc lưu bình luận dưới dạng hình ảnh bằng cách nhấn giữ.";
+
+"YtlButtonPosition" = "Vị trí nút tải xuống";
+"UnderPlayer" = "Dưới trình phát";
+"Overlay" = "Trong trình phát";
+"Both" = "Cả hai";
+
+"PostDownloadAction" = "Sau khi tải xuống";
+"PostDownloadDesc" = "Chọn tác vụ để thực hiện sau khi tải video hoàn tất.";
+"SaveToPhotos" = "Lưu vào Ảnh";
+"Share" = "Chia sẻ";
+"Copy" = "Sao chép";
+"Ask" = "Hỏi";
+"DownloadCompleted" = "Tải xuống hoàn tất";
+
+"PreferredAudio" = "Lựa chọn bản âm thanh";
+"Selected" = "Đã chọn";
+"English" = "Tiếng Anh";
+"SelectAudioTrack" = "Chọn bản âm thanh";
+"EnglishNotFound" = "Không tìm thấy bản âm thanh tiếng Anh";
+
+"Audios" = "Âm thanh";
+"AudioDRC" = "Ưu tiên âm lượng ổn định";
+"AudioDRCDesc" = "Trình quản lý tải xuống sẽ ưu tiên âm thanh có âm lượng ổn định (nén dải động) nếu khả dụng.";
+
+"CaptionsAndThumbnails" = "Phụ đề và hình thu nhỏ";
+"EmbedThumbnailsToVideos" = "Nhúng hình thu nhỏ";
+"EmbedThumbnailsToVideosDesc" = "Tích hợp hình thu nhỏ vào dữ liệu thuộc tính của video.";
+"EmbedCapsToVideos" = "Nhúng phụ đề";
+"EmbedCapsToVideosDesc" = "Tích hợp phụ đề đã chọn vào video.";
+"EmbedAutoGenCaps" = "Phụ đề tự động/đã dịch";
+"EmbedAutoGenCapsDesc" = "Thêm phụ đề tự động, đã dịch và tự động dịch vào danh sách chọn.";
+"DownloadCaptions" = "Tải phụ đề xuống";
+"SelectCaption" = "Chọn phụ đề";
+"Translated" = "đã dịch";
+"TranslatedAutoGen" = "tự động dịch";
+
+/* Nav bar options */
+"Navbar" = "Thanh điều hướng";
+"RemoveCast" = "Ẩn nút Truyền";
+"RemoveCastDesc" = "Ẩn nút truyền video đến thiết bị khác khỏi thanh điều hướng.";
+"RemoveNotifications" = "Ẩn nút Thông báo";
+"RemoveNotificationsDesc" = "Ẩn nút mở phần thông báo khỏi thanh điều hướng.";
+"RemoveSearch" = "Ẩn nút Tìm kiếm";
+"RemoveSearchDesc" = "Ẩn nút tìm kiếm nội dung khỏi thanh điều hướng.";
+"RemoveVoiceSearch" = "Ẩn nút Tìm kiếm bằng giọng nói";
+"RemoveVoiceSearchDesc" = "Ẩn nút tìm kiếm nội dung bằng giọng nói khỏi thanh điều hướng.";
+"StickyNavbar" = "Thanh điều hướng cố định";
+"StickyNavbarDesc" = "Không ẩn thanh điều hướng khi lướt xem.";
+"NoSubbar" = "Ẩn thanh phụ";
+"NoSubbarDesc" = "Ẩn dải các nút phụ dưới thanh điều hướng (Tất cả, Đề xuất mới, Trực tiếp, v.v.).";
+"NoYTLogo" = "Ẩn biểu tượng YouTube";
+"NoYTLogoDesc" = "Ẩn biểu tượng YouTube khỏi thanh điều hướng.";
+"PremiumYTLogo" = "Dùng biểu tượng YouTube Premium";
+"PremiumYTLogoDesc" = "Thay thế biểu tượng thông thường trên thanh điều hướng bằng biểu tượng YouTube Premium.";
+
+/* Feed options */
+"Feed" = "Trang xem";
+"RemoveAds" = "Chặn quảng cáo";
+"RemoveAdsDesc" = "Loại bỏ quảng cáo trong ứng dụng.";
+"HideShorts" = "Ẩn video ngắn (Shorts)";
+"HideShortsDesc" = "Ẩn các video ngắn khỏi Trang chủ, Được đề xuất, v.v.";
+"KeepSubsShorts" = "Giữ video ngắn trong tab Đăng ký";
+"KeepSubsShortsDesc" = "Không ẩn các video ngắn trong tab Đăng ký.";
+"RemoveCommunityPosts" = "Ẩn bài đăng cộng đồng";
+"RemoveCommunityPostsDesc" = "Ẩn bài đăng cộng đồng khỏi trang xem.";
+"RemoveMixPlaylists" = "Ẩn danh sách kết hợp";
+"RemoveMixPlaylistsDesc" = "Ẩn danh sách phát kết hợp được YouTube tự động tạo khỏi trang xem.";
+"RemoveLiveVids" = "Ẩn video trực tiếp";
+"RemoveLiveVidsDesc" = "Ẩn các video trực tiếp khỏi tab Trang chủ.";
+"RemoveHorizontalFeeds" = "Ẩn nội dung được bố trí ngang";
+"RemoveHorizontalFeedsDesc" = "Ẩn phần nội dung được bố trí theo chiều ngang khỏi tab Trang chủ (Tin tức hàng đầu, Tiếp tục xem, v.v.).";
+"RemoveMoreTopics" = "Ẩn chủ đề khác";
+"RemoveMoreTopicsDesc" = "Ẩn mục \"Khám phá các chủ đề khác\" khỏi trang xem.";
+"RemovePlayables" = "Ẩn trò chơi";
+"RemovePlayablesDesc" = "Ẩn các trò chơi nhỏ (minigame) khỏi trang xem.";
+"FixAlbums" = "Sửa lỗi ảnh bìa Album";
+"FixAlbumsDesc" = "Sửa lỗi hiển thị ảnh bìa Album cho người dùng tại Nga.";
+
+/* Player options */
+"Player" = "Trình phát";
+"PlaybackQualityOnWiFi" = "Chất lượng video qua Wi-Fi";
+"PlaybackQualityOnWiFiDesc" = "Tự động áp dụng chất lượng phát đã chọn khi sử dụng Wi-Fi.";
+"PlaybackQualityOnCellular" = "Chất lượng video qua mạng di động";
+"PlaybackQualityOnCellularDesc" = "Tự động áp dụng chất lượng phát đã chọn khi sử dụng dữ liệu di động.";
+
+"PreferredCaptions" = "Lựa chọn phụ đề";
+"Original" = "Nguyên bản";
+"Custom" = "Tự chọn";
+"CustomAudioTrack" = "Bản âm thanh đã chọn";
+"CustomAudioTrackDesc" = "Ưu tiên sử dụng ngôn ngữ bản âm thanh đã chọn nếu khả dụng.";
+"CustomCaptions" = "Phụ đề đã chọn";
+"CustomCaptionsDesc" = "Ưu tiên sử dụng ngôn ngữ phụ đề đã chọn nếu khả dụng.";
+"AutoGenCaps" = "Cho phép phụ đề tự động";
+"AutoGenCapsDesc" = "Nếu không tìm thấy phụ đề đã chọn, YouTube Plus sẽ chuyển sang bản dịch của phụ đề gốc hoặc phụ đề tự động.";
+
+"Player.Interface" = "Giao diện";
+"SpeedControls" = "Nút điều khiển tốc độ";
+"SpeedControlsDesc" = "Hiển thị nút điều khiển tốc độ video trong trình phát.";
+"MuteButton" = "Nút tắt tiếng";
+"MuteButtonDesc" = "Hiển thị nút bật hoặc tắt âm thanh video trong trình phát.";
+"LockButton" = "Nút khóa thao tác";
+"LockButtonDesc" = "Hiển thị nút khóa nhanh cử chỉ thao tác, đồng thời chuyển sang chế độ toàn màn hình.";
+"HideAutoplay" = "Ẩn nút Tự động phát";
+"HideAutoplayDesc" = "Ẩn nút tự động phát video tiếp theo khỏi trình phát.";
+"HideSubs" = "Ẩn nút Phụ đề";
+"HideSubsDesc" = "Ẩn nút hiển thị phụ đề video khỏi trình phát.";
+"HidePrevNext" = "Ẩn nút Trước và Tiếp theo";
+"HidePrevNextDesc" = "Ẩn nút chuyển đến video trước hoặc video tiếp theo khỏi trình phát.";
+"ReplacePrevNext" = "Dùng nút Tua đi và Tua lại";
+"ReplacePrevNextDesc" = "Thay thế nút chuyển đến video trước hoặc tiếp theo trong trình phát bằng nút tua video.";
+"RememberLoopMode" = "Ghi nhớ chế độ vòng lặp";
+"RememberLoopModeDesc" = "Ghi nhớ chế độ vòng lặp đã chọn lần cuối trong menu trình phát.";
+"FullscreenToTheLeft" = "Xoay màn hình sang trái";
+"FullscreenToTheLeftDesc" = "Nhấn vào nút toàn màn hình sẽ xoay màn hình sang trái thay vì sang phải như thông thường.";
+"PortraitFullscreen" = "Chế độ toàn màn hình dọc";
+"PortraitFullscreenDesc" = "Cho phép vào chế độ toàn màn hình theo chiều dọc.";
+"ClassicQuality" = "Dùng menu chất lượng video cũ";
+"ClassicQualityDesc" = "Sử dụng menu lựa chọn chất lượng video cổ điển.";
+"ExtraSpeedOptions" = "Bổ sung lựa chọn tốc độ";
+"ExtraSpeedOptionsDesc" = "Thêm các lựa chọn tốc độ bổ sung vào menu trình phát.";
+"NoDarkBg" = "Không làm tối màn hình";
+"NoDarkBgDesc" = "Không làm tối màn hình video khi nhấn hiển thị các nút điều khiển.";
+"NoEndScreenCards" = "Ẩn video ở màn hình kết thúc";
+"NoEndScreenCardsDesc" = "Ẩn các khung hình xuất hiện khi video sắp kết thúc.";
+"NoAutonavEndScreenCards" = "Ẩn màn hình phát video tiếp theo";
+"NoAutonavEndScreenCardsDesc" = "Ẩn màn hình hiển thị video sẽ phát sau khi video hiện tại kết thúc. Tùy chọn này cũng sẽ tắt tính năng tự động phát.";
+"NoFullscreenActions" = "Ẩn các nút cạnh dưới trong toàn màn hình";
+"NoFullscreenActionsDesc" = "Ẩn dải các nút thao tác nhanh ở cạnh dưới trong chế độ toàn màn hình.";
+"PersistentProgressBar" = "Luôn hiện thanh tiến trình";
+"PersistentProgressBarDesc" = "Không ẩn thanh tiến trình trong trình phát.";
+"RedProgressBar" = "Thanh tiến trình màu đỏ";
+"RedProgressBarDesc" = "Sử dụng thanh tiến trình màu đỏ kiểu cũ.";
+"StockVolumeHUD" = "Thanh âm lượng hệ thống";
+"StockVolumeHUDDesc" = "Sử dụng thanh âm lượng mặc định của iOS trong chế độ toàn màn hình.";
+"NoRelatedVids" = "Ẩn video liên quan";
+"NoRelatedVidsDesc" = "Ẩn các video liên quan khi thực hiện vuốt lên trong chế độ toàn màn hình.";
+"NoPromotionCards" = "Ẩn chú thích Chứa nội dung quảng cáo";
+"NoPromotionCardsDesc" = "Ẩn thẻ chú thích \"Chứa nội dung được trả tiền để quảng cáo\" trong các video tự quảng cáo.";
+"NoWatermarks" = "Ẩn hình mờ của kênh";
+"NoWatermarksDesc" = "Ẩn hình mờ xuất hiện ở góc dưới bên phải màn hình.";
+"DisableAmbientMode" = "Tắt chế độ môi trường xung quanh";
+"DisableAmbientModeDesc" = "Tắt hiệu ứng môi trường xung quanh trong và dưới trình phát.";
+"VideoEndTime" = "Hiện thời điểm kết thúc video";
+"VideoEndTimeDesc" = "Hiển thị thời điểm kết thúc bên cạnh thời lượng video.";
+"24hrFormat" = "Dùng định dạng 24 giờ";
+"24hrFormatDesc" = "Hiển thị thời điểm kết thúc ở định dạng 24 giờ.";
+"NoRelatedWatchNexts" = "Ẩn video dưới trình phát";
+"NoRelatedWatchNextsDesc" = "Ẩn tất cả video dưới trình phát, chỉ để lại phần thông tin mô tả video và bình luận.";
+"RemoveInlineComment" = "Ẩn xem trước bình luận";
+"RemoveInlineCommentDesc" = "Ẩn bản xem trước bình luận dưới trình phát.";
+"NoSubUnderPlayer" = "Ẩn nút \"Đăng ký\"";
+"NoSubUnderPlayerDesc" = "Ẩn nút đăng ký kênh dưới trình phát.";
+"PlayerNoShare" = "Ẩn nút \"Chia sẻ\"";
+"PlayerNoShareDesc" = "Ẩn nút chia sẻ video dưới trình phát.";
+"PlayerNoThanks" = "Ẩn nút \"Cảm ơn\"";
+"PlayerNoThanksDesc" = "Ẩn nút ủng hộ kênh dưới trình phát.";
+"PlayerNoRemix" = "Ẩn nút \"Phối lại\"";
+"PlayerNoRemixDesc" = "Ẩn nút phối lại video dưới trình phát.";
+"PlayerNoDownload" = "Ẩn nút \"Tải xuống\"";
+"PlayerNoDownloadDesc" = "Ẩn nút tải xuống video dưới trình phát.";
+"PlayerNoClip" = "Ẩn nút \"Tạo đoạn video\"";
+"PlayerNoClipDesc" = "Ẩn nút tạo đoạn video dưới trình phát.";
+"PlayerNoSave" = "Ẩn nút \"Lưu\"";
+"PlayerNoSaveDesc" = "Ẩn nút lưu video dưới trình phát.";
+"PlayerNoReport" = "Ẩn nút \"Báo cáo\"";
+"PlayerNoReportDesc" = "Ẩn nút báo cáo video dưới trình phát.";
+
+"ProgressBarStyle" = "Kiểu thanh tiến trình";
+"SolidColor" = "Màu đồng nhất";
+"Gradient" = "Màu chuyển sắc";
+"MainColor" = "Màu chính";
+"GradientColor" = "Màu phụ";
+"ScrubberColor" = "Màu núm trượt";
+
+"Player.Actions" = "Hành động";
+"DefaultPlaybackRate" = "Tốc độ phát mặc định";
+"DefaultPlaybackRateDesc" = "Thay thế tốc độ phát mặc định.";
+"BackgroundPlayback" = "Phát trong nền";
+"BackgroundPlaybackDesc" = "Tiếp tục phát khi thoát ứng dụng.";
+"Miniplayer" = "Dùng trình phát thu nhỏ với mọi video";
+"MiniplayerDesc" = "Sử dụng trình phát thu nhỏ đối với mọi video, kể cả các video dành cho trẻ em.";
+"DisableAutoplay" = "Không tự phát video";
+"DisableAutoplayDesc" = "Không tự động phát video ngay khi nhấn xem.";
+"DisableAutoCaptions" = "Không tự bật phụ đề";
+"DisableAutoCaptionsDesc" = "Không tự động bật phụ đề ngay khi nhấn xem.";
+"NoContentWarning" = "Bỏ qua cảnh báo nội dung";
+"NoContentWarningDesc" = "Không hiển thị hộp thoại cảnh báo nội dung nhạy cảm.";
+"NoHints" = "Ẩn thẻ gợi ý";
+"NoHintsDesc" = "Ẩn thẻ gợi ý của kênh xuất hiện ở góc trên bên phải video trong khi phát.";
+"AutoFullscreen" = "Tự động chuyển sang toàn màn hình";
+"AutoFullscreenDesc" = "Tự động phát video ở chế độ toàn màn hình.";
+"ExitFullscreen" = "Thoát chế độ toàn màn hình khi kết thúc";
+"ExitFullscreenDesc" = "Thoát khỏi chế độ toàn màn hình khi video kết thúc.";
+
+"Player.Gestures" = "Cử chỉ";
+"CompactToast" = "Thu gọn biểu thị";
+"CompactToastDesc" = "Thu gọn biểu thị độ sáng và âm lượng khi sử dụng tính năng cử chỉ.";
+"LeftSideGesture" = "Cử chỉ bên trái";
+"LeftSideGestureDesc" = "Điều chỉnh giá trị bằng cách vuốt lên xuống ở phần bên trái màn hình.";
+"RightSideGesture" = "Cử chỉ bên phải";
+"RightSideGestureDesc" = "Điều chỉnh giá trị bằng cách vuốt lên xuống ở phần bên phải màn hình.";
+"ActivationAreaWidth" = "Độ rộng khu vực thao tác";
+"ActivationAreaWidthDesc" = "Giá trị này là độ rộng khu vực thao tác của phần bên trái và bên phải màn hình tính theo đơn vị điểm ảnh.\n\nGiá trị tối đa cho phép bằng một phần ba chiều rộng màn hình.\n\nĐiều chỉnh cài đặt này nếu bạn thường xuyên gặp tình trạng thao tác nhầm khi thực hiện vuốt lên hoặc xuống để đóng mở chế độ toàn màn hình.";
+"HoldToSpeed" = "Nhấn giữ để chỉnh tốc độ thành";
+"HoldToSpeedDesc" = "Điều chỉnh tốc độ phát khi nhấn giữ vào màn hình.";
+"AdjustWithFinger" = "Chỉnh tốc độ bằng cử chỉ";
+"AdjustWithFingerDesc" = "Điều chỉnh tốc độ bằng cách nhấn giữ vào video và di chuyển ngón tay lên xuống.";
+"PreserveSpeed" = "Giữ tốc độ đã điều chỉnh";
+"PreserveSpeedDesc" = "Duy trì tốc độ đã điều chỉnh sau khi thực hiện cử chỉ.";
+"SeekAnywhere" = "Vuốt để tua chính xác";
+"SeekAnywhereDesc" = "Tua chính xác bằng cách vuốt sang trái hoặc sang phải ở vị trí bất kỳ trên màn hình.";
+"SeekMethod" = "Phương thức tua chính xác";
+"SeekMethodDesc" = "Độc lập: Vuốt nhanh qua toàn bộ thanh thời lượng của video. Có thể điều chỉnh độ nhạy bằng thanh trượt bên dưới.\n\nDựa trên thời lượng: Độ nhạy khi vuốt sẽ dựa trên cả giá trị thanh trượt bên dưới và thời lượng của video. Từ đó, video dài sẽ cần vuốt một quãng dài hơn so với thông thường, giúp tránh việc tua quá phần video mong muốn.";
+"Independent" = "Độc lập";
+"DurationBased" = "Dựa trên thời lượng";
+"SeekSensitivity" = "Độ nhạy";
+"TwoFingerTapToPause" = "Tạm dừng bằng hai ngón tay";
+"TwoFingerTapToPauseDesc" = "Tạm dừng hoặc tiếp tục phát video bằng cách chạm màn hình bằng hai ngón tay.";
+"TwoFingerPanToBrightness" = "Cử chỉ điều chỉnh độ sáng";
+"TwoFingerPanToBrightnessDesc" = "Điều chỉnh độ sáng màn hình bằng cách trượt lên hoặc xuống bằng hai ngón tay.";
+"CopyWithTimestamp" = "Sao chép liên kết kèm dấu thời gian";
+"CopyWithTimestampDesc" = "Sao chép liên kết video kèm dấu thời gian vào bộ nhớ tạm khi nhấn nút tạm dừng.";
+"PauseOnOverlay" = "Tạm dừng khi hiện nút điều khiển";
+"PauseOnOverlayDesc" = "Tự động tạm dừng video khi nhấn hiển thị các nút điều khiển.";
+"DontSnap2Chapter" = "Tắt ghim phân cảnh";
+"DontSnap2ChapterDesc" = "Tắt tính năng tự động chuyển đến phân cảnh gần nhất khi tua video.";
+"NoTwoFingerSnapToChapter" = "Tắt chạm hai lần bằng hai ngón tay";
+"NoTwoFingerSnapToChapterDesc" = "Tắt thao tác chạm hai lần bằng hai ngón tay để chuyển phân cảnh.";
+"NoFreeZoom" = "Tắt cử chỉ thu phóng";
+"NoFreeZoomDesc" = "Tắt cử chỉ thu phóng video.";
+"NoDoubleTap2Seek" = "Tắt chạm hai lần để tua";
+"NoDoubleTap2SeekDesc" = "Tắt thao tác chạm hai lần để tua.";
+
+/* Shorts options */
+"Shorts" = "Video ngắn (Shorts)";
+"PlaybackMode" = "Sau khi kết thúc video";
+"Loop" = "Lặp lại";
+"ScrollToNext" = "Phát tiếp theo";
+"Stop" = "Dừng phát";
+"AutoSkipShorts" = "Tự động phát video tiếp theo";
+"ShortsOnlyMode" = "Chế độ video ngắn";
+"ShortsOnlyModeDesc" = "Giới hạn các chức năng của YouTube chỉ cho phép xem video ngắn.";
+"RestrictShorts" = "Giới hạn số lượng video ngắn";
+"RestrictShortsDesc" = "Giới hạn số lượng video ngắn trong trang xem còn khoảng 10 - 15 video. Sử dụng nếu bạn muốn bỏ thói quen lướt xem không ngừng nghỉ.";
+"ShortsProgress" = "Luôn hiện thanh tiến trình";
+"ShortsProgressDesc" = "Không ẩn thanh tiến trình trong video ngắn.";
+"SpeedByLongTap" = "Nhấn giữ để tăng tốc độ phát";
+"SpeedByLongTapDesc" = "Cho phép tăng tốc độ phát bằng cách nhấn giữ vào một khu vực trên màn hình.";
+"SpeedLocation" = "Vị trí khu vực thao tác";
+"PinchToFullscreenShorts" = "Cử chỉ thu phóng để bật toàn màn hình";
+"PinchToFullscreenShortsDesc" = "Sử dụng cử chỉ phóng to để hiển thị video ngắn ở chế độ toàn màn hình, thu nhỏ để quay lại chế độ thông thường.";
+"ShortsToRegular" = "Mở dưới dạng video thông thường";
+"ShortsToRegularDesc" = "Mở video ngắn với giao diện của video thông thường.";
+"RemoveShortsLive" = "Ẩn video trực tiếp";
+"RemoveShortsLiveDesc" = "Ẩn các video trực tiếp khỏi trang xem.";
+
+"ShortsInterface" = "Giao diện";
+"HideShortsLogo" = "Ẩn biểu tượng Shorts";
+"HideShortsLogoDesc" = "Ẩn biểu tượng Shorts ở góc trên bên trái màn hình.";
+"HideShortsSearch" = "Ẩn nút Tìm kiếm";
+"HideShortsSearchDesc" = "Ẩn nút tìm kiếm nội dung ở cạnh trên.";
+"HideShortsCamera" = "Ẩn nút Máy ảnh";
+"HideShortsCameraDesc" = "Ẩn nút mở máy ảnh để tạo nội dung ở cạnh trên.";
+"HideShortsMore" = "Ẩn nút Thêm (⋮)";
+"HideShortsMoreDesc" = "Ẩn nút mở menu tùy chọn bổ sung ở cạnh trên. Bạn vẫn có thể truy cập menu này bằng cách nhấn giữ vào màn hình.";
+
+"HideCarouselSub" = "Ẩn nút Kênh đăng ký";
+"HideCarouselSubDesc" = "Không hiển thị nút mở các video của kênh đăng ký khi tạm dừng.";
+"HideCarouselLive" = "Ẩn nút Phát trực tiếp";
+"HideCarouselLiveDesc" = "Không hiển thị nút mở các video trực tiếp khi tạm dừng.";
+"HideCarouselTrends" = "Ẩn nút Xu hướng";
+"HideCarouselTrendsDesc" = "Không hiển thị nút mở các video xu hướng khi tạm dừng.";
+"HideCarouselShop" = "Ẩn nút Mua sắm";
+"HideCarouselShopDesc" = "Không hiển thị nút mở các video gợi ý mua sắm khi tạm dừng.";
+
+"HideShortsLike" = "Ẩn nút Thích";
+"HideShortsLikeDesc" = "Ẩn nút thích video ở cạnh bên.";
+"HideShortsDislike" = "Ẩn nút Không thích";
+"HideShortsDislikeDesc" = "Ẩn nút không thích video ở cạnh bên.";
+"HideShortsComments" = "Ẩn nút Bình luận";
+"HideShortsCommentsDesc" = "Ẩn nút mở phần bình luận ở cạnh bên.";
+"HideShortsShare" = "Ẩn nút Chia sẻ";
+"HideShortsShareDesc" = "Ẩn nút chia sẻ video ở cạnh bên.";
+"HideShortsRemix" = "Ẩn nút Phối lại";
+"HideShortsRemixDesc" = "Ẩn nút phối lại video ở cạnh bên.";
+"HideShortsSuggestion" = "Ẩn nút được đề xuất";
+"HideShortsSuggestionDesc" = "Ẩn các nút thao tác được đề xuất, chẳng hạn như Lưu vào danh sách phát, Super Thanks, v.v.";
+"HideShortsSubscribe" = "Ẩn nút Đăng ký";
+"HideShortsSubscribeDesc" = "Ẩn nút đăng ký kênh xuất hiện cạnh tên người dùng.";
+"HideShortsUsername" = "Ẩn tên người dùng";
+"HideShortsUsernameDesc" = "Ẩn tên người dùng của kênh.";
+"HideShortsDescription" = "Ẩn phần mô tả";
+"HideShortsDescriptionDesc" = "Ẩn phần mô tả của video.";
+"HideShortsSource" = "Ẩn nút dẫn nguồn";
+"HideShortsSourceDesc" = "Ẩn nút liên kết đến video đầy đủ hoặc một video ngắn khác.";
+"HideShortsAudio" = "Ẩn thông tin âm thanh";
+"HideShortsAudioDesc" = "Ẩn dòng văn bản biểu thị âm thanh được sử dụng trong video hiện tại.";
+
+/* Tab bar options */
+"Tabbar" = "Thanh tab";
+"Startup" = "Tab khởi động";
+"FEwhat_to_watch" = "Trang chủ";
+"FEexplore" = "Khám phá";
+"FEshorts" = "Shorts";
+"FEsubscriptions" = "Đăng ký";
+"FElibrary" = "Thư viện";
+"FEuploads" = "Tạo";
+"FEhistory" = "Lịch sử";
+"FEpost_home" = "Bài đăng";
+"VLWL" = "Xem sau";
+
+"TranslucentBar" = "Thanh tab trong suốt";
+"RemoveLabels" = "Ẩn tên tab";
+"RemoveIndicators" = "Ẩn biểu thị hiện hoạt";
+
+"ActiveTabs" = "Tab đang hiển thị";
+"InactiveTabs" = "Tab đã ẩn đi";
+"HideLibraryFooter" = "Bạn cũng có thể mở phần cài đặt tab bằng cách nhấn giữ vào tab đầu tiên.";
+"Warning" = "Cảnh báo";
+"AtLeastOneTab" = "Bạn phải hiển thị tối thiểu một tab";
+"TabsCountRestricted" = "Bạn chỉ được hiển thị tối đa sáu tab";
+
+/* Interface options */
+"Interface" = "Giao diện";
+"OledTheme" = "Chủ đề OLED";
+"OledThemeDesc" = "Chuyển tất cả màu tối thành màu đen tuyền.";
+"OledKeyboard" = "Bàn phím OLED";
+"OledKeyboardDesc" = "Chuyển màu bàn phím thành màu đen tuyền.";
+"NoSearchHistory" = "Ẩn lịch sử tìm kiếm";
+"NoSearchHistoryDesc" = "Ẩn lịch sử tìm kiếm và đề xuất. Lưu ý: Bạn vẫn có thể truy cập lịch sử tìm kiếm của mình trong các ứng dụng hoặc thiết bị khác.";
+"StickSortComments" = "Thanh tùy chọn sắp xếp bình luận cố định";
+"StickSortCommentsDesc" = "Không ẩn các tùy chọn sắp xếp bình luận (Hàng đầu, Mới nhất) khi lướt xem.";
+"HideSortComments" = "Ẩn thanh tùy chọn sắp xếp bình luận";
+"HideSortCommentsDesc" = "Ẩn các tùy chọn sắp xếp bình luận.";
+"PlaylistOldMinibar" = "Thanh điều khiển danh sách phát cũ";
+"PlaylistOldMinibarDesc" = "Thay thế thanh điều khiển danh sách phát mới bằng dạng cũ.";
+"OldYTUI" = "Dùng giao diện cũ";
+"OldYTUIDesc" = "Giả mạo phiên bản YouTube để sử dụng giao diện cũ.";
+"DisableRTL" = "Tắt định dạng RTL";
+"DisableRTLDesc" = "Buộc hiển thị tất cả văn bản theo định dạng từ trái sang phải (LTR), kể cả các ngôn ngữ sử dụng định dạng từ phải sang trái (RTL).";
+
+"StartupAnimation" = "Hoạt ảnh khởi động";
+"StartupAnimationDesc" = "Hiển thị hoạt ảnh khởi động YouTube.";
+
+"InterfaceStyle" = "Kiểu giao diện";
+
+"MiniplayerStyle" = "Kiểu trình phát thu nhỏ";
+"MiniplayerStyleDesc" = "Việc chuyển sang hoặc chuyển từ chế độ cửa sổ nổi yêu cầu khởi động lại ứng dụng.";
+"Floating" = "Cửa sổ nổi";
+
+"Other" = "Khác";
+"NoShareChunk" = "Bỏ tham số theo dõi";
+"NoShareChunkDesc" = "Loại bỏ tham số \"si=identifier\" khỏi liên kết chia sẻ. Có thể sử dụng thay cho tùy chọn \"Bảng chia sẻ hệ thống\", bởi YouTube đang ngày một cải thiện bảng chia sẻ của ứng dụng.";
+"AutoCheckLinks" = "Tự động kiểm tra bộ nhớ tạm";
+"AutoCheckLinksDesc" = "Kiểm tra liên kết YouTube trong bộ nhớ tạm mỗi lần khởi động ứng dụng.\nĐể tính năng hoạt động đúng, mở ứng dụng Cài đặt → YouTube → Dán từ ứng dụng khác và chọn \"Cho phép\".";
+
+"ContextMenu" = "Menu ngữ cảnh";
+"NativeShare" = "Bảng chia sẻ hệ thống";
+"NativeShareDesc" = "Sử dụng bảng chia sẻ mặc định của iOS để chia sẻ nội dung.";
+"RemoveCommentGuidelines" = "Ẩn nguyên tắc trên kênh";
+"RemoveCommentGuidelinesDesc" = "Ẩn nguyên tắc do kênh đưa ra trong phần bình luận.";
+"RemovePlayNext" = "Ẩn \"Phát tiếp theo trong danh sách chờ\"";
+"RemovePlayNextDesc" = "Ẩn tùy chọn thêm video vào danh sách chờ khỏi menu.";
+"RemoveDownloadMenu" = "Ẩn \"Tải video xuống\"";
+"RemoveDownloadMenuDesc" = "Ẩn tùy chọn tải xuống video khỏi menu.";
+"RemoveWatchLaterMenu" = "Ẩn \"Lưu vào danh sách Xem sau\"";
+"RemoveWatchLaterMenuDesc" = "Ẩn tùy chọn thêm video vào danh sách Xem sau khỏi menu.";
+"RemoveSaveToPlaylistMenu" = "Ẩn \"Lưu vào danh sách phát\"";
+"RemoveSaveToPlaylistMenuDesc" = "Ẩn tùy chọn thêm video vào danh sách phát bất kỳ khỏi menu.";
+"RemoveShareMenu" = "Ẩn \"Chia sẻ\"";
+"RemoveShareMenuDesc" = "Ẩn tùy chọn chia sẻ video khỏi menu.";
+"RemoveNotInterestedMenu" = "Ẩn \"Không quan tâm\"";
+"RemoveNotInterestedMenuDesc" = "Ẩn tùy chọn không quan tâm nội dung khỏi menu.";
+"RemoveDontRecommendMenu" = "Ẩn \"Không đề xuất kênh này\"";
+"RemoveDontRecommendMenuDesc" = "Ẩn tùy chọn hạn chế đề xuất kênh khỏi menu.";
+"RemoveReportMenu" = "Ẩn \"Báo vi phạm\"";
+"RemoveReportMenuDesc" = "Ẩn tùy chọn báo vi phạm nội dung khỏi menu.";
+"RemoveRemixMenu" = "Ẩn \"Phối lại\"";
+"RemoveRemixMenuDesc" = "Ẩn tùy chọn phối lại video khỏi menu.";
+"RemoveYTMMenu" = "Ẩn \"Nghe nhạc trên YouTube Music\"";
+"RemoveYTMMenuDesc" = "Ẩn tùy chọn mở nội dung trong YouTube Music khỏi menu.";
+
+/* SponsorBlock settings */
+"EnableSponsorBlock" = "Bật";
+"EnableSponsorBlockDesc" = "Kích hoạt tiện ích SponsorBlock.";
+"SbPlayerButton" = "Hiện nút trong trình phát";
+"SbPlayerButtonDesc" = "Hiển thị nút SponsorBlock trong trình phát video.";
+"ShowNotifications" = "Hiện thông báo";
+"ShowNotificationsDesc" = "Hiển thị thông báo khi phân đoạn được bỏ qua tự động. Không ảnh hưởng đến thông báo khi bỏ qua thủ công.";
+"SegmentsInFeedPlayer" = "Hiện phân đoạn trong trang xem";
+"SegmentsInFeedPlayerDesc" = "Hiển thị các phân đoạn trên thanh tiến trình của video được phát ngay trong trang xem.";
+"SegmentsInMiniPlayer" = "Hiện phân đoạn trong trình phát thu nhỏ";
+"SegmentsInMiniPlayerDesc" = "Hiển thị các phân đoạn trên thanh tiến trình của trình phát thu nhỏ.";
+"SegmentSkipAudio" = "Thông báo âm thanh";
+"SegmentSkipAudioDesc" = "Phát thông báo âm thanh khi bỏ qua phân đoạn.";
+"DurationWithoutSegments" = "Hiển thị thời lượng mới";
+"DurationWithoutSegmentsDesc" = "Hiển thị tổng thời lượng khi đã bỏ qua phân đoạn.";
+
+"SkipAlertDuration" = "Thời lượng hiển thị thông báo bỏ qua";
+"UnskipAlertDuration" = "Thời lượng hiển thị thông báo hoàn tác";
+
+"Segments" = "Phân đoạn";
+"Sponsor" = "Tài trợ";
+"SponsorDesc" = "Phần video dùng để quảng cáo cho sản phẩm hoặc dịch vụ không liên quan trực tiếp đến nhà sáng tạo. Họ sẽ nhận được khoản thanh toán dưới dạng tiền hoặc sản phẩm miễn phí.";
+"SponsorColor" = "Màu phân đoạn tài trợ";
+"Intro" = "Giới thiệu/Nghỉ";
+"IntroDesc" = "Các phần thường được tìm thấy ở đầu video bao gồm hoạt ảnh, khung hình tĩnh hoặc clip được dùng xuyên suốt trong các video của cùng một kênh.";
+"IntroColor" = "Màu phân đoạn giới thiệu";
+"Endcards" = "Kết thúc/Cảm ơn";
+"EndcardsDesc" = "Thường nằm ở các phần cuối của video, bắt đầu khi video hiện dòng cảm ơn hoặc khi các khung video hiện lên.";
+"EndcardsColor" = "Màu phân đoạn kết thúc";
+"Interaction" = "Nhắc nhở tương tác";
+"InteractionDesc" = "Phần video nhắc nhở người xem thích, đăng ký hoặc tương tác với nhà sáng tạo trên một nền tảng trả phí hoặc miễn phí bất kỳ (vd: nhấp vào video).";
+"InteractionColor" = "Màu phân đoạn nhắc nhở tương tác";
+"SelfPromo" = "Tự quảng cáo/Không trả tiền";
+"SelfPromoDesc" = "Tự quảng cáo: Quảng cáo sản phẩm hoặc dịch vụ có liên quan trực tiếp đến chính nhà sáng tạo.\nKhông trả tiền: Nhà sáng tạo sẽ không nhận được bất kỳ khoản thanh toán nào bằng việc quảng cáo.";
+"SelfPromoColor" = "Màu phân đoạn tự quảng cáo";
+"MusicOfftopic" = "Phần không phải nhạc trong video ca nhạc";
+"MusicOfftopicDesc" = "Những phân cảnh phụ được thêm vào video ca nhạc và không phải là một phần của bản nhạc gốc.";
+"MusicOfftopicColor" = "Màu phân đoạn không phải âm nhạc";
+"Preview" = "Xem trước";
+"PreviewDesc" = "Loạt các clip nhỏ cho người xem biết hoạt động sẽ diễn ra trong video hiện tại hoặc một video khác, các clip này được cắt ra từ nội dung chính và sẽ được đề cập lại trong phần sau của video.";
+"PreviewColor" = "Màu phân đoạn xem trước";
+"Highlight" = "Nổi bật";
+"HighlightDesc" = "Phần video nhằm dẫn người xem đến nội dung chính hoặc những điểm nổi bật của một video.";
+"HighlightColor" = "Màu phân đoạn nổi bật";
+"Jokes" = "Phần thêm thắt/Lời đùa";
+"JokesDesc" = "Phần video được thêm vào nhằm tăng tính giải trí hoặc chỉ để cho vui, không nhất thiết phải xem để có thể hiểu nội dung chính của video.";
+"JokesColor" = "Màu phân đoạn thêm thắt";
+
+"Sb.Disable" = "Tắt";
+"Sb.Skip" = "Tự động bỏ qua";
+"Sb.SkipTo" = "Chuyển đến phân đoạn";
+"Sb.Ask" = "Hỏi";
+"Sb.Display" = "Chỉ hiển thị";
+
+"PublicUserID" = "ID người dùng công khai";
+"PrivateUserID" = "ID người dùng riêng tư";
+"TapToReveal" = "Nhấn để hiển thị";
+"Save" = "Lưu";
+"Error.SbPublicID" = "ID người dùng công khai phải chứa đúng 64 ký tự";
+"Error.SbPrivateID" = "ID người dùng riêng tư (hay cục bộ) phải chứa ít nhất 32 ký tự";
+
+"sb_sponsor" = "phân đoạn tài trợ";
+"sb_intro" = "phân đoạn giới thiệu";
+"sb_outro" = "phân đoạn kết thúc";
+"sb_interaction" = "phân đoạn nhắc nhở tương tác";
+"sb_selfpromo" = "phân đoạn tự quảng cáo";
+"sb_music_offtopic" = "phân đoạn không phải nhạc";
+"sb_preview" = "phân đoạn xem trước";
+"sb_poi_highlight" = "phân đoạn nổi bật";
+"sb_filler" = "phân đoạn thêm thắt";
+
+"SegmentDetected" = "Đã phát hiện %@.\n%@";
+"SegmentSkipped" = "Đã bỏ qua %@";
+"SkippedToSegment" = "Đã chuyển đến %@";
+"SkipSegment" = "Bạn có muốn bỏ qua phân đoạn không?";
+"SkipToSegment" = "Bạn có muốn chuyển đến phần nổi bật không?";
+"Unskip" = "Hoàn tác";
+
+/* Developer section */
+"Developer" = "Nhà phát triển";
+"FollowMe" = "Theo dõi tôi trên X";
+"SupportDevelopment" = "Hỗ trợ nhà phát triển";
+"DonateDesc" = "Mọi hỗ trợ của bạn đều có ý nghĩa rất lớn";
+"SupportDevelopmentDesc" = "Nếu bạn thích YTPlus và muốn đóng góp đôi chút vào quá trình phát triển, bạn có thể thực hiện bằng một trong các cách dưới đây.\nXin cảm ơn ❤";
+"VisitGithub" = "Kho lưu trữ Github";
+"VisitGithubDesc" = "Thêm sao repo, gửi yêu cầu tính năng hoặc báo lỗi";
+"VisitTelegram" = "Kênh Telegram của tôi";
+"VisitTelegramDesc" = "Nhận thông tin về các bản cập nhật mới nhất";
+
+/* Credits section */
+"Credits" = "Ghi công";
+
+"Contributors" = "Người đóng góp";
+"DevContribution" = "Đóng góp phát triển";
+"SpecialThanks" = "Đặc biệt cảm ơn";
+"SpecialThanks.Test" = "Đóng góp giá trị trong việc tra kiểm tweak";
+
+"Localizations" = "Tác giả các bản dịch";
+"ChineseSimplified" = "Tiếng Trung (giản thể)";
+"ChineseTraditional" = "Tiếng Trung (phồn thể)";
+"French" = "Tiếng Pháp";
+"Spanish" = "Tiếng Tây Ban Nha";
+"Japanese" = "Tiếng Nhật";
+"Vietnamese" = "Tiếng Việt";
+"Arabic" = "Tiếng Ả Rập";
+"Turkish" = "Tiếng Thổ Nhĩ Kỳ";
+"Italian" = "Tiếng Ý";
+"Korean" = "Tiếng Hàn";
+"Polish" = "Tiếng Ba Lan";
+
+"OpenSourceLibs" = "Thư viện nguồn mở";
+"SupporterWall" = "Người ủng hộ";
+
+"Preferences" = "Cài đặt %@";
+"ManagePreferences" = "Quản lý cài đặt";
+"ImportPreferences" = "Nhập cài đặt";
+"PreImportMessage" = "Tùy chọn này sẽ áp dụng các cài đặt từ tệp được chọn, mọi cài đặt hiện tại sẽ bị thay thế.\n\nBạn có chắc chắn muốn thực hiện không?";
+"ExportPreferences" = "Xuất cài đặt";
+"ResetSettings" = "Đặt lại cài đặt mặc định";
+"ResetMessage" = "Tùy chọn này sẽ đặt lại cài đặt YTPlus về mặc định, sau đó thoát YouTube.\n\nBạn có chắc chắn muốn thực hiện không?";
+
+"ManageCache" = "Quản lý bộ nhớ đệm";
+"ClearCacheAtStart" = "Xóa bộ nhớ đệm khi khởi động";
+"ClearCacheAtStartDesc" = "Tự động xóa bộ nhớ đệm khi khởi động ứng dụng.";
+"ClearCache" = "Xóa bộ nhớ đệm";
+
+"NoDonationReminder" = "Tắt nhắc nhở ủng hộ";
+"NoDonationReminderDesc" = "Tắt lời nhắc ủng hộ, thông báo này hiếm khi được hiển thị.";
+
+"ShortsOnlyWarning" = "Bạn có chắc chắn muốn bật chế độ video ngắn?\n\nTrong chế độ này, bạn chỉ có thể xem video ngắn và không thể làm gì khác.\n\nBạn có thể tắt chế độ này bằng cách nhấn giữ hai ngón tay lên màn hình.";
+"ShortsModeTurnedOff" = "Đã tắt chế độ video ngắn";
+
+"AddLibraryTab" = "Khôi phục tab \"Bạn\"";
+"RemoveLibraryTab" = "Xóa tab \"Bạn\"";
+"LibraryAdded" = "Đã khôi phục tab \"Bạn\"";
+"LibraryRemoved" = "Đã xóa tab \"Bạn\"";
+
+"Yes" = "Có";
+"No" = "Không";
+
+"Select" = "Lựa chọn";
+"Default" = "Mặc định";
+"Best" = "Tốt nhất";
+"Show" = "Hiển thị";
+"Disable" = "Tắt";
+"Disabled" = "Tắt";
+"PlaybackSpeed" = "Tốc độ phát";
+"SpeedPreserved" = "Đã đặt tốc độ phát thành %@";
+"ResetSpeed" = "Đặt lại";
+
+"Toast.Brightness" = "Độ sáng";
+"Toast.PlaybackSpeed" = "Tốc độ phát";
+"Toast.Volume" = "Âm lượng";
+
+"SelectAction" = "Chọn tác vụ";
+"DownloadVideo" = "Tải video xuống";
+"DownloadAudio" = "Tải âm thanh xuống";
+"SaveImage" = "Lưu hình ảnh";
+"CopyInformation" = "Sao chép thông tin";
+"CopyChannelName" = "Sao chép tên kênh";
+"CopyTitle" = "Sao chép tiêu đề";
+"CopyDescription" = "Sao chép mô tả";
+"CopyTimestampedLink" = "Sao chép liên kết kèm dấu thời gian";
+"CopyTranscript" = "Sao chép bản chép lời";
+"PlayInExternalPlayer" = "Phát trong ứng dụng khác";
+"PlayInSystemPlayer" = "Phát trong trình phát hệ thống";
+"PlayInInfuse" = "Phát trong Infuse";
+"PlayInVLC" = "Phát trong VLC";
+"PlayerNotFound" = "Không tìm thấy trình phát";
+"OpenAsRegularVideo" = "Mở như video thông thường";
+"CopyPostText" = "Sao chép nội dung bài đăng";
+"SaveCurrentImage" = "Lưu hình ảnh hiện tại";
+"ShowCurrentImage" = "Xem hình ảnh hiện tại";
+"CopyCurrentImage" = "Sao chép hình ảnh hiện tại";
+"SavePostAsImage" = "Lưu bài đăng dưới dạng hình ảnh";
+"CopyPostAsImage" = "Sao chép bài đăng dưới dạng hình ảnh";
+"CopyCommentText" = "Sao chép nội dung bình luận";
+"SaveCommentAsImage" = "Lưu bình luận dưới dạng hình ảnh";
+"CopyCommentAsImage" = "Sao chép bình luận dưới dạng hình ảnh";
+"SaveProfilePicture" = "Lưu ảnh hồ sơ";
+"ShowProfilePicture" = "Xem ảnh hồ sơ";
+"CopyProfilePicture" = "Sao chép ảnh hồ sơ";
+"DownloadThumbnail" = "Lưu hình thu nhỏ";
+"ShowThumbnail" = "Xem hình thu nhỏ";
+"CopyThumbnail" = "Sao chép hình thu nhỏ";
+"Cancel" = "Hủy bỏ";
+"Cancelled" = "Đã hủy";
+"Copied" = "Đã sao chép vào bộ nhớ tạm";
+"Saved" = "Đã lưu vào ứng dụng Ảnh";
+"Done" = "Xong";
+"NothingToShowInMenu" = "Không có gì để hiển thị";
+"Error" = "Lỗi";
+"Error.Clipboard" = "Đã xảy ra lỗi. Kiểm tra bộ nhớ tạm để biết thêm thông tin";
+"Error.PathIssue" = "Đã xảy ra lỗi. Không thể tạo đường dẫn hoàn thiện, có thể do gặp sự cố với tiêu đề của nội dung.";
+"Error.TryLater" = "Nội dung hiện đang phát trực tiếp hoặc đang được xử lý trên máy chủ Google và sẽ sớm hoàn tất.\n\nVui lòng thử lại sau.";
+"Error.NoSpace" = "Thiết bị không có đủ dung lượng.\n\nCần thêm ít nhất %@ dung lượng để có thể tiếp tục. Dung lượng trống hiện tại: %@";
+"Error.Multidownloading" = "Tính năng tải xuống nhiều video song song chưa khả dụng.";
+"Error.FailedToImport" = "Không thể nhập cài đặt";
+"DownloadingVideo" = "Đang tải xuống video";
+"DownloadingAudio" = "Đang tải xuống âm thanh";
+"ParsingCaptions" = "Đang phân giải phụ đề";
+"ParsingTranscript" = "Đang phân giải bản chép lời";
+"Converting" = "Đang chuyển đổi";
+"RetryLogin" = "Đã áp dụng phương thức thay thế.\n\nVui lòng thử lại.";
+"LoginInfo" = "Yêu cầu khởi động lại ứng dụng sau khi đăng nhập thành công vào tài khoản Google";
+
+"OpenLink" = "Mở liên kết";
+"LinkDetected" = "Đã phát hiện liên kết YouTube. Bạn có muốn mở liên kết này trong YouTube không?";
+
+"SbWhitelist" = "Danh sách trắng";
+"SbAddToWhitelist" = "Thêm vào danh sách trắng";
+"Sb.Whitelisted" = "Đã thêm vào danh sách trắng";
+"SbRemoveFromWhitelist" = "Xóa khỏi danh sách trắng";
+"Sb.Whitelist" = "Kênh trong danh sách trắng";
+"Sb.Channels" = "Kênh";
+"Sb.ChannelsHere" = "Kênh đã thêm vào danh sách trắng sẽ hiển thị tại đây";
+"SortType" = "Sắp xếp theo";
+"Sb.Newest" = "Mới nhất";
+"Sb.Oldest" = "Cũ nhất";
+"Sb.Alphabetical" = "Bảng chữ cái (A-Z)";
+"Sb.AlphabeticalRev" = "Đảo ngược (Z-A)";
+
+"Welcome.Download" = "Tải xuống nội dung";
+"Welcome.DownloadDesc" = "Tự do tải nội dung mà bạn yêu thích. Từ video thường đến video ngắn, âm thanh của video hay ảnh hồ sơ. Sao chép các bài viết và bình luận thú vị hoặc lưu dưới dạng hình ảnh";
+"Welcome.Content" = "Tùy biến giao diện";
+"Welcome.ContentDesc" = "Loại bỏ các nội dung và thành phần giao diện không mong muốn. Kích hoạt chế độ đen tuyền dành cho màn hình OLED - chế độ tối thực sự";
+"Welcome.Player" = "Sửa đổi trình phát";
+"Welcome.PlayerDesc" = "Tùy chỉnh trình phát video theo cách bạn muốn, tự động chọn chất lượng và tốc độ phát. Điều khiển bằng cử chỉ";
+"Welcome.More" = "Còn nhiều tính năng đang chờ...";
+"Welcome.MoreDesc" = "YouTube Plus có hơn 50 tùy chọn khác nhau, bao gồm tính năng như nhập xuất các cài đặt và xóa bộ nhớ đệm. Bạn có thể truy cập các tùy chọn này qua mục YouTube Plus trong phần cài đặt YouTube";
+"SupportMe" = "Ủng hộ tôi";
+"Continue" = "Tiếp tục";
+
+"Conflicts.Detected" = "Đã phát hiện tweak không tương thích";
+"Conflicts.DetectedDesc" = "Mặc dù ứng dụng trông có vẻ đang chạy bình thường, nhà phát triển của YouTube Plus khuyến khích bạn không nên cài đặt hai hoặc nhiều tweak có chức năng tương tự nhau vào cùng một ứng dụng vì có thể gây ra vấn đề.\n\nBằng việc tiếp tục sử dụng, bạn đã hiểu và đồng ý chịu hoàn toàn trách nhiệm, nhà phát triển sẽ không phản hồi về bất cứ vấn đề nào xảy ra trong quá trình sử dụng.";
+"Conflicts.SkipThisVersion" = "Không hiển thị trong phiên bản này";
+"Conflicts.AcceptRisks" = "Tôi chấp nhận mọi rủi ro";
+"Conflicts.CloseYT" = "Thoát YouTube";
+
+"DonationReminder" = "Sự hỗ trợ của bạn sẽ giúp YouTube Plus ngày một tốt hơn.\n\nBạn có thể chọn ủng hộ ngay hoặc tắt thông báo này trong phần cài đặt YouTube Plus. Cảm ơn bạn 💜";
