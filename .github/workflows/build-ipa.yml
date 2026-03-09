@@ -1,0 +1,124 @@
+name: Build YTLite IPA
+
+on:
+  push:
+    branches:
+      - 'claude/pull-upstream-Fzrqx'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build tweaked YouTube IPA
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          path: main
+          submodules: recursive
+
+      - name: Download and validate IPA
+        run: |
+          wget "https://armconverter.com/decryptedappstore/download/544007664/com.google.ios.youtube/21.10.2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTk1MzcxNCIsImlhdCI6MTc3MzA4NTkzNywiZXhwIjoxNzczMDk2NzM3LCJhcHBpZCI6NTQ0MDA3NjY0LCJhcHB2ZXIiOiIyMS4xMC4yIn0.xT5wQCf1XqBMUlAJG97t2EPxXv6a1Cm8-Ncq6aw9viY" --no-verbose -O ${{ github.workspace }}/youtube.ipa || true
+
+          if [ ! -f "${{ github.workspace }}/youtube.ipa" ] || [ ! -s "${{ github.workspace }}/youtube.ipa" ]; then
+            echo "::error::IPA download failed. The download token may have expired."
+            exit 1
+          fi
+
+          file_type=$(file --mime-type -b ${{ github.workspace }}/youtube.ipa)
+          if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
+            echo "::error::Validation failed: Not a valid IPA. Detected type: $file_type"
+            exit 1
+          fi
+
+      - name: Install Dependencies
+        run: brew install make ldid
+
+      - name: Set PATH environment variable
+        run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
+
+      - name: Setup Theos
+        uses: actions/checkout@v4.1.7
+        with:
+          repository: theos/theos
+          ref: 67db2ab8d950910161730de77c322658ea3e6b44
+          path: ${{ github.workspace }}/theos
+          submodules: recursive
+
+      - name: Download iOS SDK
+        run: |
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
+          cd sdks
+          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git checkout
+          mv *.sdk $THEOS/sdks
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Install cyan
+        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+
+      - name: Clone Dependencies
+        run: |
+          cd $THEOS/include
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
+          git clone --quiet --depth=1 --branch v3.21.12 https://github.com/protocolbuffers/protobuf.git ${{ github.workspace }}/protobuf
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Create roothide stub
+        run: |
+          cat > $THEOS/include/roothide.h << 'STUBEOF'
+          #ifndef ROOTHIDE_H
+          #define ROOTHIDE_H
+          #ifndef jbroot
+          #define jbroot(path) path
+          #endif
+          #ifndef rootfs
+          #define rootfs(path) path
+          #endif
+          #endif
+          STUBEOF
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build YTLite
+        run: |
+          cd ${{ github.workspace }}/main
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/ytlite.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Clone Open in YouTube (Safari extension)
+        run: |
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/CokePokes/YoutubeExtensions/
+          cd YoutubeExtensions
+          git sparse-checkout set --no-cone OpenYoutubeSafariExtension.appex
+          git checkout
+          mv *.appex ${{ github.workspace }}
+
+      - name: Inject tweak into IPA
+        run: |
+          cyan -i youtube.ipa -o YTLite_3.0.1_YouTube-21.10.2.ipa -uwef ytlite.deb OpenYoutubeSafariExtension.appex
+
+      - name: Upload IPA as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: YTLite_3.0.1_YouTube-21.10.2
+          path: YTLite_3.0.1_YouTube-21.10.2.ipa
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v2.0.1
+        with:
+          tag_name: ytlite-v3.0.1-yt21.10.2
+          name: YTLite v3.0.1 (YouTube 21.10.2)
+          files: YTLite_3.0.1_YouTube-21.10.2.ipa
+          draft: true
