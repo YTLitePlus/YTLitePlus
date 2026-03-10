@@ -1,17 +1,11 @@
 name: Build YTLite IPA
 
 on:
-  workflow_dispatch:
-    inputs:
-      ipa_url:
-        description: "Decrypted YouTube IPA download URL (from armconverter.com etc)"
-        required: true
-        type: string
-      youtube_version:
-        description: "YouTube version (e.g. 21.10.2)"
-        required: true
-        default: "21.10.2"
-        type: string
+  push:
+    branches:
+      - 'claude/pull-upstream-Fzrqx'
+    paths:
+      - 'ipa_url.txt'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,25 +13,43 @@ concurrency:
 
 jobs:
   build:
-    name: Build tweaked YouTube IPA
-    runs-on: macos-latest
+    name: Build YTLite IPA
+    runs-on: macos-13
     permissions:
       contents: write
 
-    env:
-      YTLITE_VERSION: "3.0.1"
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
         with:
           path: main
           submodules: recursive
 
+      - name: Read IPA URL and version from config
+        run: |
+          # Read URL (first non-comment, non-empty line)
+          IPA_URL=$(grep -v '^#' main/ipa_url.txt | grep -v '^\s*$' | head -1 | tr -d '[:space:]')
+          if [ -z "$IPA_URL" ]; then
+            echo "::error::No IPA URL found in ipa_url.txt. Paste a URL and push again."
+            exit 1
+          fi
+          echo ::add-mask::$IPA_URL
+          echo "IPA_URL=$IPA_URL" >> $GITHUB_ENV
+
+          # Read YouTube version from comment
+          YT_VERSION=$(grep '^# YOUTUBE_VERSION:' main/ipa_url.txt | head -1 | sed 's/^# YOUTUBE_VERSION:[[:space:]]*//')
+          YT_VERSION=${YT_VERSION:-"unknown"}
+          echo "YT_VERSION=$YT_VERSION" >> $GITHUB_ENV
+
+          # YTLite version from Makefile
+          YTLITE_VERSION=$(grep '^PACKAGE_VERSION' main/Makefile | sed 's/.*=[[:space:]]*//')
+          echo "YTLITE_VERSION=$YTLITE_VERSION" >> $GITHUB_ENV
+
+          echo "YouTube $YT_VERSION | YTLite $YTLITE_VERSION"
+
       - name: Download and validate IPA
         run: |
-          echo "Downloading IPA from provided URL..."
-          wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa || true
+          wget "$IPA_URL" --no-verbose -O ${{ github.workspace }}/youtube.ipa || true
 
           if [ ! -f "${{ github.workspace }}/youtube.ipa" ] || [ ! -s "${{ github.workspace }}/youtube.ipa" ]; then
             echo "::error::IPA download failed. Check your URL / token."
@@ -49,16 +61,16 @@ jobs:
             echo "::error::Not a valid IPA. Detected type: $file_type"
             exit 1
           fi
-          echo "IPA downloaded and validated successfully."
+          echo "IPA downloaded successfully."
 
       - name: Install Dependencies
-        run: brew install make ldid
+        run: brew install ldid dpkg make
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Setup Theos
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
         with:
           repository: theos/theos
           ref: 67db2ab8d950910161730de77c322658ea3e6b44
@@ -108,18 +120,18 @@ jobs:
 
       - name: Inject tweak into IPA
         run: |
-          cyan -i youtube.ipa -o YTLite_${YTLITE_VERSION}_YouTube-${{ inputs.youtube_version }}.ipa -uwef ytlite.deb OpenYoutubeSafariExtension.appex
+          cyan -i youtube.ipa -o YTLite_${YTLITE_VERSION}_YouTube-${YT_VERSION}.ipa -uwef ytlite.deb OpenYoutubeSafariExtension.appex
 
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}
-          path: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}.ipa
+          name: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ env.YT_VERSION }}
+          path: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ env.YT_VERSION }}.ipa
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
         with:
-          tag_name: ytlite-v${{ env.YTLITE_VERSION }}-yt${{ inputs.youtube_version }}
-          name: YTLite v${{ env.YTLITE_VERSION }} (YouTube ${{ inputs.youtube_version }})
-          files: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}.ipa
+          tag_name: ytlite-v${{ env.YTLITE_VERSION }}-yt${{ env.YT_VERSION }}
+          name: YTLite v${{ env.YTLITE_VERSION }} (YouTube ${{ env.YT_VERSION }})
+          files: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ env.YT_VERSION }}.ipa
           draft: true
