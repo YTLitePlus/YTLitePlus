@@ -1,6 +1,0 @@
-# Paste your decrypted YouTube IPA download URL below (one line, no quotes).
-# Edit this file and push to trigger a build.
-# Get links from: https://armconverter.com/decryptedappstore
-#
-# YOUTUBE_VERSION: 21.10.2
-
