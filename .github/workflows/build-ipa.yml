@@ -67,25 +67,13 @@ jobs:
 
       - name: Clone Dependencies
         run: |
-          cd $THEOS/include
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
+          # Clone as siblings to main/ since source uses ../YouTubeHeader/ and ../protobuf/ relative paths
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git ${{ github.workspace }}/YouTubeHeader
           git clone --quiet --depth=1 --branch v3.21.12 https://github.com/protocolbuffers/protobuf.git ${{ github.workspace }}/protobuf
-        env:
-          THEOS: ${{ github.workspace }}/theos
 
       - name: Create roothide stub
         run: |
-          cat > $THEOS/include/roothide.h << 'STUBEOF'
-          #ifndef ROOTHIDE_H
-          #define ROOTHIDE_H
-          #ifndef jbroot
-          #define jbroot(path) path
-          #endif
-          #ifndef rootfs
-          #define rootfs(path) path
-          #endif
-          #endif
-          STUBEOF
+          printf '#ifndef ROOTHIDE_H\n#define ROOTHIDE_H\n#ifndef jbroot\n#define jbroot(path) path\n#endif\n#ifndef rootfs\n#define rootfs(path) path\n#endif\n#endif\n' > $THEOS/include/roothide.h
         env:
           THEOS: ${{ github.workspace }}/theos
 
