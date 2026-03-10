@@ -1,9 +1,17 @@
 name: Build YTLite IPA
 
 on:
-  push:
-    branches:
-      - 'claude/pull-upstream-Fzrqx'
+  workflow_dispatch:
+    inputs:
+      ipa_url:
+        description: "Decrypted YouTube IPA download URL (from armconverter.com etc)"
+        required: true
+        type: string
+      youtube_version:
+        description: "YouTube version (e.g. 21.10.2)"
+        required: true
+        default: "21.10.2"
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,6 +24,9 @@ jobs:
     permissions:
       contents: write
 
+    env:
+      YTLITE_VERSION: "3.0.1"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -25,18 +36,20 @@ jobs:
 
       - name: Download and validate IPA
         run: |
-          wget "https://armconverter.com/decryptedappstore/download/544007664/com.google.ios.youtube/21.10.2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMTk1MzcxNCIsImlhdCI6MTc3MzA4NTkzNywiZXhwIjoxNzczMDk2NzM3LCJhcHBpZCI6NTQ0MDA3NjY0LCJhcHB2ZXIiOiIyMS4xMC4yIn0.xT5wQCf1XqBMUlAJG97t2EPxXv6a1Cm8-Ncq6aw9viY" --no-verbose -O ${{ github.workspace }}/youtube.ipa || true
+          echo "Downloading IPA from provided URL..."
+          wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa || true
 
           if [ ! -f "${{ github.workspace }}/youtube.ipa" ] || [ ! -s "${{ github.workspace }}/youtube.ipa" ]; then
-            echo "::error::IPA download failed. The download token may have expired."
+            echo "::error::IPA download failed. Check your URL / token."
             exit 1
           fi
 
           file_type=$(file --mime-type -b ${{ github.workspace }}/youtube.ipa)
           if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
-            echo "::error::Validation failed: Not a valid IPA. Detected type: $file_type"
+            echo "::error::Not a valid IPA. Detected type: $file_type"
             exit 1
           fi
+          echo "IPA downloaded and validated successfully."
 
       - name: Install Dependencies
         run: brew install make ldid
@@ -95,18 +108,18 @@ jobs:
 
       - name: Inject tweak into IPA
         run: |
-          cyan -i youtube.ipa -o YTLite_3.0.1_YouTube-21.10.2.ipa -uwef ytlite.deb OpenYoutubeSafariExtension.appex
+          cyan -i youtube.ipa -o YTLite_${YTLITE_VERSION}_YouTube-${{ inputs.youtube_version }}.ipa -uwef ytlite.deb OpenYoutubeSafariExtension.appex
 
       - name: Upload IPA as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: YTLite_3.0.1_YouTube-21.10.2
-          path: YTLite_3.0.1_YouTube-21.10.2.ipa
+          name: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}
+          path: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}.ipa
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
         with:
-          tag_name: ytlite-v3.0.1-yt21.10.2
-          name: YTLite v3.0.1 (YouTube 21.10.2)
-          files: YTLite_3.0.1_YouTube-21.10.2.ipa
+          tag_name: ytlite-v${{ env.YTLITE_VERSION }}-yt${{ inputs.youtube_version }}
+          name: YTLite v${{ env.YTLITE_VERSION }} (YouTube ${{ inputs.youtube_version }})
+          files: YTLite_${{ env.YTLITE_VERSION }}_YouTube-${{ inputs.youtube_version }}.ipa
           draft: true
