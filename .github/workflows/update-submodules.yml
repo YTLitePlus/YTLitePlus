@@ -7,11 +7,11 @@ on:
 
 jobs:
   update-submodules:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
       - name: Set up Git
         run: |

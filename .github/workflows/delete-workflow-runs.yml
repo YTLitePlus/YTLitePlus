@@ -46,7 +46,7 @@ on:
 
 jobs:
   del_runs:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       actions: write
       contents: read
