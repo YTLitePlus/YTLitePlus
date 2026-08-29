@@ -13,7 +13,21 @@ on:
         type: string
       decrypted_youtube_url:
         description: "Direct URL of the decrypted YouTube ipa"
-        default: "https://files.catbox.moe/5a8qlt.ipa"
+        default: "https://files.catbox.moe/5a8qlt.ipa"- name: iOS Resign
+  # You may pin to the exact commit or the version.
+  # uses: bradyjoslin/ios-resign-action@807c4129688fa8c3772ddf0b9ca2c6bb31b64c07
+  uses: bradyjoslin/ios-resign-action@v1
+  with:
+    # Path to ipa file
+    ipa_path: 
+    # Base64 representation of your mobile provisioning file
+    mobileprovision: 
+    # Base64 representation p12 distribution cert
+    cert_p12: 
+    # Password used when exporting p12 distribution cert from keychain
+    p12_pass: 
+    # iOS Signing identity
+    signing_identity: 
         required: true
         type: string
       bundle_id:
