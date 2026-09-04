@@ -3,7 +3,7 @@
 
 # Alternatives for a replacement? Check Out the tweak YouMod
 
-[YouMod](https://github.com/Tonwalter888/YouMod) is a lightweight, open-source alternative that aims to recreate the most popular [YTLite](https://github.com/dayanch96/YTLite) features after YTLite became paid. If you prefer a simpler, single-tweak approach over uYouEnhanced's all-in-one bundle, YouMod may be worth considering.
+[YouMod](https://github.com/Tonwalter888/YouMod) is a lightweight, open-source alternative that aims to recreate the most popular [YTLite](https://github.com/dayanch96/YTLite) features after YTLite became paid. If you prefer a simpler, single-tweak approach over YTLitePlus’s all-in-one bundle, YouMod may be worth considering.
 
 ### YouMod — Pros
 
