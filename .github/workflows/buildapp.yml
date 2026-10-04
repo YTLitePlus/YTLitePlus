@@ -12,7 +12,15 @@ on:
         required: true
         type: string
       decrypted_youtube_url:
-        description: "Direct URL of the decrypted YouTube ipa"
+        description: "Direct URL of the decrypted YouTube ipa"- name: Expo-Unsigned-IPA
+  # You may pin to the exact commit or the version.
+  # uses: gamekiller2048/Expo-Unsigned-IPA@4228e289556fca6253e400123b7e3d3832483541
+  uses: gamekiller2048/Expo-Unsigned-IPA@v1
+  with:
+    # name of expo project
+    PROJECT_NAME: 
+    # whether to clear the last cache
+    CLEAR_CACHE: # optional, default is false
         default: "https://files.catbox.moe/5a8qlt.ipa"
         required: true
         type: string
